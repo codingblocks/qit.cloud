@@ -4,6 +4,6 @@ RUN yarn add request
 RUN yarn add node-podcast-parser
 
 # You can map these in so you don't have to keep rebuilding
-COPY feedParser/src/* /app/
-COPY feedParser/data/feeds.txt /app/
+COPY podcast-feed-loader/src/* /app/
+COPY podcast-feed-loader/data/feeds.txt /app/
 CMD node multiUrlLoader.js /app/feeds.txt
