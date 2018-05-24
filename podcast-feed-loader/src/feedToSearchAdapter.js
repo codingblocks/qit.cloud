@@ -50,11 +50,10 @@
             if (!errors.length) {
                 result.updateFeed.value.push({
                     '@search.action': 'upload',
-                    episodeId: episode.guid,
+                    id: episode.guid,
                     podcastTitle: data.title,
                     episodeTitle: episode.title,
                     episodeImage: episode.image,
-                    categories: episode.categories,
                     description: episode.description,
                     published: episode.published,
                     audioUrl: episode.enclosure.url
