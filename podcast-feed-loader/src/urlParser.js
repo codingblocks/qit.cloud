@@ -1,4 +1,4 @@
-// Parses feed content and returns an array of errors, and an array of formatted episode data
+// Fetches feed content for a url, adapts it to a search engine friendly format
 (function () {
 
     const request = require('request'),
