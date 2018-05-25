@@ -1,9 +1,6 @@
-FROM kkarczmarczyk/node-yarn:latest
+FROM node:10.1-alpine
 WORKDIR /app
-RUN yarn add request
-RUN yarn add node-podcast-parser
+ADD podcast-feed-loader /app/
+RUN npm install
 
-# You can map these in so you don't have to keep rebuilding
-COPY podcast-feed-loader/src/* /app/
-COPY podcast-feed-loader/data/feeds.txt /app/
-CMD node multiUrlLoader.js /app/feeds.txt
+CMD npm start
