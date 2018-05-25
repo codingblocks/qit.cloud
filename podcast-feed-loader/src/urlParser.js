@@ -44,7 +44,7 @@
                         }
                     },
                     function (error, response, body) {
-                        console.log(`Posting ${feedUrl}: ${response.statusCode}`);
+                        //console.log(`Posting ${feedUrl}: ${response.statusCode}`);
                     }
                 );
             });
