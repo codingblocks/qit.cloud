@@ -7,14 +7,14 @@
         let errors = [];
 
         if (!(episode.enclosure && episode.enclosure.url)) {
-            errors.push('[${i}]: enclosure or enclosure url not found for episode');
+            errors.push(`[${index}]: enclosure or enclosure url not found for episode`);
         }
 
         for (let i = 0; i < requiredFields.length; i++) {
             let field = requiredFields[i];
 
             if (!episode[field]) {
-                errors.push('[${i}]: ${field} not found');
+                errors.push(`[${index}]: ${field} not found`);
             }
         }
 
@@ -35,7 +35,7 @@
 
         if (!data) {
             result.errors.push(`Error: invalid data to convert to search format`);
-            return response;
+            return result;
         }
 
         if (!(data.episodes && Array.isArray(data.episodes))) {
@@ -46,7 +46,7 @@
         for (let i = 0; i < data.episodes.length; i++) {
             let episode = data.episodes[i];
             let errors = getValidationErrors(episode, i);
-            result.errors.concat(errors);
+            result.errors = result.errors.concat(errors);
             if (!errors.length) {
                 result.updateFeed.value.push({
                     '@search.action': 'upload',

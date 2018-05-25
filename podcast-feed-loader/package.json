@@ -4,7 +4,7 @@
   "description": "Parse rss feeds for import to search engine",
   "main": "./src/feedToSearchAdapter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/**.spec.js",
     "start": "node ./src/multiUrlLoader.js data/feeds.txt"
   },
   "repository": {
@@ -21,5 +21,9 @@
     "npm": "^6.1.0",
     "request": "^2.87.0",
     "node-podcast-parser": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
