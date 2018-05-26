@@ -2,7 +2,7 @@ Load urls for a file, parse them to (eventually) insert or update a search engin
 
 ## Running locally
 
-```
+```bash
 cd podcast-feed-loader
 npm install
 npm test
@@ -11,9 +11,18 @@ npm start
 
 ## Running locally with Docker
 
+Note: this does not push to any search engine, just parses the feed.
+
 ```bash
 docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
 docker run podcast-feed-loader
+```
+
+## Running locally with Docker AND Azure Search Key
+
+```bash
+docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
+docker run -e SEARCH_PROVIDER='Azure' podcast-feed-loader -e SEARCH_PROVIDER=Azure -e AZURE_SEARCH_ENDPOINT='YOUR FULL ENDPOINT HERE!'  -e AZURE_SEARCH_API_KEY='YOUR KEY HERE!!' 
 ```
 
 ## Deploying to Azure Container Instances

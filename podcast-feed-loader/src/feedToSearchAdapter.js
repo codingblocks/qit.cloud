@@ -23,12 +23,12 @@
 
   let convert = function (data, feedUrl) {
     let result = {
-      feedUrl: data ? data.link : null,
+      feedUrl: feedUrl,
       title: data ? data.title : null,
       updated: data ? data.updated : null,
       explicit: data ? data.explicit : null,
       errors: [],
-      updateFeed: { value: [] }
+      updateFeed: []
     };
 
     if (!data) {
@@ -46,9 +46,8 @@
       let errors = getValidationErrors(episode, i);
       result.errors = result.errors.concat(errors);
       if (!errors.length) {
-        result.updateFeed.value.push({
-          '@search.action': 'upload',
-          id: episode.guid,
+        result.updateFeed.push({
+          id: episode.guid.replace(/[^a-zA-Z0-9]+/g,"_"),
           podcastTitle: data.title,
           episodeTitle: episode.title,
           description: episode.description,

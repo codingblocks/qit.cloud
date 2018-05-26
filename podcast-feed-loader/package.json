@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/codingblocks/podcast-app#readme",
   "dependencies": {
+    "azure-search": "0.0.20",
+    "node-podcast-parser": "^2.2.0",
     "npm": "^6.1.0",
-    "request": "^2.87.0",
-    "node-podcast-parser": "^2.2.0"
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
