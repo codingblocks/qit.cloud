@@ -22,3 +22,7 @@ docker login podcast.azurecr.io
 docker build -f Dockerfile.podcast-feed-loader . -t podcast.azurecr.io/podcast-feed-loader
 docker push podcast.azurecr.io/podcast-feed-loader
 ```
+
+Requires the Azure beta (2.x)
+Application Settings:
+WEBSITE_DEFAULT_NODE_VERSION 8.9.4
