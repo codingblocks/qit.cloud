@@ -1,0 +1,11 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "feedRefresh",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 * */2 * * *"
+    }
+  ]
+}
