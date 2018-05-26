@@ -3,7 +3,7 @@ let settings = require('./settings').settings,
 
 exports.callback = function(feedResults, context = console) {
   if(!feedResults.updateFeed.length) {
-    console.log('Warning: skipping ${feedResults.updateFeed} because no updates');
+    console.log(`Warning: skipping ${feedResults.updateFeed} because no updates`);
   }
   client.addDocuments(settings.index, feedResults.updateFeed, function(err, results) {
       // optional error, or confirmation of each document being added
