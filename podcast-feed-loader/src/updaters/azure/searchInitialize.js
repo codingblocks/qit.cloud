@@ -1,10 +1,11 @@
 let settings = require('./settings').settings,
+  synonymSchema = require('./schemaDefinition').synonymSchema,
   schemaDefinition = require('./schemaDefinition').schemaDefinition,
   client = require('./client').client;
 
 // ew all the console!!
 
-exports.initialize = function(callback) {
+let initializeSchema = function(callback) {
   client.getIndex(settings.index, function(err, foundSchema) {
     // optional error, or the schema object back from the service
     if(err) {
@@ -25,6 +26,21 @@ exports.initialize = function(callback) {
           callback();
         }
       });
+    }
+  });
+}
+
+exports.initialize = function(callback) {
+  // Have to make sure the synonyms are there first
+  // since they are referenced in the schema
+
+  client.updateOrCreateSynonymMap(synonymSchema.name, synonymSchema, function(err, data) {
+    if(err) {
+      console.error(`Unable to create synonyms`);
+      console.error(err);
+    } else {
+      console.log('Synonyms have been defined');
+      initializeSchema(callback);
     }
   });
 }
