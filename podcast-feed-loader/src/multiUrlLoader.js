@@ -1,13 +1,27 @@
-const urlListFile = process.argv[2],
-    fs = require('fs'),
-    readline = require('readline'),
-    urlParser = require('./urlParser'),
-    rd = readline.createInterface({
-        input: fs.createReadStream(urlListFile),
-        output: process.stdout,
-        console: false
-    });
+const fs = require('fs'),
+readline = require('readline'),
+urlParser = require('./urlParser'),
+defaultCallback = require('./updaters/consoleUpdater').callback;
 
-rd.on('line', function (line) {
-    urlParser.parse(line);
-});
+let process = function (urlListFile, callback = defaultCallback) {
+  let rd = readline.createInterface({
+    input: fs.createReadStream(urlListFile),
+    console: false
+  });
+
+  rd.on('line', function (url) {
+    urlParser.parse(url, function (feedResults) {
+
+      if (callback) {
+        callback(feedResults);
+      }
+
+    });
+  });
+}
+
+exports.process = process;
+
+if (require.main === module) {
+  process('./data/feeds.txt');
+}
