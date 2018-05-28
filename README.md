@@ -1,3 +1,9 @@
+# QIT (working title) Listen to Podcasts by topic!
+
+The goal of this application is to provide an open source application that allows people to search for and play tech podcasts by subject.
+
+Check out a preview here: [https://reverent-shirley-6c1ba7.netlify.com/](https://reverent-shirley-6c1ba7.netlify.com/)
+
 ## Running the website
 
 You need some sort of web server to run the website (at least, if you want to check it out with Lighthouse).
