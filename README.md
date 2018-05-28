@@ -1,4 +1,15 @@
-# Podcast App
+## Running the website
+
+You need some sort of web server to run the website (at least, if you want to check it out with Lighthouse).
+
+Something like this should work
+
+```bash
+cd website
+python -m SimpleHTTPServer 8000 #TODO Docker me!
+```
+
+## Podcast Feed Loader App
 
 Load urls for a file, parse them to (eventually) insert or update a search engine.
 
@@ -7,7 +18,7 @@ Currently only supports Azure Search.
 Azure Search Documentation:
 https://docs.microsoft.com/en-us/azure/search/search-filters
 
-## Running locally
+### Running locally
 
 ```bash
 cd podcast-feed-loader
@@ -16,7 +27,7 @@ npm test
 npm start
 ```
 
-## Running locally with Docker
+### Running locally with Docker
 
 Note: this does not push to any search engine, just parses the feed.
 
@@ -25,7 +36,7 @@ docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
 docker run podcast-feed-loader
 ```
 
-## Running locally with Docker AND Azure Search Key
+### Running locally with Docker AND Azure Search Key
 
 ```bash
 docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
