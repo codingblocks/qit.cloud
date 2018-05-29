@@ -1,6 +1,7 @@
-# QIT (working title) Listen to Podcasts by topic!
+# QIT
+QIT...get it? get it? Like...Queue I.T.!!!
 
-The goal of this application is to provide an open source application that allows people to search for and play tech podcasts by subject.
+Ok so yeah, the title needs work, but the idea is to let programmers find and listen to podcasts by topic.
 
 Check out a preview here: [https://reverent-shirley-6c1ba7.netlify.com/](https://reverent-shirley-6c1ba7.netlify.com/)
 

@@ -26,7 +26,7 @@
     var episodes = data['value'];
     var searchDate = data['date'];
 
-    card.querySelector('.subtitle').textContent = '"' + searchTerm + '": ' + resultCount + ' episodes found';
+    card.querySelector('.subtitle').textContent = '"' + searchTerm + '": ' + resultCount + ' episodes';
     card.querySelector('#search-input').style.display = resultCount ? 'none' : 'block';
 
     var ul = document.createElement('ul');
