@@ -32,6 +32,15 @@ self.addEventListener('activate', function (e) {
   return self.clients.claim();
 });
 
+self.addEventListener('fetch', function(e) {
+  console.log('[Service Worker] Fetch', e.request.url);
+  // TODO last search!
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );
+});
 /* TODO Code from @Nicolas, check it out later!
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url)

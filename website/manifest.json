@@ -26,9 +26,14 @@
             "src": "images/icons/icon-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-512x512.png",
+            "sizes": "512X512",
+            "type": "image/png"
         }
     ],
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#339999",
     "theme_color": "#FFFFFF"
