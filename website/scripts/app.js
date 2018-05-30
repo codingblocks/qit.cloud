@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  var baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
-  var apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
+  const searchTermStorageKey = "searchTerm";
+  const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
+  const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
 
   var app = {
     isLoading: true,
@@ -10,6 +11,7 @@
     spinner: document.querySelector('.loader'),
     container: document.querySelector('.main')
   };
+
 
   app.updateSearchCard = function(data, searchTerm) {
     var card = document;
@@ -55,7 +57,12 @@
     }
   };
 
+  app.saveSearchState = function(searchTerm) {
+    localStorage.setItem(searchTermStorageKey, searchTerm);
+  };
+
   app.search = function(searchTerm) {
+    app.saveSearchState(searchTerm);
     var url = baseUrl + searchTerm;
     if ('caches' in window) {
       caches.match(url).then(function(response) {
@@ -90,7 +97,12 @@
       app.search(searchTerm);
   } else {
     // First load
-    app.updateSearchCard({});
+    const searchTerm = localStorage.getItem(searchTermStorageKey);
+    if (searchTerm) {
+      app.search(searchTerm)
+    } else {
+      app.updateSearchCard({});
+    }
   }
 
   if ('serviceWorker' in navigator) {
