@@ -12,7 +12,7 @@ var AudioManager = {
     },
     handle: null,
     start: function() {
-      // Could use onTimeUpdate on the video player, but this should be
+      // Could use onTimeUpdate on the audio player, but this should be
       // less of a hit on performance.
       AudioManager.playbackStateTracker.saveState(); // Initial save without delay
       AudioManager.playbackStateTracker.handle = setInterval(AudioManager.playbackStateTracker.saveState, 5000);
