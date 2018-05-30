@@ -11,6 +11,45 @@
     container: document.querySelector('.main')
   };
 
+  app.playbackStateTracker = {
+    get: function() {
+      return JSON.parse(localStorage.getItem("playbackState"));
+    },
+    runner: function() {
+      localStorage.setItem("playbackState", JSON.stringify({
+        currentSrc: mainAudio.currentSrc,
+        currentTime: mainAudio.currentTime
+      }));
+    },
+    handle: null,
+    start: function() {
+      // Could use onTimeUpdate on the video player, but this should be
+      // less of a hit on performance.
+      app.playbackStateTracker.handle = setInterval(app.playbackStateTracker.runner, 5000);
+    },
+    stop: function() {
+      if (app.playbackStateTracker.handle) {
+        clearInterval(app.playbackStateTracker.handle);
+      }
+    }
+  };
+
+  app.resumePlayback = function() {
+    if (mainAudio.paused) {
+      const playbackState = app.playbackStateTracker.get();
+      var source = document.getElementById('audioSource');
+      source.src = playbackState.currentSrc;
+      mainAudio.load();
+      mainAudio.currentTime = playbackState.currentTime;
+      mainAudio.play();
+      app.playbackStateTracker.start();
+    }
+  }
+
+  mainAudio.onPause = function() {
+    app.playbackStateTracker.stop();
+  };
+
   app.updateSearchCard = function(data, searchTerm) {
     var card = document;
     if(!searchTerm) {
@@ -34,12 +73,12 @@
     episodes.forEach(function(e) {
       var li = document.createElement('li');
       li.onclick = function () {
-        var player = card.querySelector('#mainAudio');
         var source = document.getElementById('audioSource');
         source.src = e.audioUrl;
         mainAudio.pause();
         mainAudio.load();
         mainAudio.play();
+        app.playbackStateTracker.start();
       };
 
       li.audioUrl = e.audioUrl;
@@ -93,6 +132,7 @@
   if (location.search) {
       var searchTerm = location.search.split('=')[1]; // TODO robust!
       app.search(searchTerm);
+      app.resumePlayback();
   } else {
     // First load
     app.updateSearchCard({});

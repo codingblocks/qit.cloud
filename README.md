@@ -9,11 +9,14 @@ Check out a preview here: [https://reverent-shirley-6c1ba7.netlify.com/](https:/
 
 You need some sort of web server to run the website (at least, if you want to check it out with Lighthouse).
 
-Something like this should work
+Something like this should work (TODO: Dockerize!)
 
 ```bash
 cd website
-python -m SimpleHTTPServer 8000 #TODO Docker me!
+# Python 2.x
+python -m SimpleHTTPServer 8000
+# Python 3.x
+python -m http.server 8000
 ```
 
 ## Podcast Feed Loader App
