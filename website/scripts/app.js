@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const searchTermStorageKey = "searchTerm";
+  const searchTermStorageKey = 'searchTerm';
   const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
   const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
 
@@ -11,52 +11,6 @@
     spinner: document.querySelector('.loader'),
     container: document.querySelector('.main')
   };
-
-<<<<<<< HEAD
-=======
-  app.playbackStateTracker = {
-    get: function() {
-      return JSON.parse(localStorage.getItem("playbackState"));
-    },
-    runner: function() {
-      localStorage.setItem("playbackState", JSON.stringify({
-        currentSrc: mainAudio.currentSrc,
-        currentTime: mainAudio.currentTime
-      }));
-    },
-    handle: null,
-    start: function() {
-      // Could use onTimeUpdate on the video player, but this should be
-      // less of a hit on performance.
-      app.playbackStateTracker.handle = setInterval(app.playbackStateTracker.runner, 5000);
-    },
-    stop: function() {
-      if (app.playbackStateTracker.handle) {
-        clearInterval(app.playbackStateTracker.handle);
-      }
-    }
-  };
-
-  app.resumePlayback = function() {
-    if (mainAudio.paused) {
-      var playbackState = app.playbackStateTracker.get();
-      if(playbackState) {
-        var source = document.getElementById('audioSource');
-        source.src = playbackState.currentSrc;
-        mainAudio.load();
-        mainAudio.currentTime = playbackState.currentTime;
-        mainAudio.play();
-        app.playbackStateTracker.start();
-      } else {
-        console.log('Main audio is paused, but there is no playback state. This can happen when there is a problem loading a file.');
-      }
-    }
-  }
-
-  mainAudio.onPause = function() {
-    app.playbackStateTracker.stop();
-  };
->>>>>>> a3016b1... Now swapping http/https links in an attempt to do the best we can without a proxy or dropping https, fixes #16
 
   app.updateSearchCard = function(data, searchTerm) {
     var card = document;
