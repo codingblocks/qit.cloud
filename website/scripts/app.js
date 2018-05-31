@@ -85,7 +85,7 @@
           playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
           if(playUrl !== e.audioUrl) {
           */
-          if (playUrl.contains(/^http:\/\//i)) {
+          if (playUrl.includes("http://")) {
             console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site. Lets just try the https link anyway!');
             console.log('Originally requested url: ' + e.audioUrl);
             console.log('Attempting to proxy request');
