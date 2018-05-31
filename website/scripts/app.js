@@ -12,6 +12,51 @@
     container: document.querySelector('.main')
   };
 
+<<<<<<< HEAD
+=======
+  app.playbackStateTracker = {
+    get: function() {
+      return JSON.parse(localStorage.getItem("playbackState"));
+    },
+    runner: function() {
+      localStorage.setItem("playbackState", JSON.stringify({
+        currentSrc: mainAudio.currentSrc,
+        currentTime: mainAudio.currentTime
+      }));
+    },
+    handle: null,
+    start: function() {
+      // Could use onTimeUpdate on the video player, but this should be
+      // less of a hit on performance.
+      app.playbackStateTracker.handle = setInterval(app.playbackStateTracker.runner, 5000);
+    },
+    stop: function() {
+      if (app.playbackStateTracker.handle) {
+        clearInterval(app.playbackStateTracker.handle);
+      }
+    }
+  };
+
+  app.resumePlayback = function() {
+    if (mainAudio.paused) {
+      var playbackState = app.playbackStateTracker.get();
+      if(playbackState) {
+        var source = document.getElementById('audioSource');
+        source.src = playbackState.currentSrc;
+        mainAudio.load();
+        mainAudio.currentTime = playbackState.currentTime;
+        mainAudio.play();
+        app.playbackStateTracker.start();
+      } else {
+        console.log('Main audio is paused, but there is no playback state. This can happen when there is a problem loading a file.');
+      }
+    }
+  }
+
+  mainAudio.onPause = function() {
+    app.playbackStateTracker.stop();
+  };
+>>>>>>> a3016b1... Now swapping http/https links in an attempt to do the best we can without a proxy or dropping https, fixes #16
 
   app.updateSearchCard = function(data, searchTerm) {
     var card = document;
@@ -27,7 +72,6 @@
     var resultCount = data['@odata.count'];
     var episodes = data['value'];
     var searchDate = data['date'];
-
     card.querySelector('.subtitle').textContent = '"' + searchTerm + '": ' + resultCount + ' episodes';
     card.querySelector('#search-input').style.display = resultCount ? 'none' : 'block';
 
@@ -36,7 +80,16 @@
     episodes.forEach(function(e) {
       var li = document.createElement('li');
       li.onclick = function () {
-        AudioManager.play(e.audioUrl)
+        var playUrl = e.audioUrl;
+
+        if (location.protocol === 'https:') {
+          playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
+          if(playUrl !== e.audioUrl) {
+            console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site. Lets just try the https link anyway!');
+            console.log('Originally requested url: ' + e.audioUrl);
+          }
+        }
+        AudioManager.play(playUrl)
       };
 
       li.audioUrl = e.audioUrl;
@@ -110,4 +163,5 @@
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
+
 })();
