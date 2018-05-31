@@ -31,6 +31,7 @@
 
     episodes.forEach(function(e) {
       var li = document.createElement('li');
+
       li.onclick = function () {
         var playUrl = e.audioUrl;
 
@@ -42,10 +43,11 @@
             playUrl = config.sslProxyUrl + e.audioUrl;
           }
         }
-        AudioManager.play(playUrl)
+        AudioManager.play(playUrl);
       };
 
-      li.audioUrl = e.audioUrl;
+      li.classList = "episodeItem";
+      li.setAttribute("audioUrl", e.audioUrl);
       li.appendChild(document.createTextNode(e.episodeTitle));
       var episodeDiv = document.createElement('div');
       episodeDiv.appendChild(document.createTextNode(e.podcastTitle));
