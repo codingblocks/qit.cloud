@@ -1,57 +1,15 @@
 (function() {
   'use strict';
 
-  var baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
-  var apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
+  const searchTermStorageKey = 'searchTerm';
+  const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
+  const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
 
   var app = {
     isLoading: true,
     visibleCards: {},
     spinner: document.querySelector('.loader'),
     container: document.querySelector('.main')
-  };
-
-  app.playbackStateTracker = {
-    get: function() {
-      return JSON.parse(localStorage.getItem("playbackState"));
-    },
-    runner: function() {
-      localStorage.setItem("playbackState", JSON.stringify({
-        currentSrc: mainAudio.currentSrc,
-        currentTime: mainAudio.currentTime
-      }));
-    },
-    handle: null,
-    start: function() {
-      // Could use onTimeUpdate on the video player, but this should be
-      // less of a hit on performance.
-      app.playbackStateTracker.handle = setInterval(app.playbackStateTracker.runner, 5000);
-    },
-    stop: function() {
-      if (app.playbackStateTracker.handle) {
-        clearInterval(app.playbackStateTracker.handle);
-      }
-    }
-  };
-
-  app.resumePlayback = function() {
-    if (mainAudio.paused) {
-      var playbackState = app.playbackStateTracker.get();
-      if(playbackState) {
-        var source = document.getElementById('audioSource');
-        source.src = playbackState.currentSrc;
-        mainAudio.load();
-        mainAudio.currentTime = playbackState.currentTime;
-        mainAudio.play();
-        app.playbackStateTracker.start();
-      } else {
-        console.log('Main audio is paused, but there is no playback state. This can happen when there is a problem loading a file.');
-      }
-    }
-  }
-
-  mainAudio.onPause = function() {
-    app.playbackStateTracker.stop();
   };
 
   app.updateSearchCard = function(data, searchTerm) {
@@ -76,7 +34,6 @@
     episodes.forEach(function(e) {
       var li = document.createElement('li');
       li.onclick = function () {
-        var source = document.getElementById('audioSource');
         var playUrl = e.audioUrl;
 
         if (location.protocol === 'https:') {
@@ -86,12 +43,7 @@
             console.log('Originally requested url: ' + e.audioUrl);
           }
         }
-
-        source.src = playUrl;
-        mainAudio.pause();
-        mainAudio.load();
-        mainAudio.play();
-        app.playbackStateTracker.start();
+        AudioManager.play(playUrl)
       };
 
       li.audioUrl = e.audioUrl;
@@ -112,7 +64,12 @@
     }
   };
 
+  app.saveSearchState = function(searchTerm) {
+    localStorage.setItem(searchTermStorageKey, searchTerm);
+  };
+
   app.search = function(searchTerm) {
+    app.saveSearchState(searchTerm);
     var url = baseUrl + searchTerm;
     if ('caches' in window) {
       caches.match(url).then(function(response) {
@@ -145,10 +102,14 @@
   if (location.search) {
       var searchTerm = location.search.split('=')[1]; // TODO robust!
       app.search(searchTerm);
-      app.resumePlayback();
   } else {
     // First load
-    app.updateSearchCard({});
+    const searchTerm = localStorage.getItem(searchTermStorageKey);
+    if (searchTerm) {
+      app.search(searchTerm)
+    } else {
+      app.updateSearchCard({});
+    }
   }
 
   if ('serviceWorker' in navigator) {
