@@ -3,6 +3,17 @@
 
   const searchTermStorageKey = 'searchTerm';
 
+  // find a specific query string parameter
+  const getQueryParameter = parameter => {
+    const query = window.location.search.substring(1);
+    const results = query.split('&');
+    for (const result of results) {
+      const [key, value] = result.split('=');
+      if (key === parameter) return value;
+    }
+    return false;
+  }
+  
   var app = {
     isLoading: true,
     visibleCards: {},
@@ -99,7 +110,7 @@
   };
 
   if (location.search) {
-      var searchTerm = location.search.split('=')[1]; // TODO robust!
+      const searchTerm = getQueryParameter('s');
       app.search(searchTerm);
   } else {
     // First load
