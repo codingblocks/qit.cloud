@@ -9,7 +9,7 @@
   const getQueryParameter = parameter => {
     const query = window.location.search.substring(1);
     const results = query.split('&');
-    for (result of results) {
+    for (const result of results) {
       const [key, value] = result.split('=');
       if (key === parameter) return value;
     }
@@ -116,7 +116,8 @@
   };
 
   if (location.search) {
-      const searchTerm = getQueryParameter('s') // TODO robust!
+      const searchTerm = getQueryParameter('s');
+      console.log(searchTerm)
       app.search(searchTerm);
   } else {
     // First load
