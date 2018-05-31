@@ -1,4 +1,18 @@
 var AudioManager = {
+  // TODO - this probably doesn't belong here.. Refactor with proper state management
+  updateActiveEpisode: function() {
+    const episodeUrl = mainAudio.currentSrc.replace(config.sslProxyUrl, "");
+    const episodeListItems = document.querySelectorAll("li.episodeItem")
+    episodeListItems.forEach(function(e) {
+      if (e.attributes.audioUrl.nodeValue === episodeUrl) {
+        e.style.backgroundColor = "#d3d3d3";
+      } else {
+        if (e.style) {
+          e.removeAttribute("style");
+        }
+      }
+    });
+  },
 
   playbackStateTracker: {
     get: function() {
@@ -35,13 +49,11 @@ var AudioManager = {
   play: function(src, currentTime) {
     AudioManager.load(src, currentTime);
     mainAudio.play();
-    AudioManager.playbackStateTracker.start();
   },
   pause: function() {
     if (!mainAudio.paused) {
       mainAudio.pause();
     }
-    AudioManager.playbackStateTracker.stop();
   },
   resume: function() {
     if (mainAudio.paused) {
@@ -55,11 +67,15 @@ var AudioManager = {
 };
 
 mainAudio.onpause = function() {
-  AudioManager.pause();
+  AudioManager.playbackStateTracker.stop();
 };
 
 mainAudio.onplay = function() {
   AudioManager.playbackStateTracker.start();
+};
+
+mainAudio.onplaying = function() {
+  AudioManager.updateActiveEpisode();
 };
 
 AudioManager.resume();
