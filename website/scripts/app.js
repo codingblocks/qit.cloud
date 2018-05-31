@@ -6,6 +6,16 @@
   const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
   const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
 
+  const getQueryParameter = parameter => {
+    const query = window.location.search.substring(1);
+    const results = query.split('&');
+    for (result of results) {
+      const [key, value] = result.split('=');
+      if (key === parameter) return value;
+    }
+    return false;
+  }
+
   var app = {
     isLoading: true,
     visibleCards: {},
@@ -38,7 +48,7 @@
         var playUrl = e.audioUrl;
 
         if (location.protocol === 'https:') {
-          /* // Alternative to using ssl proxy 
+          /* // Alternative to using ssl proxy
           playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
           if(playUrl !== e.audioUrl) {
           */
@@ -106,7 +116,7 @@
   };
 
   if (location.search) {
-      var searchTerm = location.search.split('=')[1]; // TODO robust!
+      const searchTerm = getQueryParameter('s') // TODO robust!
       app.search(searchTerm);
   } else {
     // First load
