@@ -19,6 +19,13 @@ python -m SimpleHTTPServer 8000
 python -m http.server 8000
 ```
 
+## SSL Proxy
+
+[node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
+https://endpoint/?url=URL_TO_PROXY as https.
+
+Hosted on [zeit now](https://zeit.co/now).
+
 ## Podcast Feed Loader App
 
 Load urls for a file, parse them to (eventually) insert or update a search engine.

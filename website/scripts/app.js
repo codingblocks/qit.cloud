@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  const sslProxyUrl = 'https://ssl-proxy-izufsoiwnv.now.sh/?url='
   const searchTermStorageKey = 'searchTerm';
   const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
   const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
@@ -37,10 +38,15 @@
         var playUrl = e.audioUrl;
 
         if (location.protocol === 'https:') {
+          /* // Alternative to using ssl proxy 
           playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
           if(playUrl !== e.audioUrl) {
-            console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site. Lets just try the https link anyway!');
+          */
+          if (playUrl.includes("http://")) {
+            console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site.');
             console.log('Originally requested url: ' + e.audioUrl);
+            console.log('Attempting to proxy request');
+            playUrl = sslProxyUrl + e.audioUrl;
           }
         }
         AudioManager.play(playUrl)
