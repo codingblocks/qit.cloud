@@ -36,13 +36,17 @@
 
   app.resumePlayback = function() {
     if (mainAudio.paused) {
-      const playbackState = app.playbackStateTracker.get();
-      var source = document.getElementById('audioSource');
-      source.src = playbackState.currentSrc;
-      mainAudio.load();
-      mainAudio.currentTime = playbackState.currentTime;
-      mainAudio.play();
-      app.playbackStateTracker.start();
+      var playbackState = app.playbackStateTracker.get();
+      if(playbackState) {
+        var source = document.getElementById('audioSource');
+        source.src = playbackState.currentSrc;
+        mainAudio.load();
+        mainAudio.currentTime = playbackState.currentTime;
+        mainAudio.play();
+        app.playbackStateTracker.start();
+      } else {
+        console.log('Main audio is paused, but there is no playback state. This can happen when there is a problem loading a file.');
+      }
     }
   }
 
@@ -64,7 +68,6 @@
     var resultCount = data['@odata.count'];
     var episodes = data['value'];
     var searchDate = data['date'];
-
     card.querySelector('.subtitle').textContent = '"' + searchTerm + '": ' + resultCount + ' episodes';
     card.querySelector('#search-input').style.display = resultCount ? 'none' : 'block';
 
@@ -74,7 +77,17 @@
       var li = document.createElement('li');
       li.onclick = function () {
         var source = document.getElementById('audioSource');
-        source.src = e.audioUrl;
+        var playUrl = e.audioUrl;
+
+        if (location.protocol === 'https:') {
+          playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
+          if(playUrl !== e.audioUrl) {
+            console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site. Lets just try the https link anyway!');
+            console.log('Originally requested url: ' + e.audioUrl);
+          }
+        }
+
+        source.src = playUrl;
         mainAudio.pause();
         mainAudio.load();
         mainAudio.play();
@@ -143,4 +156,5 @@
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
+
 })();
