@@ -28,68 +28,10 @@ https://endpoint/?url=URL_TO_PROXY as https.
 
 Hosted on [zeit now](https://zeit.co/now).
 
-## Podcast Feed Loader App
+## Podcast Feed Loader
 
-Load urls for a file, parse them to (eventually) insert or update a search engine.
+This is the part of the product that is responsible for importing the data.
 
-Currently only supports Azure Search.
+It loads podcast feed urls from a file, normalizes them, and then updates them in a search engine. Currently only supports Azure Search.
 
-Azure Search Documentation:
-https://docs.microsoft.com/en-us/azure/search/search-filters
-
-### Running locally
-
-```bash
-cd podcast-feed-loader
-npm install
-npm test
-npm start
-```
-
-### Running locally with Docker
-
-Note: this does not push to any search engine, just parses the feed.
-
-```bash
-docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
-docker run podcast-feed-loader
-```
-
-### Running locally with Docker
-
-You can add the Azure environment variables if you have an Azure Search admin key. We're also setup to monitor with Airbrake, you can set the optional fields shown below to get that working as well.
-
-```bash
-docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
-docker run podcast-feed-loader \
-  -e SEARCH_PROVIDER='Azure' \
-  -e AZURE_SEARCH_INDEX_NAME='{your index name here}' \
-  -e AZURE_SEARCH_ENDPOINT='https://{your search name here name here}.search.windows.net/indexes/{your index name here}/docs/index?api-version={your version number here}' \
-  -e AZURE_SEARCH_ADMIN_API_KEY='{key that allows for document updates}' \
-  -e AZURE_SEARCH_API_VERSION='2017-11-11' \
-  -e AIRBRAKE_PROJECTID='{airbrake project id}' \
-  -e AIRBRAKE_PROJECTKEY='{airbrake project key}'
-```
-
-## Other stuff that almost works
-
-Pretty close to supporting these items, but no cigar.
-
-### Deploying to Azure Container Instances
-
-(You get the username/password from the "Access Keys" section of the ACR).
-TODO This currently does not pick up the environment variables!! Does not work!
-
-```bash
-docker login podcast.azurecr.io
-docker build -f Dockerfile.podcast-feed-loader . -t podcast.azurecr.io/podcast-feed-loader
-docker push podcast.azurecr.io/podcast-feed-loader
-```
-
-### Deploying to Azure Functions
-
-TODO This currently does not pick up the environment variables!! Does not work!
-
-1. Create a function app (Windows for now)
-2. Go into Function Settings and set it for version 2 preview
-3. Change the Application Settings and change WEBSITE_DEFAULT_NODE_VERSION to 8.9.4
+Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
