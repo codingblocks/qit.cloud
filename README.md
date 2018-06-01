@@ -1,5 +1,7 @@
-# QIT
-QIT...get it? get it? Like...Queue I.T.!!!
+![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/images/icons/icon-256x256.png)
+
+# qit: Listen to Programming Podcasts by Topic
+qit...get it? get it? Like...Queue I.T.!
 
 Ok so yeah, the title needs work, but the idea is to let programmers find and listen to podcasts by topic.
 
