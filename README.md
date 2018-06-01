@@ -55,7 +55,9 @@ docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
 docker run podcast-feed-loader
 ```
 
-### Running locally with Docker AND Azure Search Key
+### Running locally with Docker
+
+You can add the Azure environment variables if you have an Azure Search admin key. We're also setup to monitor with Airbrake, you can set the optional fields shown below to get that working as well.
 
 ```bash
 docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
@@ -65,8 +67,8 @@ docker run podcast-feed-loader \
   -e AZURE_SEARCH_ENDPOINT='https://{your search name here name here}.search.windows.net/indexes/{your index name here}/docs/index?api-version={your version number here}' \
   -e AZURE_SEARCH_ADMIN_API_KEY='{key that allows for document updates}' \
   -e AZURE_SEARCH_API_VERSION='2017-11-11' \
-  -e AIRBRAKE_PROJECTID='{airbrake project id of you have an Airbrake account}' \
-  -e AIRBRAKE_PROJECTKEY='{airbrake project key of you have an Airbrake account}'
+  -e AIRBRAKE_PROJECTID='{airbrake project id}' \
+  -e AIRBRAKE_PROJECTKEY='{airbrake project key}'
 ```
 
 ## Other stuff that almost works
