@@ -1,11 +1,12 @@
 (function() {
   'use strict';
 
-  const sslProxyUrl = 'https://ssl-proxy-izufsoiwnv.now.sh/?url='
   const searchTermStorageKey = 'searchTerm';
-  const baseUrl = 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=';
-  const apiKey = 'C7AC76C4D8E4FE369B5608D13A98468F'; // TODO!!
 
+<<<<<<< HEAD
+=======
+  // find a specific query string parameter
+>>>>>>> 4586c9a6d3a324111b611a9b58fa869d0da6595c
   const getQueryParameter = parameter => {
     const query = window.location.search.substring(1);
     const results = query.split('&');
@@ -15,7 +16,11 @@
     }
     return false;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 4586c9a6d3a324111b611a9b58fa869d0da6595c
   var app = {
     isLoading: true,
     visibleCards: {},
@@ -44,25 +49,30 @@
 
     episodes.forEach(function(e) {
       var li = document.createElement('li');
+
       li.onclick = function () {
         var playUrl = e.audioUrl;
 
         if (location.protocol === 'https:') {
+<<<<<<< HEAD
           /* // Alternative to using ssl proxy
           playUrl = e.audioUrl.replace(/^http:\/\//i, 'https://');
           if(playUrl !== e.audioUrl) {
           */
+=======
+>>>>>>> 4586c9a6d3a324111b611a9b58fa869d0da6595c
           if (playUrl.includes("http://")) {
             console.log('Uh oh, the search engine returned a non https link. We cannot request that from an https site.');
             console.log('Originally requested url: ' + e.audioUrl);
             console.log('Attempting to proxy request');
-            playUrl = sslProxyUrl + e.audioUrl;
+            playUrl = config.sslProxyUrl + e.audioUrl;
           }
         }
-        AudioManager.play(playUrl)
+        AudioManager.play(playUrl);
       };
 
-      li.audioUrl = e.audioUrl;
+      li.classList = "episodeItem";
+      li.setAttribute("audioUrl", e.audioUrl);
       li.appendChild(document.createTextNode(e.episodeTitle));
       var episodeDiv = document.createElement('div');
       episodeDiv.appendChild(document.createTextNode(e.podcastTitle));
@@ -86,7 +96,7 @@
 
   app.search = function(searchTerm) {
     app.saveSearchState(searchTerm);
-    var url = baseUrl + searchTerm;
+    var url = config.baseUrl + searchTerm;
     if ('caches' in window) {
       caches.match(url).then(function(response) {
         if (response) {
@@ -111,13 +121,16 @@
     };
     request.open('GET', url, true);
     request.setRequestHeader('Content-Type', 'application\/json');
-    request.setRequestHeader('api-key', apiKey)
+    request.setRequestHeader('api-key', config.apiKey)
     request.send();
   };
 
   if (location.search) {
       const searchTerm = getQueryParameter('s');
+<<<<<<< HEAD
       console.log(searchTerm)
+=======
+>>>>>>> 4586c9a6d3a324111b611a9b58fa869d0da6595c
       app.search(searchTerm);
   } else {
     // First load

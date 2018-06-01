@@ -1,6 +1,7 @@
 const fs = require('fs'),
   readline = require('readline'),
-  urlParser = require('./urlParser');
+  urlParser = require('./urlParser'),
+  errorMonitoring = require('./errorMonitoring');
 
 let processFeeds = function (urlListFile, callback = defaultCallback) {
   let rd = readline.createInterface({
@@ -15,6 +16,14 @@ let processFeeds = function (urlListFile, callback = defaultCallback) {
   rd.on('line', function (url) {
     urlParser.parse(url, function (feedResults) {
 
+      if(feedResults.errors.length) {
+        errorMonitoring.notify(
+          `Errors parsing ${url}`,
+          'warning',
+          feedResults.errors
+        );
+      }
+
       callbackList.forEach(c => {
         c(feedResults);
       });
@@ -27,19 +36,23 @@ exports.processFeeds = processFeeds;
 
 if (require.main === module) {
   
-  // TODO This should be better
-  if(process.env.SEARCH_PROVIDER == 'Azure') {
-    console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
-    require('./updaters/azure/searchInitialize').initialize(() => {
+  try {
+    // TODO This should be better
+    if(process.env.SEARCH_PROVIDER == 'Azure') {
+      console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
+      require('./updaters/azure/searchInitialize').initialize(() => {
+        processFeeds(
+          './data/feeds.txt',
+          require('./updaters/azure/searchUpdater').callback
+        );
+      });
+    } else {
       processFeeds(
         './data/feeds.txt',
-        require('./updaters/azure/searchUpdater').callback
+        require('./updaters/consoleUpdater').callback
       );
-    });
-  } else {
-    processFeeds(
-      './data/feeds.txt',
-      require('./updaters/consoleUpdater').callback
-    );
+    }
+  } catch(error) {
+    require('./errorMonitoring').notify(error);
   }
 }
