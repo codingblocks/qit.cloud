@@ -20,6 +20,14 @@ python -m SimpleHTTPServer 8000
 # Python 3.x
 python -m http.server 8000
 ```
+## Running the React website
+
+```bash
+cd website
+
+npm install
+npm start
+```
 
 ## SSL Proxy
 
