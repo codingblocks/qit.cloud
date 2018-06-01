@@ -54,6 +54,30 @@ Note: this does not push to any search engine, just parses the feed.
 docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
 docker run podcast-feed-loader
 ```
+##### Vladimir`s version of docker
+Before running dockers, run
+```bash
+docker network create codingblocs
+```
+so that in future containers are able to see each others, within this network
+
+Spin docker containers.
+- go to ssl-proxy
+```
+# test docker enviroment bindings before creating containers
+docker-compose config
+
+# start local development
+docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+```
+
+Command to stop container:
+
+```bash
+
+# to stop containers
+docker-compose stop
+```
 
 ### Running locally with Docker
 

@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  api:
+    volumes:
+      - ./:/home/app/ssl-proxy
+    command: npm run start
