@@ -4,7 +4,7 @@
   "description": "Parse rss feeds for import to search engine",
   "main": "./src/feedToSearchAdapter.js",
   "scripts": {
-    "test": "mocha tests/**/**.spec.js",
+    "test": "mocha './tests/**/*.spec.js'",
     "start": "node ./src/multiUrlLoader.js data/feeds.txt"
   },
   "repository": {

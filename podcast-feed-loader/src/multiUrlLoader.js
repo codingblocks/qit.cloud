@@ -27,19 +27,23 @@ exports.processFeeds = processFeeds;
 
 if (require.main === module) {
   
-  // TODO This should be better
-  if(process.env.SEARCH_PROVIDER == 'Azure') {
-    console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
-    require('./updaters/azure/searchInitialize').initialize(() => {
+  try {
+    // TODO This should be better
+    if(process.env.SEARCH_PROVIDER == 'Azure') {
+      console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
+      require('./updaters/azure/searchInitialize').initialize(() => {
+        processFeeds(
+          './data/feeds.txt',
+          require('./updaters/azure/searchUpdater').callback
+        );
+      });
+    } else {
       processFeeds(
         './data/feeds.txt',
-        require('./updaters/azure/searchUpdater').callback
+        require('./updaters/consoleUpdater').callback
       );
-    });
-  } else {
-    processFeeds(
-      './data/feeds.txt',
-      require('./updaters/consoleUpdater').callback
-    );
+    }
+  } catch(error) {
+    require('./errorMonitoring').notify(error);
   }
 }
