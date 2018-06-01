@@ -62,7 +62,9 @@ docker run podcast-feed-loader \
   -e AZURE_SEARCH_INDEX_NAME='{your index name here}' \
   -e AZURE_SEARCH_ENDPOINT='https://{your search name here name here}.search.windows.net/indexes/{your index name here}/docs/index?api-version={your version number here}' \
   -e AZURE_SEARCH_ADMIN_API_KEY='{key that allows for document updates}' \
-  -e AZURE_SEARCH_API_VERSION='2017-11-11'
+  -e AZURE_SEARCH_API_VERSION='2017-11-11' \
+  -e AIRBRAKE_PROJECTID='{airbrake project id of you have an Airbrake account}' \
+  -e AIRBRAKE_PROJECTKEY='{airbrake project key of you have an Airbrake account}'
 ```
 
 ## Other stuff that almost works
