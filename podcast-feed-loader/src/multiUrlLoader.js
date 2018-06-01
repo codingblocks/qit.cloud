@@ -1,6 +1,7 @@
 const fs = require('fs'),
   readline = require('readline'),
-  urlParser = require('./urlParser');
+  urlParser = require('./urlParser'),
+  errorMonitoring = require('./errorMonitoring');
 
 let processFeeds = function (urlListFile, callback = defaultCallback) {
   let rd = readline.createInterface({
@@ -14,6 +15,14 @@ let processFeeds = function (urlListFile, callback = defaultCallback) {
 
   rd.on('line', function (url) {
     urlParser.parse(url, function (feedResults) {
+
+      if(feedResults.errors.length) {
+        errorMonitoring.notify(
+          `Errors parsing ${url}`,
+          'warning',
+          feedResults.errors
+        );
+      }
 
       callbackList.forEach(c => {
         c(feedResults);
