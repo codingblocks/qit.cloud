@@ -40,7 +40,7 @@ export default connect(state => ({
           <Search searchTerm={searchTerm} />
           <EpisodeList>
             {
-              results.length === 0
+              currentSearch !== '' && results.length === 0
                 ? `No results were found. Please try again.`
                 : results.map(result =>
                   <Episode key={result.id} episode={result} />
@@ -51,6 +51,6 @@ export default connect(state => ({
       </Main>
 
       <Footer />
-      <Loader>Awesome!</Loader>
+      { loading && <Loader /> }
     </Container>
   ))
