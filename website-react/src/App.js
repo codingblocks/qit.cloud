@@ -52,6 +52,8 @@ export default connect(state => ({
       </Main>
 
       <Footer />
+
       { loading && <Loader /> }
+
     </Container>
   ))

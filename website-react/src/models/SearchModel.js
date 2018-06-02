@@ -26,7 +26,7 @@ export default mirror.model({
     },
     stopLoading (state) {
       return {...state, loading: false}
-    },
+    }
   },
   effects: {
     async search (_, getState) {
