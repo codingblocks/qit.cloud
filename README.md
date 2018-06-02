@@ -29,6 +29,13 @@ npm install
 npm start
 ```
 
+## Linting the React website
+This website uses the [Standard](https://github.com/standard/standard) style guide.
+To auto-lint, just run:
+```bash
+standard --fix
+```
+
 ## SSL Proxy
 
 [node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
