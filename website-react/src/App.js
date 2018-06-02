@@ -17,7 +17,8 @@ import Loader from './components/Loader'
 export default connect(state => ({
   results: state.search.results,
   searchTerm: state.search.searchTerm,
-  currentSearch: state.search.currentSearch
+  currentSearch: state.search.currentSearch,
+  loading: state.search.loading
 }))(
   ({searchTerm, results, loading, currentSearch}) => (
     <Container>
