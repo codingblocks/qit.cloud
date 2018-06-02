@@ -24,7 +24,7 @@ const line = keyframes`
   }
 `
 
-export const Circle = styled.circle`
+export const LoaderCircle = styled.circle`
   box-sizing: border-box;
   stroke: #359189;
   stroke-width: 3px;
@@ -32,15 +32,15 @@ export const Circle = styled.circle`
   animation: ${line} 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, ${rotate} 1.6s linear infinite;
 `
 
-export const Loader = props => (
-  <svg viewBox='0 0 32 32' width='32' height='32'>
-    <Circle cx='16' cy='16' r='14' fill='none' />
-  </svg>
-)
-
-export default styled(Loader)`
+export const LoaderSVG = styled.svg`
   left: 50%;
   top: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
 `
+
+export default () => (
+  <LoaderSVG viewBox='0 0 32 32' width='32' height='32'>
+    <LoaderCircle cx='16' cy='16' r='14' fill='none' />
+  </LoaderSVG>
+)
