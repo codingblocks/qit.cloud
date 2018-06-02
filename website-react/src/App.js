@@ -11,16 +11,23 @@ import Search from './components/Main/Search'
 import EpisodeList from './components/Main/EpisodeList'
 import Episode from './components/Main/Episode'
 import Card from './components/Main/Card'
-import Footer from './components/Footer/'
+import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
 
 export default connect(state => ({
   results: state.search.results,
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
-  loading: state.search.loading
+  loading: state.search.loading,
+  audioSource: state.player.source
 }))(
-  ({searchTerm, results, loading, currentSearch}) => (
+  ({
+    results,
+    searchTerm,
+    currentSearch,
+    loading,
+    audioSource
+  }) => (
     <Container>
 
       <Header>
@@ -51,7 +58,7 @@ export default connect(state => ({
         </Card>
       </Main>
 
-      <Footer />
+      <AudioPlayer controls autoPlay src={audioSource} />
 
       { loading && <Loader /> }
 

@@ -43,8 +43,3 @@ body {
 audio {
   width: 100%;
 }
-
-ul, menu, dir {
-  display: block;
-  list-style-type: disc;
-}

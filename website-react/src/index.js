@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'mirrorx'
 import './models/SearchModel'
+import './models/AudioPlayerModel'
 
 import './index.css'
 import App from './App'
