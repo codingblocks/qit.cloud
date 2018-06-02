@@ -20,6 +20,7 @@ python -m SimpleHTTPServer 8000
 # Python 3.x
 python -m http.server 8000
 ```
+
 ## Running the React website
 
 ```bash
@@ -30,8 +31,10 @@ npm start
 ```
 
 ## Linting the React website
+
 This website uses the [Standard](https://github.com/standard/standard) style guide.
 To auto-lint, just run:
+
 ```bash
 standard --fix
 ```
