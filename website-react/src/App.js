@@ -51,7 +51,11 @@ export default connect(state => ({
               currentSearch !== '' && results.length === 0
                 ? `No results were found. Please try again.`
                 : results.map(result =>
-                  <Episode key={result.id} episode={result} />
+                  <Episode
+                    key={result.id}
+                    episode={result}
+                    playing={result.audioUrl === audioSource}
+                  />
                 )
             }
           </EpisodeList>
