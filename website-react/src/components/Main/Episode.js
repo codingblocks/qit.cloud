@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Episode = ({result}) => (
-  <li className='episodeItem' audiourl={result.audioUrl}>
-    {result.episodeTitle}
-    <div className='podcast-title'>
-      {result.podcastTitle}
+export const Episode = ({episode, className}) => (
+  <li className={className} audiourl={episode.audioUrl}>
+    {episode.episodeTitle}
+    <div>
+      {episode.podcastTitle}
     </div>
   </li>
 )

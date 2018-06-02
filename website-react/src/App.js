@@ -43,7 +43,7 @@ export default connect(state => ({
               results.length === 0
                 ? `No results were found. Please try again.`
                 : results.map(result =>
-                  <Episode key={result.id} result={result} />
+                  <Episode key={result.id} episode={result} />
                 )
             }
           </EpisodeList>
