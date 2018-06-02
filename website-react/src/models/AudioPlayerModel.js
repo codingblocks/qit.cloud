@@ -3,11 +3,12 @@ import mirror from 'mirrorx'
 export default mirror.model({
   name: 'player',
   initialState: {
-    source: '',
+    nowPlaying: {},
+    playlist: []
   },
   reducers: {
-    updateSource (state, source) {
-      return {...state, source}
+    play (state, episode) {
+      return {...state, nowPlaying: episode}
     }
   }
 })
