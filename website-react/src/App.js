@@ -12,6 +12,7 @@ import EpisodeList from './components/Main/Episode/EpisodeList'
 import Episode from './components/Main/Episode/'
 import EpisodeTitle from './components/Main/Episode/EpisodeTitle'
 import PodcastTitle from './components/Main/Episode/PodcastTitle'
+import AddToPlaylist from './components/Main/Episode/AddToPlaylist'
 import Card from './components/Main/Card'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
@@ -21,14 +22,16 @@ export default connect(state => ({
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
-  nowPlaying: state.player.nowPlaying
+  nowPlaying: state.player.nowPlaying,
+  playlist: state.player.playlist
 }))(
   ({
     results,
     searchTerm,
     currentSearch,
     loading,
-    nowPlaying
+    nowPlaying,
+    playlist
   }) => (
     <Container>
 
@@ -60,6 +63,13 @@ export default connect(state => ({
                   >
                     <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
                     <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+                    <AddToPlaylist
+                      added={playlist.some(item => item.audioUrl === episode.audioUrl)}
+                      onClick={event => {
+                        event.stopPropagation()
+                        actions.player.addToPlaylist(episode)
+                      }}
+                    />
                   </Episode>
                 )
             }
