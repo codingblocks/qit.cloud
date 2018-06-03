@@ -1,4 +1,4 @@
-![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/images/icons/icon-256x256.png)
+![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
@@ -19,6 +19,24 @@ cd website
 python -m SimpleHTTPServer 8000
 # Python 3.x
 python -m http.server 8000
+```
+
+## Running the React website
+
+```bash
+cd website
+
+npm install
+npm start
+```
+
+## Linting the React website
+
+This website uses the [Standard](https://github.com/standard/standard) style guide.
+To auto-lint, just run:
+
+```bash
+standard --fix
 ```
 
 ## SSL Proxy
