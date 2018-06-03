@@ -2,8 +2,7 @@ var dataCacheName = 'podcasts-v1'
 var cacheName = 'podcasts'
 var filesToCache = [
   '/',
-  '/index.html',
-  '/scripts/app.js'
+  '/index.html'
 ]
 
 self.addEventListener('install', function (e) {

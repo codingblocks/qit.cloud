@@ -1,4 +1,5 @@
 import mirror from 'mirrorx'
+import config from '../config'
 
 export default mirror.model({
   name: 'player',

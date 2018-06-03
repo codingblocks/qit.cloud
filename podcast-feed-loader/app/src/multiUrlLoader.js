@@ -13,12 +13,27 @@ let processFeeds = function (urlListFile, callback = defaultCallback) {
     Array.isArray(callback) ? callback : [callback]
     : [];
 
-  rd.on('line', function (url) {
-    urlParser.parse(url, function (feedResults) {
+  let parseLine = (feedLine) => {
+    let parts = feedLine.split(',');
+
+    if(parts.length === 2) {
+      return {
+        url: parts[1],
+        title: parts[0]
+      };
+    }
+    return {
+      url: feedLine
+    };
+  }
+
+  rd.on('line', function (feedLine) {
+    const urlData = parseLine(feedLine)
+    urlParser.parse(urlData, function (feedResults) {
 
       if(feedResults.errors.length) {
         errorMonitoring.notify(
-          `Errors parsing ${url}`,
+          `Errors parsing ${urlData.url}`,
           'warning',
           feedResults.errors
         );
@@ -47,6 +62,7 @@ if (require.main === module) {
         );
       });
     } else {
+      console.log('Note: this is a dry run, no search engine will be updated');
       processFeeds(
         './data/feeds.txt',
         require('./updaters/consoleUpdater').callback

@@ -4,7 +4,10 @@ const request = require('request'),
 	http = require("http");
 
 // Fetches feed content for a url, adapts it to a search engine friendly format
-exports.parse = function (feedUrl, onLoadCallback) {
+exports.parse = function (feed, onLoadCallback) {
+	let feedUrl = feed.url; // This is required
+	let overrideTitle = feed.title || null;
+
 	request(feedUrl, (err, res, data) => {
 
 		if (err) {
@@ -22,7 +25,7 @@ exports.parse = function (feedUrl, onLoadCallback) {
 				};
 			}
 
-			const result = feedToSearchAdapter.convert(data, feedUrl);
+			const result = feedToSearchAdapter.convert(data, feedUrl, overrideTitle);
 
 			if (onLoadCallback) {
 				onLoadCallback(result);

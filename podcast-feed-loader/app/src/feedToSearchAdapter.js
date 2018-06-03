@@ -21,10 +21,13 @@
     return errors;
   }
 
-  let convert = function (data, feedUrl) {
+  let convert = function (data, feedUrl, overrideTitle) {
+
     let result = {
       feedUrl: feedUrl,
-      title: data ? data.title : null,
+      title: overrideTitle
+        ? overrideTitle
+        : data ? data.title : null,
       updated: data ? data.updated : null,
       explicit: data ? data.explicit : null,
       errors: [],
@@ -48,7 +51,7 @@
       if (!errors.length) {
         result.updateFeed.push({
           id: episode.guid.replace(/[^a-zA-Z0-9]+/g,"_"),
-          podcastTitle: data.title,
+          podcastTitle: overrideTitle || data.title,
           episodeTitle: episode.title,
           description: episode.description,
           published: episode.published,
@@ -56,7 +59,7 @@
         });
       }
     }
-
+    
     return result;
   }
 
