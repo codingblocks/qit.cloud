@@ -1,5 +1,5 @@
-https://feeds.feedburner.com/netRocksFullMp3Downloads
 https://6figuredev.com/feed/podcast
+.NET Rocks!,https://feeds.feedburner.com/netRocksFullMp3Downloads
 http://aswaudio.swsgtv.libsynpro.com/rss
 http://audio.angularair.com/feed/
 http://feeds.codenewbie.org/basecs_podcast.xml
@@ -7,7 +7,7 @@ https://changelog.com/master/feed
 https://rss.simplecast.com/podcasts/1252/rss
 https://rss.simplecast.com/podcasts/3295/rss
 http://coder.show/rss
-https://www.codingblocks.net/feed/podcast/
+Coding Blocks,https://www.codingblocks.net/feed/podcast/
 https://completedeveloperpodcast.com/feed/podcast/
 https://cynicaldeveloper.com/feed/podcast/
 https://rss.simplecast.com/podcasts/363/rss

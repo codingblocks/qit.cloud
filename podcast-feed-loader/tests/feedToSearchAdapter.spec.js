@@ -100,5 +100,15 @@ describe('Feed Adapter', () => {
       expect(result.errors).to.have.lengthOf(0);
       expect(result.updateFeed[0].id).to.equal('http_title_html_var_1');
     });
+    it('should allow for optionally overriding the podcast title', () => {
+      let result = feed.convert(
+        { episodes: [ validEpisode ] },        
+        'myurl',
+        'custom title'
+      );
+
+      expect(result.errors).to.have.lengthOf(0);
+      expect(result.updateFeed[0].podcastTitle).to.equal('custom title');
+    });
   })
 })
