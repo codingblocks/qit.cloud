@@ -1,4 +1,4 @@
-![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/images/icons/icon-256x256.png)
+![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
