@@ -7,7 +7,7 @@ export const Episode = ({episode, className}) => (
     className={className}
     onClick={() => actions.player.updateSource(episode.audioUrl)}>
     {episode.episodeTitle}
-    <div>
+    <div class="podcastTitle">
       {episode.podcastTitle}
     </div>
   </li>
@@ -21,4 +21,9 @@ export default styled(Episode)`
   list-style: none;
   background-color: ${props => props.playing ? '#7FbFb8' : '#fafafa'};
   cursor: pointer;
+  font-size: 1.4rem;
+  .podcastTitle {
+    font-size: 1rem;
+    color: #777;
+  }
 `
