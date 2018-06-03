@@ -77,7 +77,12 @@ export default connect(state => ({
         </Card>
       </Main>
 
-      <AudioPlayer controls autoPlay src={nowPlaying.audioUrl} />
+      <AudioPlayer
+        controls
+        autoPlay
+        src={nowPlaying.audioUrl}
+        onEnded={actions.player.playNextEpisode}
+      />
 
       { loading && <Loader /> }
 

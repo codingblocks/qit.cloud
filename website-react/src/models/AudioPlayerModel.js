@@ -12,6 +12,11 @@ export default mirror.model({
     },
     addToPlaylist (state, episode) {
       return {...state, playlist: [...state.playlist, episode]}
+    },
+    playNextEpisode (state) {
+      const playlist = state.playlist.slice()
+      const nowPlaying = playlist.shift()
+      return {...state, nowPlaying, playlist}
     }
   }
 })
