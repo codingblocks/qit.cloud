@@ -20,6 +20,6 @@ export default styled(AddToPlaylist)`
   float: right;
   background: transparent;
   img {
-      width: 30px;
+    width: 30px;
   }
 `

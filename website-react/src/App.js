@@ -8,12 +8,10 @@ import Logo from './components/Header/Logo'
 import Subtitle from './components/Header/Subtitle'
 import Main from './components/Main/'
 import Search from './components/Main/Search'
-import EpisodeList from './components/Main/Episode/EpisodeList'
-import Episode from './components/Main/Episode/'
-import EpisodeTitle from './components/Main/Episode/EpisodeTitle'
-import PodcastTitle from './components/Main/Episode/PodcastTitle'
-import AddToPlaylist from './components/Main/Episode/AddToPlaylist'
 import Card from './components/Main/Card'
+import EpisodeList from './components/Main/Episode/EpisodeList'
+import SearchResults from './components/Main/SearchResults'
+import Playlist from './components/Main/Playlist'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
 
@@ -52,27 +50,19 @@ export default connect(state => ({
         <Card>
           <Search searchTerm={searchTerm} />
           <EpisodeList>
-            {
-              currentSearch !== '' && results.length === 0
-                ? `No results were found. Please try again.`
-                : results.map(episode =>
-                  <Episode
-                    onClick={() => actions.player.play(episode)}
-                    key={episode.id}
-                    playing={episode.audioUrl === nowPlaying.audioUrl}
-                  >
-                    <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-                    <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
-                    <AddToPlaylist
-                      added={playlist.some(item => item.audioUrl === episode.audioUrl)}
-                      onClick={event => {
-                        event.stopPropagation()
-                        actions.player.addToPlaylist(episode)
-                      }}
-                    />
-                  </Episode>
-                )
-            }
+            <Playlist
+              nowPlaying={nowPlaying}
+              playlist={playlist}
+            />
+            <br />
+            <hr />
+            <br />
+            <SearchResults
+              nowPlaying={nowPlaying}
+              results={results}
+              playlist={playlist}
+              currentSearch={currentSearch}
+            />
           </EpisodeList>
         </Card>
       </Main>

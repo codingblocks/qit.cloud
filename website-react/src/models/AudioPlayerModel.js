@@ -13,6 +13,12 @@ export default mirror.model({
     addToPlaylist (state, episode) {
       return {...state, playlist: [...state.playlist, episode]}
     },
+    removeFromPlaylist (state, episodeId) {
+      const playlist = state.playlist.filter(
+        episode => episode.id !== episodeId
+      )
+      return {...state, playlist}
+    },
     playNextEpisode (state) {
       const playlist = state.playlist.slice()
       const nowPlaying = playlist.shift()

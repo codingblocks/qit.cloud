@@ -11,7 +11,7 @@ export const Search = ({searchTerm, className}) => (
     }}
   >
     <input
-      placeholder='Type something here!'
+      placeholder='Search for a great podcast here!'
       value={searchTerm}
       onChange={event => actions.search.updateSearchTerm(event.target.value)}
     />
