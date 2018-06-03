@@ -5,32 +5,20 @@ qit...get it? get it? Like...Queue I.T.!
 
 Ok so yeah, the title needs work, but the idea is to let programmers find and listen to podcasts by topic.
 
-Check out a preview here: [https://reverent-shirley-6c1ba7.netlify.com/](https://reverent-shirley-6c1ba7.netlify.com/)
+Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 ## Running the website
 
-You need some sort of web server to run the website (at least, if you want to check it out with Lighthouse).
-
-Something like this should work (TODO: Dockerize!)
+The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
 ```bash
-cd website
-# Python 2.x
-python -m SimpleHTTPServer 8000
-# Python 3.x
-python -m http.server 8000
-```
-
-## Running the React website
-
-```bash
-cd website
+cd website-react
 
 npm install
 npm start
 ```
 
-## Linting the React website
+### Linting the React website
 
 This website uses the [Standard](https://github.com/standard/standard) style guide.
 To auto-lint, just run:
