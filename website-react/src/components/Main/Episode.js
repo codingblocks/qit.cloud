@@ -7,7 +7,7 @@ export const Episode = ({episode, className}) => (
     className={className}
     onClick={() => actions.player.updateSource(episode.audioUrl)}>
     {episode.episodeTitle}
-    <div class="podcastTitle">
+    <div className="podcastTitle">
       {episode.podcastTitle}
     </div>
   </li>
