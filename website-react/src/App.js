@@ -54,15 +54,15 @@ export default connect(state => ({
               nowPlaying={nowPlaying}
               playlist={playlist}
             />
-            <br />
-            <hr />
-            <br />
+            {
+            currentSearch !== '' &&
             <SearchResults
               nowPlaying={nowPlaying}
               results={results}
               playlist={playlist}
               currentSearch={currentSearch}
             />
+            }
           </EpisodeList>
         </Card>
       </Main>

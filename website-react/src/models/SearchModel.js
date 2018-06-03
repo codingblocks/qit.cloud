@@ -26,6 +26,9 @@ export default mirror.model({
     },
     stopLoading (state) {
       return {...state, loading: false}
+    },
+    clearSearch (state) {
+      return {...state, currentSearch: ''}
     }
   },
   effects: {
