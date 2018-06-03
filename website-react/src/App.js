@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
+import config from './config'
 
 import Container from './components/Container'
 import Header from './components/Header/'
@@ -14,6 +15,14 @@ import SearchResults from './components/Main/SearchResults'
 import Playlist from './components/Main/Playlist'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
+
+let proxyUrl = (audioUrl) => {
+  if(audioUrl && audioUrl.startsWith("http://") && config.sslProxyUrl) {
+    return config.sslProxyUrl + audioUrl;
+    console.log('Proxying audio url: ' + audioUrl);
+  }
+  return audioUrl;
+}
 
 export default connect(state => ({
   results: state.search.results,
@@ -70,7 +79,7 @@ export default connect(state => ({
       <AudioPlayer
         controls
         autoPlay
-        src={nowPlaying.audioUrl}
+        src={proxyUrl(nowPlaying.audioUrl)}
         onEnded={actions.player.playNextEpisode}
       />
 
