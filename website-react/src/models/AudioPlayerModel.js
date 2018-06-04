@@ -1,5 +1,4 @@
 import mirror from 'mirrorx'
-import config from '../config'
 
 export default mirror.model({
   name: 'player',
@@ -21,7 +20,10 @@ export default mirror.model({
       return {...state, playlist}
     },
     playNextEpisode (state) {
-      const playlist = state.playlist.slice()
+      const currentlyPlaying = state.nowPlaying
+      const playlist = state.playlist
+        .slice()
+        .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
       const nowPlaying = playlist.shift()
       return {...state, nowPlaying, playlist}
     }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
-import config from './config'
 
 import {proxyUrl} from './helpers'
 
