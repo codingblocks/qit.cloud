@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect} from 'mirrorx'
+import {connect, actions} from 'mirrorx'
+import config from './config'
 
 import Container from './components/Container'
 import Header from './components/Header/'
@@ -8,25 +9,36 @@ import Logo from './components/Header/Logo'
 import Subtitle from './components/Header/Subtitle'
 import Main from './components/Main/'
 import Search from './components/Main/Search'
-import EpisodeList from './components/Main/EpisodeList'
-import Episode from './components/Main/Episode'
 import Card from './components/Main/Card'
+import EpisodeList from './components/Main/Episode/EpisodeList'
+import SearchResults from './components/Main/SearchResults'
+import Playlist from './components/Main/Playlist'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
+
+let proxyUrl = (audioUrl) => {
+  if(audioUrl && audioUrl.startsWith("http://") && config.sslProxyUrl) {
+    return config.sslProxyUrl + audioUrl;
+    console.log('Proxying audio url: ' + audioUrl);
+  }
+  return audioUrl;
+}
 
 export default connect(state => ({
   results: state.search.results,
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
-  audioSource: state.player.source
+  nowPlaying: state.player.nowPlaying,
+  playlist: state.player.playlist
 }))(
   ({
     results,
     searchTerm,
     currentSearch,
     loading,
-    audioSource
+    nowPlaying,
+    playlist
   }) => (
     <Container>
 
@@ -47,22 +59,29 @@ export default connect(state => ({
         <Card>
           <Search searchTerm={searchTerm} />
           <EpisodeList>
-            {
-              currentSearch !== '' && results.length === 0
-                ? `No results were found. Please try again.`
-                : results.map(result =>
-                  <Episode
-                    key={result.id}
-                    episode={result}
-                    playing={result.audioUrl === audioSource}
-                  />
-                )
-            }
+            <Playlist
+              nowPlaying={nowPlaying}
+              playlist={playlist}
+            />
+            <br />
+            <hr />
+            <br />
+            <SearchResults
+              nowPlaying={nowPlaying}
+              results={results}
+              playlist={playlist}
+              currentSearch={currentSearch}
+            />
           </EpisodeList>
         </Card>
       </Main>
 
-      <AudioPlayer controls autoPlay src={audioSource} />
+      <AudioPlayer
+        controls
+        autoPlay
+        src={proxyUrl(nowPlaying.audioUrl)}
+        onEnded={actions.player.playNextEpisode}
+      />
 
       { loading && <Loader /> }
 
