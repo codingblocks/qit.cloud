@@ -59,7 +59,7 @@ export default styled(SearchResults)`
 
   #closeButton {
     position: absolute;
-    top: 7vh;
+    top: 8vh;
     right: 2vw;
 
     font-size: 2rem;
