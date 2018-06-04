@@ -16,7 +16,7 @@ export const SearchResults = ({
 }) => (
   <div className={className}>
     <button
-      id="closeButton"
+      id='closeButton'
       onClick={actions.search.clearSearch}
     >
       X
@@ -25,22 +25,22 @@ export const SearchResults = ({
       results.length === 0
         ? `No results were found. Please try again.`
         : results.map(episode =>
-        <Episode
-          onClick={() => actions.player.play(episode)}
-          key={episode.id}
-          playing={episode.audioUrl === nowPlaying.audioUrl}
-        >
-          <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-          <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
-          <AddToPlaylistButton
-            added={playlist.some(item => item.audioUrl === episode.audioUrl)}
-            onClick={event => {
-              event.stopPropagation()
-              actions.player.addToPlaylist(episode)
-            }}
-          />
-        </Episode>
-      )
+          <Episode
+            onClick={() => actions.player.play(episode)}
+            key={episode.id}
+            playing={episode.audioUrl === nowPlaying.audioUrl}
+          >
+            <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
+            <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+            <AddToPlaylistButton
+              added={playlist.some(item => item.audioUrl === episode.audioUrl)}
+              onClick={event => {
+                event.stopPropagation()
+                actions.player.addToPlaylist(episode)
+              }}
+            />
+          </Episode>
+        )
     }
   </div>
 )
