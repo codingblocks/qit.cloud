@@ -5,6 +5,7 @@ import Episode from './Episode/'
 import EpisodeTitle from './Episode/EpisodeTitle'
 import PodcastTitle from './Episode/PodcastTitle'
 import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
+import PlayNextButton from './Episode/playNextButton'
 
 export default ({results, playlist, nowPlaying}) => (
   playlist.length === 0
@@ -18,6 +19,14 @@ export default ({results, playlist, nowPlaying}) => (
       >
         <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
         <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+
+        <PlayNextButton
+          onClick={event => {
+            event.stopPropagation()
+            actions.player.playNext(episode)
+          }}
+        />
+
         <RemoveFromPlaylistButton
           onClick={event => {
             event.stopPropagation()
