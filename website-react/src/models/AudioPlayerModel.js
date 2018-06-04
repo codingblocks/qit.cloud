@@ -24,7 +24,7 @@ export default mirror.model({
       const playlist = state.playlist
         .slice()
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
-      const nowPlaying = playlist.shift()
+      const nowPlaying = playlist.shift() || {}
       return {...state, nowPlaying, playlist}
     }
   }
