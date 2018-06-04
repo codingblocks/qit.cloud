@@ -15,6 +15,8 @@ COPY package.json /app
 ENV NPM_CONFIG_LOGLEVEL error
 RUN npm install
 
+RUN npm install pm2 -g
+
 ENV DOCKER=TRUE
 
 # Bundle APP files
