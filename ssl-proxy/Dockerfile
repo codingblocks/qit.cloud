@@ -13,9 +13,7 @@ WORKDIR /app
 COPY package.json /app
 
 ENV NPM_CONFIG_LOGLEVEL error
-RUN npm install --quiet
-
-RUN npm install pm2 -g
+RUN npm install
 
 ENV DOCKER=TRUE
 

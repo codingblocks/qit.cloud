@@ -3,5 +3,5 @@ version: '3'
 services:
   api:
     volumes:
-      - ./:/home/app/coding-blocks-proxy
+      - ./:/app/coding-blocks-proxy
     command: npm run start

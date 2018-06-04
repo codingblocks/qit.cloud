@@ -1,9 +1,0 @@
-{
-  "apps": [{
-    "name": "PodcastApp",
-    "script": "./dist/server.js",
-    "watch": false,
-    "exec_mode"  : "cluster",
-    "instances": 0
-  }]
-}

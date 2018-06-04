@@ -13,12 +13,12 @@ services:
     environment:
       - 'PORT=${PORT}'
     ports:
-      - "${PORT}:${PORT}"
+      - '${PORT}:${PORT}'
 
     networks:
       - codingblocks
     restart: 'always'
-    command: pm2-docker start /home/node/app/pm2.json --web 4545
+    command: npm start
 networks:
   codingblocks:
     external: true

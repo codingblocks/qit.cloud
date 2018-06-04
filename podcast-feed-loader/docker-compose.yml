@@ -13,8 +13,7 @@ services:
     environment:
       - 'PORT=${PORT}'
     ports:
-      - "${PORT}:${PORT}"
-
+      - '${PORT}:${PORT}'
     networks:
       - codingblocks
 networks:

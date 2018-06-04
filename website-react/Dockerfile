@@ -6,21 +6,20 @@ RUN mkdir /home/.npm-global ; \
 ENV PATH=/home/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/.npm-global
 
-WORKDIR /app
+WORKDIR /home/app
 # ADD podcast-feed-loader /app/
 
 # Install app dependencies
-COPY package.json /app
+COPY package.json /home/app
 
 ENV NPM_CONFIG_LOGLEVEL error
-RUN npm install --quiet
 
-RUN npm install pm2 -g
+RUN npm install
 
 ENV DOCKER=TRUE
 
 # Bundle APP files
-COPY . /app
+COPY . /home/app
 
 ARG NODE_ENV
 ARG PORT
@@ -33,7 +32,6 @@ ARG PORT
 
 # Run application in production
 # Moved to docker-compose.prod.yml
-# CMD [ "pm2-docker", "start", "/home/node/app/pm2.json" ]
 
 # Make port from arguments available to the world outside this container
 EXPOSE $PORT

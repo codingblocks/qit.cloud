@@ -1,6 +1,0 @@
-{
-  "watch": ["src"],
-  "ext": "js",
-  "ignore": ["./**/*.spec.js"],
-  "exec": "react-scripts start"
-}
