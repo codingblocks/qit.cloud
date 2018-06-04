@@ -16,9 +16,9 @@ services:
       - "${PORT}:${PORT}"
 
     networks:
-      - codingblocs
+      - codingblocks
     restart: 'always'
     command: pm2-docker start /home/node/app/pm2.json --web 4545
 networks:
-  codingblocs:
+  codingblocks:
     external: true

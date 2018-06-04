@@ -11,7 +11,6 @@ WORKDIR /app
 
 # Install app dependencies
 COPY package.json /app
-COPY package-lock.json /app
 
 ENV NPM_CONFIG_LOGLEVEL error
 RUN npm install --quiet
