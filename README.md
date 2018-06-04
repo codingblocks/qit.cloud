@@ -1,58 +1,30 @@
-![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/images/icons/icon-256x256.png)
+![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
 
 Ok so yeah, the title needs work, but the idea is to let programmers find and listen to podcasts by topic.
 
-Check out a preview here: [https://reverent-shirley-6c1ba7.netlify.com/](https://reverent-shirley-6c1ba7.netlify.com/)
+Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 ## Running the website
 
-You need some sort of web server to run the website (at least, if you want to check it out with Lighthouse).
-
-Something like this should work (TODO: Dockerize!)
+The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
 ```bash
-cd website
-# Python 2.x
-python -m SimpleHTTPServer 8000
-# Python 3.x
-python -m http.server 8000
-```
+cd website-react
 
-## SSL Proxy
-
-[node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
-https://endpoint/?url=URL_TO_PROXY as https.
-
-Hosted on [zeit now](https://zeit.co/now).
-
-## Podcast Feed Loader App
-
-Load urls for a file, parse them to (eventually) insert or update a search engine.
-
-Currently only supports Azure Search.
-
-Azure Search Documentation:
-https://docs.microsoft.com/en-us/azure/search/search-filters
-
-### Running locally
-
-```bash
-cd podcast-feed-loader
 npm install
-npm test
 npm start
 ```
 
-### Running locally with Docker
+### Linting the React website
 
-Note: this does not push to any search engine, just parses the feed.
+This website uses the [Standard](https://github.com/standard/standard) style guide.
+To auto-lint, just run:
 
 ```bash
-docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
-docker run podcast-feed-loader
+standard --fix
 ```
 ##### Vladimir`s version of docker
 Before running dockers, run
@@ -79,41 +51,17 @@ Command to stop container:
 docker-compose stop
 ```
 
-### Running locally with Docker
+## SSL Proxy
 
-You can add the Azure environment variables if you have an Azure Search admin key. We're also setup to monitor with Airbrake, you can set the optional fields shown below to get that working as well.
+[node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
+https://endpoint/?url=URL_TO_PROXY as https.
 
-```bash
-docker build -f Dockerfile.podcast-feed-loader . -t podcast-feed-loader
-docker run podcast-feed-loader \
-  -e SEARCH_PROVIDER='Azure' \
-  -e AZURE_SEARCH_INDEX_NAME='{your index name here}' \
-  -e AZURE_SEARCH_ENDPOINT='https://{your search name here name here}.search.windows.net/indexes/{your index name here}/docs/index?api-version={your version number here}' \
-  -e AZURE_SEARCH_ADMIN_API_KEY='{key that allows for document updates}' \
-  -e AZURE_SEARCH_API_VERSION='2017-11-11' \
-  -e AIRBRAKE_PROJECTID='{airbrake project id}' \
-  -e AIRBRAKE_PROJECTKEY='{airbrake project key}'
-```
+Hosted on [zeit now](https://zeit.co/now).
 
-## Other stuff that almost works
+## Podcast Feed Loader
 
-Pretty close to supporting these items, but no cigar.
+This is the part of the product that is responsible for importing the data.
 
-### Deploying to Azure Container Instances
+It loads podcast feed urls from a file, normalizes them, and then updates them in a search engine. Currently only supports Azure Search.
 
-(You get the username/password from the "Access Keys" section of the ACR).
-TODO This currently does not pick up the environment variables!! Does not work!
-
-```bash
-docker login podcast.azurecr.io
-docker build -f Dockerfile.podcast-feed-loader . -t podcast.azurecr.io/podcast-feed-loader
-docker push podcast.azurecr.io/podcast-feed-loader
-```
-
-### Deploying to Azure Functions
-
-TODO This currently does not pick up the environment variables!! Does not work!
-
-1. Create a function app (Windows for now)
-2. Go into Function Settings and set it for version 2 preview
-3. Change the Application Settings and change WEBSITE_DEFAULT_NODE_VERSION to 8.9.4
+Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)

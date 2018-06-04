@@ -1,0 +1,31 @@
+https://6figuredev.com/feed/podcast
+.NET Rocks!,https://feeds.feedburner.com/netRocksFullMp3Downloads
+http://aswaudio.swsgtv.libsynpro.com/rss
+http://audio.angularair.com/feed/
+http://feeds.codenewbie.org/basecs_podcast.xml
+https://changelog.com/master/feed
+https://rss.simplecast.com/podcasts/1252/rss
+https://rss.simplecast.com/podcasts/3295/rss
+http://coder.show/rss
+Coding Blocks,https://www.codingblocks.net/feed/podcast/
+https://completedeveloperpodcast.com/feed/podcast/
+https://cynicaldeveloper.com/feed/podcast/
+https://rss.simplecast.com/podcasts/363/rss
+https://feeds.feedburner.com/esc-podcast
+https://feeds.twit.tv/floss.xml
+https://rss.simplecast.com/podcasts/279/rss
+https://rss.simplecast.com/podcasts/5271/rss
+https://impostor-syndrome.squarespace.com/episodes?format=rss
+https://feeds.feedwrench.com/js-jabber.rss
+https://juniordevelopertoolbox.com/feed/podcast/
+https://learntocodewithme.libsyn.com/rss
+http://www.mergeconflict.fm/rss
+https://msdevshow.libsyn.com/rss
+https://feeds.feedburner.com/ProgrammingThrowdown
+https://simpleprogrammer.libsyn.com/rss
+https://softwareengineeringdaily.com/feed/podcast/
+https://shoptalkshow.com/feed/podcast
+https://feed.syntax.fm/rss
+https://talkpython.fm/episodes/rss
+https://threedevsandamaybe.com/podcast.xml
+https://rss.simplecast.com/podcasts/3342/rss
