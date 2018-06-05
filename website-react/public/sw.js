@@ -1,8 +1,10 @@
-var dataCacheName = 'podcasts-v1'
-var cacheName = 'podcasts'
-var filesToCache = [
+const dataCacheName = 'podcasts-data-v1'
+const cacheName = 'podcasts-v1'
+const filesToCache = [
   '/',
-  '/index.html'
+  '/index.html',
+  '/manifest.json',
+  '/favicon.ico'
 ]
 
 self.addEventListener('install', function (e) {
