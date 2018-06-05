@@ -17,6 +17,7 @@ import Playlist from './components/Main/Playlist'
 import NowPlaying from './components/NowPlaying.js'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
+import BackButton from './components/BackButton'
 
 export default connect(state => ({
   results: state.search.results,
@@ -38,6 +39,13 @@ export default connect(state => ({
 
       <Header>
         <Title>
+          {
+            currentSearch !== '' &&
+            <BackButton
+              onClick={actions.search.clearSearch}>
+              &lt;
+            </BackButton>
+          }
           <Subtitle>
             {
               currentSearch === ''
@@ -59,12 +67,12 @@ export default connect(state => ({
             />
             {
               currentSearch !== '' &&
-              <SearchResults
-                nowPlaying={nowPlaying}
-                results={results}
-                playlist={playlist}
-                currentSearch={currentSearch}
-              />
+                <SearchResults
+                  nowPlaying={nowPlaying}
+                  results={results}
+                  playlist={playlist}
+                  currentSearch={currentSearch}
+                />
             }
           </EpisodeList>
         </Card>

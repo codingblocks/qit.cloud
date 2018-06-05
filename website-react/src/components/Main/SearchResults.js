@@ -21,12 +21,6 @@ export const SearchResults = ({
       actions.search.clearSearch()
     }}
   >
-    <button
-      id='closeButton'
-      onClick={actions.search.clearSearch}
-    >
-      X
-    </button>
     {
       results.length === 0
         ? <p id='noResults'>No results were found. Please try again.</p>
@@ -55,10 +49,9 @@ export default styled(SearchResults)`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 100vh;
   overflow: scroll;
-  padding: 80px 10vw 130px 10vw;
+  padding: 80px 10% 130px 10%;
 
   background: rgba(255, 255, 255, 0.8);
   list-style: none;

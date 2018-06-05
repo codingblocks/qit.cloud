@@ -13,14 +13,15 @@ export const NowPlaying = ({className, nowPlaying, children}) => (
 )
 
 export default styled(NowPlaying)`
-  background: #359189;
   position: fixed;
   bottom: 0;
-  height: 130px;
+  height: 116px;
   width: 100vw;
+  max-width: 800px;
   border: solid 2px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
 
+  background: #359189;
   color: rgba(255, 255, 255, 0.9);
 
   #playerInfo {

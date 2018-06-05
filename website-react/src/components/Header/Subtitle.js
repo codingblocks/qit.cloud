@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.span`
-
+export default styled.div`
+    width: 100%;
+    text-align: center;
 `
