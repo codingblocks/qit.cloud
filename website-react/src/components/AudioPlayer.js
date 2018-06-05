@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export default styled.audio`
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
 
   &::-webkit-media-controls-panel {
