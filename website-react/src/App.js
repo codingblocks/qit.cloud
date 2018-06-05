@@ -72,15 +72,19 @@ export default connect(state => ({
 
       {
         nowPlaying.audioUrl &&
-          <NowPlaying nowPlaying={nowPlaying} />
+          <NowPlaying
+            nowPlaying={nowPlaying}
+          >
+            <AudioPlayer
+              controls
+              autoPlay
+              src={proxyUrl(nowPlaying.audioUrl)}
+              onEnded={actions.player.playNextEpisode}
+            />
+          </NowPlaying>
       }
 
-      <AudioPlayer
-        controls
-        autoPlay
-        src={proxyUrl(nowPlaying.audioUrl)}
-        onEnded={actions.player.playNextEpisode}
-      />
+
 
       { loading && <Loader /> }
 

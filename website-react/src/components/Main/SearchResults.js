@@ -58,7 +58,7 @@ export default styled(SearchResults)`
   width: 100vw;
   height: 100vh;
   overflow: scroll;
-  padding: 80px 10vw;
+  padding: 80px 10vw 130px 10vw;
 
   background: rgba(255, 255, 255, 0.8);
   list-style: none;
