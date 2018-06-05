@@ -10,7 +10,7 @@ export const AddToPlaylist = ({className, onClick, added}) => (
   >
     <img
       src={added ? AddedToPlaylistImage : AddToPlaylistImage}
-      alt='add to playlist'
+      alt='Add episode to playlist.'
     />
   </button>
 )
@@ -19,6 +19,7 @@ export default styled(AddToPlaylist)`
   border: none;
   float: right;
   background: transparent;
+
   img {
     width: 30px;
   }

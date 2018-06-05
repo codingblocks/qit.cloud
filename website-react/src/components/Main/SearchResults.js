@@ -14,16 +14,16 @@ export const SearchResults = ({
   nowPlaying,
   currentSearch
 }) => (
-  <div className={className}>
-    <button
-      id='closeButton'
-      onClick={actions.search.clearSearch}
-    >
-      X
-    </button>
+  <div
+    className={className}
+    onClick={event => {
+      if (event.target.nodeName !== 'DIV') return
+      actions.search.clearSearch()
+    }}
+  >
     {
       results.length === 0
-        ? `No results were found. Please try again.`
+        ? <p id='noResults'>No results were found. Please try again.</p>
         : results.map(episode =>
           <Episode
             onClick={() => actions.player.play(episode)}
@@ -49,13 +49,17 @@ export default styled(SearchResults)`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 100vh;
   overflow: scroll;
-  padding: 80px 10vw;
+  padding: 80px 10% 130px 10%;
 
   background: rgba(255, 255, 255, 0.8);
   list-style: none;
+
+  #noResults {
+    text-align: center;
+    font-size: 1.2rem;
+  }
 
   #closeButton {
     position: absolute;
