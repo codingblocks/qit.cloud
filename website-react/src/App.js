@@ -14,6 +14,7 @@ import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
 import SearchResults from './components/Main/SearchResults'
 import Playlist from './components/Main/Playlist'
+import NowPlaying from './components/NowPlaying.js'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
 
@@ -68,6 +69,11 @@ export default connect(state => ({
           </EpisodeList>
         </Card>
       </Main>
+
+      {
+        nowPlaying.audioUrl &&
+          <NowPlaying nowPlaying={nowPlaying} />
+      }
 
       <AudioPlayer
         controls

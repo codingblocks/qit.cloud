@@ -21,7 +21,10 @@ export const SearchResults = ({
       actions.search.clearSearch()
     }}
   >
-    <button id='closeButton'>
+    <button
+      id='closeButton'
+      onClick={actions.search.clearSearch}
+    >
       X
     </button>
     {
