@@ -23,12 +23,15 @@ export default ({results, playlist, nowPlaying}) => (
             <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
             <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
 
-            <PlayNextButton
-              onClick={event => {
-                event.stopPropagation()
-                actions.player.playNext(episode)
-              }}
-            />
+            {
+              playlist[0].audioUrl !== episode.audioUrl &&
+              <PlayNextButton
+                onClick={event => {
+                  event.stopPropagation()
+                  actions.player.playNext(episode)
+                }}
+              />
+            }
 
             <RemoveFromPlaylistButton
               onClick={event => {
