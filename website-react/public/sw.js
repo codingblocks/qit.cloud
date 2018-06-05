@@ -1,5 +1,5 @@
-const dataCacheName = 'podcasts-data-v1'
-const cacheName = 'podcasts-v1'
+const dataCacheName = 'podcasts-data-v2'
+const cacheName = 'podcasts-v2'
 const filesToCache = [
   '/',
   '/index.html',
