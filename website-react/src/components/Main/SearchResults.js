@@ -29,7 +29,7 @@ export const SearchResults = ({
     </button>
     {
       results.length === 0
-        ? <p id="noResults">No results were found. Please try again.</p>
+        ? <p id='noResults'>No results were found. Please try again.</p>
         : results.map(episode =>
           <Episode
             onClick={() => actions.player.play(episode)}

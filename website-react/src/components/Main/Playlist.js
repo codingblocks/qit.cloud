@@ -11,7 +11,7 @@ export default ({results, playlist, nowPlaying}) => (
   playlist.length === 0
     ? `No episodes added to your playlist yet.
     Go ahead and search for some episodes to add!`
-    : <div id="queue">
+    : <div id='queue'>
     Next in queue:
       {
         playlist.map(episode =>

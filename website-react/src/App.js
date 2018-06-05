@@ -84,8 +84,6 @@ export default connect(state => ({
           </NowPlaying>
       }
 
-
-
       { loading && <Loader /> }
 
     </Container>

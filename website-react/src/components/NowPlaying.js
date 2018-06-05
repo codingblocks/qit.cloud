@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export const NowPlaying = ({className, nowPlaying, children}) => (
   <div className={className}>
-    <div id="playerInfo">
-      <h2 id="nowPlaying">Now playing:</h2>
+    <div id='playerInfo'>
+      <h2 id='nowPlaying'>Now playing:</h2>
       <p id='episodeTitle'>{nowPlaying.episodeTitle}</p>
       <p id='podcastTitle'>{nowPlaying.podcastTitle}</p>
     </div>
