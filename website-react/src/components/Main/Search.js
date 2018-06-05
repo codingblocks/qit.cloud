@@ -22,6 +22,15 @@ export default styled(Search)`
   input {
     width: 100%;
     height: 60px;
-    font-size: 24pt;
+    font-size: 1.5rem;
+    border: solid 2px #359189;
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    input {
+      font-size: 1.2rem;
+    }
   }
 `

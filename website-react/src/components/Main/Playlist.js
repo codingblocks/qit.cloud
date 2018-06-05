@@ -11,20 +11,19 @@ export default ({results, playlist, nowPlaying}) => (
     ? `No episodes added to your playlist yet.
     Go ahead and search for some episodes to add!`
     : playlist.map(episode =>
-    <Episode
-      onClick={() => actions.player.play(episode)}
-      key={episode.id}
-      playing={episode.audioUrl === nowPlaying.audioUrl}
-    >
-      <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-      <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
-      <RemoveFromPlaylistButton
-        onClick={event => {
-          event.stopPropagation()
-          actions.player.removeFromPlaylist(episode.id)
-        }}
-      />
-    </Episode>
-  )
+      <Episode
+        onClick={() => actions.player.play(episode)}
+        key={episode.id}
+        playing={episode.audioUrl === nowPlaying.audioUrl}
+      >
+        <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
+        <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+        <RemoveFromPlaylistButton
+          onClick={event => {
+            event.stopPropagation()
+            actions.player.removeFromPlaylist(episode.id)
+          }}
+        />
+      </Episode>
+    )
 )
-

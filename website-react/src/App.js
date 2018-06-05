@@ -2,6 +2,8 @@ import React from 'react'
 import {connect, actions} from 'mirrorx'
 import config from './config'
 
+import {proxyUrl} from './helpers'
+
 import Container from './components/Container'
 import Header from './components/Header/'
 import Title from './components/Header/Title'
@@ -15,14 +17,6 @@ import SearchResults from './components/Main/SearchResults'
 import Playlist from './components/Main/Playlist'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
-
-let proxyUrl = (audioUrl) => {
-  if(audioUrl && audioUrl.startsWith("http://") && config.sslProxyUrl) {
-    return config.sslProxyUrl + audioUrl;
-    console.log('Proxying audio url: ' + audioUrl);
-  }
-  return audioUrl;
-}
 
 export default connect(state => ({
   results: state.search.results,
@@ -46,7 +40,7 @@ export default connect(state => ({
         <Title>
           <Subtitle>
             {
-              currentSearch.length === 0
+              currentSearch === ''
                 ? 'Search for a topic below'
                 : `${currentSearch}: ${results.length} episodes found`
             }
@@ -63,15 +57,15 @@ export default connect(state => ({
               nowPlaying={nowPlaying}
               playlist={playlist}
             />
-            <br />
-            <hr />
-            <br />
-            <SearchResults
-              nowPlaying={nowPlaying}
-              results={results}
-              playlist={playlist}
-              currentSearch={currentSearch}
-            />
+            {
+              currentSearch !== '' &&
+              <SearchResults
+                nowPlaying={nowPlaying}
+                results={results}
+                playlist={playlist}
+                currentSearch={currentSearch}
+              />
+            }
           </EpisodeList>
         </Card>
       </Main>
