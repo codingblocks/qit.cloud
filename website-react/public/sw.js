@@ -9,10 +9,12 @@ const filesToCache = [
 fetch('asset-manifest.json')
   .then(data => data.json())
   .then(files => {
-    for (const file of files) {
+    for (const file in files) {
       filesToCache.push(file)
     }
+    console.log(filesToCache)
   })
+  .catch(error => console.log(`Asset Manifest Error: ${error}`))
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
