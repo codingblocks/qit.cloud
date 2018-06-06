@@ -8,10 +8,10 @@ const filesToCache = [
 ]
 
 const getAllFilesToCache = async (filesToCache) => {
-  let files;
+  let files
 
   try {
-    files = await fetch('asset-manifest.json')
+    files = await window.fetch('asset-manifest.json')
       .then(data => data.json())
   } catch (error) {
     console.log(`Asset Manifest Error: ${error}`)
@@ -21,12 +21,12 @@ const getAllFilesToCache = async (filesToCache) => {
   return [...filepaths, ...filesToCache]
 }
 
-self.addEventListener('install', function (e) {
+this.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
   e.waitUntil(
     getAllFilesToCache(filesToCache)
       .then(files => {
-        caches.open(cacheName).then(cache => {
+        window.caches.open(cacheName).then(cache => {
           console.log('[ServiceWorker] Caching app shell')
           return cache.addAll(files)
         })
@@ -34,51 +34,27 @@ self.addEventListener('install', function (e) {
   )
 })
 
-self.addEventListener('activate', function (e) {
+this.addEventListener('activate', function (e) {
   console.log('[ServiceWorker] Activate')
   e.waitUntil(
-    caches.keys().then(function (keyList) {
+    window.caches.keys().then(function (keyList) {
       return Promise.all(keyList.map(function (key) {
         if (key !== cacheName && key !== dataCacheName) {
           console.log('[ServiceWorker] Removing old cache', key)
-          return caches.delete(key)
+          return window.caches.delete(key)
         }
       }))
     })
   )
-  return self.clients.claim()
+  return this.clients.claim()
 })
 
-self.addEventListener('fetch', function (e) {
+this.addEventListener('fetch', function (e) {
   console.log('[Service Worker] Fetch', e.request.url)
   // TODO last search!
   e.respondWith(
-    caches.match(e.request).then(function (response) {
-      return response || fetch(e.request)
+    window.caches.match(e.request).then(function (response) {
+      return response || window.fetch(e.request)
     })
   )
 })
-/* TODO Code from @Nicolas, check it out later!
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url)
-  if (url.pathname.endsWith('mp3')) {
-    event.respondWith(serveMp3(url))
-    return;
-  }
-  event.respondWith(
-    caches.match(url.pathname)
-      .then(response => response || fetch(url)
-      )
-  )
-});
-const serveMp3 = (url) => {
-  caches.open(dataCacheName).then(cache => {
-    cache.match(url).then(response => (
-      response || cacheAndFetch(cache, url)
-    ));
-  });
-};
-const cacheAndFetch = (cache, url) => {
-  cache.add(url);
-  return fetch(url);
-} */
