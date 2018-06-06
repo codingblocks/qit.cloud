@@ -1,5 +1,4 @@
 import mirror from 'mirrorx'
-import config from '../config'
 
 export default mirror.model({
   name: 'player',
@@ -15,15 +14,22 @@ export default mirror.model({
       return {...state, playlist: [...state.playlist, episode]}
     },
     removeFromPlaylist (state, episodeId) {
-      const playlist = state.playlist.filter(
-        episode => episode.id !== episodeId
-      )
+      const playlist = state.playlist
+        .filter(episode => episode.id !== episodeId)
       return {...state, playlist}
     },
     playNextEpisode (state) {
-      const playlist = state.playlist.slice()
-      const nowPlaying = playlist.shift()
+      const currentlyPlaying = state.nowPlaying
+      const playlist = state.playlist
+        .slice()
+        .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
+      const nowPlaying = playlist.shift() || {}
       return {...state, nowPlaying, playlist}
+    },
+    playNext (state, episode) {
+      const newPlaylist = state.playlist
+        .filter(item => item.audioUrl !== episode.audioUrl)
+      return {...state, playlist: [episode, ...newPlaylist]}
     }
   }
 })

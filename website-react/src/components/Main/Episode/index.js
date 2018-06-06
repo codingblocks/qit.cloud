@@ -8,4 +8,6 @@ export default styled.li`
   border: solid 1px rgba(0, 0, 0, 0.3);
   background-color: ${props => props.playing ? '#7FbFb8' : '#fafafa'};
   cursor: pointer;
+
+  width: 100%;
 `

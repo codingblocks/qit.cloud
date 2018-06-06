@@ -1,9 +1,20 @@
-var dataCacheName = 'podcasts-v1'
-var cacheName = 'podcasts'
-var filesToCache = [
+const dataCacheName = 'podcasts-data-v3'
+const cacheName = 'podcasts-v3'
+const filesToCache = [
   '/',
-  '/index.html'
+  '/index.html',
+  '/manifest.json',
+  '/favicon.ico'
 ]
+fetch('asset-manifest.json')
+  .then(data => data.json())
+  .then(files => {
+    for (const file in files) {
+      filesToCache.push(file)
+    }
+    console.log(filesToCache)
+  })
+  .catch(error => console.log(`Asset Manifest Error: ${error}`))
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')

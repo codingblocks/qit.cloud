@@ -1,8 +1,5 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
-import config from './config'
-
-import {proxyUrl} from './helpers'
 
 import Container from './components/Container'
 import Header from './components/Header/'
@@ -15,8 +12,10 @@ import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
 import SearchResults from './components/Main/SearchResults'
 import Playlist from './components/Main/Playlist'
+import NowPlaying from './components/NowPlaying.js'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
+import BackButton from './components/BackButton'
 
 export default connect(state => ({
   results: state.search.results,
@@ -38,6 +37,13 @@ export default connect(state => ({
 
       <Header>
         <Title>
+          {
+            currentSearch !== '' &&
+            <BackButton
+              onClick={actions.search.clearSearch}>
+              &lt;
+            </BackButton>
+          }
           <Subtitle>
             {
               currentSearch === ''
@@ -59,23 +65,30 @@ export default connect(state => ({
             />
             {
               currentSearch !== '' &&
-              <SearchResults
-                nowPlaying={nowPlaying}
-                results={results}
-                playlist={playlist}
-                currentSearch={currentSearch}
-              />
+                <SearchResults
+                  nowPlaying={nowPlaying}
+                  results={results}
+                  playlist={playlist}
+                  currentSearch={currentSearch}
+                />
             }
           </EpisodeList>
         </Card>
       </Main>
 
-      <AudioPlayer
-        controls
-        autoPlay
-        src={proxyUrl(nowPlaying.audioUrl)}
-        onEnded={actions.player.playNextEpisode}
-      />
+      {
+        nowPlaying.audioUrl &&
+          <NowPlaying
+            nowPlaying={nowPlaying}
+          >
+            <AudioPlayer
+              controls
+              autoPlay
+              src={nowPlaying.audioUrl}
+              onEnded={actions.player.playNextEpisode}
+            />
+          </NowPlaying>
+      }
 
       { loading && <Loader /> }
 
