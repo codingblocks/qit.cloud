@@ -1,5 +1,5 @@
-const dataCacheName = 'podcasts-data-v4'
-const cacheName = 'podcasts-v4'
+const dataCacheName = 'podcasts-data-v5'
+const cacheName = 'podcasts-v5'
 const filesToCache = [
   '/',
   '/index.html',
@@ -17,7 +17,7 @@ const getAllFilesToCache = async (filesToCache) => {
     console.log(`Asset Manifest Error: ${error}`)
   }
 
-  const filepaths = Object.values(files)
+  const filepaths = files ? Object.values(files) : []
   return [...filepaths, ...filesToCache]
 }
 
