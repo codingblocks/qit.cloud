@@ -50,6 +50,7 @@ export default styled(SearchResults)`
   top: 0;
   left: 0;
   height: 100vh;
+  width: 100%;
   overflow: scroll;
   padding: 80px 10% 130px 10%;
 
@@ -57,6 +58,7 @@ export default styled(SearchResults)`
   list-style: none;
 
   #noResults {
+    margin-top: 100px;
     text-align: center;
     font-size: 1.2rem;
   }

@@ -1,11 +1,18 @@
-const dataCacheName = 'podcasts-data-v2'
-const cacheName = 'podcasts-v2'
+const dataCacheName = 'podcasts-data-v3'
+const cacheName = 'podcasts-v3'
 const filesToCache = [
   '/',
   '/index.html',
   '/manifest.json',
   '/favicon.ico'
 ]
+fetch('asset-manifest.json')
+  .then(data => data.json())
+  .then(files => {
+    for (const file of files) {
+      filesToCache.push(file)
+    }
+  })
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
