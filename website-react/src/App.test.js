@@ -10,4 +10,4 @@ it('renders without crashing', () => {
 */
 // replacement test while real tests are not written
 
-it('should run smoke test', () => console.log('write real tests'));
+window.it('should run smoke test', () => console.log('write real tests'))

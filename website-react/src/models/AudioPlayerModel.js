@@ -17,25 +17,25 @@ export default mirror.model({
   reducers: {
     play (state, episode) {
       gtag('event', 'play', {
-        'event_category' : 'audio',
-        'event_label' : episode.audioUrl
+        'event_category': 'audio',
+        'event_label': episode.audioUrl
       })
       return {...state, nowPlaying: episode}
     },
     addToPlaylist (state, episode) {
       gtag('event', 'add_to_playlist', {
-        'event_category' : 'audio',
-        'event_label' : episode.audioUrl
+        'event_category': 'audio',
+        'event_label': episode.audioUrl
       })
       return {...state, playlist: [...state.playlist, episode]}
     },
     removeFromPlaylist (state, episodeId) {
       const removedEpisode = getEpisodeById(state.playlist, episodeId)
 
-      if(removedEpisode) { 
+      if (removedEpisode) {
         gtag('event', 'remove_from_playlist', {
-          'event_category' : 'audio',
-          'event_label' : removedEpisode.audioUrl
+          'event_category': 'audio',
+          'event_label': removedEpisode.audioUrl
         })
       }
 
@@ -51,18 +51,18 @@ export default mirror.model({
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
       const nowPlaying = playlist.shift() || {}
       gtag('event', 'play_next_episode', {
-        'event_category' : 'audio',
-        'event_label' : (nowPlaying || {}).audioUrl
+        'event_category': 'audio',
+        'event_label': (nowPlaying || {}).audioUrl
       })
       return {...state, nowPlaying, playlist}
     },
     playNext (state, episode) {
       const newPlaylist = state.playlist
         .filter(item => item.audioUrl !== episode.audioUrl)
-        gtag('event', 'play_next', {
-          'event_category' : 'audio',
-          'event_label' : episode.audioUrl
-        })
+      gtag('event', 'play_next', {
+        'event_category': 'audio',
+        'event_label': episode.audioUrl
+      })
       return {...state, playlist: [episode, ...newPlaylist]}
     }
   }
