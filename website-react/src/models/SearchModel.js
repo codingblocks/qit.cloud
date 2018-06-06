@@ -16,7 +16,7 @@ export default mirror.model({
     updateResults (state, results) {
       window.gtag('event', 'search', {
         search_term: state.searchTerm
-      });
+      })
       return {
         ...state,
         results,
