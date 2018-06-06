@@ -1,15 +1,15 @@
+/* eslint-env mocha */
+
 'use strict'
 
-const errorMonitoring = require('../src/errorMonitoring'),
-  expect = require('chai').expect,
-  context = {error: function(){}, log: function() {}};
+const errorMonitoring = require('../src/errorMonitoring')
 
 // TODO Better tests!
 
 describe('Error Monitoring', () => {
   describe('callback', () => {
     it('should do its thing without error', () => {
-        errorMonitoring.notify('Testing error reporting');
-    });
+      errorMonitoring.notify('Testing error reporting')
+    })
   })
 })
