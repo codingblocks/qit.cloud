@@ -7,7 +7,7 @@ const filesToCache = [
   '/favicon.ico'
 ]
 
-const getAssetManifestFiles = async () => {
+const getAllFilesToCache = async (filesToCache) => {
   let files;
 
   try {
@@ -18,16 +18,19 @@ const getAssetManifestFiles = async () => {
   }
 
   const filepaths = Object.values(files)
-  return filepaths || []
+  return [...filepaths, ...filesToCache]
 }
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
   e.waitUntil(
-    caches.open(cacheName).then(function (cache) {
-      console.log('[ServiceWorker] Caching app shell')
-      return cache.addAll(filesToCache)
-    })
+    getAllFilesToCache(filesToCache)
+      .then(files => {
+        caches.open(cacheName).then(cache => {
+          console.log('[ServiceWorker] Caching app shell')
+          return cache.addAll(files)
+        })
+      })
   )
 })
 
