@@ -1,20 +1,25 @@
-const dataCacheName = 'podcasts-data-v3'
-const cacheName = 'podcasts-v3'
+const dataCacheName = 'podcasts-data-v4'
+const cacheName = 'podcasts-v4'
 const filesToCache = [
   '/',
   '/index.html',
   '/manifest.json',
   '/favicon.ico'
 ]
-fetch('asset-manifest.json')
-  .then(data => data.json())
-  .then(files => {
-    for (const file in files) {
-      filesToCache.push(file)
-    }
-    console.log(filesToCache)
-  })
-  .catch(error => console.log(`Asset Manifest Error: ${error}`))
+
+const getAssetManifestFiles = async () => {
+  let files;
+
+  try {
+    files = await fetch('asset-manifest.json')
+      .then(data => data.json())
+  } catch (error) {
+    console.log(`Asset Manifest Error: ${error}`)
+  }
+
+  const filepaths = Object.values(files)
+  return filepaths || []
+}
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
