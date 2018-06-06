@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
 
-import {proxyUrl} from './helpers'
-
 import Container from './components/Container'
 import Header from './components/Header/'
 import Title from './components/Header/Title'
@@ -86,7 +84,7 @@ export default connect(state => ({
             <AudioPlayer
               controls
               autoPlay
-              src={proxyUrl(nowPlaying.audioUrl)}
+              src={nowPlaying.audioUrl}
               onEnded={actions.player.playNextEpisode}
             />
           </NowPlaying>
