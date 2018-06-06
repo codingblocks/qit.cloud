@@ -26,6 +26,30 @@ To auto-lint, just run:
 ```bash
 standard --fix
 ```
+#### Vladimir`s version of docker
+Before running dockers, run
+```bash
+docker network create codingblocks
+```
+so that in future containers are able to see each others, within this network
+
+###### Spin docker containers
+Go to desired folder.
+```
+# test docker enviroment bindings before creating containers
+docker-compose config
+
+# start local development
+docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+```
+
+Command to stop container:
+
+```bash
+
+# to stop containers
+docker-compose stop
+```
 
 ## SSL Proxy
 

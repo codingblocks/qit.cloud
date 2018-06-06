@@ -4,11 +4,16 @@
   "description": "Reverse proxy to provide https access to non-http targets",
   "main": "sslProxy.js",
   "scripts": {
-    "start": "node sslProxy"
+    "start": "node sslProxy",
+    "lint": "standard --fix",
+    "test": "echo 'write real tests'"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "http-proxy": "^1.17.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
   }
 }
