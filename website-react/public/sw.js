@@ -17,7 +17,7 @@ const getAllFilesToCache = async (filesToCache) => {
     console.log(`Asset Manifest Error: ${error}`)
   }
 
-  const filepaths = Object.values(files)
+  const filepaths = files ? Object.values(files) : []
   return [...filepaths, ...filesToCache]
 }
 
