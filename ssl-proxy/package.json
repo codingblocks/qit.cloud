@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node sslProxy",
     "lint": "standard --fix",
-    "test": "echo 'write real tests'"
+    "test": "echo 'write real tests'",
+    "travisLint": "standard"
   },
   "author": "",
   "license": "MIT",

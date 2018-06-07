@@ -1,10 +1,10 @@
-var http = require('http')
-var httpProxy = require('http-proxy')
+const http = require('http')
+const httpProxy = require('http-proxy')
 
-var proxy = httpProxy.createProxyServer({})
+const proxy = httpProxy.createProxyServer({})
 
-var server = http.createServer(function (req, res) {
-  var target = 'http://localhost:8000'
+const server = http.createServer(function (req, res) {
+  let target = 'http://localhost:8000'
   if (req.url) {
     target = req.url.split('?url=')[1]
   } else {
