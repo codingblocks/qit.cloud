@@ -1,5 +1,8 @@
-const dataCacheName = 'podcasts-data-v5'
-const cacheName = 'podcasts-v5'
+/* eslint-env serviceworker */
+/* global fetch */
+
+const dataCacheName = 'podcasts-data-v6'
+const cacheName = 'podcasts-v6'
 const filesToCache = [
   '/',
   '/index.html',
@@ -8,7 +11,7 @@ const filesToCache = [
 ]
 
 const getAllFilesToCache = async (filesToCache) => {
-  let files;
+  let files
 
   try {
     files = await fetch('asset-manifest.json')
@@ -58,27 +61,3 @@ self.addEventListener('fetch', function (e) {
     })
   )
 })
-/* TODO Code from @Nicolas, check it out later!
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url)
-  if (url.pathname.endsWith('mp3')) {
-    event.respondWith(serveMp3(url))
-    return;
-  }
-  event.respondWith(
-    caches.match(url.pathname)
-      .then(response => response || fetch(url)
-      )
-  )
-});
-const serveMp3 = (url) => {
-  caches.open(dataCacheName).then(cache => {
-    cache.match(url).then(response => (
-      response || cacheAndFetch(cache, url)
-    ));
-  });
-};
-const cacheAndFetch = (cache, url) => {
-  cache.add(url);
-  return fetch(url);
-} */

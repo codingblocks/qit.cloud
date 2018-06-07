@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  podcast-feed-loader:
+    env_file: podcast-feed-loader/.env
+    container_name: "coding-blocks-feed-loader"
+    build:
+      context: podcast-feed-loader/.
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        PORT: ${PODCAST_PORT}
+    environment:
+      - 'PORT=${PODCAST_PORT}'
+    ports:
+      - '${PODCAST_PORT}:${PODCAST_PORT}'
+    networks:
+      - codingblocks
+      
+  ssl-proxy:
+    env_file: ssl-proxy/.env
+    container_name: "coding-blocks-proxy"
+    build:
+      context: ssl-proxy/.
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        PORT: ${SSL_PORT}
+    environment:
+      - 'PORT=${SSL_PORT}'
+    ports:
+      - "${SSL_PORT}:${SSL_PORT}"
+    networks:
+      - codingblocks
+    restart: 'always'
+    command: pm2-docker start /app/pm2.json --web 4545
+
+  website:
+    env_file: website-react/.env
+    container_name: "coding-blocks-website"
+    build:
+      context: website-react/.
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        PORT: ${WEBSITE_PORT}
+    environment:
+      - 'PORT=${WEBSITE_PORT}'
+    ports:
+      - '${WEBSITE_PORT}:${WEBSITE_PORT}'
+    networks:
+      - codingblocks
+    restart: 'always'
+    command: npm start
+
+networks:
+  codingblocks:
+    external: true

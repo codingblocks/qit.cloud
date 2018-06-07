@@ -6,7 +6,7 @@ services:
     container_name: "coding-blocks-feed-loader"
     build:
       context: .
-      dockerfile: Dockerfile.podcast-feed-loader
+      dockerfile: Dockerfile
       args:
         NODE_ENV: production
         PORT: ${PORT}

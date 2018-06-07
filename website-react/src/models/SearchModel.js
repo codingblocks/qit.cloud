@@ -45,10 +45,10 @@ export default mirror.model({
           'api-key': config.apiKey
         }
       }
-      const response = await fetch(url, options)
+      const response = await window.fetch(url, options)
         .then(data => data.json())
-        .catch(console.log)
-
+        .catch(err => 'An error has occurred: ' + err)
+      
       actions.search.stopLoading()
       actions.search.updateResults(response.value)
     }
