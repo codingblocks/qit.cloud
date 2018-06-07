@@ -26,7 +26,7 @@ const line = keyframes`
 
 export const LoaderCircle = styled.circle`
   box-sizing: border-box;
-  stroke: #359189;
+  stroke: #ff9a02;
   stroke-width: 3px;
   transform-origin: 50%;
   animation: ${line} 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, ${rotate} 1.6s linear infinite;
