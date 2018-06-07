@@ -7,6 +7,10 @@ Ok so yeah, the title needs work, but the idea is to let programmers find and li
 
 Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
+### Important Note!
+
+Currently any changes to the website project require bumping the service worker version. See [issue #28](https://github.com/codingblocks/podcast-app/issues/28)
+
 ## Running the website
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
