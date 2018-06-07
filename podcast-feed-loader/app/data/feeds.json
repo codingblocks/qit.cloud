@@ -1,0 +1,159 @@
+{
+  "feeds": [
+    {
+      "titleCleanser": null,
+      "url": "https://6figuredev.com/feed/podcast",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/netRocksFullMp3Downloads",
+      "title": ".NET Rocks!"
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://aswaudio.swsgtv.libsynpro.com/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://audio.angularair.com/feed/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://feeds.codenewbie.org/basecs_podcast.xml",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://changelog.com/master/feed",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/1252/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/3295/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://coder.show/rss",
+      "title": "Coding Blocks"
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://www.codingblocks.net/feed/podcast/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://completedeveloperpodcast.com/feed/podcast/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://cynicaldeveloper.com/feed/podcast/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/363/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/esc-podcast",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.twit.tv/floss.xml",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/279/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/5271/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://impostor-syndrome.squarespace.com/episodes?format=rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedwrench.com/js-jabber.rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://juniordevelopertoolbox.com/feed/podcast/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://learntocodewithme.libsyn.com/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://www.mergeconflict.fm/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://msdevshow.libsyn.com/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/ProgrammingThrowdown",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://simpleprogrammer.libsyn.com/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://softwareengineeringdaily.com/feed/podcast/",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://shoptalkshow.com/feed/podcast",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feed.syntax.fm/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://talkpython.fm/episodes/rss",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://threedevsandamaybe.com/podcast.xml",
+      "title": null
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/3342/rss",
+      "title": null
+    }
+  ]
+}
