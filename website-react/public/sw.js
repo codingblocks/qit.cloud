@@ -1,7 +1,8 @@
 /* eslint-env serviceworker */
+/* global fetch */
 
-const dataCacheName = 'podcasts-data-v5'
-const cacheName = 'podcasts-v5'
+const dataCacheName = 'podcasts-data-v6'
+const cacheName = 'podcasts-v6'
 const filesToCache = [
   '/',
   '/index.html',
@@ -13,7 +14,7 @@ const getAllFilesToCache = async (filesToCache) => {
   let files
 
   try {
-    files = await window.fetch('asset-manifest.json')
+    files = await fetch('asset-manifest.json')
       .then(data => data.json())
   } catch (error) {
     console.log(`Asset Manifest Error: ${error}`)
@@ -56,7 +57,7 @@ self.addEventListener('fetch', function (e) {
   // TODO last search!
   e.respondWith(
     caches.match(e.request).then(function (response) {
-      return response || window.fetch(e.request)
+      return response || fetch(e.request)
     })
   )
 })
