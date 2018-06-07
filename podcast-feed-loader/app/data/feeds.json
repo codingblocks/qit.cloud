@@ -1,7 +1,7 @@
 {
   "feeds": [
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+\\s[-|–]\\s",
       "url": "https://6figuredev.com/feed/podcast",
       "title": null
     },
@@ -11,27 +11,27 @@
       "title": ".NET Rocks!"
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "\\s-\\sApplication\\sSecurity\\sWeekly\\s#\\d+$",
       "url": "http://aswaudio.swsgtv.libsynpro.com/rss",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^(?:(?:(?:ngAir)|(?:\\d+))\\s){2}-\\s",
       "url": "http://audio.angularair.com/feed/",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^S\\d+:E\\d+\\s-\\s",
       "url": "http://feeds.codenewbie.org/basecs_podcast.xml",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^[\\w\\s]+\\s-\\s\\d+:\\s",
       "url": "https://changelog.com/master/feed",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1252/rss",
       "title": null
     },
@@ -41,14 +41,14 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "(?:\\s\\|\\sCR\\s\\d+$)|(?:^Episode\\s\\d+:\\s)",
       "url": "http://coder.show/rss",
-      "title": "Coding Blocks"
+      "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+.\\s",
       "url": "https://www.codingblocks.net/feed/podcast/",
-      "title": null
+      "title": "Coding Blocks"
     },
     {
       "titleCleanser": null,
@@ -56,7 +56,7 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s+\\d+\\s+[-|–]\\s",
       "url": "https://cynicaldeveloper.com/feed/podcast/",
       "title": null
     },
@@ -71,12 +71,12 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^FLOSS\\sWeekly\\s\\d+:\\s",
       "url": "https://feeds.twit.tv/floss.xml",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/279/rss",
       "title": null
     },
@@ -86,27 +86,27 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://impostor-syndrome.squarespace.com/episodes?format=rss",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^JSJ\\s\\d+:\\s",
       "url": "https://feeds.feedwrench.com/js-jabber.rss",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s+\\d+\\s+[-|–]\\s",
       "url": "https://juniordevelopertoolbox.com/feed/podcast/",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^S\\d+E\\d+:\\s",
       "url": "https://learntocodewithme.libsyn.com/rss",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Merge\\sConflict\\s\\d+:\\s",
       "url": "http://www.mergeconflict.fm/rss",
       "title": null
     },
@@ -121,7 +121,7 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+\\s|(\\s-\\sSimple\\sProgrammer\\sPodcast$)",
       "url": "https://simpleprogrammer.libsyn.com/rss",
       "title": null
     },
@@ -131,7 +131,7 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://shoptalkshow.com/feed/podcast",
       "title": null
     },
@@ -141,17 +141,17 @@
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^#\\d+\\s",
       "url": "https://talkpython.fm/episodes/rss",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://threedevsandamaybe.com/podcast.xml",
       "title": null
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/3342/rss",
       "title": null
     }
