@@ -21,6 +21,7 @@ export const SearchResults = ({
       actions.search.clearSearch()
     }}
   >
+    <b>{`${results.length} results for "${currentSearch}"`}</b>
     {
       results.length === 0
         ? <p id='noResults'>No results were found. Please try again.</p>

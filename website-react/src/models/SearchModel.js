@@ -11,7 +11,7 @@ export default mirror.model({
   },
   reducers: {
     updateSearchTerm (state, searchTerm) {
-      return {...state, searchTerm }
+      return {...state, searchTerm}
     },
     updateResults (state, results) {
       window.gtag('event', 'search', {
@@ -47,7 +47,7 @@ export default mirror.model({
       }
       const response = await fetch(url, options)
         .then(data => data.json())
-        .catch(err => 'An error has occurred.')
+        .catch(console.log)
 
       actions.search.stopLoading()
       actions.search.updateResults(response.value)
