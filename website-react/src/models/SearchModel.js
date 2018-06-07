@@ -48,7 +48,7 @@ export default mirror.model({
       const response = await window.fetch(url, options)
         .then(data => data.json())
         .catch(err => 'An error has occurred: ' + err)
-
+      
       actions.search.stopLoading()
       actions.search.updateResults(response.value)
     }
