@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  api:
+    volumes:
+      - ./:/home/app/podcast-feed-loader
+    command: npm run start

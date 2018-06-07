@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    env_file: .env
+    container_name: "coding-blocks-feed-loader"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        PORT: ${PORT}
+    environment:
+      - 'PORT=${PORT}'
+    ports:
+      - '${PORT}:${PORT}'
+    networks:
+      - codingblocks
+networks:
+  codingblocks:
+    external: true

@@ -1,5 +1,24 @@
+# dependencies
 node_modules
-package-lock.json
+/ts-node-*
+
+# IDE
+/.idea
+/.awcache
+/.vscode
+
+# misc
 npm-debug.log
-.env
+
+# example
+/quick-start
+
+# tests
+/test
+/coverage
+/.nyc_output
+
+# dist
+/dist
+package-lock.json
 .DS_Store

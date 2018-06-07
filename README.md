@@ -7,6 +7,10 @@ Ok so yeah, the title needs work, but the idea is to let programmers find and li
 
 Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
+### Important Note!
+
+Currently any changes to the website project require bumping the service worker version. See [issue #28](https://github.com/codingblocks/podcast-app/issues/28)
+
 ## Running the website
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
@@ -25,6 +29,30 @@ To auto-lint, just run:
 
 ```bash
 standard --fix
+```
+#### Vladimir`s version of docker
+Before running dockers, run
+```bash
+docker network create codingblocks
+```
+so that in future containers are able to see each others, within this network
+
+###### Spin docker containers
+Go to desired folder.
+```
+# test docker enviroment bindings before creating containers
+docker-compose config
+
+# start local development
+docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+```
+
+Command to stop container:
+
+```bash
+
+# to stop containers
+docker-compose stop
 ```
 
 ## SSL Proxy

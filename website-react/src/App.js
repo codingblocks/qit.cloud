@@ -1,22 +1,23 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
-import config from './config'
-
-import {proxyUrl} from './helpers'
 
 import Container from './components/Container'
 import Header from './components/Header/'
 import Title from './components/Header/Title'
+import Search from './components/Header/Search'
 import Logo from './components/Header/Logo'
 import Subtitle from './components/Header/Subtitle'
 import Main from './components/Main/'
-import Search from './components/Main/Search'
 import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
 import SearchResults from './components/Main/SearchResults'
-import Playlist from './components/Main/Playlist'
+import Queue from './components/Main/Queue'
+import NowPlaying from './components/NowPlaying.js'
 import AudioPlayer from './components/AudioPlayer'
 import Loader from './components/Loader'
+import BackButton from './components/BackButton'
+
+import {proxyUrl} from './helpers'
 
 export default connect(state => ({
   results: state.search.results,
@@ -38,12 +39,15 @@ export default connect(state => ({
 
       <Header>
         <Title>
+          {
+            currentSearch !== '' &&
+            <BackButton
+              onClick={actions.search.clearSearch}>
+              &lt;
+            </BackButton>
+          }
           <Subtitle>
-            {
-              currentSearch === ''
-                ? 'Search for a topic below'
-                : `${currentSearch}: ${results.length} episodes found`
-            }
+            <Search searchTerm={searchTerm} />
           </Subtitle>
           <Logo>qit</Logo>
         </Title>
@@ -51,31 +55,38 @@ export default connect(state => ({
 
       <Main>
         <Card>
-          <Search searchTerm={searchTerm} />
           <EpisodeList>
-            <Playlist
+            <Queue
               nowPlaying={nowPlaying}
               playlist={playlist}
+              blur={currentSearch !== ''}
             />
             {
               currentSearch !== '' &&
-              <SearchResults
-                nowPlaying={nowPlaying}
-                results={results}
-                playlist={playlist}
-                currentSearch={currentSearch}
-              />
+                <SearchResults
+                  nowPlaying={nowPlaying}
+                  results={results}
+                  playlist={playlist}
+                  currentSearch={currentSearch}
+                />
             }
           </EpisodeList>
         </Card>
       </Main>
 
-      <AudioPlayer
-        controls
-        autoPlay
-        src={proxyUrl(nowPlaying.audioUrl)}
-        onEnded={actions.player.playNextEpisode}
-      />
+      {
+        nowPlaying.audioUrl &&
+          <NowPlaying
+            nowPlaying={nowPlaying}
+          >
+            <AudioPlayer
+              controls
+              autoPlay
+              src={proxyUrl(nowPlaying.audioUrl)}
+              onEnded={actions.player.playNextEpisode}
+            />
+          </NowPlaying>
+      }
 
       { loading && <Loader /> }
 

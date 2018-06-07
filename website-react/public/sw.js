@@ -1,17 +1,39 @@
-var dataCacheName = 'podcasts-v1'
-var cacheName = 'podcasts'
-var filesToCache = [
+/* eslint-env serviceworker */
+/* global fetch */
+
+const dataCacheName = 'podcasts-data-v6'
+const cacheName = 'podcasts-v6'
+const filesToCache = [
   '/',
-  '/index.html'
+  '/index.html',
+  '/manifest.json',
+  '/favicon.ico'
 ]
+
+const getAllFilesToCache = async (filesToCache) => {
+  let files
+
+  try {
+    files = await fetch('asset-manifest.json')
+      .then(data => data.json())
+  } catch (error) {
+    console.log(`Asset Manifest Error: ${error}`)
+  }
+
+  const filepaths = files ? Object.values(files) : []
+  return [...filepaths, ...filesToCache]
+}
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Install')
   e.waitUntil(
-    caches.open(cacheName).then(function (cache) {
-      console.log('[ServiceWorker] Caching app shell')
-      return cache.addAll(filesToCache)
-    })
+    getAllFilesToCache(filesToCache)
+      .then(files => {
+        caches.open(cacheName).then(cache => {
+          console.log('[ServiceWorker] Caching app shell')
+          return cache.addAll(files)
+        })
+      })
   )
 })
 
@@ -39,27 +61,3 @@ self.addEventListener('fetch', function (e) {
     })
   )
 })
-/* TODO Code from @Nicolas, check it out later!
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url)
-  if (url.pathname.endsWith('mp3')) {
-    event.respondWith(serveMp3(url))
-    return;
-  }
-  event.respondWith(
-    caches.match(url.pathname)
-      .then(response => response || fetch(url)
-      )
-  )
-});
-const serveMp3 = (url) => {
-  caches.open(dataCacheName).then(cache => {
-    cache.match(url).then(response => (
-      response || cacheAndFetch(cache, url)
-    ));
-  });
-};
-const cacheAndFetch = (cache, url) => {
-  cache.add(url);
-  return fetch(url);
-} */
