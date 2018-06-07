@@ -1,33 +1,24 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {actions} from 'mirrorx'
 import styled from 'styled-components'
 
-export class Search extends Component {
-  constructor (props) {
-    super(props)
-    this.input = React.createRef()
-  }
-
-  render () {
-    const {className, searchTerm} = this.props
-    return (
-      <form
-        className={className}
-        onSubmit={event => {
-          event.preventDefault()
-          actions.search.search()
-        }}
-      >
-        <input
-          ref={this.input}
-          placeholder='Search for a great podcast here!'
-          value={searchTerm}
-          onChange={event => actions.search.updateSearchTerm(event.target.value)}
-        />
-      </form>
-    )
-  }
-}
+export const Search = ({className, searchTerm}) => (
+  <form
+    className={className}
+    onSubmit={event => {
+      event.target.querySelector('input').blur()
+      event.preventDefault()
+      actions.search.search()
+    }}
+  >
+    <input
+      ref={this.input}
+      placeholder='Search for a great podcast here!'
+      value={searchTerm}
+      onChange={event => actions.search.updateSearchTerm(event.target.value)}
+    />
+  </form>
+)
 
 export default styled(Search)`
   input {
