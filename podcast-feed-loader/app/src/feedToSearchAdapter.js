@@ -20,7 +20,7 @@
     return errors
   }
 
-  let convert = function (data, feedUrl, overrideTitle) {
+  let convert = function (data, feedUrl, overrideTitle, titleCleanser) {
     let result = {
       feedUrl: feedUrl,
       title: overrideTitle || (data ? data.title : null),
@@ -48,7 +48,7 @@
         result.updateFeed.push({
           id: episode.guid.replace(/[^a-zA-Z0-9]+/g, '_'),
           podcastTitle: overrideTitle || data.title,
-          episodeTitle: episode.title,
+          episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
           published: episode.published,
           audioUrl: episode.enclosure.url
@@ -57,6 +57,14 @@
     }
 
     return result
+  }
+
+  let cleanseTitle = function (title, cleanser) {
+    if (!cleanser) {
+      return title
+    }
+    const regex = new RegExp(cleanser, 'g')
+    return title.replace(regex, '')
   }
 
   module.exports.convert = convert

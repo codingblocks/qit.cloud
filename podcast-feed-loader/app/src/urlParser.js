@@ -6,6 +6,7 @@ const feedToSearchAdapter = require('./feedToSearchAdapter')
 exports.parse = function (feed, onLoadCallback) {
   let feedUrl = feed.url // This is required
   let overrideTitle = feed.title || null
+  let titleCleanser = feed.titleCleanser || null
 
   request(feedUrl, (err, res, data) => {
     if (err) {
@@ -23,7 +24,7 @@ exports.parse = function (feed, onLoadCallback) {
         }
       }
 
-      const result = feedToSearchAdapter.convert(data, feedUrl, overrideTitle)
+      const result = feedToSearchAdapter.convert(data, feedUrl, overrideTitle, titleCleanser)
 
       if (onLoadCallback) {
         onLoadCallback(result)

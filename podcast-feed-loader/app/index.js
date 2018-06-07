@@ -1,8 +1,6 @@
 module.exports = function (context, myTimer) {
   var timeStamp = new Date().toISOString()
 
-  // ./src/multiUrlLoader.js data/feeds.txt
-
   if (myTimer.isPastDue) {
     context.log('JavaScript is running late!')
   }

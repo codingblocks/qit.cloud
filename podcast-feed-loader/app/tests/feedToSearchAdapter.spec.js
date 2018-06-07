@@ -112,5 +112,29 @@ describe('Feed Adapter', () => {
       expect(result.errors).to.have.lengthOf(0)
       expect(result.updateFeed[0].podcastTitle).to.equal('custom title')
     })
+
+    it('should apply title cleansers', () => {
+      let result = feed.convert(
+        { episodes: [ Object.assign(validEpisode, {title: '41. testing'}) ] },
+        'myurl',
+        null,
+        '^\\d+.\\s'
+      )
+
+      expect(result.errors).to.have.lengthOf(0)
+      expect(result.updateFeed[0].episodeTitle).to.equal('testing')
+    })
+
+    it('should apply title cleansers globally', () => {
+      let result = feed.convert(
+        { episodes: [ Object.assign(validEpisode, {title: '693 When Should I Optimize An Application/Software? (Before or After Launch?) - Simple Programmer Podcast'}) ] },
+        'myurl',
+        null,
+        '^\\d+\\s|(\\s-\\sSimple\\sProgrammer\\sPodcast$)'
+      )
+
+      expect(result.errors).to.have.lengthOf(0)
+      expect(result.updateFeed[0].episodeTitle).to.equal('When Should I Optimize An Application/Software? (Before or After Launch?)')
+    })
   })
 })
