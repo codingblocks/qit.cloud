@@ -2,7 +2,7 @@
 /* global fetch */
 
 const dataCacheName = 'podcasts-data-v8'
-const cacheName = 'podcasts-v8'
+const cacheName = 'podcasts-{{GENERATED_DO_NOT_CHANGE_THIS}}'
 const filesToCache = [
   '/',
   '/index.html',
