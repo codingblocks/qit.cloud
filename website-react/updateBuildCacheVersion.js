@@ -21,7 +21,7 @@ hashElement('.', options)
       let result = data.replace(/{{GENERATED_DO_NOT_CHANGE_THIS}}/g, buildSuffix)
 
       fs.writeFile(serviceWorker, result, 'utf8', function (err) {
-        if (err) return console.log(err)
+        if (err) { return console.log(err) }
       })
     })
   })
