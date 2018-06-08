@@ -1,8 +1,8 @@
 /* eslint-env serviceworker */
 /* global fetch */
 
-const dataCacheName = 'podcasts-data-v8'
-const cacheName = 'podcasts-v8'
+const dataCacheName = 'podcasts-data-v9'
+const cacheName = 'podcasts-v9'
 const filesToCache = [
   '/',
   '/index.html',
