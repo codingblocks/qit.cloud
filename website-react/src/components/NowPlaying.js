@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const NowPlaying = ({className, nowPlaying, children}) => (
   <div className={className}>
@@ -11,6 +12,16 @@ export const NowPlaying = ({className, nowPlaying, children}) => (
     {children}
   </div>
 )
+
+NowPlaying.defaultProps = {
+  className: '',
+  nowPlaying: {}
+}
+
+NowPlaying.propTypes = {
+  className: PropTypes.string,
+  nowPlaying: PropTypes.object
+}
 
 export default styled(NowPlaying)`
   position: fixed;

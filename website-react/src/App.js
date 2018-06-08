@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect, actions} from 'mirrorx'
+import PropTypes from 'prop-types'
 
 import Container from './components/Container'
 import Header from './components/Header/'
@@ -19,7 +20,7 @@ import BackButton from './components/BackButton'
 
 import {proxyUrl} from './helpers'
 
-export default connect(state => ({
+export const App = connect(state => ({
   results: state.search.results,
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
@@ -41,8 +42,7 @@ export default connect(state => ({
         <Title>
           {
             currentSearch !== '' &&
-            <BackButton
-              onClick={actions.search.clearSearch}>
+            <BackButton onClick={actions.search.clearSearch}>
               &lt;
             </BackButton>
           }
@@ -76,9 +76,7 @@ export default connect(state => ({
 
       {
         nowPlaying.audioUrl &&
-          <NowPlaying
-            nowPlaying={nowPlaying}
-          >
+          <NowPlaying nowPlaying={nowPlaying}>
             <AudioPlayer
               controls
               autoPlay
@@ -92,3 +90,23 @@ export default connect(state => ({
 
     </Container>
   ))
+
+App.defaultProps = {
+  results: [],
+  searchTerm: '',
+  currentSearch: '',
+  loading: false,
+  nowPlaying: {},
+  playlist: []
+}
+
+App.propTypes = {
+  results: PropTypes.array.isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  currentSearch: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  nowPlaying: PropTypes.object.isRequired,
+  playlist: PropTypes.array.isRequired
+}
+
+export default App

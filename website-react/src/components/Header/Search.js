@@ -1,13 +1,14 @@
 import React from 'react'
 import {actions} from 'mirrorx'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const Search = ({className, searchTerm}) => (
   <form
     className={className}
     onSubmit={event => {
-      event.target.querySelector('input').blur()
       event.preventDefault()
+      event.target.querySelector('input').blur()
       actions.search.search()
     }}
   >
@@ -19,6 +20,16 @@ export const Search = ({className, searchTerm}) => (
     />
   </form>
 )
+
+Search.defaultProps = {
+  className: '',
+  searchTerm: ''
+}
+
+Search.propTypes = {
+  className: PropTypes.string,
+  searchTerm: PropTypes.string
+}
 
 export default styled(Search)`
   input {
