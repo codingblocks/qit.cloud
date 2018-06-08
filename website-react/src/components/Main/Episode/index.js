@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-export default styled.li`
+export const Main = styled.li`
   padding: 20px 5px;
   margin: 5px 0;
   border-radius: 2px;
@@ -11,3 +12,13 @@ export default styled.li`
 
   width: 100%;
 `
+
+Main.defaultProps = {
+  playing: false
+}
+
+Main.propTypes = {
+  playing: PropTypes.bool.isRequired
+}
+
+export default Main
