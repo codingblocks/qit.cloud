@@ -26,7 +26,7 @@ NowPlaying.propTypes = {
 export default styled(NowPlaying)`
   position: fixed;
   bottom: 0;
-  height: 116px;
+  height: 130px;
   width: 100vw;
   max-width: 800px;
   border: solid 2px rgba(0, 0, 0, 0.3);
@@ -36,18 +36,11 @@ export default styled(NowPlaying)`
   color: rgba(255, 255, 255, 0.9);
 
   #playerInfo {
-    padding: 10px 50px;
+    padding: 12px 50px 0 50px;
     height: 80px;
-    overflow: scroll;
-
-    -ms-overflow-style: none;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-  }
-
-  #playerInfo::-webkit-scrollbar {
-    display: none;
   }
 
   #nowPlaying {
