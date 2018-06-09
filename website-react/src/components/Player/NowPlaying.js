@@ -40,9 +40,16 @@ export default styled(NowPlaying)`
     height: 80px;
     overflow: scroll;
 
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+
+  #playerInfo::-webkit-scrollbar {
+    display: none;
   }
 
   #nowPlaying {
