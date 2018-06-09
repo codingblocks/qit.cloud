@@ -88,8 +88,6 @@ export const App = connect(state => ({
               {playbackRate}x
             </Speed>
             <AudioPlayer
-              controls
-              autoPlay
               src={proxyUrl(nowPlaying.audioUrl)}
               onEnded={actions.player.playNextEpisode}
               onLoadStart={() => setPlaybackRate(playbackRate)}
