@@ -44,10 +44,6 @@ export default styled(NowPlaying)`
     align-items: center;
   }
 
-  #playerInfo::-webkit-scrollbar {
-    display: none;
-  }
-
   #nowPlaying {
     position: absolute;
     background: #359189;
