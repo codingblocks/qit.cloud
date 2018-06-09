@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export const Main = styled.li`
+export const Episode = styled.li`
   position: relative;
   padding: 20px 50px 20px 5px;
   margin: 5px 0;
@@ -14,12 +14,12 @@ export const Main = styled.li`
   width: 100%;
 `
 
-Main.defaultProps = {
+Episode.defaultProps = {
   playing: false
 }
 
-Main.propTypes = {
+Episode.propTypes = {
   playing: PropTypes.bool.isRequired
 }
 
-export default Main
+export default Episode
