@@ -91,7 +91,7 @@
       "title": null
     },
     {
-      "titleCleanser": "^JSJ\\s\\d+:\\s",
+      "titleCleanser": "^(?:(?:JSJ\\s|\\d+(?:\\s|:))){2}\\s?",
       "url": "https://feeds.feedwrench.com/js-jabber.rss",
       "title": null
     },
