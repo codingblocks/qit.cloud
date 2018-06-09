@@ -4,16 +4,24 @@ export default styled.button`
   position: absolute;
   left: 10px;
   top: 20px;
-  font-size: 1.5rem;
-  width: 60px;
-  height: 45px;
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
 
-  border-radius: 20px;
+  border-radius: 50%;
   border: solid 2px white;
-  background: none;
-  color: white;
+  background: white;
+  color: #359189;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:focus {
     outline: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    bottom: 10px;
   }
 `

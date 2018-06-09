@@ -27,8 +27,14 @@ RemoveFromPlaylistButton.propTypes = {
 }
 
 export default styled(RemoveFromPlaylistButton)`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  min-width: 48px;
+  min-height: 48px;
+
   border: none;
-  float: right;
   background: transparent;
 
   img {
