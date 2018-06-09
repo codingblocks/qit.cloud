@@ -3,22 +3,27 @@ import {connect, actions} from 'mirrorx'
 import PropTypes from 'prop-types'
 
 import Container from './components/Container'
+
 import Header from './components/Header/'
 import Title from './components/Header/Title'
 import Search from './components/Header/Search'
 import Logo from './components/Header/Logo'
+import BackButton from './components/Header/BackButton'
 import Subtitle from './components/Header/Subtitle'
+
 import Main from './components/Main/'
 import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
 import SearchResults from './components/Main/SearchResults'
 import Queue from './components/Main/Queue'
-import NowPlaying from './components/NowPlaying.js'
-import AudioPlayer from './components/AudioPlayer'
-import Loader from './components/Loader'
-import BackButton from './components/BackButton'
 
-import {proxyUrl} from './helpers'
+import NowPlaying from './components/Player/NowPlaying'
+import AudioPlayer from './components/Player/AudioPlayer'
+import Speed from './components/Player/Speed'
+
+import Loader from './components/Loader'
+
+import {proxyUrl, setPlaybackRate} from './helpers'
 
 export const App = connect(state => ({
   results: state.search.results,
@@ -26,7 +31,8 @@ export const App = connect(state => ({
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
   nowPlaying: state.player.nowPlaying,
-  playlist: state.player.playlist
+  playlist: state.player.playlist,
+  playbackRate: state.player.playbackRate
 }))(
   ({
     results,
@@ -34,7 +40,8 @@ export const App = connect(state => ({
     currentSearch,
     loading,
     nowPlaying,
-    playlist
+    playlist,
+    playbackRate
   }) => (
     <Container>
 
@@ -77,11 +84,15 @@ export const App = connect(state => ({
       {
         nowPlaying.audioUrl &&
           <NowPlaying nowPlaying={nowPlaying}>
+            <Speed onClick={actions.player.nextPlaybackRate}>
+              {playbackRate}x
+            </Speed>
             <AudioPlayer
               controls
               autoPlay
               src={proxyUrl(nowPlaying.audioUrl)}
               onEnded={actions.player.playNextEpisode}
+              onLoadStart={() => setPlaybackRate(playbackRate)}
             />
           </NowPlaying>
       }
