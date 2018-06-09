@@ -41,8 +41,6 @@ export default styled(NowPlaying)`
     overflow: scroll;
 
     -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-
     display: flex;
     flex-wrap: wrap;
     align-items: center;
