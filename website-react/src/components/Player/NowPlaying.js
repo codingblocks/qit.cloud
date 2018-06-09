@@ -26,7 +26,6 @@ NowPlaying.propTypes = {
 export default styled(NowPlaying)`
   position: fixed;
   bottom: 0;
-  height: 116px;
   width: 100vw;
   max-width: 800px;
   border: solid 2px rgba(0, 0, 0, 0.3);
@@ -37,7 +36,6 @@ export default styled(NowPlaying)`
 
   #playerInfo {
     padding: 10px 50px;
-    height: 80px;
     overflow: scroll;
 
     -ms-overflow-style: none;
