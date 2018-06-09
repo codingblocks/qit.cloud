@@ -1,5 +1,7 @@
 import mirror from 'mirrorx'
 
+import {nextPlaybackRate, setPlaybackRate} from '../helpers'
+
 const getEpisodeById = (playlist, episodeId) => {
   return playlist
     ? playlist.find(episode => episode.id === episodeId)
@@ -12,7 +14,8 @@ export default mirror.model({
   name: 'player',
   initialState: {
     nowPlaying: {},
-    playlist: []
+    playlist: [],
+    playbackRate: 1
   },
   reducers: {
     play (state, episode) {
@@ -64,6 +67,11 @@ export default mirror.model({
         'event_label': episode.audioUrl
       })
       return {...state, playlist: [episode, ...newPlaylist]}
+    },
+    nextPlaybackRate (state) {
+      const playbackRate = nextPlaybackRate(state.playbackRate)
+      setPlaybackRate(playbackRate)
+      return {...state, playbackRate}
     }
   }
 })

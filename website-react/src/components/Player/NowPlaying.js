@@ -36,7 +36,7 @@ export default styled(NowPlaying)`
   color: rgba(255, 255, 255, 0.9);
 
   #playerInfo {
-    padding: 10px 10px 10px;
+    padding: 10px 50px;
     height: 80px;
     overflow: scroll;
 

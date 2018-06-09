@@ -30,9 +30,13 @@ AddToPlaylist.propTypes = {
 }
 
 export default styled(AddToPlaylist)`
+  position: absolute;
+  right: 0;
+  bottom: 0;
   border: none;
-  float: right;
   background: transparent;
+  min-height: 48px;
+  min-width: 48px;
 
   img {
     width: 30px;

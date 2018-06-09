@@ -27,8 +27,14 @@ playNextButton.propTypes = {
 }
 
 export default styled(playNextButton)`
+  position: absolute;
+  right: 48px;
+  bottom: 0;
+
+  min-width: 48px;
+  min-height: 48px;
+
   border: none;
-  float: right;
   background: transparent;
 
   img {
