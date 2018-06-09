@@ -32,7 +32,8 @@ self.addEventListener('install', function (e) {
       .then(files => {
         caches.open(cacheName).then(cache => {
           console.log('[ServiceWorker] Caching app shell')
-          return cache.addAll(files)
+          cache.addAll(files)
+          return self.skipWaiting()
         })
       })
   )
