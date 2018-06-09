@@ -7,8 +7,4 @@ const Main = styled.main`
   overflow-y: auto;
 `
 
-Main.defaultProps = {
-  results: []
-}
-
 export default Main
