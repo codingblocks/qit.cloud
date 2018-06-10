@@ -117,13 +117,31 @@ export default class AudioPlayer extends React.Component {
         <Speed onClick={actions.player.nextPlaybackRate}>
           {this.props.playbackRate}x
         </Speed>
-        <div onClick={this.jumpBackward} className='smallButton'>
+        <div
+          onClick={event => {
+            event.preventDefault()
+            this.jumpBackward()
+          }}
+          className='smallButton'
+        >
           <ControlIcon src={back10Img} />
         </div>
-        <div onClick={this.playPause} className='bigButton'>
+        <div
+          onClick={event => {
+            event.preventDefault()
+            this.playPause()
+          }}
+          className='bigButton'
+        >
           <ControlIcon src={this.state.playing ? pauseImg : playImg} />
         </div>
-        <div onClick={this.jumpForward} className='smallButton'>
+        <div
+          onClick={event => {
+            event.preventDefault()
+            this.jumpForward()
+          }}
+          className='smallButton'
+        >
           <ControlIcon src={forward30Img} />
         </div>
         <span id='trackTime'>
