@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export default styled.button`
   position: absolute;
-  left: 10px;
-  top: 20px;
+  left: 15px;
   font-size: 1rem;
   width: 40px;
   height: 40px;
@@ -19,9 +18,5 @@ export default styled.button`
 
   &:focus {
     outline: 0;
-  }
-
-  @media screen and (max-width: 500px) {
-    bottom: 10px;
   }
 `
