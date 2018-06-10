@@ -20,7 +20,7 @@
     return errors
   }
 
-  let convert = function (data, feedUrl, overrideTitle, titleCleanser) {
+  let convert = function (data, feedUrl, overrideTitle, titleCleanser, forceHttps) {
     let result = {
       feedUrl: feedUrl,
       title: overrideTitle || (data ? data.title : null),
@@ -51,7 +51,7 @@
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
           published: episode.published,
-          audioUrl: episode.enclosure.url
+          audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url
         })
       }
     }
