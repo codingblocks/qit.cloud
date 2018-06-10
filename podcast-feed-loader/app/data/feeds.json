@@ -13,6 +13,12 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": null,
+      "url": "http://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage",
+      "title": "Android Developers Backstage",
+      "forceHttps": true
+    },
+    {
       "titleCleanser": "\\s-\\sApplication\\sSecurity\\sWeekly\\s#\\d+$",
       "url": "http://aswaudio.swsgtv.libsynpro.com/rss",
       "title": "Application Security Weekly",
@@ -25,15 +31,27 @@
       "forceHttps": true
     },
     {
+      "titleCleanser": "",
+      "url": "https://rss.simplecast.com/podcasts/282/rss",
+      "title": "The Bike Shed",
+      "forceHttps": true
+    },
+    {
       "titleCleanser": "^S\\d+:E\\d+\\s-\\s",
       "url": "http://feeds.codenewbie.org/basecs_podcast.xml",
       "title": null,
-      "forceHttps": false
+      "forceHttps": true
     },
     {
       "titleCleanser": "^[\\w\\s]+\\s-\\s\\d+:\\s",
       "url": "https://changelog.com/master/feed",
       "title": "Changelog",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.buzzsprout.com/3195.rss",
+      "title": "The Cloudcast",
       "forceHttps": false
     },
     {
@@ -67,6 +85,18 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": null,
+      "url": "http://cppcast.libsyn.com/rss",
+      "title": "CppCast",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/ctrlclickcast",
+      "title": "CTRL+CLICK CAST",
+      "forceHttps": false
+    },
+    {
       "titleCleanser": "^Episode\\s+\\d+\\s+[-|–]\\s",
       "url": "https://cynicaldeveloper.com/feed/podcast/",
       "title": null,
@@ -75,7 +105,13 @@
     {
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/363/rss",
-      "title": null,
+      "title": "Developer On Fire",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://developeronfire.com/rss.xml",
+      "title": "Eat Sleep Code",
       "forceHttps": false
     },
     {
@@ -100,6 +136,18 @@
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/5271/rss",
       "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/1684/rss",
+      "title": "Front End Happy Hour",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.soundcloud.com/users/soundcloud:users:206137365/sounds.rss",
+      "title": "Fragmented",
       "forceHttps": false
     },
     {
@@ -140,14 +188,32 @@
     },
     {
       "titleCleanser": null,
+      "url": "http://feeds.feedburner.com/PhpRoundtable",
+      "title": "The PHP Roundtable",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://feeds.feedburner.com/ProgrammingThrowdown",
       "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedwrench.com/react-native-radio.rss",
+      "title": "React Native Radio",
       "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+\\s|(\\s-\\sSimple\\sProgrammer\\sPodcast$)",
       "url": "https://simpleprogrammer.libsyn.com/rss",
       "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://www.softwaredefinedtalk.com/rss",
+      "title": "Software Defined Talk",
       "forceHttps": false
     },
     {
@@ -176,14 +242,14 @@
     },
     {
       "titleCleanser": "^\\d+:\\s",
-      "url": "https://threedevsandamaybe.com/podcast.xml",
+      "url": "https://rss.simplecast.com/podcasts/3342/rss",
       "title": null,
       "forceHttps": false
     },
     {
-      "titleCleanser": "^\\d+:\\s",
-      "url": "https://rss.simplecast.com/podcasts/3342/rss",
-      "title": null,
+      "titleCleanser": null,
+      "url": "https://thewebplatform.libsyn.com/rss",
+      "title": "The Web Platform",
       "forceHttps": false
     }
   ]
