@@ -60,6 +60,6 @@ export const eventTracking = mirror.hook((action, getState) => {
       break
 
     default:
-      console.log('Nothing done: ', action)
+      break
   }
 })
