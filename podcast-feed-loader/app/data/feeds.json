@@ -3,157 +3,254 @@
     {
       "titleCleanser": "^Episode\\s\\d+\\s[-|–]\\s",
       "url": "https://6figuredev.com/feed/podcast",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://feeds.feedburner.com/netRocksFullMp3Downloads",
-      "title": ".NET Rocks!"
+      "title": ".NET Rocks!",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage",
+      "title": "Android Developers Backstage",
+      "forceHttps": true
     },
     {
       "titleCleanser": "\\s-\\sApplication\\sSecurity\\sWeekly\\s#\\d+$",
       "url": "http://aswaudio.swsgtv.libsynpro.com/rss",
-      "title": null
+      "title": "Application Security Weekly",
+      "forceHttps": true
     },
     {
       "titleCleanser": "^(?:(?:(?:ngAir)|(?:\\d+))\\s){2}-\\s",
       "url": "http://audio.angularair.com/feed/",
-      "title": null
+      "title": null,
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": "",
+      "url": "https://rss.simplecast.com/podcasts/282/rss",
+      "title": "The Bike Shed",
+      "forceHttps": true
     },
     {
       "titleCleanser": "^S\\d+:E\\d+\\s-\\s",
       "url": "http://feeds.codenewbie.org/basecs_podcast.xml",
-      "title": null
+      "title": null,
+      "forceHttps": true
     },
     {
       "titleCleanser": "^[\\w\\s]+\\s-\\s\\d+:\\s",
       "url": "https://changelog.com/master/feed",
-      "title": null
+      "title": "Changelog",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.buzzsprout.com/3195.rss",
+      "title": "The Cloudcast",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1252/rss",
-      "title": null
+      "title": "Simple Programmer",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/3295/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "(?:\\s\\|\\sCR\\s\\d+$)|(?:^Episode\\s\\d+:\\s)",
       "url": "http://coder.show/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+.\\s",
       "url": "https://codingblocks.libsyn.com/rss",
-      "title": "Coding Blocks"
+      "title": "Coding Blocks",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://completedeveloperpodcast.com/feed/podcast/",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://cppcast.libsyn.com/rss",
+      "title": "CppCast",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/ctrlclickcast",
+      "title": "CTRL+CLICK CAST",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^Episode\\s+\\d+\\s+[-|–]\\s",
       "url": "https://cynicaldeveloper.com/feed/podcast/",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/363/rss",
-      "title": null
+      "title": "Developer On Fire",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://developeronfire.com/rss.xml",
+      "title": "Eat Sleep Code",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://feeds.feedburner.com/esc-podcast",
-      "title": null
+      "title": "Eat Sleep Code",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^FLOSS\\sWeekly\\s\\d+:\\s",
       "url": "https://feeds.twit.tv/floss.xml",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/279/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/5271/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/1684/rss",
+      "title": "Front End Happy Hour",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.soundcloud.com/users/soundcloud:users:206137365/sounds.rss",
+      "title": "Fragmented",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+:\\s",
       "url": "https://impostor-syndrome.squarespace.com/episodes?format=rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^(?:(?:JSJ\\s|\\d+(?:\\s|:))){2}\\s?",
       "url": "https://feeds.feedwrench.com/js-jabber.rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^Episode\\s+\\d+\\s+[-|–]\\s",
       "url": "https://juniordevelopertoolbox.com/feed/podcast/",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^S\\d+E\\d+:\\s",
       "url": "https://learntocodewithme.libsyn.com/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^Merge\\sConflict\\s\\d+:\\s",
       "url": "http://www.mergeconflict.fm/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://msdevshow.libsyn.com/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://feeds.feedburner.com/PhpRoundtable",
+      "title": "The PHP Roundtable",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://feeds.feedburner.com/ProgrammingThrowdown",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedwrench.com/react-native-radio.rss",
+      "title": "React Native Radio",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+\\s|(\\s-\\sSimple\\sProgrammer\\sPodcast$)",
       "url": "https://simpleprogrammer.libsyn.com/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://www.softwaredefinedtalk.com/rss",
+      "title": "Software Defined Talk",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://softwareengineeringdaily.com/feed/podcast/",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+:\\s",
       "url": "https://shoptalkshow.com/feed/podcast",
-      "title": null
+      "title": null,
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "https://feed.syntax.fm/rss",
-      "title": null
+      "title": "Syntax.fm",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^#\\d+\\s",
       "url": "https://talkpython.fm/episodes/rss",
-      "title": null
-    },
-    {
-      "titleCleanser": "^\\d+:\\s",
-      "url": "https://threedevsandamaybe.com/podcast.xml",
-      "title": null
+      "title": "Talk Python To Me",
+      "forceHttps": false
     },
     {
       "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/3342/rss",
-      "title": null
+      "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://thewebplatform.libsyn.com/rss",
+      "title": "The Web Platform",
+      "forceHttps": false
     }
   ]
 }
