@@ -74,6 +74,12 @@
     },
     {
       "titleCleanser": "^\\d+.\\s",
+      "url": "https://blog.codepen.io/feed/podcast/",
+      "title": "CodePen",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": "^\\d+.\\s",
       "url": "https://codingblocks.libsyn.com/rss",
       "title": "Coding Blocks",
       "forceHttps": false
@@ -104,21 +110,33 @@
     },
     {
       "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/1034/rss",
+      "title": "Design Details",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/363/rss",
-      "title": "Developer On Fire",
-      "forceHttps": true
+      "title": "Developer Tea",
+      "forceHttps": false
     },
     {
       "titleCleanser": null,
       "url": "http://developeronfire.com/rss.xml",
-      "title": "Eat Sleep Code",
-      "forceHttps": false
+      "title": "Developer on Fire",
+      "forceHttps": true
     },
     {
       "titleCleanser": null,
       "url": "https://feeds.feedburner.com/esc-podcast",
       "title": "Eat Sleep Code",
-      "forceHttps": false
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://www.embedded.fm/?format=rss",
+      "title": "Embedded.fm",
+      "forceHttps": true
     },
     {
       "titleCleanser": "^FLOSS\\sWeekly\\s\\d+:\\s",
@@ -127,15 +145,21 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": null,
+      "url": "https://www.functionalgeekery.com/feed/mp3/",
+      "title": "Functional Geekery",
+      "forceHttps": false
+    },
+    {
       "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/279/rss",
-      "title": null,
+      "title": "Full Stack Radio",
       "forceHttps": false
     },
     {
       "titleCleanser": null,
-      "url": "https://rss.simplecast.com/podcasts/5271/rss",
-      "title": null,
+      "url": "http://feeds.feedburner.com/Http203Podcast",
+      "title": "HTTP 203",
       "forceHttps": false
     },
     {
@@ -154,6 +178,12 @@
       "titleCleanser": "^\\d+:\\s",
       "url": "https://impostor-syndrome.squarespace.com/episodes?format=rss",
       "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/5271/rss",
+      "title": "Hacker Daily",
       "forceHttps": false
     },
     {
@@ -230,6 +260,12 @@
     },
     {
       "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/2693/rss",
+      "title": "Swift Unwrapped",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://feed.syntax.fm/rss",
       "title": "Syntax.fm",
       "forceHttps": false
@@ -239,6 +275,18 @@
       "url": "https://talkpython.fm/episodes/rss",
       "title": "Talk Python To Me",
       "forceHttps": false
+    },
+    {
+      "titleCleanser": "",
+      "url": "http://feeds.soundcloud.com/users/soundcloud:users:280353173/sounds.rss",
+      "title": "Talking Kotlin",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": "",
+      "url": "https://rss.simplecast.com/podcasts/4211/rss",
+      "title": "Toolsday",
+      "forceHttps": true
     },
     {
       "titleCleanser": "^\\d+:\\s",
