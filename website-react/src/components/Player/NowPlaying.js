@@ -36,9 +36,6 @@ export default styled(NowPlaying)`
 
   #playerInfo {
     padding: 10px 50px;
-    overflow: scroll;
-
-    -ms-overflow-style: none;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
