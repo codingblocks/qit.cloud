@@ -139,12 +139,12 @@ describe('Feed Adapter', () => {
 
     it('should force https when the flag is set', () => {
       let modifiedEpisode = validEpisode
-      validEpisode.enclosure = {
+      modifiedEpisode.enclosure = {
         url: 'http://someproxy.com?url=http://thisshouldnotchange.com'
       }
 
       let result = feed.convert(
-        { episodes: [ Object.assign(validEpisode, {forceHttps:  true}) ] },
+        { episodes: [ Object.assign(modifiedEpisode, {forceHttps: true}) ] },
         'myurl',
         null,
         null,
@@ -157,12 +157,12 @@ describe('Feed Adapter', () => {
 
     it('should force not change the protocol when the flag is not set', () => {
       let modifiedEpisode = validEpisode
-      validEpisode.enclosure = {
+      modifiedEpisode.enclosure = {
         url: 'http://someproxy.com?url=http://thisshouldnotchange.com'
       }
 
       let result = feed.convert(
-        { episodes: [ Object.assign(validEpisode, {forceHttps:  true}) ] },
+        { episodes: [ Object.assign(modifiedEpisode, {forceHttps: true}) ] },
         'myurl',
         null,
         null,
