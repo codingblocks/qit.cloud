@@ -17,7 +17,6 @@ const AudioControlsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 
   .bigButton, .smallButton {
     margin: 0 10px;
