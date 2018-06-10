@@ -31,7 +31,7 @@ export default styled(NowPlaying)`
   border: solid 2px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
 
-  background: #359189;
+  background: linear-gradient(to right, rgb(53, 145, 137), #185a9d);
   color: rgba(255, 255, 255, 0.9);
 
   #playerInfo {
@@ -46,22 +46,19 @@ export default styled(NowPlaying)`
 
   #nowPlaying {
     position: absolute;
-    background: #359189;
+    background: linear-gradient(to right, #4F8F88, #46828C);
     top: -22px;
     left: 2px;
     border: solid 2px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 3px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
 
   h2, p {
     text-align: center;
     margin: 0;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
   }
 
   p {

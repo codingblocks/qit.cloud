@@ -1,29 +1,44 @@
 import styled from 'styled-components'
 import React from 'react'
-import playImg from '../../assets/play.svg'
-import pauseImg from '../../assets/pause.svg'
-import back10Img from '../../assets/back10.svg'
-import forward30Img from '../../assets/forward30.svg'
+import {actions} from 'mirrorx'
+
+import Speed from './Speed'
+
+import playImg from '../../assets/play.png'
+import pauseImg from '../../assets/pause.png'
+import back10Img from '../../assets/backwards.png'
+import forward30Img from '../../assets/forwards.png'
 
 const ControlIcon = styled.img`
-    width: 40px;
-    height: 40px;
+  width: 100%;
 `
 
 const AudioControlsContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    * {
-    flex: 1;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    }
-    audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .bigButton, .smallButton {
+    margin: 0 10px;
+  }
+
+  .bigButton {
+    width: 75px;
+  }
+
+  .smallButton {
+    width: 50px;
+  }
+
+  #trackTime {
+    position: absolute;
+    right: 15px;
+  }
+
+  audio {
     display:none;
-    }
+  }
 `
 
 export default class AudioPlayer extends React.Component {
@@ -35,18 +50,9 @@ export default class AudioPlayer extends React.Component {
       duration: 0,
       currentTime: 0
     }
-    this.playPause = this.playPause.bind(this)
-    this.loadStarted = this.loadStarted.bind(this)
-    this.durationChanged = this.durationChanged.bind(this)
-    this.playing = this.playing.bind(this)
-    this.timeUpdated = this.timeUpdated.bind(this)
-    this.ended = this.ended.bind(this)
-    this.jumpForward = this.jumpForward.bind(this)
-    this.jumpBackward = this.jumpBackward.bind(this)
-    this.jumpToTime = this.jumpToTime.bind(this)
   }
 
-  playPause () {
+  playPause = () => {
     if (this.state.playing) {
       this.audioRef.current.pause()
     } else {
@@ -56,52 +62,51 @@ export default class AudioPlayer extends React.Component {
     console.log('playPause')
   }
 
-  loadStarted () {
+  loadStarted = () => {
     this.props.onLoadStart()
     this.setState({duration: 0, currentTime: 0})
   }
 
-  ended () {
+  ended = () => {
     this.props.onEnded()
   }
 
-  durationChanged () {
+  durationChanged = () => {
     this.setState({duration: this.audioRef.current.duration || 0})
   }
 
-  playing () {
+  playing = () => {
     this.setState({playing: true})
   }
-  timeUpdated () {
+
+  timeUpdated = () => {
     this.setState({currentTime: this.audioRef.current.currentTime})
   }
 
-  jumpToTime (time) {
+  jumpToTime = time => {
     this.audioRef.current.currentTime = time
   }
 
-  jumpForward () {
+  jumpForward = () => {
     this.jumpToTime(this.state.currentTime + 30)
   }
 
-  jumpBackward () {
+  jumpBackward = () => {
     this.jumpToTime(this.state.currentTime - 10)
   }
 
-  formatTrackTime (time) {
-    if (!time) {
-      return '--:--'
-    } else {
-      let hours = Math.floor(time / 3600)
-      let minutes = Math.floor(time % 3600 / 60)
-      let seconds = Math.floor(time % 60)
-      return hours
-        ? `${hours}:${padTime(minutes)}:${padTime(seconds)}`
-        : `${padTime(minutes)}:${padTime(seconds)}`
-    }
+  formatTrackTime = time => {
+    if (!time) return '--:--'
+
+    const hours = Math.floor(time / 3600)
+    const minutes = Math.floor(time % 3600 / 60)
+    const seconds = Math.floor(time % 60)
+    return hours
+      ? `${hours}:${padTime(minutes)}:${padTime(seconds)}`
+      : `${padTime(minutes)}:${padTime(seconds)}`
 
     function padTime (input) {
-      let padded = `00${input}`
+      const padded = `00${input}`
       return padded.substr(padded.length - 2)
     }
   }
@@ -109,15 +114,23 @@ export default class AudioPlayer extends React.Component {
   render () {
     return (
       <AudioControlsContainer>
-        <div />
-        <div>
-          <span onClick={this.jumpBackward}><ControlIcon src={back10Img} /></span>
-          <span onClick={this.playPause}>
-            <ControlIcon src={this.state.playing ? pauseImg : playImg} />
-          </span>
-          <span onClick={this.jumpForward}><ControlIcon src={forward30Img} /></span>
+        <Speed onClick={actions.player.nextPlaybackRate}>
+          {this.props.playbackRate}x
+        </Speed>
+        <div onClick={this.jumpBackward} className='smallButton'>
+          <ControlIcon src={back10Img} />
         </div>
-        <span>{this.formatTrackTime(this.state.currentTime)}/{this.formatTrackTime(this.state.duration)}</span>
+        <div onClick={this.playPause} className='bigButton'>
+          <ControlIcon src={this.state.playing ? pauseImg : playImg} />
+        </div>
+        <div onClick={this.jumpForward} className='smallButton'>
+          <ControlIcon src={forward30Img} />
+        </div>
+        <span id='trackTime'>
+          {this.formatTrackTime(this.state.currentTime)}
+          <br />
+          {this.formatTrackTime(this.state.duration)}
+        </span>
 
         <audio
           ref={this.audioRef} {...this.props}

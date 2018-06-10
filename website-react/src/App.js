@@ -19,7 +19,6 @@ import Queue from './components/Main/Queue'
 
 import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
-import Speed from './components/Player/Speed'
 
 import Loader from './components/Loader'
 
@@ -84,11 +83,9 @@ export const App = connect(state => ({
       {
         nowPlaying.audioUrl &&
           <NowPlaying nowPlaying={nowPlaying}>
-            <Speed onClick={actions.player.nextPlaybackRate}>
-              {playbackRate}x
-            </Speed>
             <AudioPlayer
               src={proxyUrl(nowPlaying.audioUrl)}
+              playbackRate={playbackRate}
               onEnded={actions.player.playNextEpisode}
               onLoadStart={() => setPlaybackRate(playbackRate)}
             />
