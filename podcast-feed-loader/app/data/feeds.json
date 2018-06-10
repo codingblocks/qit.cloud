@@ -13,7 +13,7 @@
     {
       "titleCleanser": "\\s-\\sApplication\\sSecurity\\sWeekly\\s#\\d+$",
       "url": "http://aswaudio.swsgtv.libsynpro.com/rss",
-      "title": null
+      "title": "Application Security Weekly"
     },
     {
       "titleCleanser": "^(?:(?:(?:ngAir)|(?:\\d+))\\s){2}-\\s",
@@ -28,12 +28,12 @@
     {
       "titleCleanser": "^[\\w\\s]+\\s-\\s\\d+:\\s",
       "url": "https://changelog.com/master/feed",
-      "title": null
+      "title": "Changelog"
     },
     {
       "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1252/rss",
-      "title": null
+      "title": "Simple Programmer"
     },
     {
       "titleCleanser": null,
@@ -68,7 +68,7 @@
     {
       "titleCleanser": null,
       "url": "https://feeds.feedburner.com/esc-podcast",
-      "title": null
+      "title": "Eat Sleep Code"
     },
     {
       "titleCleanser": "^FLOSS\\sWeekly\\s\\d+:\\s",
@@ -138,12 +138,12 @@
     {
       "titleCleanser": null,
       "url": "https://feed.syntax.fm/rss",
-      "title": null
+      "title": "Syntax.fm"
     },
     {
       "titleCleanser": "^#\\d+\\s",
       "url": "https://talkpython.fm/episodes/rss",
-      "title": null
+      "title": "Talk Python To Me"
     },
     {
       "titleCleanser": "^\\d+:\\s",
