@@ -23,5 +23,8 @@
   "devDependencies": {
     "standard": "^11.0.1",
     "jest": "^23.1.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
