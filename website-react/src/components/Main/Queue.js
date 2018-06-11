@@ -1,5 +1,5 @@
 import React from 'react'
-import {actions} from 'mirrorx'
+import { actions } from 'mirrorx'
 
 import Episode from './Episode/'
 import EpisodeTitle from './Episode/EpisodeTitle'
@@ -7,15 +7,16 @@ import PodcastTitle from './Episode/PodcastTitle'
 import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
 import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
+import DragulaContainer from './DragulaContainer'
 
-export const Queue = ({playlist, nowPlaying, className}) => (
+export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
+    {playlist.length === 0 ? null : 'Next in queue:'}
     {
       playlist.length === 0
         ? `No episodes added to your queue yet.
         Go ahead and search for some episodes to add!`
-        : <div id='queue'>
-        Next in queue:
+        : <DragulaContainer>
           {
             playlist.map(episode =>
               <Episode
@@ -45,7 +46,7 @@ export const Queue = ({playlist, nowPlaying, className}) => (
               </Episode>
             )
           }
-        </div>
+        </DragulaContainer>
     }
   </div>
 )
