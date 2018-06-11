@@ -8,6 +8,7 @@ import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
 import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
 import DragulaContainer from './DragulaContainer'
+import DragNDropIndicator from './Episode/DragNDropIndicator'
 
 export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
@@ -20,6 +21,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
           {
             playlist.map(episode =>
               <Episode
+                id={episode.id}
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
@@ -38,11 +40,16 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                 }
 
                 <RemoveFromPlaylistButton
+                  lonely={playlist.length === 1}
                   onClick={event => {
                     event.stopPropagation()
                     actions.player.removeFromPlaylist(episode.id)
                   }}
                 />
+                {
+                  playlist.length > 1 &&
+                  <DragNDropIndicator />
+                }
               </Episode>
             )
           }
