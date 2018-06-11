@@ -26,7 +26,7 @@ class DragulaContainer extends Component {
       const options = {}
       const drake = Dragula([componentBackingInstance], options)
 
-      var listener = e => {
+      const listener = e => {
         if (!scrollable) {
           e.preventDefault()
         }
