@@ -22,9 +22,20 @@ class DragulaContainer extends Component {
 
   dragulaDecorator (componentBackingInstance) {
     if (componentBackingInstance) {
+      let scrollable = true
       const options = {}
       const drake = Dragula([componentBackingInstance], options)
+
+      var listener = e => {
+        if (!scrollable) {
+          e.preventDefault()
+        }
+      }
+      document.addEventListener('touchmove', listener, { passive: false })
+
+      drake.on('drag', () => { scrollable = false })
       drake.on('drop', (el, target, source, sibling) => {
+        scrollable = true
         const episodeId = this.props.children.find(c => c.key === el.id).key
 
         // what does order of list look like without selected element?
