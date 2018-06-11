@@ -146,7 +146,7 @@ export default class AudioPlayer extends React.Component {
         <span id='trackTime'>
           {this.formatTrackTime(this.state.currentTime)}
           <br />
-          {this.formatTrackTime(this.state.duration)}
+          {this.state.duration && this.formatTrackTime(this.state.duration)}
         </span>
 
         <audio
