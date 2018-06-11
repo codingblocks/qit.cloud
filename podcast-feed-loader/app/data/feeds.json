@@ -235,6 +235,12 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": null,
+      "url": "https://restofus.tech/feed/podcast",
+      "title": null,
+      "forceHttps": false
+    },
+    {
       "titleCleanser": "^\\d+\\s|(\\s-\\sSimple\\sProgrammer\\sPodcast$)",
       "url": "https://simpleprogrammer.libsyn.com/rss",
       "title": null,
