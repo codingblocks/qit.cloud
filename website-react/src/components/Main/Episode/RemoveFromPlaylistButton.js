@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import RemoveFromPlaylistImage from '../../../assets/removeFromPlaylist.png'
 
-export const RemoveFromPlaylistButton = ({className, onClick}) => (
+export const RemoveFromPlaylistButton = ({ lonely, className, onClick }) => (
   <button
     className={className}
     onClick={onClick}
@@ -18,7 +18,7 @@ export const RemoveFromPlaylistButton = ({className, onClick}) => (
 
 RemoveFromPlaylistButton.defaultProps = {
   className: '',
-  onClick: () => {}
+  onClick: () => { }
 }
 
 RemoveFromPlaylistButton.propTypes = {
@@ -28,7 +28,7 @@ RemoveFromPlaylistButton.propTypes = {
 
 export default styled(RemoveFromPlaylistButton)`
   position: absolute;
-  right: 0;
+  right: ${props => props.lonely ? '0' : '48px'};
   bottom: 0;
 
   min-width: 48px;

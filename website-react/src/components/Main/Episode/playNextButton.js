@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import playNextImage from '../../../assets/playNext.png'
 
-export const playNextButton = ({className, onClick}) => (
+export const playNextButton = ({ className, onClick }) => (
   <button
     className={className}
     onClick={onClick}
@@ -18,7 +18,7 @@ export const playNextButton = ({className, onClick}) => (
 
 playNextButton.defaultProps = {
   className: '',
-  onClick: () => {}
+  onClick: () => { }
 }
 
 playNextButton.propTypes = {
@@ -28,7 +28,7 @@ playNextButton.propTypes = {
 
 export default styled(playNextButton)`
   position: absolute;
-  right: 48px;
+  right: 96px;
   bottom: 0;
 
   min-width: 48px;
