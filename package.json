@@ -6,7 +6,7 @@
     "FeedLoaderInstall": "cd ./podcast-feed-loader/app && npm install && cd ../..",
     "ProxyInstall": "cd ./ssl-proxy && npm install && cd ..",
     "WebsiteInstall": "cd ./website-react && npm install && cd ..",
-    "installAll": "npm run install && npm run FeedLoaderInstall && npm run ProxyInstall && npm run WebsiteInstall",
+    "installAll": "npm install && npm run FeedLoaderInstall && npm run ProxyInstall && npm run WebsiteInstall",
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
     "testProxy": "cd ./ssl-proxy npm run test && cd ..",
     "testWebsite": "cd ./website-react && npm run jest && cd ..",
