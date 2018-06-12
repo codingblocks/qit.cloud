@@ -6,18 +6,28 @@
     "runFeedLoader": "cd ./podcast-feed-loader/app && npm install && npm run test && cd ../..",
     "runProxy": "cd ./ssl-proxy && npm install && npm run test && cd ..",
     "runWebsite": "cd ./website-react && npm install && npm run jest && cd ..",
-
     "test": "npm run runFeedLoader && npm run runWebsite && npm run runProxy",
-    
     "standard": "standard",
+    "jest": "jest",
     "lint": "standard --fix",
-    "precommit": "npm run standard"
+    "precommit": "npm run standard",
+    "dockers": "docker-compose build && docker-compose up -d"
   },
   "devDependencies": {
     "husky": "^0.14.3",
     "standard": "^11.0.1",
-    "babel-eslint": "8.2.3"
+    "babel-eslint": "8.2.3",
+    "jest": "^23.1.0"
   },
+  "contributors": [
+    "https://github.com/THEjoezack",
+    "https://github.com/nmarcora",
+    "https://github.com/Madsn",
+    "https://github.com/AdamLantz",
+    "https://github.com/benjaminsteward",
+    "https://github.com/MadVikingGod",
+    "https://github.com/vlado92"
+  ],
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
