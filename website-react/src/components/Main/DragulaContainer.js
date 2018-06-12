@@ -35,7 +35,6 @@ class DragulaContainer extends Component {
         }
       }
       document.addEventListener('touchmove', listener, { passive: false })
-      document.addEventListener('drag', listener)
 
       drake.on('drag', () => {
         scrollable = false
