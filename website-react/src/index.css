@@ -57,6 +57,7 @@ audio {
 
 .gu-mirror {
   position: fixed !important;
+  list-style: none;
   margin: 0 !important;
   z-index: 9999 !important;
   opacity: 0.8;
