@@ -81,3 +81,6 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Ben Steward](https://github.com/benjaminsteward)
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
+
+## Trello for additional insight 
+[QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
