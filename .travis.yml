@@ -2,5 +2,6 @@ language: node_js
 node_js:
   - "8.9.4"
 script:
-  - npm run test
+  - npm run installAll
+  - npm run jest
   - npm run standard

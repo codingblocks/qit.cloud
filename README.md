@@ -45,11 +45,14 @@ docker-compose config
 
 # start local development
 docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+
+# start regular docker
+docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)  
 ```
 
 Command to stop container:
 
-```bash
+```;bash
 
 # to stop containers
 docker-compose stop
@@ -69,3 +72,15 @@ This is the part of the product that is responsible for importing the data.
 It loads podcast feed urls from a file, normalizes them, and then updates them in a search engine. Currently only supports Azure Search.
 
 Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
+
+## Contributors
+- [Joe Zack](https://github.com/THEjoezack)
+- [Nicolas Marcora](https://github.com/nmarcora)
+- [Mikkel Madsen](https://github.com/Madsn)
+- [Adam Lantz](https://github.com/AdamLantz)
+- [Ben Steward](https://github.com/benjaminsteward)
+- [Aaron Clawson](https://github.com/MadVikingGod)
+- [Vladimir Kunarac](https://github.com/vlado92)
+
+## Trello for additional insight 
+[QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
