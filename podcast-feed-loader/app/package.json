@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha './tests/**/*.spec.js'",
     "start": "node ./src/multiUrlLoader.js data/feeds.txt",
-    "lint": "standard --fix",
-    "travisLint": "standard"
+    "lint": "standard --fix"
   },
   "repository": {
     "type": "git",
