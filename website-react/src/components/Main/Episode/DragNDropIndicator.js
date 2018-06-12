@@ -5,8 +5,9 @@ import PropTypes from 'prop-types'
 import DragNDropImage from '../../../assets/dragndrop.png'
 
 export const DragNDropIndicator = ({ className }) => (
-  <button className={className}>
+  <button className={'drag-handle ' + className}>
     <img
+      className='drag-handle'
       src={DragNDropImage}
       alt='Drag and Drop to Reorder Playlist.'
     />
@@ -14,7 +15,7 @@ export const DragNDropIndicator = ({ className }) => (
 )
 
 DragNDropIndicator.defaultProps = {
-  className: ''
+  className: 'drag-handle'
 }
 
 DragNDropIndicator.propTypes = {
@@ -32,7 +33,9 @@ export default styled(DragNDropIndicator)`
   border: none;
   background: transparent;
 
+  cursor: grab;
+
   img {
-      width: 30px;
+    width: 30px;
   }
 `
