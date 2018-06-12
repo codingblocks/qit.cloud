@@ -17,8 +17,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "jest": "jest",
-    "lint": "standard --fix",
-    "travisLint": "standard"
+    "lint": "standard --fix"
   },
   "devDependencies": {
     "standard": "^11.0.1",
