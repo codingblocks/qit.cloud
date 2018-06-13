@@ -7,7 +7,7 @@ import PodcastTitle from './Episode/PodcastTitle'
 import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
 import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
-import DragulaContainer from './DragulaContainer'
+import SortableList from './SortableList'
 import DragNDropIndicator from './Episode/DragNDropIndicator'
 
 export const Queue = ({ playlist, nowPlaying, className }) => (
@@ -17,11 +17,15 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
       playlist.length === 0
         ? `No episodes added to your queue yet.
         Go ahead and search for some episodes to add!`
-        : <DragulaContainer>
-          {
+        : <SortableList
+          useWindowAsScrollContainer
+          useDragHandle
+          onSortEnd={
+            ({ oldIndex, newIndex }) => actions.player.resortPlaylist({ oldIndex, newIndex })
+          }
+          items={
             playlist.map(episode =>
               <Episode
-                id={episode.id}
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
@@ -53,7 +57,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
               </Episode>
             )
           }
-        </DragulaContainer>
+        />
     }
   </div>
 )
