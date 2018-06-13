@@ -46,3 +46,6 @@ body {
 audio {
   width: 100%;
 }
+body > li {
+  list-style: none;
+}
