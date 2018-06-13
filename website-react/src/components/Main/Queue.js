@@ -17,42 +17,47 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
       playlist.length === 0
         ? `No episodes added to your queue yet.
         Go ahead and search for some episodes to add!`
-        : <SortableList useWindowAsScrollContainer useDragHandle onSortEnd={
-          ({ oldIndex, newIndex }) => actions.player.resortPlaylist({ oldIndex, newIndex })
-        } items={
-          playlist.map(episode =>
-            <Episode
-              onClick={() => actions.player.play(episode)}
-              key={episode.id}
-              playing={episode.audioUrl === nowPlaying.audioUrl}
-            >
-              <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-              <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+        : <SortableList
+          useWindowAsScrollContainer
+          useDragHandle
+          onSortEnd={
+            ({ oldIndex, newIndex }) => actions.player.resortPlaylist({ oldIndex, newIndex })
+          }
+          items={
+            playlist.map(episode =>
+              <Episode
+                onClick={() => actions.player.play(episode)}
+                key={episode.id}
+                playing={episode.audioUrl === nowPlaying.audioUrl}
+              >
+                <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
+                <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
 
-              {
-                playlist[0].audioUrl !== episode.audioUrl &&
-                <PlayNextButton
+                {
+                  playlist[0].audioUrl !== episode.audioUrl &&
+                  <PlayNextButton
+                    onClick={event => {
+                      event.stopPropagation()
+                      actions.player.playNext(episode)
+                    }}
+                  />
+                }
+
+                <RemoveFromPlaylistButton
+                  lonely={playlist.length === 1}
                   onClick={event => {
                     event.stopPropagation()
-                    actions.player.playNext(episode)
+                    actions.player.removeFromPlaylist(episode.id)
                   }}
                 />
-              }
-
-              <RemoveFromPlaylistButton
-                lonely={playlist.length === 1}
-                onClick={event => {
-                  event.stopPropagation()
-                  actions.player.removeFromPlaylist(episode.id)
-                }}
-              />
-              {
-                playlist.length > 1 &&
-                <DragNDropIndicator />
-              }
-            </Episode>
-          )
-        } />
+                {
+                  playlist.length > 1 &&
+                  <DragNDropIndicator />
+                }
+              </Episode>
+            )
+          }
+        />
     }
   </div>
 )
