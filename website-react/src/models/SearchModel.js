@@ -35,10 +35,9 @@ export default mirror.model({
     }
   },
   effects: {
-    async search (_, getState) {
+    async search (searchTerm) {
       actions.search.startLoading()
 
-      const searchTerm = getState().search.searchTerm
       const url = config.baseUrl + searchTerm
       const options = {
         headers: {

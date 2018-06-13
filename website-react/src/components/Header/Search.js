@@ -2,14 +2,15 @@ import React from 'react'
 import {actions} from 'mirrorx'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
-export const Search = ({className, searchTerm}) => (
+export const Search = ({className, searchTerm, history}) => (
   <form
     className={className}
     onSubmit={event => {
       event.preventDefault()
       event.target.querySelector('input').blur()
-      actions.search.search()
+      history.push(`/search/${searchTerm}`)
     }}
   >
     <input
@@ -31,7 +32,9 @@ Search.propTypes = {
   searchTerm: PropTypes.string
 }
 
-export default styled(Search)`
+export const SearchWithRouter = withRouter(Search)
+
+export default styled(SearchWithRouter)`
   input {
     font-size: 1.5rem;
     text-align: center;
