@@ -2,6 +2,8 @@ import mirror from 'mirrorx'
 
 import { nextPlaybackRate, setPlaybackRate } from '../helpers'
 
+import { arrayMove } from 'react-sortable-hoc'
+
 export default mirror.model({
   name: 'player',
   initialState: {
@@ -26,17 +28,8 @@ export default mirror.model({
     },
 
     resortPlaylist (state, data) {
-      const movedEpisode = state.playlist
-        .find(episode => episode.id === data.episodeId)
-      const playlist = state.playlist
-        .filter(episode => episode.id !== data.episodeId)
-      if (data.movedIndex === null) {
-        playlist.push(movedEpisode)
-        return { ...state, playlist }
-      } else {
-        playlist.splice(data.movedIndex, 0, movedEpisode)
-        return { ...state, playlist }
-      }
+      const playlist = arrayMove(state.playlist, data.oldIndex, data.newIndex)
+      return { ...state, playlist }
     },
 
     playNextEpisode (state) {

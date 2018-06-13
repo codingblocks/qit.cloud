@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { SortableHandle } from 'react-sortable-hoc'
+
 import DragNDropImage from '../../../assets/dragndrop.png'
 
-export const DragNDropIndicator = ({ className }) => (
+export const DragNDropIndicator = SortableHandle(({ className }) => (
   <button className={'drag-handle ' + className}>
     <img
       className='drag-handle'
@@ -12,7 +14,7 @@ export const DragNDropIndicator = ({ className }) => (
       alt='Drag and Drop to Reorder Playlist.'
     />
   </button>
-)
+))
 
 DragNDropIndicator.defaultProps = {
   className: 'drag-handle'
