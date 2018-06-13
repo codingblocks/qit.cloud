@@ -78,7 +78,7 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Nicolas Marcora](https://github.com/nmarcora)
 - [Mikkel Madsen](https://github.com/Madsn)
 - [Adam Lantz](https://github.com/AdamLantz)
-- [Ben Steward](https://github.com/benjaminsteward)
+- [Ben Steward](https://github.com/tehpsalmist)
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
 
