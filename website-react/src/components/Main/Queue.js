@@ -17,7 +17,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
       playlist.length === 0
         ? `No episodes added to your queue yet.
         Go ahead and search for some episodes to add!`
-        : <SortableList useDragHandle onSortEnd={
+        : <SortableList useWindowAsScrollContainer useDragHandle onSortEnd={
           ({ oldIndex, newIndex }) => actions.player.resortPlaylist({ oldIndex, newIndex })
         } items={
           playlist.map(episode =>
