@@ -35,7 +35,8 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "**/node_module/"
+      "**/node_modules/",
+      "**/build/"
     ]
   }
 }
