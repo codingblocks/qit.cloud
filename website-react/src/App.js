@@ -14,18 +14,14 @@ import Subtitle from './components/Header/Subtitle'
 import Main from './components/Main/'
 import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
-import SearchResults from './components/Main/SearchResults'
 import Queue from './components/Main/Queue'
 
 import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
-import Loader from './components/Loader'
-
-import {proxyUrl, setPlaybackRate} from './helpers'
+import { proxyUrl, setPlaybackRate } from './helpers'
 
 export const App = connect(state => ({
-  results: state.search.results,
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
@@ -34,21 +30,24 @@ export const App = connect(state => ({
   playbackRate: state.player.playbackRate
 }))(
   ({
-    results,
     searchTerm,
     currentSearch,
-    loading,
     nowPlaying,
     playlist,
-    playbackRate
+    playbackRate,
+    history,
+    location
   }) => (
     <Container>
 
       <Header>
         <Title>
           {
-            currentSearch !== '' &&
-            <BackButton onClick={actions.search.clearSearch}>
+            (currentSearch !== '' || location.pathname.startsWith('/playlist')) &&
+            <BackButton onClick={() => {
+              history.push('/')
+              actions.search.clearSearch()
+            }}>
               &lt;
             </BackButton>
           }
@@ -67,15 +66,6 @@ export const App = connect(state => ({
               playlist={playlist}
               blur={currentSearch !== ''}
             />
-            {
-              currentSearch !== '' &&
-                <SearchResults
-                  nowPlaying={nowPlaying}
-                  results={results}
-                  playlist={playlist}
-                  currentSearch={currentSearch}
-                />
-            }
           </EpisodeList>
         </Card>
       </Main>
@@ -91,8 +81,6 @@ export const App = connect(state => ({
             />
           </NowPlaying>
       }
-
-      { loading && <Loader /> }
 
     </Container>
   ))
