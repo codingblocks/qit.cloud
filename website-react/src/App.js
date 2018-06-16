@@ -19,9 +19,7 @@ import Queue from './components/Main/Queue'
 import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
-import Loader from './components/Loader'
-
-import {proxyUrl, setPlaybackRate} from './helpers'
+import { proxyUrl, setPlaybackRate } from './helpers'
 
 export const App = connect(state => ({
   searchTerm: state.search.searchTerm,
@@ -34,18 +32,22 @@ export const App = connect(state => ({
   ({
     searchTerm,
     currentSearch,
-    loading,
     nowPlaying,
     playlist,
-    playbackRate
+    playbackRate,
+    history,
+    location
   }) => (
     <Container>
 
       <Header>
         <Title>
           {
-            currentSearch !== '' &&
-            <BackButton onClick={actions.search.clearSearch}>
+            (currentSearch !== '' || location.pathname.startsWith('/playlist')) &&
+            <BackButton onClick={() => {
+              history.push('/')
+              actions.search.clearSearch()
+            }}>
               &lt;
             </BackButton>
           }
@@ -79,8 +81,6 @@ export const App = connect(state => ({
             />
           </NowPlaying>
       }
-
-      { loading && <Loader /> }
 
     </Container>
   ))
