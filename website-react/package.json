@@ -22,8 +22,12 @@
     "lint": "standard --fix"
   },
   "devDependencies": {
-    "standard": "^11.0.1",
-    "jest": "^23.1.0"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.1",
+    "sinon": "^6.0.0",
+    "standard": "^11.0.1"
   },
   "standard": {
     "parser": "babel-eslint"
