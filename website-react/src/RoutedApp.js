@@ -5,7 +5,7 @@ import App from './App'
 import SharedPlaylist from './components/Main/SharedPlaylist'
 import SearchResults from './components/Main/SearchResults'
 
-export default props => (
+export default () => (
   <Router>
     <div>
       <Route path='/' component={App} />

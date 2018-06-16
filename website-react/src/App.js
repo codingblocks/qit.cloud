@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {connect, actions} from 'mirrorx'
 import PropTypes from 'prop-types'
 
@@ -21,24 +21,25 @@ import AudioPlayer from './components/Player/AudioPlayer'
 
 import { proxyUrl, setPlaybackRate } from './helpers'
 
-export const App = connect(state => ({
-  searchTerm: state.search.searchTerm,
-  currentSearch: state.search.currentSearch,
-  loading: state.search.loading,
-  nowPlaying: state.player.nowPlaying,
-  playlist: state.player.playlist,
-  playbackRate: state.player.playbackRate
-}))(
-  ({
-    searchTerm,
-    currentSearch,
-    nowPlaying,
-    playlist,
-    playbackRate,
-    history,
-    location
-  }) => (
-    <Container>
+export class App extends Component {
+  componentDidUpdate () {
+    console.log('LOCATION: ', this.props.location)
+    this.props.location.pathname === '/' &&
+      actions.search.clearSearch()
+  }
+
+  render () {
+    const {
+      searchTerm,
+      currentSearch,
+      nowPlaying,
+      playlist,
+      playbackRate,
+      history,
+      location
+    } = this.props
+
+    return <Container>
 
       <Header>
         <Title>
@@ -83,7 +84,8 @@ export const App = connect(state => ({
       }
 
     </Container>
-  ))
+  }
+}
 
 App.defaultProps = {
   results: [],
@@ -103,4 +105,13 @@ App.propTypes = {
   playlist: PropTypes.array.isRequired
 }
 
-export default App
+export const ConnectedApp = connect(state => ({
+  searchTerm: state.search.searchTerm,
+  currentSearch: state.search.currentSearch,
+  loading: state.search.loading,
+  nowPlaying: state.player.nowPlaying,
+  playlist: state.player.playlist,
+  playbackRate: state.player.playbackRate
+}))(App)
+
+export default ConnectedApp
