@@ -8,11 +8,11 @@
     "WebsiteInstall": "cd ./website-react && npm install && cd ..",
     "installAll": "npm install && npm run FeedLoaderInstall && npm run ProxyInstall && npm run WebsiteInstall",
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
-    "testProxy": "cd ./ssl-proxy npm run test && cd ..",
-    "testWebsite": "cd ./website-react && npm run jest && cd ..",
+    "testProxy": "cd ./ssl-proxy && npm run test && cd ..",
+    "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "test": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "standard": "standard",
-    "jest": "jest",
+    "jest": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "lint": "standard --fix",
     "precommit": "npm run standard",
     "dockers": "docker-compose build && docker-compose up -d"
@@ -35,7 +35,9 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "**/node_module/"
+      "**/node_modules/",
+      "**/build/",
+      "**/coverage/"
     ]
   }
 }
