@@ -36,7 +36,8 @@
     "parser": "babel-eslint",
     "ignore": [
       "**/node_modules/",
-      "**/build/"
+      "**/build/",
+      "**/coverage/"
     ]
   }
 }
