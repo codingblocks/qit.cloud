@@ -12,7 +12,7 @@
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "test": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "standard": "standard",
-    "jest": "jest",
+    "jest": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "lint": "standard --fix",
     "precommit": "npm run standard",
     "dockers": "docker-compose build && docker-compose up -d"
