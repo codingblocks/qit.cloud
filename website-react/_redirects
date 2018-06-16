@@ -1,0 +1,4 @@
+# This will make it so any files that are not found
+# will be redirected to index.html. 
+# See notes on shadowing: https://www.netlify.com/docs/redirects/
+/*   /index.html   200
