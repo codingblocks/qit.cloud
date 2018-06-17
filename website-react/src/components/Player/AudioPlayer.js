@@ -182,7 +182,6 @@ export default class AudioPlayer extends React.Component {
               : 0
 
       if (newPosition <= this.state.containerWidth && newPosition >= 0) {
-        console.log(this.state.duration, newPosition, this.state.containerWidth)
         this.jumpToTime(this.state.duration * newPosition / this.state.containerWidth)
       }
 
