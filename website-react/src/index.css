@@ -50,3 +50,21 @@ body > li {
   list-style: none;
   z-index: 100;
 }
+
+.scrubber {
+  cursor: grab;
+}
+
+.scrubbing {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.scrub-handle {
+  visibility: hidden;
+}
+
+.scrubber:hover > .scrub-handle,
+.scrubber.scrubbing > .scrub-handle {
+  visibility: visible;
+}

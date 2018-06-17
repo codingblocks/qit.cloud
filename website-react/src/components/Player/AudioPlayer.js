@@ -9,6 +9,7 @@ import pauseImg from '../../assets/pause.png'
 import back10Img from '../../assets/backwards.png'
 import forward30Img from '../../assets/forwards.png'
 import TimeSlider from './TimeSlider'
+import Loader from '../Loader'
 
 const ControlIcon = styled.img`
   width: 100%;
@@ -52,7 +53,8 @@ export default class AudioPlayer extends React.Component {
       containerWidth: 800,
       leftEdge: 0,
       scrubbing: false,
-      scrubPosition: 0
+      scrubPosition: 0,
+      seeking: false
     }
     this.container = React.createRef()
   }
@@ -70,12 +72,10 @@ export default class AudioPlayer extends React.Component {
   }
 
   resizeTimeSlider = () => {
-    if (this.state.containerWidth !== this.container.current.offsetWidth) {
-      this.setState({
-        containerWidth: this.container.current.offsetWidth,
-        leftEdge: this.container.current.getBoundingClientRect().left
-      })
-    }
+    this.setState({
+      containerWidth: this.container.current.offsetWidth,
+      leftEdge: this.container.current.getBoundingClientRect().left
+    })
   }
 
   playPause = () => {
@@ -85,7 +85,6 @@ export default class AudioPlayer extends React.Component {
       this.audioRef.current.play()
     }
     this.setState({ playing: !this.state.playing })
-    console.log('playPause')
   }
 
   loadStarted = () => {
@@ -137,29 +136,71 @@ export default class AudioPlayer extends React.Component {
     }
   }
 
-  onGrabSlider = (event) => {
-    let newPosition = event.screenX - this.state.leftEdge
+  onGrabScrubber = (initialEvent) => {
+    initialEvent.preventDefault()
+
+    let newPosition = typeof initialEvent.screenX === 'number'
+      ? initialEvent.screenX - this.state.leftEdge
+      : initialEvent.targetTouches[0].screenX - this.state.leftEdge
+
     this.setState({ scrubbing: true, scrubPosition: newPosition })
 
-    const mouseMover = (event) => {
-      event.stopPropagation()
+    const onScrub = (event) => {
       event.preventDefault()
-      newPosition = event.screenX - this.state.leftEdge
+
+      newPosition = typeof event.screenX === 'number'
+        ? event.screenX - this.state.leftEdge
+        : event.targetTouches[0].screenX - this.state.leftEdge
+
       this.setState({ scrubPosition: newPosition })
     }
 
-    const mouseUpper = (event) => {
-      this.setState({ scrubbing: false })
-      event.stopPropagation()
+    const onScrubEnd = (event) => {
       event.preventDefault()
-      window.removeEventListener('mousemove', mouseMover)
-      window.removeEventListener('mouseup', mouseUpper)
-      newPosition = event.screenX - this.state.leftEdge
-      this.jumpToTime(this.state.duration * newPosition / this.state.containerWidth)
+      this.setState({ scrubbing: false })
+
+      newPosition = typeof event.screenX === 'number'
+        ? event.screenX - this.state.leftEdge
+        : event.changedTouches[0].screenX - this.state.leftEdge
+
+      if (newPosition <= this.state.containerWidth && newPosition >= 0) {
+        this.jumpToTime(this.state.duration * newPosition / this.state.containerWidth)
+      }
+
+      window.removeEventListener('mousemove', onScrub, { passive: false })
+      window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
+      window.removeEventListener('touchmove', onScrub, { passive: false })
+      window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
+      window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
     }
 
-    window.addEventListener('mousemove', mouseMover)
-    window.addEventListener('mouseup', mouseUpper)
+    const onScrubDisrupted = (event) => {
+      event.preventDefault()
+      this.setState({ scrubbing: false })
+
+      window.removeEventListener('mousemove', onScrub, { passive: false })
+      window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
+      window.removeEventListener('touchmove', onScrub, { passive: false })
+      window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
+      window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
+    }
+
+    if (initialEvent.type === 'mousedown') {
+      window.addEventListener('mousemove', onScrub, { passive: false })
+      window.addEventListener('mouseup', onScrubEnd, { once: true, passive: false })
+    } else if (initialEvent.type === 'touchstart') {
+      window.addEventListener('touchmove', onScrub, { passive: false })
+      window.addEventListener('touchend', onScrubEnd, { once: true, passive: false })
+      window.addEventListener('touchcancel', onScrubDisrupted, { once: true })
+    }
+  }
+
+  seeking = () => {
+    this.setState({ seeking: true })
+  }
+
+  seeked = () => {
+    this.setState({ seeking: false })
   }
 
   render () {
@@ -167,7 +208,14 @@ export default class AudioPlayer extends React.Component {
 
     return (
       <AudioControlsContainer innerRef={this.container}>
-        <TimeSlider onGrabSlider={this.onGrabSlider} width={this.state.containerWidth} sliderPosition={sliderPosition} />
+        <TimeSlider
+          scrubbing={this.state.scrubbing}
+          onGrabScrubber={this.onGrabScrubber}
+          width={this.state.containerWidth}
+          sliderPosition={sliderPosition}
+          duration={this.state.duration}
+          formatTime={this.formatTrackTime}
+        />
         <Speed onClick={actions.player.nextPlaybackRate}>
           {this.props.playbackRate}x
         </Speed>
@@ -213,10 +261,16 @@ export default class AudioPlayer extends React.Component {
           onDurationChange={this.durationChanged}
           onPlaying={this.playing}
           onTimeUpdate={this.timeUpdated}
+          onSeeking={this.seeking}
+          onSeeked={this.seeked}
           autoPlay
           onEnded={this.ended}
           src={this.props.src}
         />
+        {
+          this.state.seeking &&
+          <Loader />
+        }
       </AudioControlsContainer>
     )
   }
