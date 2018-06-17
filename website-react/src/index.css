@@ -48,4 +48,5 @@ audio {
 }
 body > li {
   list-style: none;
+  z-index: 100;
 }

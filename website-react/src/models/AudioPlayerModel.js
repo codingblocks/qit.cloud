@@ -51,7 +51,11 @@ export default mirror.model({
       const playbackRate = nextPlaybackRate(state.playbackRate)
       setPlaybackRate(playbackRate)
       return { ...state, playbackRate }
-    }
+    },
 
+    updateWidth (state, width) {
+      console.log('updating width:', width)
+      return { ...state, containerWidth: width }
+    }
   }
 })
