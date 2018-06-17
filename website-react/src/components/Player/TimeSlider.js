@@ -85,7 +85,7 @@ const TimeSlider = ({
             y={8}
             rx={2}
             ry={2}
-            width={`${sliderPosition}`}
+            width={`${sliderPosition >= 0 ? sliderPosition : 0}`}
             height={4}
             fill='#a756f5'
           />
