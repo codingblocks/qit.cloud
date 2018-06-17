@@ -139,18 +139,30 @@ export default class AudioPlayer extends React.Component {
   onGrabScrubber = (initialEvent) => {
     initialEvent.preventDefault()
 
-    let newPosition = typeof initialEvent.screenX === 'number'
-      ? initialEvent.screenX - this.state.leftEdge
-      : initialEvent.targetTouches[0].screenX - this.state.leftEdge
+    let newPosition = typeof initialEvent.clientX === 'number'
+      ? initialEvent.clientX - this.state.leftEdge
+      : initialEvent.targetTouches.length
+        ? initialEvent.targetTouches[0].clientX - this.state.leftEdge
+        : initialEvent.changedTouches.length
+          ? initialEvent.changedTouches[0].clientX - this.state.leftEdge
+          : initialEvent.touches.length
+            ? initialEvent.touches[0].clientX - this.state.leftEdge
+            : 0
 
     this.setState({ scrubbing: true, scrubPosition: newPosition })
 
     const onScrub = (event) => {
       event.preventDefault()
 
-      newPosition = typeof event.screenX === 'number'
-        ? event.screenX - this.state.leftEdge
-        : event.targetTouches[0].screenX - this.state.leftEdge
+      newPosition = typeof event.clientX === 'number'
+        ? event.clientX - this.state.leftEdge
+        : event.targetTouches.length
+          ? event.targetTouches[0].clientX - this.state.leftEdge
+          : event.changedTouches.length
+            ? event.changedTouches[0].clientX - this.state.leftEdge
+            : event.touches.length
+              ? event.touches[0].clientX - this.state.leftEdge
+              : 0
 
       this.setState({ scrubPosition: newPosition })
     }
@@ -159,11 +171,18 @@ export default class AudioPlayer extends React.Component {
       event.preventDefault()
       this.setState({ scrubbing: false })
 
-      newPosition = typeof event.screenX === 'number'
-        ? event.screenX - this.state.leftEdge
-        : event.changedTouches[0].screenX - this.state.leftEdge
+      newPosition = typeof event.clientX === 'number'
+        ? event.clientX - this.state.leftEdge
+        : event.targetTouches.length
+          ? event.targetTouches[0].clientX - this.state.leftEdge
+          : event.changedTouches.length
+            ? event.changedTouches[0].clientX - this.state.leftEdge
+            : event.touches.length
+              ? event.touches[0].clientX - this.state.leftEdge
+              : 0
 
       if (newPosition <= this.state.containerWidth && newPosition >= 0) {
+        console.log(this.state.duration, newPosition, this.state.containerWidth)
         this.jumpToTime(this.state.duration * newPosition / this.state.containerWidth)
       }
 
