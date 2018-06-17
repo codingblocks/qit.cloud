@@ -217,7 +217,7 @@ export default class AudioPlayer extends React.Component {
           formatTime={this.formatTrackTime}
         />
         <Speed onClick={actions.player.nextPlaybackRate}>
-          {this.props.playbackRate}x
+          {this.props.playbackrate}x
         </Speed>
         <div
           onClick={event => {
