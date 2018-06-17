@@ -9,30 +9,30 @@ export default mirror.model({
   initialState: {
     nowPlaying: {},
     playlist: [],
-    playbackRate: 1
+    playbackrate: 1
   },
   reducers: {
 
-    play (state, episode) {
+    play(state, episode) {
       return { ...state, nowPlaying: episode }
     },
 
-    addToPlaylist (state, episode) {
+    addToPlaylist(state, episode) {
       return { ...state, playlist: [...state.playlist, episode] }
     },
 
-    removeFromPlaylist (state, episodeId) {
+    removeFromPlaylist(state, episodeId) {
       const playlist = state.playlist
         .filter(episode => episode.id !== episodeId)
       return { ...state, playlist }
     },
 
-    resortPlaylist (state, data) {
+    resortPlaylist(state, data) {
       const playlist = arrayMove(state.playlist, data.oldIndex, data.newIndex)
       return { ...state, playlist }
     },
 
-    playNextEpisode (state) {
+    playNextEpisode(state) {
       const currentlyPlaying = state.nowPlaying
       const playlist = state.playlist
         .slice()
@@ -41,17 +41,21 @@ export default mirror.model({
       return { ...state, nowPlaying, playlist }
     },
 
-    playNext (state, episode) {
+    playNext(state, episode) {
       const newPlaylist = state.playlist
         .filter(item => item.audioUrl !== episode.audioUrl)
       return { ...state, playlist: [episode, ...newPlaylist] }
     },
 
-    nextPlaybackRate (state) {
-      const playbackRate = nextPlaybackRate(state.playbackRate)
-      setPlaybackRate(playbackRate)
-      return { ...state, playbackRate }
-    }
+    nextPlaybackRate(state) {
+      const playbackrate = nextPlaybackRate(state.playbackrate)
+      setPlaybackRate(playbackrate)
+      return { ...state, playbackrate }
+    },
 
+    updateWidth(state, width) {
+      console.log('updating width:', width)
+      return { ...state, containerWidth: width }
+    }
   }
 })
