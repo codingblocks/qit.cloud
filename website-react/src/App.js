@@ -22,13 +22,13 @@ import AudioPlayer from './components/Player/AudioPlayer'
 import { proxyUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
-  componentDidUpdate() {
+  componentDidUpdate () {
     console.log('LOCATION: ', this.props.location)
     this.props.location.pathname === '/' &&
       actions.search.clearSearch()
   }
 
-  render() {
+  render () {
     const {
       searchTerm,
       currentSearch,
