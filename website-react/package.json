@@ -35,7 +35,8 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "/build"
+      "/build",
+      "/cypress"
     ]
   }
 }
