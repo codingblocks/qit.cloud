@@ -302,6 +302,12 @@
     },
     {
       "titleCleanser": null,
+      "url": "https://vuenews.fireside.fm/rss",
+      "title": "The Official Vue News",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://thewebplatform.libsyn.com/rss",
       "title": "The Web Platform",
       "forceHttps": false
