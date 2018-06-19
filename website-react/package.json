@@ -19,9 +19,12 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "testNonInteractive": "react-scripts test --env=jsdom --coverage",
+    "cypress:open": "cypress open",
+    "e2e": "cypress run",
     "lint": "standard --fix"
   },
   "devDependencies": {
+    "cypress": "^3.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.1.0",
