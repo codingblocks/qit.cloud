@@ -23,7 +23,6 @@ import { proxyUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
   componentDidUpdate () {
-    console.log('LOCATION: ', this.props.location)
     this.props.location.pathname === '/' &&
       actions.search.clearSearch()
   }

@@ -18,10 +18,10 @@
     "dockers": "docker-compose build && docker-compose up -d"
   },
   "devDependencies": {
-    "husky": "^0.14.3",
-    "standard": "^11.0.1",
     "babel-eslint": "8.2.3",
-    "jest": "^23.1.0"
+    "husky": "^0.14.3",
+    "jest": "^23.1.0",
+    "standard": "^11.0.1"
   },
   "contributors": [
     "https://github.com/THEjoezack",
