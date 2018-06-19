@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export const NowPlaying = ({className, nowPlaying, children}) => (
+export const NowPlaying = ({ className, nowPlaying, children }) => (
   <div className={className}>
     <div id='playerInfo'>
       <p id='episodeTitle'>{nowPlaying.episodeTitle}</p>
@@ -27,7 +27,6 @@ export default styled(NowPlaying)`
   bottom: 0;
   width: 100vw;
   max-width: 800px;
-  border: solid 2px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   z-index: 1;
 

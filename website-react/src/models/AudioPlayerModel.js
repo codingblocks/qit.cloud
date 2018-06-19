@@ -9,7 +9,7 @@ export default mirror.model({
   initialState: {
     nowPlaying: {},
     playlist: [],
-    playbackRate: 1
+    playbackrate: 1
   },
   reducers: {
 
@@ -48,10 +48,14 @@ export default mirror.model({
     },
 
     nextPlaybackRate (state) {
-      const playbackRate = nextPlaybackRate(state.playbackRate)
-      setPlaybackRate(playbackRate)
-      return { ...state, playbackRate }
-    }
+      const playbackrate = nextPlaybackRate(state.playbackrate)
+      setPlaybackRate(playbackrate)
+      return { ...state, playbackrate }
+    },
 
+    updateWidth (state, width) {
+      console.log('updating width:', width)
+      return { ...state, containerWidth: width }
+    }
   }
 })

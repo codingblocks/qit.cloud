@@ -17,11 +17,13 @@ export const RemoveFromPlaylistButton = ({ lonely, className, onClick }) => (
 )
 
 RemoveFromPlaylistButton.defaultProps = {
+  lonely: false,
   className: '',
   onClick: () => { }
 }
 
 RemoveFromPlaylistButton.propTypes = {
+  lonely: PropTypes.bool,
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired
 }
