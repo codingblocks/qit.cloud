@@ -308,6 +308,12 @@
     },
     {
       "titleCleanser": null,
+      "url": "https://feeds.feedwrench.com",
+      "title": "Views on View",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://thewebplatform.libsyn.com/rss",
       "title": "The Web Platform",
       "forceHttps": false
