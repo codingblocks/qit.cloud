@@ -37,7 +37,8 @@
     "ignore": [
       "**/node_modules/",
       "**/build/",
-      "**/coverage/"
+      "**/coverage/",
+      "**/cypress/"
     ]
   }
 }
