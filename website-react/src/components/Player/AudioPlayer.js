@@ -52,7 +52,6 @@ export default class AudioPlayer extends React.Component {
       currentTime: 0,
       containerWidth: 800,
       leftEdge: 0,
-      scrubbing: false,
       scrubPosition: 0,
       seeking: false
     }
@@ -136,83 +135,6 @@ export default class AudioPlayer extends React.Component {
     }
   }
 
-  onGrabScrubber = (initialEvent) => {
-    initialEvent.preventDefault()
-
-    let newPosition = typeof initialEvent.clientX === 'number'
-      ? initialEvent.clientX - this.state.leftEdge
-      : initialEvent.targetTouches.length
-        ? initialEvent.targetTouches[0].clientX - this.state.leftEdge
-        : initialEvent.changedTouches.length
-          ? initialEvent.changedTouches[0].clientX - this.state.leftEdge
-          : initialEvent.touches.length
-            ? initialEvent.touches[0].clientX - this.state.leftEdge
-            : 0
-
-    this.setState({ scrubbing: true, scrubPosition: newPosition })
-
-    const onScrub = (event) => {
-      event.preventDefault()
-
-      newPosition = typeof event.clientX === 'number'
-        ? event.clientX - this.state.leftEdge
-        : event.targetTouches.length
-          ? event.targetTouches[0].clientX - this.state.leftEdge
-          : event.changedTouches.length
-            ? event.changedTouches[0].clientX - this.state.leftEdge
-            : event.touches.length
-              ? event.touches[0].clientX - this.state.leftEdge
-              : 0
-
-      this.setState({ scrubPosition: newPosition })
-    }
-
-    const onScrubEnd = (event) => {
-      event.preventDefault()
-      this.setState({ scrubbing: false })
-
-      newPosition = typeof event.clientX === 'number'
-        ? event.clientX - this.state.leftEdge
-        : event.targetTouches.length
-          ? event.targetTouches[0].clientX - this.state.leftEdge
-          : event.changedTouches.length
-            ? event.changedTouches[0].clientX - this.state.leftEdge
-            : event.touches.length
-              ? event.touches[0].clientX - this.state.leftEdge
-              : 0
-
-      if (newPosition <= this.state.containerWidth && newPosition >= 0) {
-        this.jumpToTime(this.state.duration * newPosition / this.state.containerWidth)
-      }
-
-      window.removeEventListener('mousemove', onScrub, { passive: false })
-      window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
-      window.removeEventListener('touchmove', onScrub, { passive: false })
-      window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
-      window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
-    }
-
-    const onScrubDisrupted = (event) => {
-      event.preventDefault()
-      this.setState({ scrubbing: false })
-
-      window.removeEventListener('mousemove', onScrub, { passive: false })
-      window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
-      window.removeEventListener('touchmove', onScrub, { passive: false })
-      window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
-      window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
-    }
-
-    if (initialEvent.type === 'mousedown') {
-      window.addEventListener('mousemove', onScrub, { passive: false })
-      window.addEventListener('mouseup', onScrubEnd, { once: true, passive: false })
-    } else if (initialEvent.type === 'touchstart') {
-      window.addEventListener('touchmove', onScrub, { passive: false })
-      window.addEventListener('touchend', onScrubEnd, { once: true, passive: false })
-      window.addEventListener('touchcancel', onScrubDisrupted, { once: true })
-    }
-  }
-
   seeking = () => {
     this.setState({ seeking: true })
   }
@@ -222,17 +144,15 @@ export default class AudioPlayer extends React.Component {
   }
 
   render () {
-    const sliderPosition = this.state.scrubbing ? this.state.scrubPosition : this.state.duration ? this.state.containerWidth * this.state.currentTime / this.state.duration : 0
-
     return (
       <AudioControlsContainer innerRef={this.container}>
         <TimeSlider
-          scrubbing={this.state.scrubbing}
-          onGrabScrubber={this.onGrabScrubber}
           width={this.state.containerWidth}
-          sliderPosition={sliderPosition}
+          currentTime={this.state.currentTime}
           duration={this.state.duration}
           formatTime={this.formatTrackTime}
+          leftEdge={this.state.leftEdge}
+          onTimeChanged={this.jumpToTime}
         />
         <Speed onClick={actions.player.nextPlaybackRate}>
           {this.props.playbackrate}x
