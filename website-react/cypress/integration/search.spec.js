@@ -1,8 +1,7 @@
+import { cy } from 'cypress'
 
 describe('Search', function () {
-
   describe('Input', function () {
-
     beforeEach(function () {
       cy.server()
 
@@ -30,7 +29,6 @@ describe('Search', function () {
     })
 
     it('returns empty results', function () {
-
       cy.route({
         method: 'GET',
         url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
@@ -81,7 +79,6 @@ describe('Search', function () {
     })
 
     it('returns empty results', function () {
-      
       cy.route({
         method: 'GET',
         url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',

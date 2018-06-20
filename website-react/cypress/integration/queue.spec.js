@@ -1,3 +1,5 @@
+import { cy } from 'cypress'
+
 describe('Queue', function () {
   beforeEach(function () {
     cy.server()
@@ -22,7 +24,7 @@ describe('Queue', function () {
     cy.get('li').should('have.length', 1)
   })
 
-  //TODO: skipped test, clicking all 26 buttons times out
+  // TODO: skipped test, clicking all 26 buttons times out
   it.skip('can add many to queue', function () {
     // Click all add to queue buttons & go to queue page
     cy.get('li > button').click({ multiple: true })
@@ -30,7 +32,6 @@ describe('Queue', function () {
 
     cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
   })
-
 
   it('can remove from queue', function () {
     // Add to queue & go to queue page
