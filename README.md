@@ -30,6 +30,26 @@ To auto-lint, just run:
 ```bash
 standard --fix
 ```
+### E2E the React website
+
+Note: prior to running the e2e tests, manually start the react app (see above).
+
+To run cypress interactive mode, run the following commands:
+
+```bash
+cd website-react
+npm run cypress:open
+<click run all tests on the GUI>
+```
+
+To run cypress headless mode, run the following commands:
+
+```bash
+cd website-react
+npm run e2e
+<click run all tests on the GUI>
+```
+
 #### Vladimir`s version of docker
 Before running dockers, run
 ```bash
