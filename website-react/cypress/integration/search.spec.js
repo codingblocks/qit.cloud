@@ -30,8 +30,6 @@ describe('Search', function () {
     })
 
     it('returns empty results', function () {
-      // TODO: find better way to clear the search input
-      //cy.visit('/')
 
       cy.route({
         method: 'GET',
