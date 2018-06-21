@@ -36,7 +36,8 @@
     "ignore": [
       "**/node_modules/",
       "**/build/",
-      "**/coverage/"
+      "**/coverage/",
+      "**/cypress/"
     ],
     "env": {
       "jest": true
