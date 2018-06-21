@@ -23,7 +23,8 @@ import { proxyUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
   componentWillMount () {
-    actions.player.hydratePlaylist()
+    window.localStorage.getItem('playlist') &&
+      actions.player.hydratePlaylist()
   }
 
   componentDidUpdate () {
