@@ -4,6 +4,7 @@ import { render } from 'mirrorx'
 import './models/SearchModel'
 import './models/AudioPlayerModel'
 import './hooks/eventTrackingHook'
+import './hooks/savePlaylistHook'
 
 import './index.css'
 import App from './RoutedApp'

@@ -32,6 +32,11 @@ export default mirror.model({
       return { ...state, playlist }
     },
 
+    hydratePlaylist (state) {
+      const localPlaylist = JSON.parse(window.localStorage.getItem('playlist'))
+      return { ...state, playlist: localPlaylist }
+    },
+
     playNextEpisode (state) {
       const currentlyPlaying = state.nowPlaying
       const playlist = state.playlist
