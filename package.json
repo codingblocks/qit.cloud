@@ -12,7 +12,6 @@
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "test": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "standard": "standard",
-    "jest": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
     "lint": "standard --fix",
     "precommit": "npm run standard",
     "dockers": "docker-compose build && docker-compose up -d"
@@ -37,7 +36,11 @@
     "ignore": [
       "**/node_modules/",
       "**/build/",
-      "**/coverage/"
-    ]
+      "**/coverage/",
+      "**/cypress/"
+    ],
+    "env": {
+      "jest": true
+    }
   }
 }

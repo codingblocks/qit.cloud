@@ -1,5 +1,7 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
+[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
+
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
 
@@ -30,6 +32,26 @@ To auto-lint, just run:
 ```bash
 standard --fix
 ```
+### E2E the React website
+
+Note: prior to running the e2e tests, manually start the react app (see above).
+
+To run cypress interactive mode, run the following commands:
+
+```bash
+cd website-react
+npm run cypress:open
+<click run all tests on the GUI>
+```
+
+To run cypress headless mode, run the following commands:
+
+```bash
+cd website-react
+npm run e2e
+<click run all tests on the GUI>
+```
+
 #### Vladimir`s version of docker
 Before running dockers, run
 ```bash
