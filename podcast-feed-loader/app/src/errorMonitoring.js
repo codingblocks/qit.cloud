@@ -9,8 +9,8 @@ if (process.env.AIRBRAKE_PROJECTID && process.env.AIRBRAKE_PROJECTKEY) {
 
   module.exports.notify = function (errorMessage, severity = 'error', additionalInformation = []) {
     console.log(`Notifying Airbrake`)
-    console.error(`${severity}: ${errorMessage}`)
-    console.error(additionalInformation)
+    console.log(`${severity}: ${errorMessage}`)
+    console.log(additionalInformation)
     airbrake.notify({
       error: errorMessage,
       context: { severity: severity },
@@ -19,7 +19,7 @@ if (process.env.AIRBRAKE_PROJECTID && process.env.AIRBRAKE_PROJECTKEY) {
   }
 } else {
   module.exports.notify = (errorMessage, severity = 'error', additionalInformation = []) => {
-    console.error(`${severity}: ${errorMessage}`)
-    console.error(additionalInformation)
+    console.log(`${severity}: ${errorMessage}`)
+    console.log(additionalInformation)
   }
 }
