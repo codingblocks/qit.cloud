@@ -1,4 +1,3 @@
-import { cy } from 'cypress'
 
 describe('Search', function () {
   describe('Input', function () {
