@@ -22,6 +22,11 @@ import AudioPlayer from './components/Player/AudioPlayer'
 import { proxyUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
+
+  componentWillMount () {
+    actions.player.hydratePlaylist()
+  }
+
   componentDidUpdate () {
     this.props.location.pathname === '/' &&
       actions.search.clearSearch()
