@@ -1,4 +1,3 @@
-import { cy } from 'cypress'
 
 describe('Main', function () {
   beforeEach(function () {
