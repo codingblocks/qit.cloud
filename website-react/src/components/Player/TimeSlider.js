@@ -26,22 +26,8 @@ export default class TimeSlider extends React.Component {
     onGrabScrubber = (initialEvent) => {
       initialEvent.preventDefault()
 
-      let newPosition = typeof initialEvent.clientX === 'number'
-        ? initialEvent.clientX - this.props.leftEdge
-        : initialEvent.targetTouches.length
-          ? initialEvent.targetTouches[0].clientX - this.props.leftEdge
-          : initialEvent.changedTouches.length
-            ? initialEvent.changedTouches[0].clientX - this.props.leftEdge
-            : initialEvent.touches.length
-              ? initialEvent.touches[0].clientX - this.props.leftEdge
-              : 0
-
-      this.setState({ scrubbing: true, scrubPosition: newPosition })
-
-      const onScrub = (event) => {
-        event.preventDefault()
-
-        newPosition = typeof event.clientX === 'number'
+      const getEventPosition = event => {
+        return typeof event.clientX === 'number'
           ? event.clientX - this.props.leftEdge
           : event.targetTouches.length
             ? event.targetTouches[0].clientX - this.props.leftEdge
@@ -50,6 +36,16 @@ export default class TimeSlider extends React.Component {
               : event.touches.length
                 ? event.touches[0].clientX - this.props.leftEdge
                 : 0
+      }
+
+      let newPosition = getEventPosition(initialEvent)
+
+      this.setState({ scrubbing: true, scrubPosition: newPosition })
+
+      const onScrub = (event) => {
+        event.preventDefault()
+
+        newPosition = getEventPosition(event)
 
         this.setState({ scrubPosition: newPosition })
       }
@@ -58,45 +54,45 @@ export default class TimeSlider extends React.Component {
         event.preventDefault()
         this.setState({ scrubbing: false })
 
-        newPosition = typeof event.clientX === 'number'
-          ? event.clientX - this.props.leftEdge
-          : event.targetTouches.length
-            ? event.targetTouches[0].clientX - this.props.leftEdge
-            : event.changedTouches.length
-              ? event.changedTouches[0].clientX - this.props.leftEdge
-              : event.touches.length
-                ? event.touches[0].clientX - this.props.leftEdge
-                : 0
+        newPosition = getEventPosition(event)
 
         if (newPosition <= this.props.width && newPosition >= 0) {
           this.props.onTimeChanged(this.props.duration * newPosition / this.props.width)
         }
 
-        window.removeEventListener('mousemove', onScrub, { passive: false })
-        window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
-        window.removeEventListener('touchmove', onScrub, { passive: false })
-        window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
-        window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
+        removeListeners()
       }
 
       const onScrubDisrupted = (event) => {
         event.preventDefault()
         this.setState({ scrubbing: false })
 
+        removeListeners()
+      }
+
+      if (initialEvent.type === 'mousedown') {
+        addMouseListeners()
+      } else if (initialEvent.type === 'touchstart') {
+        addTouchListeners()
+      }
+
+      function addMouseListeners () {
+        window.addEventListener('mousemove', onScrub, { passive: false })
+        window.addEventListener('mouseup', onScrubEnd, { once: true, passive: false })
+      }
+
+      function addTouchListeners () {
+        window.addEventListener('touchmove', onScrub, { passive: false })
+        window.addEventListener('touchend', onScrubEnd, { once: true, passive: false })
+        window.addEventListener('touchcancel', onScrubDisrupted, { once: true })
+      }
+
+      function removeListeners () {
         window.removeEventListener('mousemove', onScrub, { passive: false })
         window.removeEventListener('mouseup', onScrubEnd, { once: true, passive: false })
         window.removeEventListener('touchmove', onScrub, { passive: false })
         window.removeEventListener('touchend', onScrubEnd, { once: true, passive: false })
         window.removeEventListener('touchcancel', onScrubDisrupted, { once: true })
-      }
-
-      if (initialEvent.type === 'mousedown') {
-        window.addEventListener('mousemove', onScrub, { passive: false })
-        window.addEventListener('mouseup', onScrubEnd, { once: true, passive: false })
-      } else if (initialEvent.type === 'touchstart') {
-        window.addEventListener('touchmove', onScrub, { passive: false })
-        window.addEventListener('touchend', onScrubEnd, { once: true, passive: false })
-        window.addEventListener('touchcancel', onScrubDisrupted, { once: true })
       }
     }
 
