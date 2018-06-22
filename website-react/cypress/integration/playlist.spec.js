@@ -1,5 +1,5 @@
 
-describe('Queue', function () {
+describe('Playlist', function () {
 
   beforeEach(function () {
     cy.server()
@@ -17,24 +17,23 @@ describe('Queue', function () {
 
   describe('Add & Remove', function () {
 
-    it('can add & remove 1 from the queue', function () {
-      // Add to queue & go to queue page
+    it('can add & remove 1 from the playlist', function () {
+      // Add to queue & go to queue playlist
       cy.get('[data-playlist=add]:first').click()
       cy.get('button').contains('<').click()
 
-      // Verify 1 result in queue list
+      // Verify 1 result in playlist list
       cy.get('li').should('have.length', 1)
 
-      // Click remove queue button
+      // Click remove playlist button
       cy.get('[data-playlist=remove]:first').click()
 
       // Verify its removed
       cy.get('li').should('not.exist')
     })
 
-    it('can add & remove many from the queue', function () {
-      // Click all add to queue buttons & go to queue page
-      //cy.get('li > button').click({ multiple: true })
+    it('can add & remove many from the playlist', function () {
+      // Click all add to queue buttons & go to playlist page
       cy.get('[data-playlist=add]').click({ multiple: true })
       cy.get('button').contains('<').click()
 
