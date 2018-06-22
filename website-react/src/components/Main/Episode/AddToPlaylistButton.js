@@ -9,6 +9,7 @@ export const AddToPlaylist = ({className, onClick, added}) => (
   <button
     className={className}
     onClick={event => !added && onClick(event)}
+    data-playlist={'add'}
   >
     <img
       src={added ? AddedToPlaylistImage : AddToPlaylistImage}
