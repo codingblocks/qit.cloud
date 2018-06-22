@@ -34,6 +34,10 @@ describe('Search', function () {
         response: []
       })
 
+      // This visit back the root is needed to avoid a race condition when
+      // running with electron in headless mode. Issue #127
+      cy.visit('/')
+
       cy.get('input')
         .clear()
         .type('empty')

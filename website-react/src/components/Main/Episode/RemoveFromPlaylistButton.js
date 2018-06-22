@@ -8,6 +8,7 @@ export const RemoveFromPlaylistButton = ({ lonely, className, onClick }) => (
   <button
     className={className}
     onClick={onClick}
+    data-playlist={'remove'}
   >
     <img
       src={RemoveFromPlaylistImage}
