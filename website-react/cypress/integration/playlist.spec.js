@@ -50,15 +50,21 @@ describe('Playlist', function () {
 
   describe('Drag To Sort', function () {
     
-    // function movePlaylistItem (number, x, y) {
-    //   cy.get(`.piece-${number}`)
-    //     .trigger('mousedown', { which: 1 })
-    //     .trigger('mousemove', { clientX: x, clientY: y })
-    //     .trigger('mouseup', {force: true})
-    // }
+    function movePlaylistItem (selector, x, y) {
+      cy.get(selector)
+        .trigger('mousedown', { which: 1 })
+        .trigger('mousemove', { clientX: x, clientY: y })
+        .trigger('mouseup', {force: true})
+    }
+
+    beforeEach(function () {
+      // Click all add to queue buttons & go to playlist page
+      cy.get('[data-playlist=add]').click({ multiple: true })
+      cy.get('button').contains('<').click()
+    })
 
     it.skip('can drag playlist item down', function () {
-
+      movePlaylistItem('[data-playlist=drag]:first', 800, 600)
     })
 
     it.skip('can drag playlist item up', function () {
