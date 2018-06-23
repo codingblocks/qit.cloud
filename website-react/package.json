@@ -37,9 +37,9 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "/build",
-      "/cypress"
+      "/build"
     ],
+    "globals": [ "cy", "Cypress" ],
     "env": {
       "jest": true
     }
