@@ -14,12 +14,12 @@ export const stripHtml = html => {
 }
 
 export const nextPlaybackRate = currentRate => {
-  const rates = config.playbackrates
+  const rates = config.playbackRates
   const nextRate = rates.indexOf(currentRate) + 1
   return rates[nextRate] || rates[0]
 }
 
-export const setPlaybackRate = (playbackrate) => {
+export const setPlaybackRate = (playbackRate) => {
   const audio = document.querySelector('audio')
-  audio.playbackrate = playbackrate
+  audio.playbackRate = playbackRate
 }
