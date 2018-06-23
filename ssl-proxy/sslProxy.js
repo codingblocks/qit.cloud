@@ -18,7 +18,8 @@ const server = http.createServer(function (req, res) {
   try {
     proxy.web(req, res, {
       target: target,
-      secure: false
+      secure: false,
+      followRedirects: true
     })
   } catch (e) {
     console.log('unable to proxy request to target: ' + target)
