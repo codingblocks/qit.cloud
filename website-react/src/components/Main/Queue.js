@@ -33,9 +33,9 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
               >
                 <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
                 <PodcastTitle>
-		  {episode.podcastTitle}&nbsp;
-		  <PodcastReleaseDate releaseDate={episode.published}/>
-		</PodcastTitle>
+                  {episode.podcastTitle}&nbsp;
+                  <PodcastReleaseDate releaseDate={episode.published} />
+                </PodcastTitle>
 
                 {
                   playlist[0].audioUrl !== episode.audioUrl &&

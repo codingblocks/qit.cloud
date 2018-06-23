@@ -52,9 +52,9 @@ export class SearchResults extends Component {
               >
                 <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
                 <PodcastTitle>
-		  {episode.podcastTitle}&nbsp;
-		  <PodcastReleaseDate releaseDate={episode.published}/>
-		</PodcastTitle>
+                  {episode.podcastTitle}&nbsp;
+                  <PodcastReleaseDate releaseDate={episode.published} />
+                </PodcastTitle>
                 <AddToPlaylistButton
                   added={playlist.some(item => item.audioUrl === episode.audioUrl)}
                   onClick={event => {
