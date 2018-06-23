@@ -28,9 +28,10 @@ describe('Search', function () {
     })
 
     it('returns empty results', function () {
+      const unfindableKey = 'somethingthatshouldneverhaveresults';
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
+        url: `https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=${unfindableKey}`,
         response: []
       })
 
@@ -40,12 +41,12 @@ describe('Search', function () {
 
       cy.get('input')
         .clear()
-        .type('empty')
-        .should('have.value', 'empty')
+        .type(unfindableKey)
+        .should('have.value', unfindableKey)
 
       cy.get('form').submit()
 
-      cy.get('#resultText').contains('0 results for "empty"')
+      cy.get('#resultText').contains(`0 results for "${unfindableKey}"`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
