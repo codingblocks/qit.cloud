@@ -2,7 +2,7 @@ import config from './config'
 
 export const sslAudioUrl = audioUrl => {
   if (audioUrl && audioUrl.startsWith('http://')) {
-    return audioUrl.replace('http://', 'https://');
+    return audioUrl.replace('http://', 'https://')
   }
   return audioUrl
 }
