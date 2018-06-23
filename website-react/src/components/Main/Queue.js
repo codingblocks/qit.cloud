@@ -4,6 +4,7 @@ import { actions } from 'mirrorx'
 import Episode from './Episode/'
 import EpisodeTitle from './Episode/EpisodeTitle'
 import PodcastTitle from './Episode/PodcastTitle'
+import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
 import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
@@ -31,7 +32,10 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
                 <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-                <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+                <PodcastTitle>
+		  {episode.podcastTitle}&nbsp;
+		  <PodcastReleaseDate releaseDate={episode.published}/>
+		</PodcastTitle>
 
                 {
                   playlist[0].audioUrl !== episode.audioUrl &&
