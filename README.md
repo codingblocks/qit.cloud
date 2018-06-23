@@ -80,13 +80,6 @@ Command to stop container:
 docker-compose stop
 ```
 
-## SSL Proxy
-
-[node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
-https://endpoint/?url=URL_TO_PROXY as https.
-
-Hosted on [zeit now](https://zeit.co/now).
-
 ## Podcast Feed Loader
 
 This is the part of the product that is responsible for importing the data.

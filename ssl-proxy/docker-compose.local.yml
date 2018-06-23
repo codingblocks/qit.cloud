@@ -1,7 +1,0 @@
-version: '3'
-
-services:
-  api:
-    volumes:
-      - ./:/app/coding-blocks-proxy
-    command: npm run start
