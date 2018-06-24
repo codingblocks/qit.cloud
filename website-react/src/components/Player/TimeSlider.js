@@ -1,36 +1,57 @@
 import React from 'react'
 
+import { formatTrackTime } from '../../helpers'
+
 export default class TimeSlider extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       scrubbing: false,
-      scrubPosition: 0
+      scrubPosition: 0,
+      containerWidth: 0,
+      leftEdge: 0
     }
+    this.sliderRef = React.createRef()
+  }
+
+  componentDidMount () {
+    this.resizeTimeSlider()
+    window.addEventListener('resize', this.resizeTimeSlider)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeTimeSlider)
+  }
+
+  resizeTimeSlider = () => {
+    this.setState({
+      containerWidth: this.sliderRef.current.offsetWidth,
+      leftEdge: this.sliderRef.current.getBoundingClientRect().left
+    })
   }
 
   time = () => {
-    let time = this.sliderPosition() / this.props.width * this.props.duration
+    let time = this.sliderPosition() / this.state.containerWidth * this.props.duration
     if (time < 0 || time > this.props.duration) time = 0
     return time
   }
 
   sliderPosition = () => {
-    return this.state.scrubbing ? this.state.scrubPosition : this.props.duration ? this.props.width * this.props.currentTime / this.props.duration : 0
+    return this.state.scrubbing ? this.state.scrubPosition : this.props.duration ? this.state.containerWidth * this.props.currentTime / this.props.duration : 0
   }
 
   getEventHorizontalPosition = event => {
     if (typeof event.clientX === 'number') {
-      return event.clientX - this.props.leftEdge
+      return event.clientX - this.state.leftEdge
     }
     if (event.targetTouches.length) {
-      return event.targetTouches[0].clientX - this.props.leftEdge
+      return event.targetTouches[0].clientX - this.state.leftEdge
     }
     if (event.changedTouches.length) {
-      return event.changedTouches[0].clientX - this.props.leftEdge
+      return event.changedTouches[0].clientX - this.state.leftEdge
     }
     if (event.touches.length) {
-      return event.touches[0].clientX - this.props.leftEdge
+      return event.touches[0].clientX - this.state.leftEdge
     }
     return 0
   }
@@ -67,8 +88,8 @@ export default class TimeSlider extends React.Component {
 
     let newPosition = this.getEventHorizontalPosition(event)
 
-    if (newPosition <= this.props.width && newPosition >= 0) {
-      this.props.onTimeChanged(this.props.duration * newPosition / this.props.width)
+    if (newPosition <= this.state.containerWidth && newPosition >= 0) {
+      this.props.onTimeChanged(this.props.duration * newPosition / this.state.containerWidth)
     }
 
     this.removeListeners()
@@ -95,7 +116,7 @@ export default class TimeSlider extends React.Component {
 
   render () {
     return (
-      <div>
+      <div ref={this.sliderRef} style={{width: '100%', position: 'absolute', top: '0'}}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox={`0 0 70 40`}
@@ -106,7 +127,7 @@ export default class TimeSlider extends React.Component {
             top: '-40px',
             left: '0',
             visibility: this.state.scrubbing ? 'visible' : 'hidden',
-            transform: `translateX(${this.sliderPosition() > this.props.width - 35 ? this.props.width - 70 : Math.max(0, this.sliderPosition() - 35)}px)`
+            transform: `translateX(${this.sliderPosition() > this.state.containerWidth - 35 ? this.state.containerWidth - 70 : Math.max(0, this.sliderPosition() - 35)}px)`
           }}
         >
           <polygon
@@ -120,7 +141,7 @@ export default class TimeSlider extends React.Component {
             x='50%'
             textAnchor='middle'
           >
-            {this.props.formatTime(this.time())}
+            {formatTrackTime(this.time())}
           </text>
         </svg>
         <svg
@@ -131,9 +152,8 @@ export default class TimeSlider extends React.Component {
             left: '0'
           }}
           xmlns='http://www.w3.org/2000/svg'
-          width={this.props.width}
-          height={20}
-          viewBox={`0 0 ${this.props.width} 20`}
+          width={this.state.containerWidth} height={20}
+          viewBox={`0 0 ${this.state.containerWidth} 20`}
         >
 
           <defs>
@@ -142,45 +162,15 @@ export default class TimeSlider extends React.Component {
               <stop offset='100%' stopColor='#6f04d4' />
             </radialGradient>
           </defs>
-          <g
-            onMouseDown={this.onGrabScrubber}
-            onTouchStart={this.onGrabScrubber}
-          >
-            <rect
-              x={0}
-              y={0}
-              width={this.props.width}
-              height={20}
-              opacity='0'
-            />
-            <rect
-              x={0}
-              y={8}
-              rx={2}
-              ry={2}
-              width={this.props.width}
-              height={4}
-              fill='#E0E0E0'
-            />
-            <rect
-              x={0}
-              y={8}
-              rx={2}
-              ry={2}
+          <g onMouseDown={this.onGrabScrubber} onTouchStart={this.onGrabScrubber}>
+            <rect x={0} y={0} width={this.state.containerWidth} height={20} opacity='0' />
+            <rect x={0} y={8} rx={2} ry={2} width={this.state.containerWidth} height={4} fill='#E0E0E0' />
+            <rect x={0} y={8} rx={2} ry={2} height={4} fill='#a756f5'
               width={`${this.sliderPosition() >= 0 ? this.sliderPosition() : 0}`}
-              height={4}
-              fill='#a756f5'
             />
           </g>
-          <g
-            className='scrub-handle'
-            onMouseDown={this.onGrabScrubber}
-            onTouchStart={this.onGrabScrubber}
-          >
-            <circle
-              cx={0}
-              cy={10}
-              r={7}
+          <g className='scrub-handle' onMouseDown={this.onGrabScrubber} onTouchStart={this.onGrabScrubber}>
+            <circle cx={0} cy={10} r={7}
               style={{
                 transform: `translate(${this.sliderPosition()}px)`,
                 fill: 'url(#gradient)'
