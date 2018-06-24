@@ -97,15 +97,15 @@ It loads podcast feed urls from a file, normalizes them, and then updates them i
 Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
 
 ## Contributors
-- [Joe Zack](https://github.com/THEjoezack)
-- [Nicolas Marcora](https://github.com/nmarcora)
-- [Mikkel Madsen](https://github.com/Madsn)
+- [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Ben Steward](https://github.com/tehpsalmist)
-- [Aaron Clawson](https://github.com/MadVikingGod)
-- [Vladimir Kunarac](https://github.com/vlado92)
 - [Dave Follett](https://github.com/davefollett)
+- [Joe Zack](https://github.com/THEjoezack)
+- [Mikkel Madsen](https://github.com/Madsn)
+- [Nicolas Marcora](https://github.com/nmarcora)
 - [Sung Kim](https://github.com/dance2die/)
+- [Vladimir Kunarac](https://github.com/vlado92)
 
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
