@@ -36,7 +36,7 @@ standard --fix
 ```
 ### E2E the React website
 
-Note: prior to running the e2e tests, manually start the react app (see above).
+#### With the Dev Server running
 
 To run cypress interactive mode, run the following commands:
 
@@ -51,7 +51,13 @@ To run cypress headless mode, run the following commands:
 ```bash
 cd website-react
 npm run e2e
-<click run all tests on the GUI>
+```
+
+#### Without the Dev Server running
+
+```bash
+cd website-react
+npm run ci
 ```
 
 #### Vladimir`s version of docker
@@ -106,5 +112,7 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
 - [Dave Follett](https://github.com/davefollett)
+- [Sung Kim](https://github.com/dance2die/)
+
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
