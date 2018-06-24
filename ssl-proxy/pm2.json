@@ -1,9 +1,0 @@
-{
-  "apps": [{
-    "name": "PodcastApp",
-    "script": "./sslProxy.js",
-    "watch": false,
-    "exec_mode"  : "cluster",
-    "instances": 0
-  }]
-}

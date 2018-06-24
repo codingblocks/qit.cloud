@@ -1,8 +1,8 @@
 import config from './config'
 
-export const proxyUrl = audioUrl => {
-  if (audioUrl && audioUrl.startsWith('http://') && config.sslProxyUrl) {
-    return config.sslProxyUrl + audioUrl
+export const sslAudioUrl = audioUrl => {
+  if (audioUrl && audioUrl.startsWith('http://')) {
+    return audioUrl.replace('http://', 'https://')
   }
   return audioUrl
 }
