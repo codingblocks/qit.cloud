@@ -29,22 +29,23 @@ export class SearchResults extends Component {
 
     if (loading) return <Loader />
 
-    return <div
-      className={className}
-      onClick={event => {
-        if (event.target.nodeName !== 'DIV') return
-        actions.search.clearSearch()
-        history.push('/')
-      }}
-    >
-      <div id='searchContainer'>
-        <div id='resultText'>
-          {`${results.length} results for "${currentSearch}"`}
-        </div>
-        {
-          results.length === 0
-            ? <p id='noResults'>No results were found. Please try again.</p>
-            : results.map(episode =>
+    return (
+      <div
+        className={className}
+        onClick={event => {
+          if (event.target.nodeName !== 'DIV') return
+          actions.search.clearSearch()
+          history.push('/')
+        }}
+      >
+        <div id='searchContainer'>
+          <div id='resultText'>
+            {`${results.length} results for "${currentSearch}"`}
+          </div>
+          {results.length === 0 ? (
+            <p id='noResults'>No results were found. Please try again.</p>
+          ) : (
+            results.map(episode => (
               <Episode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
@@ -56,17 +57,20 @@ export class SearchResults extends Component {
                   <PodcastReleaseDate releaseDate={episode.published} />
                 </PodcastTitle>
                 <AddToPlaylistButton
-                  added={playlist.some(item => item.audioUrl === episode.audioUrl)}
+                  added={playlist.some(
+                    item => item.audioUrl === episode.audioUrl
+                  )}
                   onClick={event => {
                     event.stopPropagation()
                     actions.player.addToPlaylist(episode)
                   }}
                 />
               </Episode>
-            )
-        }
+            ))
+          )}
+        </div>
       </div>
-    </div>
+    )
   }
 }
 
@@ -103,6 +107,7 @@ export default styled(ConnectedSearchResults)`
 
   #searchContainer {
     max-width: 700px;
+    width: 100vw;
   }
 
   #resultText {
