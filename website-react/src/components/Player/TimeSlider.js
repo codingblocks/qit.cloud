@@ -164,8 +164,8 @@ export default class TimeSlider extends React.Component {
           </defs>
           <g onMouseDown={this.onGrabScrubber} onTouchStart={this.onGrabScrubber}>
             <rect x={0} y={0} width={this.state.containerWidth} height={20} opacity='0' />
-            <rect x={0} y={8} rx={2} ry={2} width={this.state.containerWidth} height={4} fill='#E0E0E0' />
-            <rect x={0} y={8} rx={2} ry={2} height={4} fill='#a756f5'
+            <rect x={0} y={8} width={this.state.containerWidth} height={4} fill='#E0E0E0' />
+            <rect x={0} y={8} height={4} fill='#a756f5'
               width={`${this.sliderPosition() >= 0 ? this.sliderPosition() : 0}`}
             />
           </g>
