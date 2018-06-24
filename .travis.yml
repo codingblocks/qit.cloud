@@ -5,6 +5,7 @@ script:
   - npm run installAll
   - npm run standard
   - npm run test
+  - npm run e2e
 cache:
   directories:
     - ~/.npm
