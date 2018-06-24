@@ -3,6 +3,7 @@ import React from 'react'
 import { actions } from 'mirrorx'
 
 import Speed from './Speed'
+import { formatTrackTime } from '../../helpers'
 
 import playImg from '../../assets/play.png'
 import pauseImg from '../../assets/pause.png'
@@ -50,31 +51,8 @@ export default class AudioPlayer extends React.Component {
       playing: true,
       duration: 0,
       currentTime: 0,
-      containerWidth: 800,
-      leftEdge: 0,
-      scrubPosition: 0,
       seeking: false
     }
-    this.container = React.createRef()
-  }
-
-  componentDidMount () {
-    this.setState({
-      containerWidth: this.container.current.offsetWidth,
-      leftEdge: this.container.current.getBoundingClientRect().left
-    })
-    window.addEventListener('resize', this.resizeTimeSlider)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.resizeTimeSlider)
-  }
-
-  resizeTimeSlider = () => {
-    this.setState({
-      containerWidth: this.container.current.offsetWidth,
-      leftEdge: this.container.current.getBoundingClientRect().left
-    })
   }
 
   playPause = () => {
@@ -119,22 +97,6 @@ export default class AudioPlayer extends React.Component {
     this.jumpToTime(this.state.currentTime - 10)
   }
 
-  formatTrackTime = time => {
-    if (!time) return '--:--'
-
-    const hours = Math.floor(time / 3600)
-    const minutes = Math.floor(time % 3600 / 60)
-    const seconds = Math.floor(time % 60)
-    return hours
-      ? `${hours}:${padTime(minutes)}:${padTime(seconds)}`
-      : `${padTime(minutes)}:${padTime(seconds)}`
-
-    function padTime (input) {
-      const padded = `00${input}`
-      return padded.substr(padded.length - 2)
-    }
-  }
-
   seeking = () => {
     this.setState({ seeking: true })
   }
@@ -145,13 +107,10 @@ export default class AudioPlayer extends React.Component {
 
   render () {
     return (
-      <AudioControlsContainer innerRef={this.container}>
+      <AudioControlsContainer>
         <TimeSlider
-          width={this.state.containerWidth}
           currentTime={this.state.currentTime}
           duration={this.state.duration}
-          formatTime={this.formatTrackTime}
-          leftEdge={this.state.leftEdge}
           onTimeChanged={this.jumpToTime}
         />
         <Speed onClick={actions.player.nextPlaybackRate}>
@@ -185,11 +144,11 @@ export default class AudioPlayer extends React.Component {
           <ControlIcon src={forward30Img} />
         </div>
         <span id='trackTime'>
-          {this.formatTrackTime(this.state.currentTime)}
+          {formatTrackTime(this.state.currentTime)}
           <br />
           {
             this.state.duration !== Infinity &&
-            this.formatTrackTime(this.state.duration)
+            formatTrackTime(this.state.duration)
           }
         </span>
 
