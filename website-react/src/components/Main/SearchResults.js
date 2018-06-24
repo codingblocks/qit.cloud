@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Episode from './Episode/'
 import EpisodeTitle from './Episode/EpisodeTitle'
 import PodcastTitle from './Episode/PodcastTitle'
+import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import AddToPlaylistButton from './Episode/AddToPlaylistButton'
 import Loader from '../Loader'
 
@@ -50,7 +51,10 @@ export class SearchResults extends Component {
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
                 <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-                <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
+                <PodcastTitle>
+                  {episode.podcastTitle}&nbsp;
+                  <PodcastReleaseDate releaseDate={episode.published} />
+                </PodcastTitle>
                 <AddToPlaylistButton
                   added={playlist.some(item => item.audioUrl === episode.audioUrl)}
                   onClick={event => {
