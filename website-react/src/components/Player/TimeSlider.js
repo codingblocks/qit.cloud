@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 export default class TimeSlider extends React.Component {
   constructor (props) {
@@ -95,7 +95,7 @@ export default class TimeSlider extends React.Component {
 
   render () {
     return (
-      <div>
+      <Fragment>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox={`0 0 70 40`}
@@ -188,7 +188,7 @@ export default class TimeSlider extends React.Component {
             />
           </g>
         </svg>
-      </div>
+      </Fragment>
     )
   }
 }
