@@ -1,6 +1,8 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
-[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io) [![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
@@ -34,7 +36,7 @@ standard --fix
 ```
 ### E2E the React website
 
-Note: prior to running the e2e tests, manually start the react app (see above).
+#### With the Dev Server running
 
 To run cypress interactive mode, run the following commands:
 
@@ -49,7 +51,13 @@ To run cypress headless mode, run the following commands:
 ```bash
 cd website-react
 npm run e2e
-<click run all tests on the GUI>
+```
+
+#### Without the Dev Server running
+
+```bash
+cd website-react
+npm run ci
 ```
 
 #### Vladimir`s version of docker
@@ -103,6 +111,8 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Ben Steward](https://github.com/tehpsalmist)
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
+- [Dave Follett](https://github.com/davefollett)
+- [Sung Kim](https://github.com/dance2die/)
 
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
