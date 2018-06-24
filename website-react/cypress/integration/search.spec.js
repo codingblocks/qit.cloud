@@ -27,7 +27,7 @@ describe('Search', function () {
       cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
-    it('returns empty results', function () {
+    it.skip('returns empty results', function () {
       cy.route({
         method: 'GET',
         url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',

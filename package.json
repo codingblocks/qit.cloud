@@ -14,6 +14,7 @@
     "standard": "standard",
     "lint": "standard --fix",
     "precommit": "npm run standard",
+    "e2e": "cd ./website-react && npm run ci && cd ..",
     "dockers": "docker-compose build && docker-compose up -d"
   },
   "devDependencies": {
@@ -29,16 +30,17 @@
     "https://github.com/AdamLantz",
     "https://github.com/benjaminsteward",
     "https://github.com/MadVikingGod",
-    "https://github.com/vlado92"
+    "https://github.com/vlado92",
+    "https://github.com/davefollett"
   ],
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
       "**/node_modules/",
       "**/build/",
-      "**/coverage/",
-      "**/cypress/"
+      "**/coverage/"
     ],
+    "globals": [ "cy", "Cypress" ],
     "env": {
       "jest": true
     }

@@ -1,6 +1,4 @@
-
 describe('Playlist', function () {
-
   beforeEach(function () {
     cy.server()
 
@@ -16,7 +14,6 @@ describe('Playlist', function () {
   })
 
   describe('Add & Remove', function () {
-
     it('can add & remove 1 from the playlist', function () {
       // Add to queue & go to queue playlist
       cy.get('[data-playlist=add]:first').click()
@@ -45,11 +42,9 @@ describe('Playlist', function () {
       // Verify its removed
       cy.get('li').should('not.exist')
     })
-
   })
 
   describe('Drag To Sort', function () {
-    
     function movePlaylistItem (selector, x, y) {
       cy.get(selector)
         .trigger('mousedown', { which: 1 })
@@ -71,5 +66,4 @@ describe('Playlist', function () {
 
     })
   })
-
 })

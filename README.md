@@ -105,6 +105,6 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Ben Steward](https://github.com/tehpsalmist)
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
-
+- [Dave Follett](https://github.com/davefollett)
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
