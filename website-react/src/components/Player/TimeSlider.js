@@ -1,6 +1,36 @@
 import React from 'react'
 
+import styled from 'styled-components'
+
 import { formatTrackTime } from '../../helpers'
+
+const ScrubberHandle = styled.g`
+  visibility: ${props => props.scrubbing ? 'visible' : 'hidden'};
+`
+
+const Scrubber = styled.svg`
+  ${props => props.scrubbing ? `
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  ` : `
+    cursor: grab;
+  `}
+
+  position: absolute;
+  top: -8px;
+  left: 0
+  
+  &:hover ${ScrubberHandle} {
+    visibility: visible
+  }
+`
+
+const ScrubberLabel = styled.svg`
+  position: absolute;
+  top: -40px;
+  left: 0;
+  visibility: ${props => props.scrubbing ? 'visible' : 'hidden'}
+`
 
 export default class TimeSlider extends React.Component {
   constructor (props) {
@@ -117,48 +147,25 @@ export default class TimeSlider extends React.Component {
   render () {
     return (
       <div ref={this.sliderRef} style={{width: '100%', position: 'absolute', top: '0'}}>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox={`0 0 70 40`}
-          width={70}
-          height={40}
+        <ScrubberLabel xmlns='http://www.w3.org/2000/svg' viewBox={`0 0 70 40`} width={70} height={40} scrubbing={this.state.scrubbing}
           style={{
-            position: 'absolute',
-            top: '-40px',
-            left: '0',
-            visibility: this.state.scrubbing ? 'visible' : 'hidden',
             transform: `translateX(${this.sliderPosition() > this.state.containerWidth - 35 ? this.state.containerWidth - 70 : Math.max(0, this.sliderPosition() - 35)}px)`
           }}
         >
-          <polygon
-            points='0,0 0,30 30,30 35,36 40,30 70,30 70,0'
-            fill='#7799bb'
-            stroke='#222222'
-          />
-          <text
-            fill='white'
-            y='50%'
-            x='50%'
-            textAnchor='middle'
-          >
+          <polygon points='0,0 0,30 30,30 35,36 40,30 70,30 70,0' fill='#359189' stroke='#ffffff' />
+          <text fill='white' y='50%' x='50%' textAnchor='middle'>
             {formatTrackTime(this.time())}
           </text>
-        </svg>
-        <svg
-          className={`scrubber${this.state.scrubbing ? ' scrubbing' : ''}`}
-          style={{
-            position: 'absolute',
-            top: '-8px',
-            left: '0'
-          }}
+        </ScrubberLabel>
+        <Scrubber
+          scrubbing={this.state.scrubbing}
           xmlns='http://www.w3.org/2000/svg'
           width={this.state.containerWidth} height={20}
           viewBox={`0 0 ${this.state.containerWidth} 20`}
         >
-
           <defs>
             <radialGradient id='gradient'>
-              <stop offset='0%' stopColor='lightblue' />
+              <stop offset='0%' stopColor='#a756f5' />
               <stop offset='100%' stopColor='#6f04d4' />
             </radialGradient>
           </defs>
@@ -169,15 +176,15 @@ export default class TimeSlider extends React.Component {
               width={`${this.sliderPosition() >= 0 ? this.sliderPosition() : 0}`}
             />
           </g>
-          <g className='scrub-handle' onMouseDown={this.onGrabScrubber} onTouchStart={this.onGrabScrubber}>
+          <ScrubberHandle onMouseDown={this.onGrabScrubber} onTouchStart={this.onGrabScrubber} scrubbing={this.state.scrubbing}>
             <circle cx={0} cy={10} r={7}
               style={{
                 transform: `translate(${this.sliderPosition()}px)`,
                 fill: 'url(#gradient)'
               }}
             />
-          </g>
-        </svg>
+          </ScrubberHandle>
+        </Scrubber>
       </div>
     )
   }
