@@ -10,3 +10,5 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
+env:
+  CYPRESS_RECORD_KEY: "ba1a87f5-afb6-4f71-aad1-def58f48e95b"
