@@ -53,7 +53,6 @@ export default class AudioPlayer extends React.Component {
       currentTime: 0,
       seeking: false
     }
-    this.container = React.createRef()
   }
 
   playPause = () => {
@@ -108,7 +107,7 @@ export default class AudioPlayer extends React.Component {
 
   render () {
     return (
-      <AudioControlsContainer innerRef={this.container}>
+      <AudioControlsContainer>
         <TimeSlider
           currentTime={this.state.currentTime}
           duration={this.state.duration}
