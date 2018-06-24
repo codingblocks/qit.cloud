@@ -1,6 +1,8 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
-[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io) [![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
@@ -103,6 +105,6 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Ben Steward](https://github.com/tehpsalmist)
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
-
+- [Dave Follett](https://github.com/davefollett)
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
