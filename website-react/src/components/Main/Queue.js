@@ -51,7 +51,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                   lonely={playlist.length === 1}
                   onClick={event => {
                     event.stopPropagation()
-                    actions.player.removeFromPlaylist(episode.id)
+                    actions.player.removeFromPlaylist(episode)
                   }}
                 />
                 {

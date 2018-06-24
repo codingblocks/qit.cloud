@@ -1,8 +1,7 @@
 import mirror from 'mirrorx'
+import { arrayMove } from 'react-sortable-hoc'
 
 import { nextPlaybackRate, setPlaybackRate } from '../helpers'
-
-import { arrayMove } from 'react-sortable-hoc'
 
 export default mirror.model({
   name: 'player',
@@ -21,9 +20,9 @@ export default mirror.model({
       return { ...state, playlist: [...state.playlist, episode] }
     },
 
-    removeFromPlaylist (state, episodeId) {
+    removeFromPlaylist (state, episodeToRemove) {
       const playlist = state.playlist
-        .filter(episode => episode.id !== episodeId)
+        .filter(episode => episode.id !== episodeToRemove.id)
       return { ...state, playlist }
     },
 
@@ -62,5 +61,6 @@ export default mirror.model({
       console.log('updating width:', width)
       return { ...state, containerWidth: width }
     }
+
   }
 })
