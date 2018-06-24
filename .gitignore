@@ -7,6 +7,9 @@ node_modules
 /.awcache
 /.vscode
 
+# Vim
+*.swp
+
 # misc
 npm-debug.log
 
