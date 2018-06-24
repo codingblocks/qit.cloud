@@ -112,5 +112,7 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Vladimir Kunarac](https://github.com/vlado92)
 - [Dave Follett](https://github.com/davefollett)
+- [Sung Kim](https://github.com/dance2die/)
+
 ## Trello for additional insight 
 [QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
