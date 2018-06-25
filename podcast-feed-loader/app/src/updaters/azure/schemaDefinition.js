@@ -5,7 +5,9 @@ exports.synonymSchema = {
   format: 'solr',
   synonyms: [
     'pwa, progressive web apps',
-    '.net, dotnet, dot net'
+    '.net, dotnet, dot net',
+    'RxJs, Reactive',
+    'DSL, Domain Specific Language'
   ].join('\n')
 }
 

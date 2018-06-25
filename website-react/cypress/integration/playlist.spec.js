@@ -1,10 +1,12 @@
+import config from './config'
+
 describe('Playlist', function () {
   beforeEach(function () {
     cy.server()
 
     cy.route({
       method: 'GET',
-      url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=six',
+      url: config.baseUrl.replace('{searchTerm}', 'six'),
       response: 'fixture:six_search_results.json'
     })
 

@@ -1,3 +1,4 @@
+import config from './config'
 
 describe('Search', function () {
   describe('Input', function () {
@@ -6,7 +7,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=lambda',
+        url: config.baseUrl.replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -30,7 +31,7 @@ describe('Search', function () {
     it('returns empty results', function (done) {
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
+        url: config.baseUrl.replace('{searchTerm}', 'empty'),
         response: []
       })
 
@@ -71,7 +72,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=lambda',
+        url: config.baseUrl.replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -87,7 +88,7 @@ describe('Search', function () {
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
+        url: config.baseUrl.replace('{searchTerm}', 'empty'),
         response: []
       })
 
