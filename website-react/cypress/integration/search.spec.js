@@ -1,4 +1,3 @@
-import config from './config'
 
 describe('Search', function () {
   describe('Input', function () {
@@ -7,7 +6,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: config.baseUrl.replace('{searchTerm}', 'lambda'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -31,7 +30,7 @@ describe('Search', function () {
     it('returns empty results', function (done) {
       cy.route({
         method: 'GET',
-        url: config.baseUrl.replace('{searchTerm}', 'empty'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
         response: []
       })
 
@@ -72,7 +71,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: config.baseUrl.replace('{searchTerm}', 'lambda'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -88,7 +87,7 @@ describe('Search', function () {
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: config.baseUrl.replace('{searchTerm}', 'empty'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
         response: []
       })
 
