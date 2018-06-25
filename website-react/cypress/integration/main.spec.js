@@ -1,4 +1,3 @@
-import config from './config'
 
 describe('Main', function () {
   beforeEach(function () {
@@ -6,7 +5,7 @@ describe('Main', function () {
 
     cy.route({
       method: 'GET',
-      url: config.baseUrl.replace('{searchTerm}', 'lambda'),
+      url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
       response: 'fixture:lambda_search_results.json'
     })
 
