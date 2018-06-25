@@ -14,6 +14,12 @@
     },
     {
       "titleCleanser": null,
+      "url": "http://feeds.feedwrench.com/AdventuresInAngular.rss",
+      "title": "Adventures in Angular",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
       "url": "http://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage",
       "title": "Android Developers Backstage",
       "forceHttps": true
@@ -55,9 +61,15 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": null,
+      "url": "https://devchat.tv/elixir-mix",
+      "title": "Elixer Mix",
+      "forceHttps": false
+    },
+    {
       "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1252/rss",
-      "title": "Simple Programmer",
+      "title": "The Debug Log",
       "forceHttps": false
     },
     {
@@ -236,8 +248,20 @@
     },
     {
       "titleCleanser": null,
+      "url": "https://devchat.tv/remote-conf-talks",
+      "title": "Remote Conference Talks",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
       "url": "https://restofus.tech/feed/podcast",
       "title": null,
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://feeds.feedwrench.com/RubyRogues.rss",
+      "title": "Ruby Rogues",
       "forceHttps": false
     },
     {
@@ -316,6 +340,12 @@
       "titleCleanser": null,
       "url": "https://thewebplatform.libsyn.com/rss",
       "title": "The Web Platform",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://feeds.feedwrench.com/websecwarriors.rss",
+      "title": "The Web Security Warriors",
       "forceHttps": false
     }
   ]
