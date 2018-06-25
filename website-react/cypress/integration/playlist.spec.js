@@ -4,7 +4,7 @@ describe('Playlist', function () {
 
     cy.route({
       method: 'GET',
-      url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=six',
+      url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&$top=200&queryType=full&search=six',
       response: 'fixture:six_search_results.json'
     })
 
