@@ -6,6 +6,7 @@ script:
   - npm run installAll
   - npm run test
   - npm run e2e
+  - npm run insertBuildInfo
 cache:
   directories:
     - ~/.npm

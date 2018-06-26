@@ -13,12 +13,14 @@
     "lint": "standard --fix",
     "precommit": "npm run standard",
     "e2e": "cd ./website-react && npm run ci && cd ..",
-    "dockers": "docker-compose build && docker-compose up -d"
+    "dockers": "docker-compose build && docker-compose up -d",
+    "insertBuildInfo": "replace '{/. INJECT_BUILDINFO_START (.|\n)* INJECT_BUILDINFO_END ./}' ${TRAVIS_BUILD_NUMBER} ./website-react/src/App.js"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
+    "replace": "^1.0.0",
     "standard": "^11.0.1"
   },
   "contributors": [
@@ -38,7 +40,10 @@
       "**/build/",
       "**/coverage/"
     ],
-    "globals": [ "cy", "Cypress" ],
+    "globals": [
+      "cy",
+      "Cypress"
+    ],
     "env": {
       "jest": true
     }

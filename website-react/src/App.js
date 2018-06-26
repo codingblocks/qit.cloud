@@ -63,9 +63,9 @@ export class App extends Component {
           <Logo>
             qit
             <BuildInfo>
-              {/*INJECT_BUILDINFO_START*/}
+              {/* INJECT_BUILDINFO_START */}
               Dev-{new Date().toJSON().slice(0, 10)}
-              {/*INJECT_BUILDINFO_END*/}
+              {/* INJECT_BUILDINFO_END */}
             </BuildInfo>
           </Logo>
         </Title>
