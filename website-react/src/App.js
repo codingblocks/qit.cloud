@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Container from './components/Container'
 
 import Header from './components/Header/'
+import BuildInfo from './components/Header/BuildInfo'
 import Title from './components/Header/Title'
 import Search from './components/Header/Search'
 import Logo from './components/Header/Logo'
@@ -59,7 +60,14 @@ export class App extends Component {
           <Subtitle>
             <Search searchTerm={searchTerm} />
           </Subtitle>
-          <Logo>qit</Logo>
+          <Logo>
+            qit
+            <BuildInfo>
+              {/*INJECT_BUILDINFO_START*/}
+              Dev-{new Date().toJSON().slice(0, 10)}
+              {/*INJECT_BUILDINFO_END*/}
+            </BuildInfo>
+          </Logo>
         </Title>
       </Header>
 
