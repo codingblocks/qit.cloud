@@ -38,7 +38,7 @@ export default mirror.model({
     async search (searchTerm) {
       actions.search.startLoading()
 
-      const url = config.baseUrl + searchTerm
+      const url = config.baseUrl.replace('{searchTerm}', searchTerm)
       const options = {
         headers: {
           'api-key': config.apiKey

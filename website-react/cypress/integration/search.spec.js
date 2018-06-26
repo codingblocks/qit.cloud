@@ -6,7 +6,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=lambda',
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -27,10 +27,10 @@ describe('Search', function () {
       cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
-    it('returns empty results', function () {
+    it('returns empty results', function (done) {
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
         response: []
       })
 
@@ -38,15 +38,18 @@ describe('Search', function () {
       // running with electron in headless mode. Issue #127
       cy.visit('/')
 
-      cy.get('input')
-        .clear()
-        .type('empty')
-        .should('have.value', 'empty')
+      setTimeout(() => {
+        cy.get('input')
+          .clear()
+          .type('empty')
+          .should('have.value', 'empty')
 
-      cy.get('form').submit()
+        cy.get('form').submit()
 
-      cy.get('#resultText').contains('0 results for "empty"')
-      cy.get('#noResults').contains('No results were found. Please try again.')
+        cy.get('#resultText').contains('0 results for "empty"')
+        cy.get('#noResults').contains('No results were found. Please try again.')
+        done()
+      }, 2000)
     })
 
     it('can load the main page via back button', function () {
@@ -68,7 +71,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=lambda',
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -84,7 +87,7 @@ describe('Search', function () {
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=empty',
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
         response: []
       })
 

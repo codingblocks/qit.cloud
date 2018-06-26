@@ -4,16 +4,15 @@
   "dependencies": {},
   "scripts": {
     "FeedLoaderInstall": "cd ./podcast-feed-loader/app && npm install && cd ../..",
-    "ProxyInstall": "cd ./ssl-proxy && npm install && cd ..",
     "WebsiteInstall": "cd ./website-react && npm install && cd ..",
-    "installAll": "npm install && npm run FeedLoaderInstall && npm run ProxyInstall && npm run WebsiteInstall",
+    "installAll": "npm install && npm run FeedLoaderInstall && npm run WebsiteInstall",
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
-    "testProxy": "cd ./ssl-proxy && npm run test && cd ..",
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
-    "test": "npm run testFeedLoader && npm run testWebsite && npm run testProxy",
+    "test": "npm run testFeedLoader && npm run testWebsite",
     "standard": "standard",
     "lint": "standard --fix",
     "precommit": "npm run standard",
+    "e2e": "cd ./website-react && npm run ci && cd ..",
     "dockers": "docker-compose build && docker-compose up -d"
   },
   "devDependencies": {
@@ -29,16 +28,17 @@
     "https://github.com/AdamLantz",
     "https://github.com/benjaminsteward",
     "https://github.com/MadVikingGod",
-    "https://github.com/vlado92"
+    "https://github.com/vlado92",
+    "https://github.com/davefollett"
   ],
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
       "**/node_modules/",
       "**/build/",
-      "**/coverage/",
-      "**/cypress/"
+      "**/coverage/"
     ],
+    "globals": [ "cy", "Cypress" ],
     "env": {
       "jest": true
     }

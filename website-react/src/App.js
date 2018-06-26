@@ -19,7 +19,7 @@ import Queue from './components/Main/Queue'
 import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
-import { proxyUrl, setPlaybackRate } from './helpers'
+import { sslAudioUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
   componentWillMount () {
@@ -79,7 +79,7 @@ export class App extends Component {
         nowPlaying.audioUrl &&
         <NowPlaying nowPlaying={nowPlaying}>
           <AudioPlayer
-            src={proxyUrl(nowPlaying.audioUrl)}
+            src={sslAudioUrl(nowPlaying.audioUrl)}
             playbackrate={playbackrate}
             onEnded={actions.player.playNextEpisode}
             onLoadStart={() => setPlaybackRate(playbackrate)}

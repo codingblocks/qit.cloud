@@ -1,12 +1,11 @@
 
 describe('Playlist', function () {
-
   beforeEach(function () {
     cy.server()
 
     cy.route({
       method: 'GET',
-      url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=six',
+      url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'six'),
       response: 'fixture:six_search_results.json'
     })
 
@@ -16,7 +15,6 @@ describe('Playlist', function () {
   })
 
   describe('Add & Remove', function () {
-
     it('can add & remove 1 from the playlist', function () {
       // Add to queue & go to queue playlist
       cy.get('[data-playlist=add]:first').click()
@@ -45,11 +43,9 @@ describe('Playlist', function () {
       // Verify its removed
       cy.get('li').should('not.exist')
     })
-
   })
 
   describe('Drag To Sort', function () {
-    
     function movePlaylistItem (selector, x, y) {
       cy.get(selector)
         .trigger('mousedown', { which: 1 })
@@ -71,5 +67,4 @@ describe('Playlist', function () {
 
     })
   })
-
 })

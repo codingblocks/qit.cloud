@@ -16,24 +16,6 @@ services:
       - '${PODCAST_PORT}:${PODCAST_PORT}'
     networks:
       - codingblocks
-      
-  ssl-proxy:
-    env_file: ssl-proxy/.env
-    container_name: "coding-blocks-proxy"
-    build:
-      context: ssl-proxy/.
-      dockerfile: Dockerfile
-      args:
-        NODE_ENV: production
-        PORT: ${SSL_PORT}
-    environment:
-      - 'PORT=${SSL_PORT}'
-    ports:
-      - "${SSL_PORT}:${SSL_PORT}"
-    networks:
-      - codingblocks
-    restart: 'always'
-    command: pm2-docker start /app/pm2.json --web 4545
 
   website:
     env_file: website-react/.env

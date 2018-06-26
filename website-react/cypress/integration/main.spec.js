@@ -5,7 +5,7 @@ describe('Main', function () {
 
     cy.route({
       method: 'GET',
-      url: 'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&search=lambda',
+      url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
       response: 'fixture:lambda_search_results.json'
     })
 

@@ -1,6 +1,8 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
 
-[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io) [![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
@@ -34,7 +36,7 @@ standard --fix
 ```
 ### E2E the React website
 
-Note: prior to running the e2e tests, manually start the react app (see above).
+#### With the Dev Server running
 
 To run cypress interactive mode, run the following commands:
 
@@ -49,7 +51,13 @@ To run cypress headless mode, run the following commands:
 ```bash
 cd website-react
 npm run e2e
-<click run all tests on the GUI>
+```
+
+#### Without the Dev Server running
+
+```bash
+cd website-react
+npm run ci
 ```
 
 #### Vladimir`s version of docker
@@ -80,13 +88,6 @@ Command to stop container:
 docker-compose stop
 ```
 
-## SSL Proxy
-
-[node-http-proxy](https://github.com/nodejitsu/node-http-proxy) server that will proxy a non-http resource at
-https://endpoint/?url=URL_TO_PROXY as https.
-
-Hosted on [zeit now](https://zeit.co/now).
-
 ## Podcast Feed Loader
 
 This is the part of the product that is responsible for importing the data.
@@ -96,12 +97,14 @@ It loads podcast feed urls from a file, normalizes them, and then updates them i
 Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
 
 ## Contributors
-- [Joe Zack](https://github.com/THEjoezack)
-- [Nicolas Marcora](https://github.com/nmarcora)
-- [Mikkel Madsen](https://github.com/Madsn)
+- [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Ben Steward](https://github.com/tehpsalmist)
-- [Aaron Clawson](https://github.com/MadVikingGod)
+- [Dave Follett](https://github.com/davefollett)
+- [Joe Zack](https://github.com/THEjoezack)
+- [Mikkel Madsen](https://github.com/Madsn)
+- [Nicolas Marcora](https://github.com/nmarcora)
+- [Sung Kim](https://github.com/dance2die/)
 - [Vladimir Kunarac](https://github.com/vlado92)
 
 ## Trello for additional insight 

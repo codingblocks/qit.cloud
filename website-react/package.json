@@ -21,6 +21,8 @@
     "testNonInteractive": "react-scripts test --env=jsdom --coverage",
     "cypress:open": "cypress open",
     "e2e": "cypress run",
+    "e2eRecord": "cypress run --record",
+    "ci": "start-server-and-test start http://localhost:3000 e2eRecord",
     "lint": "standard --fix"
   },
   "devDependencies": {
@@ -30,13 +32,17 @@
     "jest": "^23.1.0",
     "react-test-renderer": "^16.4.1",
     "sinon": "^6.0.0",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "start-server-and-test": "^1.4.1"
   },
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "/build",
-      "/cypress"
+      "/build"
+    ],
+    "globals": [
+      "cy",
+      "Cypress"
     ],
     "env": {
       "jest": true

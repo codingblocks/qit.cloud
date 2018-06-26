@@ -1,8 +1,8 @@
 import config from './config'
 
-export const proxyUrl = audioUrl => {
-  if (audioUrl && audioUrl.startsWith('http://') && config.sslProxyUrl) {
-    return config.sslProxyUrl + audioUrl
+export const sslAudioUrl = audioUrl => {
+  if (audioUrl && audioUrl.startsWith('http://')) {
+    return audioUrl.replace('http://', 'https://')
   }
   return audioUrl
 }
@@ -22,4 +22,20 @@ export const nextPlaybackRate = currentRate => {
 export const setPlaybackRate = (playbackRate) => {
   const audio = document.querySelector('audio')
   audio.playbackRate = playbackRate
+}
+
+export const formatTrackTime = time => {
+  if (!time) return '--:--'
+
+  const hours = Math.floor(time / 3600)
+  const minutes = Math.floor(time % 3600 / 60)
+  const seconds = Math.floor(time % 60)
+  return hours
+    ? `${hours}:${padTime(minutes)}:${padTime(seconds)}`
+    : `${padTime(minutes)}:${padTime(seconds)}`
+
+  function padTime (input) {
+    const padded = `00${input}`
+    return padded.substr(padded.length - 2)
+  }
 }

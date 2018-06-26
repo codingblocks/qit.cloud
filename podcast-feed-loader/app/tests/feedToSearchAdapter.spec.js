@@ -140,7 +140,7 @@ describe('Feed Adapter', () => {
     it('should force https when the flag is set', () => {
       let modifiedEpisode = validEpisode
       modifiedEpisode.enclosure = {
-        url: 'http://someproxy.com?url=http://thisshouldnotchange.com'
+        url: 'http://thisshouldnotchange.com'
       }
 
       let result = feed.convert(
@@ -152,13 +152,13 @@ describe('Feed Adapter', () => {
       )
 
       expect(result.errors).to.have.lengthOf(0)
-      expect(result.updateFeed[0].audioUrl).to.equal('https://someproxy.com?url=http://thisshouldnotchange.com')
+      expect(result.updateFeed[0].audioUrl).to.equal('https://thisshouldnotchange.com')
     })
 
     it('should force not change the protocol when the flag is not set', () => {
       let modifiedEpisode = validEpisode
       modifiedEpisode.enclosure = {
-        url: 'http://someproxy.com?url=http://thisshouldnotchange.com'
+        url: 'http://thisshouldnotchange.com'
       }
 
       let result = feed.convert(
@@ -170,7 +170,7 @@ describe('Feed Adapter', () => {
       )
 
       expect(result.errors).to.have.lengthOf(0)
-      expect(result.updateFeed[0].audioUrl).to.equal('http://someproxy.com?url=http://thisshouldnotchange.com')
+      expect(result.updateFeed[0].audioUrl).to.equal('http://thisshouldnotchange.com')
     })
   })
 })

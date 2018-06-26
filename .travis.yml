@@ -1,7 +1,16 @@
 language: node_js
 node_js:
-  - "8.9.4"
+  - "10"
 script:
+  - npm run standard
   - npm run installAll
   - npm run test
-  - npm run standard
+  - npm run e2e
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+branches:
+  only:
+    - master
+    - Vladimir`s-branch
