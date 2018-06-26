@@ -3,6 +3,8 @@
 
 const dataCacheName = 'podcasts-data-{{GENERATED_DO_NOT_CHANGE_THIS}}'
 const cacheName = 'podcasts-{{GENERATED_DO_NOT_CHANGE_THIS}}'
+const episodesCacheName = 'qit-episodes'
+const cacheNames = [cacheName, dataCacheName, episodesCacheName]
 
 const filesToCache = [
   '/',
@@ -44,7 +46,7 @@ self.addEventListener('activate', function (e) {
   e.waitUntil(
     caches.keys().then(function (keyList) {
       return Promise.all(keyList.map(function (key) {
-        if (key !== cacheName && key !== dataCacheName) {
+        if (!cacheNames.includes(key)) {
           console.log('[ServiceWorker] Removing old cache', key)
           return caches.delete(key)
         }
