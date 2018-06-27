@@ -16,6 +16,12 @@ const ControlIcon = styled.img`
   width: 100%;
 `
 
+const TimeSliderContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 0;
+`
+
 const AudioControlsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -108,11 +114,13 @@ export default class AudioPlayer extends React.Component {
   render () {
     return (
       <AudioControlsContainer>
-        <TimeSlider
-          currentTime={this.state.currentTime}
-          duration={this.state.duration}
-          onTimeChanged={this.jumpToTime}
-        />
+        <TimeSliderContainer>
+          <TimeSlider
+            currentTime={this.state.currentTime}
+            duration={this.state.duration}
+            onTimeChanged={this.jumpToTime}
+          />
+        </TimeSliderContainer>
         <Speed onClick={actions.player.nextPlaybackRate}>
           {this.props.playbackrate}x
         </Speed>
