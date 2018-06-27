@@ -57,7 +57,6 @@ export default class Slider extends React.Component {
   }
 
   resizeSlider = () => {
-    console.log(this.sliderRef.current)
     this.setState({
       containerWidth: this.sliderRef.current.offsetWidth,
       leftEdge: this.sliderRef.current.getBoundingClientRect().left
@@ -170,17 +169,18 @@ export default class Slider extends React.Component {
     return (
       <div ref={this.sliderRef}>
         <ScrubberWrapper>
-          <ScrubberLabel xmlns='http://www.w3.org/2000/svg' viewBox={`0 0 70 40`} width={70} height={40}
-            scrubbing={this.state.scrubbing}
-            style={{
-              transform: `translateX(${this.getScrubberPosition() > this.state.containerWidth - 35 ? this.state.containerWidth - 70 : Math.max(0, this.getScrubberPosition() - 35)}px)`
-            }}
-          >
-            <polygon points='0,0 0,30 30,30 35,36 40,30 70,30 70,0' fill='#359189' stroke='#ffffff' />
-            <text fill='white' y='50%' x='50%' textAnchor='middle'>
-              {this.formatScrubberValue(this.getScrubberValue())}
-            </text>
-          </ScrubberLabel>
+          {!this.props.hideLabel
+            ? <ScrubberLabel xmlns='http://www.w3.org/2000/svg' viewBox={`0 0 70 40`} width={70} height={40}
+              scrubbing={this.state.scrubbing}
+              style={{
+                transform: `translateX(${this.getScrubberPosition() > this.state.containerWidth - 35 ? this.state.containerWidth - 70 : Math.max(0, this.getScrubberPosition() - 35)}px)`
+              }}
+            >
+              <polygon points='0,0 0,30 30,30 35,36 40,30 70,30 70,0' fill='#359189' stroke='#ffffff' />
+              <text fill='white' y='50%' x='50%' textAnchor='middle'>
+                {this.formatScrubberValue(this.getScrubberValue())}
+              </text>
+            </ScrubberLabel> : null }
           <Scrubber
             scrubbing={this.state.scrubbing}
             xmlns='http://www.w3.org/2000/svg'
