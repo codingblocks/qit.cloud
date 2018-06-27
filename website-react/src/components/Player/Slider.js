@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const ScrubberWrapper = styled.div`
   position: relative
-  width: 100%
+  display: block;
 `
 
 const ScrubberHandle = styled.g`
