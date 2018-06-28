@@ -23,7 +23,8 @@
     "e2e": "cypress run",
     "e2eRecord": "cypress run --record",
     "ci": "start-server-and-test start http://localhost:3000 e2eRecord",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "insertBuildInfo": "replace './src/App.js' ${COMMIT_REF} ./src/App.js"
   },
   "devDependencies": {
     "cypress": "^3.0.1",
@@ -33,7 +34,8 @@
     "react-test-renderer": "^16.4.1",
     "sinon": "^6.0.0",
     "standard": "^11.0.1",
-    "start-server-and-test": "^1.4.1"
+    "start-server-and-test": "^1.4.1",
+    "replace": "^1.0.0"
   },
   "standard": {
     "parser": "babel-eslint",
