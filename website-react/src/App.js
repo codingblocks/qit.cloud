@@ -63,6 +63,8 @@ export class App extends Component {
           <Logo>
             qit
             <BuildInfo>
+              {/* Warning - changing below line will
+                  cause insertion of commit hash to fail */}
               {'Dev-' + new Date().valueOf()}
             </BuildInfo>
           </Logo>

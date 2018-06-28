@@ -9,6 +9,8 @@ function join (file) {
   return path.join(__dirname, file)
 }
 
+console.log('Injecting build hash/commit into built files')
+
 replace({
   regex: /"Dev-"\+\(new Date\)\.valueOf\(\)/,
   replacement: process.env.COMMIT_REF | unixTime,
