@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Slider from './Slider'
 import audioLogo from '../../assets/audio.svg'
+import mutedAudioLogo from '../../assets/audio_muted.svg'
 
 const formatVolume = volumeProportion => {
   return Math.round(volumeProportion * 100)
@@ -20,11 +21,12 @@ const AudioLogo = styled.img`
   width: 24px;
   height: 24px;
   margin-right: 5px;
+  cursor: pointer
 `
 
 const VolumeSlider = props => {
   return <VolumeSliderWrapper>
-    <AudioLogo src={audioLogo} alt={'Adjust audio'} />
+    <AudioLogo src={props.muted ? mutedAudioLogo : audioLogo} onClick={props.onMute} alt={'Adjust audio'} />
     <Slider
       value={props.currentVolume}
       max={1}

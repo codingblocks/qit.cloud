@@ -103,7 +103,8 @@ export default class AudioPlayer extends React.Component {
       duration: 0,
       currentTime: 0,
       seeking: false,
-      volume: 0
+      volume: 0,
+      muted: false
     }
   }
 
@@ -157,6 +158,11 @@ export default class AudioPlayer extends React.Component {
   setVolume = desiredVolume => {
     this.audioRef.current.volume = desiredVolume
     this.setState({volume: desiredVolume})
+  }
+
+  toggleMute = () => {
+    this.audioRef.current.muted = !this.audioRef.current.muted
+    this.setState({muted: this.audioRef.current.muted})
   }
 
   seeking = () => {
@@ -213,7 +219,12 @@ export default class AudioPlayer extends React.Component {
         </ButtonContainer>
         <RightContainer>
           <VolumeSliderContainer>
-            <VolumeSlider currentVolume={this.state.volume} onVolumeChanged={this.setVolume} />
+            <VolumeSlider
+              currentVolume={this.state.muted ? 0 : this.state.volume}
+              onVolumeChanged={this.setVolume}
+              onMute={this.toggleMute}
+              muted={this.state.muted}
+            />
           </VolumeSliderContainer>
           <TrackTime>
             {formatTrackTime(this.state.currentTime)}
