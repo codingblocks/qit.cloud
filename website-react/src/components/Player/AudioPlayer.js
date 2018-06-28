@@ -11,12 +11,51 @@ import back10Img from '../../assets/backwards.png'
 import forward30Img from '../../assets/forwards.png'
 import TimeSlider from './TimeSlider'
 import Loader from '../Loader'
+import VolumeSlider from './VolumeSlider'
 
 const ControlIcon = styled.img`
   width: 100%;
 `
 
-const AudioControlsContainer = styled.div`
+const TimeSliderContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 0;
+`
+
+const LeftContainer = styled.div`
+  flex: 1 0;
+  margin-left: 15px;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const RightContainer = styled.div`
+  flex: 1 0;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 560px) {
+    justify-content: flex-end;
+  }  
+`
+const VolumeSliderContainer = styled.div`
+  width: 150px;
+  @media screen and (max-width: 680px) {
+    width: 100px;
+  }
+  @media screen and (max-width: 560px) {
+    display: none;
+  }
+`
+
+const TrackTime = styled.div`
+`
+
+const ButtonContainer = styled.div`
+  flex: 1 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,12 +71,24 @@ const AudioControlsContainer = styled.div`
   .smallButton {
     width: 50px;
   }
-
-  #trackTime {
-    position: absolute;
-    right: 15px;
+  
+  @media screen and (max-width: 360px) {
+    .smallButton {
+      width: 40px;
+      margin: 0 5px;
+    }
+    .bigButton {
+      width: 70px;
+      margin: 0 5px;
+    }
   }
 
+`
+
+const AudioControlsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  
   audio {
     display:none;
   }
@@ -51,7 +102,9 @@ export default class AudioPlayer extends React.Component {
       playing: true,
       duration: 0,
       currentTime: 0,
-      seeking: false
+      seeking: false,
+      volume: 0,
+      muted: false
     }
   }
 
@@ -67,6 +120,7 @@ export default class AudioPlayer extends React.Component {
   loadStarted = () => {
     this.props.onLoadStart()
     this.setState({ duration: 0, currentTime: 0 })
+    this.setVolume(0.5)
   }
 
   ended = () => {
@@ -97,6 +151,20 @@ export default class AudioPlayer extends React.Component {
     this.jumpToTime(this.state.currentTime - 10)
   }
 
+  volumeChanged = () => {
+    this.setState({volume: this.audioRef.current.volume})
+  }
+
+  setVolume = desiredVolume => {
+    this.audioRef.current.volume = desiredVolume
+    this.setState({volume: desiredVolume})
+  }
+
+  toggleMute = () => {
+    this.audioRef.current.muted = !this.audioRef.current.muted
+    this.setState({muted: this.audioRef.current.muted})
+  }
+
   seeking = () => {
     this.setState({ seeking: true })
   }
@@ -108,50 +176,65 @@ export default class AudioPlayer extends React.Component {
   render () {
     return (
       <AudioControlsContainer>
-        <TimeSlider
-          currentTime={this.state.currentTime}
-          duration={this.state.duration}
-          onTimeChanged={this.jumpToTime}
-        />
-        <Speed onClick={actions.player.nextPlaybackRate}>
-          {this.props.playbackrate}x
-        </Speed>
-        <div
-          onClick={event => {
-            event.preventDefault()
-            this.jumpBackward()
-          }}
-          className='smallButton'
-        >
-          <ControlIcon src={back10Img} />
-        </div>
-        <div
-          onClick={event => {
-            event.preventDefault()
-            this.playPause()
-          }}
-          className='bigButton'
-        >
-          <ControlIcon src={this.state.playing ? pauseImg : playImg} />
-        </div>
-        <div
-          onClick={event => {
-            event.preventDefault()
-            this.jumpForward()
-          }}
-          className='smallButton'
-        >
-          <ControlIcon src={forward30Img} />
-        </div>
-        <span id='trackTime'>
-          {formatTrackTime(this.state.currentTime)}
-          <br />
-          {
-            this.state.duration !== Infinity &&
-            formatTrackTime(this.state.duration)
-          }
-        </span>
-
+        <TimeSliderContainer>
+          <TimeSlider
+            currentTime={this.state.currentTime}
+            duration={this.state.duration}
+            onTimeChanged={this.jumpToTime}
+          />
+        </TimeSliderContainer>
+        <LeftContainer>
+          <Speed onClick={actions.player.nextPlaybackRate}>
+            {this.props.playbackrate}x
+          </Speed>
+        </LeftContainer>
+        <ButtonContainer>
+          <div
+            onClick={event => {
+              event.preventDefault()
+              this.jumpBackward()
+            }}
+            className='smallButton'
+          >
+            <ControlIcon src={back10Img} />
+          </div>
+          <div
+            onClick={event => {
+              event.preventDefault()
+              this.playPause()
+            }}
+            className='bigButton'
+          >
+            <ControlIcon src={this.state.playing ? pauseImg : playImg} />
+          </div>
+          <div
+            onClick={event => {
+              event.preventDefault()
+              this.jumpForward()
+            }}
+            className='smallButton'
+          >
+            <ControlIcon src={forward30Img} />
+          </div>
+        </ButtonContainer>
+        <RightContainer>
+          <VolumeSliderContainer>
+            <VolumeSlider
+              currentVolume={this.state.muted ? 0 : this.state.volume}
+              onVolumeChanged={this.setVolume}
+              onMute={this.toggleMute}
+              muted={this.state.muted}
+            />
+          </VolumeSliderContainer>
+          <TrackTime>
+            {formatTrackTime(this.state.currentTime)}
+            <br />
+            {
+              this.state.duration !== Infinity &&
+              formatTrackTime(this.state.duration)
+            }
+          </TrackTime>
+        </RightContainer>
         <audio
           ref={this.audioRef} {...this.props}
           onLoadStart={this.loadStarted}
@@ -161,6 +244,7 @@ export default class AudioPlayer extends React.Component {
           onSeeking={this.seeking}
           onSeeked={this.seeked}
           autoPlay
+          onVolumeChange={this.volumeChanged}
           onEnded={this.ended}
           src={this.props.src}
         />
