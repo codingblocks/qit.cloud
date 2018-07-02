@@ -25,3 +25,6 @@ npm-debug.log
 /dist
 package-lock.json
 .DS_Store
+
+# cypress
+screenshots
