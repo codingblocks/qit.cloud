@@ -2,7 +2,7 @@
 
 'use strict'
 
-const feed = require('../src/feedToSearchAdapter')
+const feed = require('../feedToSearchAdapter')
 const expect = require('chai').expect
 
 describe('Feed Adapter', () => {

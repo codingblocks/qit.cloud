@@ -1,10 +1,10 @@
 const urlParser = require('./urlParser')
 const errorMonitoring = require('./errorMonitoring')
-const feeds = require('../data/feeds').feeds
+const feeds = require('./feeds.json').feeds
 
 const defaultCallback = () => {}
 
-let processFeeds = function (feedList, callback = defaultCallback) {
+const processFeeds = function (feedList, callback = defaultCallback) {
   let callbackList = callback
     ? Array.isArray(callback) ? callback : [callback]
     : []
@@ -26,27 +26,32 @@ let processFeeds = function (feedList, callback = defaultCallback) {
   })
 }
 
-exports.processFeeds = processFeeds
-
-if (require.main === module) {
+const load = function () {
   try {
     // TODO This should be better
     if (process.env.SEARCH_PROVIDER === 'Azure') {
       console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
-      require('./updaters/azure/searchInitialize').initialize(() => {
+      require('./azureSearchInitialize').initialize(() => {
         processFeeds(
           feeds,
-          require('./updaters/azure/searchUpdater').callback
+          require('./azureSearchUpdater').callback
         )
       })
     } else {
       console.log('Note: this is a dry run, no search engine will be updated')
       processFeeds(
         feeds,
-        require('./updaters/consoleUpdater').callback
+        require('./consoleUpdater').callback
       )
     }
   } catch (error) {
     require('./errorMonitoring').notify(error)
   }
+}
+
+exports.processFeeds = processFeeds
+exports.load = load
+
+if (require.main === module) {
+  load()
 }

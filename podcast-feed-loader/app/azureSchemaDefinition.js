@@ -1,4 +1,4 @@
-let settings = require('./settings').settings
+let settings = require('./azureSettings').settings
 
 exports.synonymSchema = {
   name: 'synonyms',

@@ -6,9 +6,7 @@ module.exports = function (context, myTimer) {
   }
   context.log('JavaScript timer trigger function ran!:', timeStamp)
 
-  var urlParser = require('./src/urlParser')
-  context.log('trying http://feeds.podtrac.com/tBPkjrcL0_m0')
-  urlParser.parse('http://feeds.podtrac.com/tBPkjrcL0_m0')
+  require('./multiUrlLoader').load()
 
   context.log('JavaScript timer trigger function done!:', timeStamp)
 

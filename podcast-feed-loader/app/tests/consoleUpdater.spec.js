@@ -2,7 +2,7 @@
 
 'use strict'
 
-const logger = require('../../src/updaters/consoleUpdater')
+const logger = require('../consoleUpdater')
 const context = {error: function () {}, log: function () {}}
 
 // TODO Better testing!
