@@ -4,7 +4,7 @@ const feeds = require('./feeds.json').feeds
 
 const defaultCallback = () => {}
 
-let processFeeds = function (feedList, callback = defaultCallback) {
+const processFeeds = function (feedList, callback = defaultCallback) {
   let callbackList = callback
     ? Array.isArray(callback) ? callback : [callback]
     : []
@@ -26,9 +26,7 @@ let processFeeds = function (feedList, callback = defaultCallback) {
   })
 }
 
-exports.processFeeds = processFeeds
-
-if (require.main === module) {
+const load = function () {
   try {
     // TODO This should be better
     if (process.env.SEARCH_PROVIDER === 'Azure') {
@@ -49,4 +47,11 @@ if (require.main === module) {
   } catch (error) {
     require('./errorMonitoring').notify(error)
   }
+}
+
+exports.processFeeds = processFeeds
+exports.load = load
+
+if (require.main === module) {
+  load()
 }
