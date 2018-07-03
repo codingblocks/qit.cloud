@@ -2,7 +2,7 @@
 
 'use strict'
 
-const errorMonitoring = require('../src/errorMonitoring')
+const errorMonitoring = require('../errorMonitoring')
 
 // TODO Better tests!
 

@@ -1,6 +1,6 @@
 const urlParser = require('./urlParser')
 const errorMonitoring = require('./errorMonitoring')
-const feeds = require('../data/feeds').feeds
+const feeds = require('./').feeds
 
 const defaultCallback = () => {}
 
