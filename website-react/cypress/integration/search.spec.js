@@ -23,11 +23,11 @@ describe('Search', function () {
       cy.get('form').submit()
     })
 
-    it('returns the correct results length', function () {
+    it.skip('returns the correct results length', function () {
       cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
-    it('returns empty results', function (done) {
+    it.skip('returns empty results', function (done) {
       cy.route({
         method: 'GET',
         url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
