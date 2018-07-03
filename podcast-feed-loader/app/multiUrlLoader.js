@@ -26,11 +26,12 @@ const processFeeds = function (feedList, callback = defaultCallback) {
   })
 }
 
-const load = function () {
+const load = function (context) {
+  context.log('starting...')
   try {
     // TODO This should be better
     if (process.env.SEARCH_PROVIDER === 'Azure') {
-      console.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
+      context.log(`Found env variable for SEARCH_PROVIDER: ${process.env.SEARCH_PROVIDER}`)
       require('./azureSearchInitialize').initialize(() => {
         processFeeds(
           feeds,
@@ -38,13 +39,15 @@ const load = function () {
         )
       })
     } else {
-      console.log('Note: this is a dry run, no search engine will be updated')
+      context.log('Note: this is a dry run, no search engine will be updated')
       processFeeds(
         feeds,
         require('./consoleUpdater').callback
       )
     }
   } catch (error) {
+    context.log('error')
+    context.log(error)
     require('./errorMonitoring').notify(error)
   }
 }
