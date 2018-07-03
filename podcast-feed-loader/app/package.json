@@ -2,10 +2,10 @@
   "name": "podcast-feed-loader",
   "version": "0.0.0",
   "description": "Parse rss feeds for import to search engine",
-  "main": "./src/feedToSearchAdapter.js",
+  "main": "./feedToSearchAdapter.js",
   "scripts": {
     "test": "jest",
-    "start": "node ./src/multiUrlLoader.js data/feeds.txt",
+    "start": "node ./multiUrlLoader.js",
     "lint": "standard --fix"
   },
   "repository": {

@@ -1,7 +1,7 @@
-const settings = require('./settings').settings
-const synonymSchema = require('./schemaDefinition').synonymSchema
-const schemaDefinition = require('./schemaDefinition').schemaDefinition
-const client = require('./client').client
+const settings = require('./azureSettings').settings
+const synonymSchema = require('./azureSchemaDefinition').synonymSchema
+const schemaDefinition = require('./azureSchemaDefinition').schemaDefinition
+const client = require('./azureClient').client
 
 // ew all the console!!
 

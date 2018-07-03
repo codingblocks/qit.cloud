@@ -1,5 +1,5 @@
-const settings = require('./settings').settings
-const client = require('./client').client
+const settings = require('./azureSettings').settings
+const client = require('./azureClient').client
 
 exports.callback = function (feedResults, context = console) {
   if (!feedResults.updateFeed.length) {

@@ -1,4 +1,4 @@
-const settings = require('./settings').settings
+const settings = require('./azureSettings').settings
 const AzureSearch = require('azure-search')
 
 exports.client = AzureSearch({
