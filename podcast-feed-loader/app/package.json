@@ -22,7 +22,6 @@
     "airbrake-js": "^1.1.1",
     "azure-search": "0.0.20",
     "node-podcast-parser": "^2.2.0",
-    "npm": "^6.1.0",
     "request": "^2.87.0"
   },
   "devDependencies": {
