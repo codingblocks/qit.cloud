@@ -7,16 +7,17 @@ import { SortableHandle } from 'react-sortable-hoc'
 import DragNDropImage from '../../../assets/dragndrop.png'
 
 export const DragNDropIndicator = SortableHandle(({ className }) => (
-  <button
-    className={'drag-handle ' + className}
+  <span
+    className={className}
     data-playlist={'drag'}
+    onMouseDown={e => e.preventDefault()}
   >
     <img
       className='drag-handle'
       src={DragNDropImage}
       alt='Drag and Drop to Reorder Playlist.'
     />
-  </button>
+  </span>
 ))
 
 DragNDropIndicator.defaultProps = {
