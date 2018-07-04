@@ -31,7 +31,7 @@ DragNDropIndicator.propTypes = {
 export default styled(DragNDropIndicator)`
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -7px;
 
   min-width: 48px;
   min-height: 48px;
