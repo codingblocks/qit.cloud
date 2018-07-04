@@ -13,13 +13,13 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^AiA\\s\\d+:\\s",
       "url": "http://feeds.feedwrench.com/AdventuresInAngular.rss",
       "title": "Adventures in Angular",
       "forceHttps": true
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "http://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage",
       "title": "Android Developers Backstage",
       "forceHttps": true
@@ -37,7 +37,7 @@
       "forceHttps": true
     },
     {
-      "titleCleanser": "",
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/282/rss",
       "title": "The Bike Shed",
       "forceHttps": true
@@ -55,7 +55,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^The\\s(?:Cloud|Serverless|Mobile)[Cc]ast(?:\\s\\(\\.net\\))?\\s(?:#|-\\sEpisode\\s)\\d+\\s-\\s",
       "url": "https://feeds.buzzsprout.com/3195.rss",
       "title": "The Cloudcast",
       "forceHttps": false
