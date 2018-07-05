@@ -30,9 +30,9 @@ RemoveFromPlaylistButton.propTypes = {
 }
 
 export default styled(RemoveFromPlaylistButton)`
-  position: absolute;
+  /* position: absolute;
   right: ${props => props.lonely ? '0' : '48px'};
-  bottom: 0;
+  bottom: 0; */
 
   min-width: 48px;
   min-height: 48px;
