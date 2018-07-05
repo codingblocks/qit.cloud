@@ -1,9 +1,6 @@
 import React from 'react'
 import { actions } from 'mirrorx'
 
-import Episode from './Episode/'
-import EpisodeTitle from './Episode/EpisodeTitle'
-import PodcastTitle from './Episode/PodcastTitle'
 import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
 import PlayNextButton from './Episode/playNextButton'
@@ -11,30 +8,8 @@ import styled from 'styled-components'
 import SortableList from './SortableList'
 import DragNDropIndicator from './Episode/DragNDropIndicator'
 
-const QueueEpisode = styled(Episode)`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.3rem;
-`
+import {StyledEpisode, StyledEpisodeTitle, StyledPodcastTitle, StyledEpisodeBody, StyledControls} from './Episode/Styled'
 
-const QueueEpisodeTitle = styled(EpisodeTitle)`
-  padding: 1.5rem 0.5rem 0 1rem;
-`
-
-const QueuePodcastTitle = styled(PodcastTitle)`
-  padding: 0.3rem 0 0 1rem;
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const QueueEpisodeBody = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const QueueControls = styled.div`
-  display: flex;
-`
 
 export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
@@ -51,20 +26,20 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
           }
           items={
             playlist.map(episode =>
-              <QueueEpisode
+              <StyledEpisode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
-                <QueueEpisodeTitle>{episode.episodeTitle}</QueueEpisodeTitle>
+                <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
                 
-                <QueueEpisodeBody>
-                  <QueuePodcastTitle>
+                <StyledEpisodeBody>
+                  <StyledPodcastTitle>
                     {episode.podcastTitle}&nbsp;
                     <PodcastReleaseDate releaseDate={episode.published} />
-                  </QueuePodcastTitle>
+                  </StyledPodcastTitle>
   
-                  <QueueControls>
+                  <StyledControls>
                     {
                       playlist[0].audioUrl !== episode.audioUrl &&
                       <PlayNextButton
@@ -86,9 +61,9 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                       playlist.length > 1 &&
                       <DragNDropIndicator />
                     }
-                  </QueueControls>
-                </QueueEpisodeBody>
-              </QueueEpisode>
+                  </StyledControls>
+                </StyledEpisodeBody>
+              </StyledEpisode>
             )
           }
         />

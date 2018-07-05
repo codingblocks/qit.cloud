@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { actions, connect } from 'mirrorx'
 import styled from 'styled-components'
 
-import Episode from './Episode/'
-import EpisodeTitle from './Episode/EpisodeTitle'
-import PodcastTitle from './Episode/PodcastTitle'
 import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import AddToPlaylistButton from './Episode/AddToPlaylistButton'
 import Loader from '../Loader'
+
+import {StyledEpisode, StyledEpisodeTitle, StyledPodcastTitle, StyledEpisodeBody} from './Episode/Styled'
+
 
 export class SearchResults extends Component {
   componentWillMount () {
@@ -33,7 +33,10 @@ export class SearchResults extends Component {
       <div
         className={className}
         onClick={event => {
-          if (event.target.nodeName !== 'DIV') return
+          if (event.target.nodeName !== 'DIV') {
+            return
+          }
+          console.log('whut', event.target)
           actions.search.clearSearch()
           history.push('/')
         }}
@@ -46,26 +49,29 @@ export class SearchResults extends Component {
             <p id='noResults'>No results were found. Please try again.</p>
           ) : (
             results.map(episode => (
-              <Episode
+              <StyledEpisode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
-                <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-                <PodcastTitle>
-                  {episode.podcastTitle}&nbsp;
-                  <PodcastReleaseDate releaseDate={episode.published} />
-                </PodcastTitle>
-                <AddToPlaylistButton
-                  added={playlist.some(
-                    item => item.audioUrl === episode.audioUrl
-                  )}
-                  onClick={event => {
-                    event.stopPropagation()
-                    actions.player.addToPlaylist(episode)
-                  }}
-                />
-              </Episode>
+                <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
+
+                <StyledEpisodeBody>
+                  <StyledPodcastTitle>
+                    {episode.podcastTitle}&nbsp;
+                    <PodcastReleaseDate releaseDate={episode.published} />
+                  </StyledPodcastTitle>
+                  <AddToPlaylistButton
+                    added={playlist.some(
+                      item => item.audioUrl === episode.audioUrl
+                    )}
+                    onClick={event => {
+                      event.stopPropagation()
+                      actions.player.addToPlaylist(episode)
+                    }}
+                  />
+                </StyledEpisodeBody>
+              </StyledEpisode>
             ))
           )}
         </div>
