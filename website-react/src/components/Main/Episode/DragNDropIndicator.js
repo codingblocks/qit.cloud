@@ -22,11 +22,6 @@ export const DragNDropIndicator = SortableHandle(({ className }) => (
     data-playlist={'drag'}
     onMouseDown={e => e.preventDefault()}
   >
-    {/* <img
-      className='drag-handle'
-      src={DragNDropImage}
-      alt='Drag and Drop to Reorder Playlist.'
-    /> */}
     <DragHandleImage />
   </span>
 ))
@@ -40,10 +35,6 @@ DragNDropIndicator.propTypes = {
 }
 
 export default styled(DragNDropIndicator)`
-  /* position: absolute;
-  right: 0;
-  bottom: -7px; */
-
   min-width: 48px;
   min-height: 48px;
 
