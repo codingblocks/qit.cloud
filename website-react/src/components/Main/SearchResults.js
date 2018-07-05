@@ -6,7 +6,12 @@ import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import AddToPlaylistButton from './Episode/AddToPlaylistButton'
 import Loader from '../Loader'
 
-import {StyledEpisode, StyledEpisodeTitle, StyledPodcastTitle, StyledEpisodeBody} from './Episode/Styled'
+import {
+  StyledEpisode,
+  StyledEpisodeTitle,
+  StyledPodcastTitle,
+  StyledEpisodeBody
+} from './Episode/Styled'
 
 export class SearchResults extends Component {
   componentWillMount () {
@@ -32,10 +37,7 @@ export class SearchResults extends Component {
       <div
         className={className}
         onClick={event => {
-          if (event.target.nodeName !== 'DIV') {
-            return
-          }
-          console.log('whut', event.target)
+          if (event.target.nodeName !== 'DIV') return
           actions.search.clearSearch()
           history.push('/')
         }}
@@ -52,6 +54,7 @@ export class SearchResults extends Component {
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
+                data-item-type='search'
               >
                 <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
 
