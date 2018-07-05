@@ -11,6 +11,31 @@ import styled from 'styled-components'
 import SortableList from './SortableList'
 import DragNDropIndicator from './Episode/DragNDropIndicator'
 
+const QueueEpisode = styled(Episode)`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.3rem;
+`
+
+const QueueEpisodeTitle = styled(EpisodeTitle)`
+  padding: 1.5rem 0 0 1rem;
+`
+
+const QueueEpisodeBody = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  & > b {
+    padding: 0.3rem 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+`
+
+const QueueControls = styled.div`
+  display: flex;
+`
+
 export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
     {playlist.length === 0 ? null : 'Next in queue:'}
@@ -26,39 +51,45 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
           }
           items={
             playlist.map(episode =>
-              <Episode
+              <QueueEpisode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
-                <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
-                <PodcastTitle>
-                  {episode.podcastTitle}&nbsp;
-                  <PodcastReleaseDate releaseDate={episode.published} />
-                </PodcastTitle>
-
-                {
-                  playlist[0].audioUrl !== episode.audioUrl &&
-                  <PlayNextButton
-                    onClick={event => {
-                      event.stopPropagation()
-                      actions.player.playNext(episode)
-                    }}
-                  />
-                }
-
-                <RemoveFromPlaylistButton
-                  lonely={playlist.length === 1}
-                  onClick={event => {
-                    event.stopPropagation()
-                    actions.player.removeFromPlaylist(episode)
-                  }}
-                />
-                {
-                  playlist.length > 1 &&
-                  <DragNDropIndicator />
-                }
-              </Episode>
+                <QueueEpisodeTitle>{episode.episodeTitle}</QueueEpisodeTitle>
+                
+                
+                <QueueEpisodeBody>
+                  <PodcastTitle>
+                    {episode.podcastTitle}&nbsp;
+                    <PodcastReleaseDate releaseDate={episode.published} />
+                  </PodcastTitle>
+  
+                  <QueueControls>
+                    {
+                      playlist[0].audioUrl !== episode.audioUrl &&
+                      <PlayNextButton
+                        onClick={event => {
+                          event.stopPropagation()
+                          actions.player.playNext(episode)
+                        }}
+                      />
+                    }
+    
+                    <RemoveFromPlaylistButton
+                      lonely={playlist.length === 1}
+                      onClick={event => {
+                        event.stopPropagation()
+                        actions.player.removeFromPlaylist(episode)
+                      }}
+                    />
+                    {
+                      playlist.length > 1 &&
+                      <DragNDropIndicator />
+                    }
+                  </QueueControls>
+                </QueueEpisodeBody>
+              </QueueEpisode>
             )
           }
         />
