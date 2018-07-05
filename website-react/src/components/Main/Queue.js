@@ -10,7 +10,6 @@ import DragNDropIndicator from './Episode/DragNDropIndicator'
 
 import {StyledEpisode, StyledEpisodeTitle, StyledPodcastTitle, StyledEpisodeBody, StyledControls} from './Episode/Styled'
 
-
 export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
     {playlist.length === 0 ? null : 'Next in queue:'}
@@ -32,13 +31,13 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                 playing={episode.audioUrl === nowPlaying.audioUrl}
               >
                 <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
-                
+
                 <StyledEpisodeBody>
                   <StyledPodcastTitle>
                     {episode.podcastTitle}&nbsp;
                     <PodcastReleaseDate releaseDate={episode.published} />
                   </StyledPodcastTitle>
-  
+
                   <StyledControls>
                     {
                       playlist[0].audioUrl !== episode.audioUrl &&
@@ -49,7 +48,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                         }}
                       />
                     }
-    
+
                     <RemoveFromPlaylistButton
                       lonely={playlist.length === 1}
                       onClick={event => {

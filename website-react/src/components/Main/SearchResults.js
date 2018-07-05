@@ -8,7 +8,6 @@ import Loader from '../Loader'
 
 import {StyledEpisode, StyledEpisodeTitle, StyledPodcastTitle, StyledEpisodeBody} from './Episode/Styled'
 
-
 export class SearchResults extends Component {
   componentWillMount () {
     const query = this.props.match.params.query
