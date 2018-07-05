@@ -18,18 +18,18 @@ const QueueEpisode = styled(Episode)`
 `
 
 const QueueEpisodeTitle = styled(EpisodeTitle)`
-  padding: 1.5rem 0 0 1rem;
+  padding: 1.5rem 0.5rem 0 1rem;
+`
+
+const QueuePodcastTitle = styled(PodcastTitle)`
+  padding: 0.3rem 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const QueueEpisodeBody = styled.div`
   display: flex;
   justify-content: space-between;
-
-  & > b {
-    padding: 0.3rem 0 0 1rem;
-    display: flex;
-    flex-wrap: wrap;
-  }
 `
 
 const QueueControls = styled.div`
@@ -58,12 +58,11 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
               >
                 <QueueEpisodeTitle>{episode.episodeTitle}</QueueEpisodeTitle>
                 
-                
                 <QueueEpisodeBody>
-                  <PodcastTitle>
+                  <QueuePodcastTitle>
                     {episode.podcastTitle}&nbsp;
                     <PodcastReleaseDate releaseDate={episode.published} />
-                  </PodcastTitle>
+                  </QueuePodcastTitle>
   
                   <QueueControls>
                     {
