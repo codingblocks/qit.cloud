@@ -24,7 +24,7 @@ describe('Search', function () {
     })
 
     it.skip('returns the correct results length', function () {
-      cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
+      cy.get('[data-item-type=search]').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
     it.skip('returns empty results', function (done) {
@@ -81,7 +81,7 @@ describe('Search', function () {
     })
 
     it('returns the correct results length', function () {
-      cy.get('li').should('have.length', this.lambda_search_results['@odata.count'])
+      cy.get('[data-item-type=search]').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
     it('returns empty results', function () {
