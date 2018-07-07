@@ -35,28 +35,28 @@ import './commands'
 // Reference: https://github.com/cypress-io/cypress/issues/95#issuecomment-347607198
 Cypress.on('window:before:load', win => {
   win.fetch = null
-  
+
   const unregisterSW = () => {
     return navigator.serviceWorker.getRegistrations()
-    .then((registrations) => {
-      const unregisterPromise = registrations.map((registration) => {
-        return registration.unregister();
-      });
-      return Promise.all(unregisterPromise);
-    });
-  };
+      .then((registrations) => {
+        const unregisterPromise = registrations.map((registration) => {
+          return registration.unregister()
+        })
+        return Promise.all(unregisterPromise)
+      })
+  }
 
   const clearCaches = () => {
     return window.caches.keys()
-    .then((cacheNames) => {
-      return Promise.all(cacheNames.map((cacheName) => {
-        return window.caches.delete(cacheName);
-      }));
-    });
-  };
+      .then((cacheNames) => {
+        return Promise.all(cacheNames.map((cacheName) => {
+          return window.caches.delete(cacheName)
+        }))
+      })
+  }
 
   return Promise.all([
     unregisterSW(),
-    clearCaches(),
-  ]);
+    clearCaches()
+  ])
 })
