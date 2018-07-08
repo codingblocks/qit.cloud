@@ -23,11 +23,11 @@ describe('Search', function () {
       cy.get('form').submit()
     })
 
-    it.skip('returns the correct results length', function () {
+    it('returns the correct results length', function () {
       cy.get('[data-item-type=search]').should('have.length', this.lambda_search_results['@odata.count'])
     })
 
-    it.skip('returns empty results', function (done) {
+    it('returns empty results', function () {
       cy.route({
         method: 'GET',
         url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
@@ -38,18 +38,15 @@ describe('Search', function () {
       // running with electron in headless mode. Issue #127
       cy.visit('/')
 
-      setTimeout(() => {
-        cy.get('input')
-          .clear()
-          .type('empty')
-          .should('have.value', 'empty')
+      cy.get('input')
+        .clear()
+        .type('empty')
+        .should('have.value', 'empty')
 
-        cy.get('form').submit()
+      cy.get('form').submit()
 
-        cy.get('#resultText').contains('0 results for "empty"')
-        cy.get('#noResults').contains('No results were found. Please try again.')
-        done()
-      }, 2000)
+      cy.get('#resultText').contains('0 results for "empty"')
+      cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
     it('can load the main page via back button', function () {
@@ -65,7 +62,7 @@ describe('Search', function () {
     })
   })
 
-  describe('Direct', function () {
+  describe('URL', function () {
     beforeEach(function () {
       cy.server()
 
