@@ -27,9 +27,9 @@ playNextButton.propTypes = {
 }
 
 export default styled(playNextButton)`
-  position: absolute;
+  /* position: absolute;
   right: 96px;
-  bottom: 0;
+  bottom: 0; */
 
   min-width: 48px;
   min-height: 48px;
