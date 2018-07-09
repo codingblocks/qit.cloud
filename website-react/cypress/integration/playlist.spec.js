@@ -20,14 +20,14 @@ describe('Queue', function () {
       cy.get('[data-queue=add]:first').click()
       cy.get('button').contains('<').click()
 
-      // Verify 1 result in playlist list
+      // Verify 1 result in queue list
       cy.get('[data-item-type=queue]').should('have.length', 1)
 
       // Click remove queue button
       cy.get('[data-queue=remove]:first').click()
 
       // Verify its removed
-      cy.get('[data-item-type=playlist]').should('not.exist')
+      cy.get('[data-item-type=queue]').should('not.exist')
     })
 
     it('can add & remove many from the queue', function () {
@@ -35,13 +35,13 @@ describe('Queue', function () {
       cy.get('[data-queue=add]').click({ multiple: true })
       cy.get('button').contains('<').click()
 
-      cy.get('[data-item-type=playlist]').should('have.length', this.six_search_results['@odata.count'])
+      cy.get('[data-item-type=queue]').should('have.length', this.six_search_results['@odata.count'])
 
       // Click all the remove buttons
       cy.get('[data-queue=remove]').click({ multiple: true })
 
       // Verify its removed
-      cy.get('[data-item-type=playlist]').should('not.exist')
+      cy.get('[data-item-type=queue]').should('not.exist')
     })
   })
 
