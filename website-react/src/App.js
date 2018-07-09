@@ -59,7 +59,7 @@ export class App extends Component {
           <Subtitle>
             <Search searchTerm={searchTerm} />
           </Subtitle>
-          <Logo>qit</Logo>
+          <Logo text='qit' href='/about/' history={history} />
         </Title>
       </Header>
 

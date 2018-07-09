@@ -26,6 +26,11 @@ body {
   background: linear-gradient(to right, #488380, #618e9c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+a {
+  color: #339999;
+  font-weight: bold;
+}
+
 .header .headerButton {
   width: 24px;
   height: 24px;
@@ -43,9 +48,11 @@ body {
   background: url(/images/ic_refresh_white_24px.svg) center center no-repeat;
 }
 
-audio {
-  width: 100%;
+.finePrint {
+  font-size: 0.6rem;
+  font-weight: 200;
 }
+
 body > li {
   list-style: none;
   z-index: 100;

@@ -1,30 +1,41 @@
-const { hashElement } = require('folder-hash')
 const fs = require('fs')
 
-const options = {
-  folders: { include: ['build'] }
+const pad = (number, length) => {
+  let str = '' + number
+  while (str.length < length) {
+    str = '0' + str
+  }
+
+  return str
 }
 
-hashElement('.', options)
-  .then(hash => {
-    let buildSuffix = '{{' + hash.hash + '}}'
+const formatDate = function (d) {
+  const yyyy = d.getUTCFullYear().toString()
+  const mm = pad(d.getMonth() + 1, 2)
+  const dd = pad(d.getDate(), 2)
+  const hh = pad(d.getHours(), 2)
+  const m = pad(d.getMinutes(), 2)
+  const ss = pad(d.getSeconds(), 2)
 
-    const serviceWorker = './build/sw.js'
+  return `${yyyy}-${mm}-${dd} ${hh}:${m}:${ss}`
+}
 
-    fs.readFile(serviceWorker, 'utf8', function (err, data) {
-      if (err) {
-        console.log('ERROR: Could not generate service worker version number:' + err)
-        return
-      }
+const buildSuffix = '{{' + formatDate(new Date()) + '}}'
+const serviceWorker = './build/sw.js'
 
-      console.log('Updating service worker cache key:' + buildSuffix)
-      let result = data.replace(/{{GENERATED_DO_NOT_CHANGE_THIS}}/g, buildSuffix)
+fs.readFile(serviceWorker, 'utf8', function (err, data) {
+  console.log(data)
+  if (err) {
+    console.log('ERROR: Could not generate service worker version number:' + err)
+    return
+  }
 
-      fs.writeFile(serviceWorker, result, 'utf8', function (err) {
-        if (err) { return console.log(err) }
-      })
-    })
+  console.log('Updating service worker cache key: ' + buildSuffix)
+  const result = data.replace(/{{DEVMODE}}/g, buildSuffix)
+
+  fs.writeFile(serviceWorker, result, 'utf8', function (err) {
+    if (err) {
+      return console.log(err)
+    }
   })
-  .catch(error => {
-    return console.error('hashing failed:', error)
-  })
+})

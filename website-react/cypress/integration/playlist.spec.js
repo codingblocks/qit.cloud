@@ -21,13 +21,13 @@ describe('Playlist', function () {
       cy.get('button').contains('<').click()
 
       // Verify 1 result in playlist list
-      cy.get('li').should('have.length', 1)
+      cy.get('[data-item-type=playlist]').should('have.length', 1)
 
       // Click remove playlist button
       cy.get('[data-playlist=remove]:first').click()
 
       // Verify its removed
-      cy.get('li').should('not.exist')
+      cy.get('[data-item-type=playlist]').should('not.exist')
     })
 
     it('can add & remove many from the playlist', function () {
@@ -35,13 +35,13 @@ describe('Playlist', function () {
       cy.get('[data-playlist=add]').click({ multiple: true })
       cy.get('button').contains('<').click()
 
-      cy.get('li').should('have.length', this.six_search_results['@odata.count'])
+      cy.get('[data-item-type=playlist]').should('have.length', this.six_search_results['@odata.count'])
 
       // Click all the remove buttons
       cy.get('[data-playlist=remove]').click({ multiple: true })
 
       // Verify its removed
-      cy.get('li').should('not.exist')
+      cy.get('[data-item-type=playlist]').should('not.exist')
     })
   })
 

@@ -1,5 +1,36 @@
 {
   "feeds": [
+
+    {
+      "titleCleanser": null,
+      "url": "http://behindthetech.mpsn.libsynpro.com/rss",
+      "title": "Behind the Tech with Kevin Smith",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/HerdingCode",
+      "title": "Herding Code",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://devopscafe.libsyn.com/rss",
+      "title": "DevOps Cafe",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.feedburner.com/se-radio",
+      "title": "Software Engineering Radio",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://rss.simplecast.com/podcasts/4669/rss",
+      "title": "Hanselminutes",
+      "forceHttps": false
+    },
     {
       "titleCleanser": "^Episode\\s\\d+\\s[-|–]\\s",
       "url": "https://6figuredev.com/feed/podcast",
