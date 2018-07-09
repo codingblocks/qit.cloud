@@ -2,17 +2,17 @@ import mirror from 'mirrorx'
 
 const gtag = window.gtag
 
-const getEpisodeById = (playlist, episodeId) => {
-  return playlist
-    ? playlist.find(episode => episode.id === episodeId)
+const getEpisodeById = (queue, episodeId) => {
+  return queue
+    ? queue.find(episode => episode.id === episodeId)
     : null
 }
 
 export const eventTracking = mirror.hook((action, getState) => {
   switch (action.type) {
-    case 'player/addToPlaylist':
+    case 'player/addToQueue':
       const toAddAudioUrl = action.data.audioUrl
-      gtag('event', 'add_to_playlist', {
+      gtag('event', 'add_to_queue', {
         'event_category': 'audio',
         'event_label': toAddAudioUrl
       })
@@ -26,12 +26,12 @@ export const eventTracking = mirror.hook((action, getState) => {
       })
       break
 
-    case 'player/removeFromPlaylist':
-      const {playlist} = getState().player
+    case 'player/removeFromQueue':
+      const {queue} = getState().player
       const episodeId = action.data
-      const removedEpisode = getEpisodeById(playlist, episodeId)
+      const removedEpisode = getEpisodeById(queue, episodeId)
       if (removedEpisode) {
-        gtag('event', 'remove_from_playlist', {
+        gtag('event', 'remove_from_queue', {
           'event_category': 'audio',
           'event_label': removedEpisode.audioUrl
         })
@@ -41,10 +41,10 @@ export const eventTracking = mirror.hook((action, getState) => {
     case 'player/playNextEpisode':
       const state = getState().player
       const currentlyPlaying = state.nowPlaying
-      const newPlaylist = state.playlist
+      const newQueue = state.queue
         .slice()
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
-      const nowPlaying = newPlaylist.shift() || {}
+      const nowPlaying = newQueue.shift() || {}
       gtag('event', 'play_next_episode', {
         'event_category': 'audio',
         'event_label': nowPlaying.audioUrl

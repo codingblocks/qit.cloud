@@ -23,8 +23,8 @@ import { sslAudioUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
   componentWillMount () {
-    window.localStorage.getItem('playlist') &&
-      actions.player.hydratePlaylist()
+    window.localStorage.getItem('queue') &&
+      actions.player.hydrateQueue()
   }
 
   componentDidUpdate () {
@@ -37,7 +37,7 @@ export class App extends Component {
       searchTerm,
       currentSearch,
       nowPlaying,
-      playlist,
+      queue,
       playbackrate,
       history,
       location
@@ -48,7 +48,7 @@ export class App extends Component {
       <Header>
         <Title>
           {
-            (currentSearch !== '' || location.pathname.startsWith('/playlist')) &&
+            (currentSearch !== '' || location.pathname.startsWith('/queue')) &&
             <BackButton onClick={() => {
               history.push('/')
               actions.search.clearSearch()
@@ -68,7 +68,7 @@ export class App extends Component {
           <EpisodeList>
             <Queue
               nowPlaying={nowPlaying}
-              playlist={playlist}
+              queue={queue}
               blur={currentSearch !== ''}
             />
           </EpisodeList>
@@ -97,7 +97,7 @@ App.defaultProps = {
   currentSearch: '',
   loading: false,
   nowPlaying: {},
-  playlist: []
+  queue: []
 }
 
 App.propTypes = {
@@ -106,7 +106,7 @@ App.propTypes = {
   currentSearch: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   nowPlaying: PropTypes.object.isRequired,
-  playlist: PropTypes.array.isRequired
+  queue: PropTypes.array.isRequired
 }
 
 export const ConnectedApp = connect(state => ({
@@ -114,7 +114,7 @@ export const ConnectedApp = connect(state => ({
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
   nowPlaying: state.player.nowPlaying,
-  playlist: state.player.playlist,
+  queue: state.player.queue,
   playbackrate: state.player.playbackrate
 }))(App)
 

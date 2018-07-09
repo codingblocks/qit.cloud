@@ -7,7 +7,7 @@ export default mirror.model({
   name: 'player',
   initialState: {
     nowPlaying: {},
-    playlist: [],
+    queue: [],
     playbackrate: 1
   },
   reducers: {
@@ -16,39 +16,39 @@ export default mirror.model({
       return { ...state, nowPlaying: episode }
     },
 
-    addToPlaylist (state, episode) {
-      return { ...state, playlist: [...state.playlist, episode] }
+    addToQueue (state, episode) {
+      return { ...state, queue: [...state.queue, episode] }
     },
 
-    removeFromPlaylist (state, episodeToRemove) {
-      const playlist = state.playlist
+    removeFromQueue (state, episodeToRemove) {
+      const queue = state.queue
         .filter(episode => episode.id !== episodeToRemove.id)
-      return { ...state, playlist }
+      return { ...state, queue }
     },
 
-    resortPlaylist (state, data) {
-      const playlist = arrayMove(state.playlist, data.oldIndex, data.newIndex)
-      return { ...state, playlist }
+    resortQueue (state, data) {
+      const queue = arrayMove(state.queue, data.oldIndex, data.newIndex)
+      return { ...state, queue }
     },
 
-    hydratePlaylist (state) {
-      const localPlaylist = JSON.parse(window.localStorage.getItem('playlist'))
-      return { ...state, playlist: localPlaylist }
+    hydrateQueue (state) {
+      const localQueue = JSON.parse(window.localStorage.getItem('queue'))
+      return { ...state, queue: localQueue }
     },
 
     playNextEpisode (state) {
       const currentlyPlaying = state.nowPlaying
-      const playlist = state.playlist
+      const queue = state.queue
         .slice()
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
-      const nowPlaying = playlist.shift() || {}
-      return { ...state, nowPlaying, playlist }
+      const nowPlaying = queue.shift() || {}
+      return { ...state, nowPlaying, queue }
     },
 
     playNext (state, episode) {
-      const newPlaylist = state.playlist
+      const newQueue = state.queue
         .filter(item => item.audioUrl !== episode.audioUrl)
-      return { ...state, playlist: [episode, ...newPlaylist] }
+      return { ...state, queue: [episode, ...newQueue] }
     },
 
     nextPlaybackRate (state) {
