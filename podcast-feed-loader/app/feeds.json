@@ -362,9 +362,9 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
-      "url": "https://feeds.feedwrench.com",
-      "title": "Views on View",
+      "titleCleanser": "^VoV\\s\\d+:\\s",
+      "url": "http://feeds.feedwrench.com/views-on-vue.rss",
+      "title": "Views on Vue",
       "forceHttps": false
     },
     {
