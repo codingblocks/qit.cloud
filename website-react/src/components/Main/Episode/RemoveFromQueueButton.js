@@ -2,34 +2,34 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import RemoveFromPlaylistImage from '../../../assets/removeFromPlaylist.png'
+import RemoveFromQueueImage from '../../../assets/removeFromQueue.png'
 
-export const RemoveFromPlaylistButton = ({ lonely, className, onClick }) => (
+export const RemoveFromQueueButton = ({ lonely, className, onClick }) => (
   <button
     className={className}
     onClick={onClick}
-    data-playlist={'remove'}
+    data-queue={'remove'}
   >
     <img
-      src={RemoveFromPlaylistImage}
-      alt='Remove episode from playlist.'
+      src={RemoveFromQueueImage}
+      alt='Remove episode from queue.'
     />
   </button>
 )
 
-RemoveFromPlaylistButton.defaultProps = {
+RemoveFromQueueButton.defaultProps = {
   lonely: false,
   className: '',
   onClick: () => { }
 }
 
-RemoveFromPlaylistButton.propTypes = {
+RemoveFromQueueButton.propTypes = {
   lonely: PropTypes.bool,
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired
 }
 
-export default styled(RemoveFromPlaylistButton)`
+export default styled(RemoveFromQueueButton)`
   /* position: absolute;
   right: ${props => props.lonely ? '0' : '48px'};
   bottom: 0; */

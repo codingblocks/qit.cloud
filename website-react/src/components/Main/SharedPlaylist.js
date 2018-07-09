@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { actions, connect } from 'mirrorx'
 
-import Episode from './Episode/'
+import Episode from './Episode'
 import EpisodeTitle from './Episode/EpisodeTitle'
 import PodcastTitle from './Episode/PodcastTitle'
-import AddToPlaylistButton from './Episode/AddToPlaylistButton'
+import AddToQueueButton from './Episode/AddToQueueButton'
 
-export const SharedPlaylist = ({className, history, playlist, nowPlaying}) => {
+export const SharedPlaylist = ({className, history, queue, nowPlaying}) => {
   const url = new URL(document.URL)
   const data = url.pathname.replace('/playlist/', '')
   console.log(decodeURI(data).episodes)
@@ -34,11 +34,11 @@ export const SharedPlaylist = ({className, history, playlist, nowPlaying}) => {
           >
             <EpisodeTitle>{episode.episodeTitle}</EpisodeTitle>
             <PodcastTitle>{episode.podcastTitle}</PodcastTitle>
-            <AddToPlaylistButton
-              added={playlist.some(item => item.audioUrl === episode.audioUrl)}
+            <AddToQueueButton
+              added={queue.some(item => item.audioUrl === episode.audioUrl)}
               onClick={event => {
                 event.stopPropagation()
-                actions.player.addToPlaylist(episode)
+                actions.player.addToQueue(episode)
               }}
             />
           </Episode>
@@ -49,11 +49,11 @@ export const SharedPlaylist = ({className, history, playlist, nowPlaying}) => {
 }
 
 SharedPlaylist.defaultProps = {
-  playlist: []
+  queue: []
 }
 
 export const ConnectedSharedPlaylist = connect(state => ({
-  playlist: state.player.playlist,
+  queue: state.player.queue,
   nowPlaying: state.player.nowPlaying
 }))(SharedPlaylist)
 

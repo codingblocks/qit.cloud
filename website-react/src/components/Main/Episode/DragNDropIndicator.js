@@ -11,7 +11,7 @@ import DragNDropImage from '../../../assets/dragndrop.png'
 const DragHandleImage = styled.img.attrs({
   className: 'drag-handle',
   src: DragNDropImage,
-  alt: 'Drag and Drop to Reorder Playlist.'
+  alt: 'Drag and Drop to Reorder Queue.'
 })`
   margin: 9px;
 `
@@ -19,7 +19,7 @@ const DragHandleImage = styled.img.attrs({
 export const DragNDropIndicator = SortableHandle(({ className }) => (
   <span
     className={className}
-    data-playlist={'drag'}
+    data-queue={'drag'}
     onMouseDown={e => e.preventDefault()}
   >
     <DragHandleImage />
