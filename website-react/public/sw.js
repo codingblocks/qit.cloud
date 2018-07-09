@@ -1,8 +1,8 @@
 /* eslint-env serviceworker */
 /* global fetch */
 
-const dataCacheName = 'podcasts-data-{{GENERATED_DO_NOT_CHANGE_THIS}}'
-const cacheName = 'podcasts-{{GENERATED_DO_NOT_CHANGE_THIS}}'
+const dataCacheName = 'podcasts-data_{{DEVMODE}}'
+const cacheName = 'podcasts_{{DEVMODE}}'
 const episodesCacheName = 'qit-episodes'
 const cacheNames = [cacheName, dataCacheName, episodesCacheName]
 

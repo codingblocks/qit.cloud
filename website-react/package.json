@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "folder-hash": "^2.0.0",
     "mirrorx": "^0.2.11",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
