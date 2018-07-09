@@ -20,8 +20,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
   <div className={className}>
     {playlist.length === 0 ? null : 'Next in queue:'}
     {playlist.length === 0 ? (
-      `No episodes added to your queue yet.
-        Go ahead and search for some episodes to add!`
+      `Your queue is empty. Try a search like "pwa" to learn more about the technology behind this app!`
     ) : (
       <SortableList
         useWindowAsScrollContainer
