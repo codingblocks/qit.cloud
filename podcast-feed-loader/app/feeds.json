@@ -2,25 +2,25 @@
   "feeds": [
 
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+-\\s",
       "url": "http://behindthetech.mpsn.libsynpro.com/rss",
       "title": "Behind the Tech with Kevin Smith",
       "forceHttps": true
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Herding\\sCode\\s\\d+:\\s",
       "url": "https://feeds.feedburner.com/HerdingCode",
       "title": "Herding Code",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^DevOps\\sCafe\\sEp.\\s\\d+\\s-\\s",
       "url": "https://devopscafe.libsyn.com/rss",
       "title": "DevOps Cafe",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^(?:SE-Radio\\s)?Episode\\s\\d+:\\s",
       "url": "https://feeds.feedburner.com/se-radio",
       "title": "Software Engineering Radio",
       "forceHttps": false
@@ -44,13 +44,13 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^AiA\\s\\d+:\\s",
       "url": "http://feeds.feedwrench.com/AdventuresInAngular.rss",
       "title": "Adventures in Angular",
       "forceHttps": true
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "http://feeds.feedburner.com/blogspot/AndroidDevelopersBackstage",
       "title": "Android Developers Backstage",
       "forceHttps": true
@@ -68,7 +68,7 @@
       "forceHttps": true
     },
     {
-      "titleCleanser": "",
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/282/rss",
       "title": "The Bike Shed",
       "forceHttps": true
@@ -86,13 +86,13 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^The\\s(?:Cloud|Serverless|Mobile)[Cc]ast(?:\\s\\(\\.net\\))?\\s(?:#|-\\sEpisode\\s)\\d+\\s-\\s",
       "url": "https://feeds.buzzsprout.com/3195.rss",
       "title": "The Cloudcast",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "EMx\\s\\d+:\\s",
       "url": "https://devchat.tv/elixir-mix",
       "title": "Elixer Mix",
       "forceHttps": false
@@ -152,7 +152,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1034/rss",
       "title": "Design Details",
       "forceHttps": false
@@ -164,7 +164,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+\\s\\|\\s",
       "url": "http://developeronfire.com/rss.xml",
       "title": "Developer on Fire",
       "forceHttps": true
@@ -176,7 +176,7 @@
       "forceHttps": true
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://www.embedded.fm/?format=rss",
       "title": "Embedded.fm",
       "forceHttps": true
@@ -188,7 +188,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Functional\\sGeekery\\sEpisode\\s\\d+\\s[-|–|—]\\s",
       "url": "https://www.functionalgeekery.com/feed/mp3/",
       "title": "Functional Geekery",
       "forceHttps": false
@@ -206,13 +206,13 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/1684/rss",
       "title": "Front End Happy Hour",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+\\s[-|–|—]\\s",
       "url": "https://feeds.soundcloud.com/users/soundcloud:users:206137365/sounds.rss",
       "title": "Fragmented",
       "forceHttps": false
@@ -260,7 +260,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "http://feeds.feedburner.com/PhpRoundtable",
       "title": "The PHP Roundtable",
       "forceHttps": false
@@ -272,7 +272,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+(?:\\s-)?\\s",
       "url": "https://feeds.feedwrench.com/react-native-radio.rss",
       "title": "React Native Radio",
       "forceHttps": false
@@ -284,13 +284,13 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Podcast\\sEpisode\\s\\d+:\\s",
       "url": "https://restofus.tech/feed/podcast",
       "title": null,
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^(?:(?:(?:RR|MRS)\\s\\d+:)|(?:\\d+\\sRR))\\s",
       "url": "http://feeds.feedwrench.com/RubyRogues.rss",
       "title": "Ruby Rogues",
       "forceHttps": false
@@ -302,7 +302,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^Episode\\s\\d+:\\s",
       "url": "http://www.softwaredefinedtalk.com/rss",
       "title": "Software Defined Talk",
       "forceHttps": false
@@ -320,7 +320,7 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/2693/rss",
       "title": "Swift Unwrapped",
       "forceHttps": false
@@ -344,7 +344,7 @@
       "forceHttps": true
     },
     {
-      "titleCleanser": "",
+      "titleCleanser": "^\\d+:\\s",
       "url": "https://rss.simplecast.com/podcasts/4211/rss",
       "title": "Toolsday",
       "forceHttps": true
@@ -356,25 +356,25 @@
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^#\\d+\\s-\\s",
       "url": "https://vuenews.fireside.fm/rss",
       "title": "The Official Vue News",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
-      "url": "https://feeds.feedwrench.com",
-      "title": "Views on View",
+      "titleCleanser": "^VoV\\s\\d+:\\s",
+      "url": "http://feeds.feedwrench.com/views-on-vue.rss",
+      "title": "Views on Vue",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+:?\\s",
       "url": "https://thewebplatform.libsyn.com/rss",
       "title": "The Web Platform",
       "forceHttps": false
     },
     {
-      "titleCleanser": null,
+      "titleCleanser": "^\\d+\\sWSW\\s",
       "url": "http://feeds.feedwrench.com/websecwarriors.rss",
       "title": "The Web Security Warriors",
       "forceHttps": false
