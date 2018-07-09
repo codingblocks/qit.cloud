@@ -1,47 +1,47 @@
 /* eslint-env jest */
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme/build'
 import sinon from 'sinon'
 
-import AddToPlaylistButton from './AddToPlaylistButton'
-import AddToPlaylistImage from '../../../assets/addToPlaylist.png'
-import AddedToPlaylistImage from '../../../assets/addedToPlaylist.png'
+import AddToQueueButton from './AddToQueueButton'
+import AddToQueueImage from '../../../assets/addToQueue.png'
+import AddedToQueueImage from '../../../assets/addedToQueue.png'
 
-describe('<AddToPlaylistButton />', () => {
+describe('<AddToQueueButton />', () => {
   it('should render without any props', () => {
-    const wrapper = shallow(<AddToPlaylistButton />)
+    const wrapper = shallow(<AddToQueueButton />)
     const button = wrapper.dive().find('button')
     expect(button).not.toBeNull()
   })
 })
 
-describe('<AddToPlaylistButton className="{string}" />', () => {
+describe('<AddToQueueButton className="{string}" />', () => {
   it('className property should be included', () => {
     const expectedValue = (new Date()).getTime().toString()
-    const wrapper = shallow(<AddToPlaylistButton className={expectedValue} />)
+    const wrapper = shallow(<AddToQueueButton className={expectedValue} />)
     const button = wrapper.dive().find('button')
     expect(button.props().className).toContain(expectedValue)
   })
 })
 
-describe('<AddToPlaylistButton added="{boolean}" />', () => {
+describe('<AddToQueueButton added="{boolean}" />', () => {
   it('should be set to added image when added is true', () => {
-    const wrapper = shallow(<AddToPlaylistButton added={false} />)
+    const wrapper = shallow(<AddToQueueButton added={false} />)
     const img = wrapper.dive().find('button').find('img')
-    expect(img.props().src).toContain(AddToPlaylistImage)
+    expect(img.props().src).toContain(AddToQueueImage)
   })
 
   it('should be set to added image when added is true', () => {
-    const wrapper = shallow(<AddToPlaylistButton added />)
+    const wrapper = shallow(<AddToQueueButton added />)
     const img = wrapper.dive().find('button').find('img')
-    expect(img.props().src).toContain(AddedToPlaylistImage)
+    expect(img.props().src).toContain(AddedToQueueImage)
   })
 })
 
-describe('<AddToPlaylistButton onclick="{function}" />', () => {
+describe('<AddToQueueButton onclick="{function}" />', () => {
   it('should trigger the function on button click', () => {
     const customMethod = sinon.spy()
-    const wrapper = shallow(<AddToPlaylistButton onClick={customMethod} />)
+    const wrapper = shallow(<AddToQueueButton onClick={customMethod} />)
     const button = wrapper.dive().find('button')
     button.simulate('click')
     expect(customMethod).toHaveProperty('callCount', 1)

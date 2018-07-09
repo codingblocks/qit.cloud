@@ -2,36 +2,36 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import AddToPlaylistImage from '../../../assets/addToPlaylist.png'
-import AddedToPlaylistImage from '../../../assets/addedToPlaylist.png'
+import AddToQueueImage from '../../../assets/addToQueue.png'
+import AddedToQueueImage from '../../../assets/addedToQueue.png'
 
-export const AddToPlaylist = ({className, onClick, added}) => (
+export const AddToQueue = ({className, onClick, added}) => (
   <button
     className={className}
     onClick={event => !added && onClick(event)}
-    data-playlist={'add'}
+    data-queue={'add'}
   >
     <img
-      src={added ? AddedToPlaylistImage : AddToPlaylistImage}
-      alt='Add episode to playlist.'
+      src={added ? AddedToQueueImage : AddToQueueImage}
+      alt='Add episode to queue.'
     />
   </button>
 )
 
-AddToPlaylist.defaultProps = {
+AddToQueue.defaultProps = {
   className: '',
   onClick: () => {},
   added: false
 }
 
-AddToPlaylist.propTypes = {
+AddToQueue.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   added: PropTypes.bool.isRequired
 }
 
-export default styled(AddToPlaylist)`
-  border: none; 
+export default styled(AddToQueue)`
+  border: none;
   background: transparent;
   min-height: 48px;
   min-width: 48px;

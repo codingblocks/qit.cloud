@@ -2,7 +2,7 @@ import React from 'react'
 import { actions } from 'mirrorx'
 
 import PodcastReleaseDate from './Episode/PodcastReleaseDate'
-import RemoveFromPlaylistButton from './Episode/RemoveFromPlaylistButton'
+import RemoveFromQueueButton from './Episode/RemoveFromQueueButton'
 import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
 import SortableList from './SortableList'
@@ -16,24 +16,24 @@ import {
   StyledControls
 } from './Episode/Styled'
 
-export const Queue = ({ playlist, nowPlaying, className }) => (
+export const Queue = ({ queue, nowPlaying, className }) => (
   <div className={className}>
-    {playlist.length === 0 ? null : 'Next in queue:'}
-    {playlist.length === 0 ? (
+    {queue.length === 0 ? null : 'Next in queue:'}
+    {queue.length === 0 ? (
       `Your queue is empty. Try a search like "pwa" to learn more about the technology behind this app!`
     ) : (
       <SortableList
         useWindowAsScrollContainer
         useDragHandle
         onSortEnd={({ oldIndex, newIndex }) =>
-          actions.player.resortPlaylist({ oldIndex, newIndex })
+          actions.player.resortQueue({ oldIndex, newIndex })
         }
-        items={playlist.map(episode => (
+        items={queue.map(episode => (
           <StyledEpisode
             onClick={() => actions.player.play(episode)}
             key={episode.id}
             playing={episode.audioUrl === nowPlaying.audioUrl}
-            data-item-type='playlist'
+            data-item-type='queue'
           >
             <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
 
@@ -44,7 +44,7 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
               </StyledPodcastTitle>
 
               <StyledControls>
-                {playlist[0].audioUrl !== episode.audioUrl && (
+                {queue[0].audioUrl !== episode.audioUrl && (
                   <PlayNextButton
                     onClick={event => {
                       event.stopPropagation()
@@ -53,14 +53,14 @@ export const Queue = ({ playlist, nowPlaying, className }) => (
                   />
                 )}
 
-                <RemoveFromPlaylistButton
-                  lonely={playlist.length === 1}
+                <RemoveFromQueueButton
+                  lonely={queue.length === 1}
                   onClick={event => {
                     event.stopPropagation()
-                    actions.player.removeFromPlaylist(episode)
+                    actions.player.removeFromQueue(episode)
                   }}
                 />
-                {playlist.length > 1 && <DragNDropIndicator />}
+                {queue.length > 1 && <DragNDropIndicator />}
               </StyledControls>
             </StyledEpisodeBody>
           </StyledEpisode>

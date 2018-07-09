@@ -3,7 +3,7 @@ import { actions, connect } from 'mirrorx'
 import styled from 'styled-components'
 
 import PodcastReleaseDate from './Episode/PodcastReleaseDate'
-import AddToPlaylistButton from './Episode/AddToPlaylistButton'
+import AddToQueueButton from './Episode/AddToQueueButton'
 import Loader from '../Loader'
 
 import {
@@ -24,7 +24,7 @@ export class SearchResults extends Component {
     const {
       className,
       results,
-      playlist,
+      queue,
       nowPlaying,
       currentSearch,
       history,
@@ -63,13 +63,13 @@ export class SearchResults extends Component {
                     {episode.podcastTitle}&nbsp;
                     <PodcastReleaseDate releaseDate={episode.published} />
                   </StyledPodcastTitle>
-                  <AddToPlaylistButton
-                    added={playlist.some(
+                  <AddToQueueButton
+                    added={queue.some(
                       item => item.audioUrl === episode.audioUrl
                     )}
                     onClick={event => {
                       event.stopPropagation()
-                      actions.player.addToPlaylist(episode)
+                      actions.player.addToQueue(episode)
                     }}
                   />
                 </StyledEpisodeBody>
@@ -84,7 +84,7 @@ export class SearchResults extends Component {
 
 SearchResults.defaultProps = {
   results: [],
-  playlist: [],
+  queue: [],
   nowPlaying: {},
   currentSearch: ''
 }
@@ -92,7 +92,7 @@ SearchResults.defaultProps = {
 export const ConnectedSearchResults = connect(state => ({
   nowPlaying: state.player.nowPlaying,
   results: state.search.results,
-  playlist: state.player.playlist,
+  queue: state.player.queue,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading
 }))(SearchResults)

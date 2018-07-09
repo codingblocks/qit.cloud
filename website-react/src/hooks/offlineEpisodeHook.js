@@ -20,13 +20,13 @@ const removeFromCache = url => {
 }
 
 export const eventTracking = mirror.hook((action, getState) => {
-  if (action.type === 'player/addToPlaylist') {
+  if (action.type === 'player/addToQueue') {
     const url = action.data.audioUrl
     console.log('caching episode: ', url)
     addToCache(url)
   }
 
-  if (action.type === 'player/removeFromPlaylist') {
+  if (action.type === 'player/removeFromQueue') {
     const { audioUrl } = action.data
     console.log('deleting episode: ', audioUrl)
     removeFromCache(audioUrl)
