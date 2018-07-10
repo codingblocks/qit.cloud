@@ -34,6 +34,7 @@ class About extends React.Component {
 
         <div className='backContainer'>
           <button
+            data-nav={'main'}
             onClick={event => {
               event.preventDefault()
               history.push('/')

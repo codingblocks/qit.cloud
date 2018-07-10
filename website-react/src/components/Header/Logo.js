@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 export const Logo = ({className, history, href, text}) => (
   <span
     className={className}
+    data-nav={'about'}
     href={href}
     onClick={event => {
       event.preventDefault()
