@@ -5,6 +5,9 @@ import config from '../config'
 const addToCache = url => {
   window.fetch(config.corsProxy + url)
     .then(response => {
+      console.log('******')
+      console.log(response)
+      console.log('******')
       window.caches
         .open('qit-episodes')
         .then(cache => cache.put(url, response))
