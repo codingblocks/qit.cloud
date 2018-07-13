@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "mirrorx": "^0.2.11",
+    "mousetrap": "^1.6.2",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
