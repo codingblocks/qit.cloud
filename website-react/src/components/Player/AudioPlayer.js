@@ -110,11 +110,21 @@ export default class AudioPlayer extends React.Component {
   }
 
   componentDidMount () {
-    Mousetrap.bind('space', this.playPause)
+    Mousetrap.bind('space', this.spaceBarHotkey)
   }
 
   componentWillUnmount () {
-    Mousetrap.unbind('space', this.playPause)
+    Mousetrap.unbind('space', this.spaceBarHotkey)
+  }
+
+  spaceBarHotkey = (e) => {
+    if (e.preventDefault) {
+      e.preventDefault()
+    } else {
+      // internet explorer
+      e.returnValue = false
+    }
+    this.playPause()
   }
 
   playPause = () => {
