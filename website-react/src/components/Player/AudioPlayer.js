@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import { actions } from 'mirrorx'
+import Mousetrap from 'mousetrap'
 
 import Speed from './Speed'
 import { formatTrackTime } from '../../helpers'
@@ -39,7 +40,7 @@ const RightContainer = styled.div`
 
   @media screen and (max-width: 560px) {
     justify-content: flex-end;
-  }  
+  }
 `
 const VolumeSliderContainer = styled.div`
   width: 150px;
@@ -71,7 +72,7 @@ const ButtonContainer = styled.div`
   .smallButton {
     width: 50px;
   }
-  
+
   @media screen and (max-width: 360px) {
     .smallButton {
       width: 40px;
@@ -88,7 +89,7 @@ const ButtonContainer = styled.div`
 const AudioControlsContainer = styled.div`
   display: flex;
   align-items: center;
-  
+
   audio {
     display:none;
   }
@@ -106,6 +107,24 @@ export default class AudioPlayer extends React.Component {
       volume: 0,
       muted: false
     }
+  }
+
+  componentDidMount () {
+    Mousetrap.bind('space', this.spaceBarHotkey)
+  }
+
+  componentWillUnmount () {
+    Mousetrap.unbind('space', this.spaceBarHotkey)
+  }
+
+  spaceBarHotkey = (e) => {
+    if (e.preventDefault) {
+      e.preventDefault()
+    } else {
+      // internet explorer
+      e.returnValue = false
+    }
+    this.playPause()
   }
 
   playPause = () => {
