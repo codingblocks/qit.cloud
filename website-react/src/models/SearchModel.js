@@ -5,6 +5,7 @@ export default mirror.model({
   name: 'search',
   initialState: {
     searchTerm: '',
+    maxResults: config.maxResults,
     currentSearch: '',
     results: [],
     loading: false
@@ -38,7 +39,9 @@ export default mirror.model({
     async search (searchTerm) {
       actions.search.startLoading()
 
-      const url = config.baseUrl.replace('{searchTerm}', searchTerm)
+      const url = config.baseUrl
+        .replace('{searchTerm}', searchTerm)
+        .replace('{maxResults}', config.maxResults)
       const options = {
         headers: {
           'api-key': config.apiKey
