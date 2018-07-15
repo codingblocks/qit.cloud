@@ -5,14 +5,15 @@ export default mirror.model({
   name: 'search',
   initialState: {
     searchTerm: '',
+    searchTermEncoded: '',
     maxResults: config.maxResults,
     currentSearch: '',
     results: [],
     loading: false
   },
   reducers: {
-    updateSearchTerm (state, searchTerm) {
-      return {...state, searchTerm}
+    updateSearchTerm (state, searchTermEncoded) {
+      return {...state, searchTerm: searchTermEncoded.replace('%23','#'), searchTermEncoded}
     },
     updateResults (state, results) {
       window.gtag('event', 'search', {
@@ -22,7 +23,8 @@ export default mirror.model({
         ...state,
         results,
         currentSearch: state.searchTerm,
-        searchTerm: ''
+        searchTerm: '',
+        searchTermEncoded: ''
       }
     },
     startLoading (state) {
