@@ -22,7 +22,7 @@ export default mirror.model({
       return {
         ...state,
         results: response.value,
-        resultCount: response['@odata.count'],
+        resultCount: response['@odata.count'] ? response['@odata.count'] : 0,
         currentSearch: state.searchTerm,
         searchTerm: ''
       }
