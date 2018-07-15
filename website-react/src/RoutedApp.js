@@ -16,7 +16,7 @@ export default () => (
       />
       <Route path='/playlist/' component={SharedPlaylist} />
       <Route
-        path='/search/:query'
+        path='/search'
         render={props => <SearchResults {...props} key={document.URL} />}
       />
     </div>

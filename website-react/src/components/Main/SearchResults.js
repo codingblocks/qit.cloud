@@ -15,7 +15,7 @@ import {
 
 export class SearchResults extends Component {
   componentWillMount () {
-    const query = this.props.match.params.query
+    const query = this.props.location.search.replace('?query=', '')
     actions.search.updateSearchTerm(query)
     actions.search.search(query)
   }
@@ -46,10 +46,10 @@ export class SearchResults extends Component {
         <div id='searchContainer'>
           <div id='resultText'>
             {results.length === maxResults ? (
-              `More than ${maxResults} results found for "${currentSearch}".
+              `More than ${maxResults} results found for "${currentSearch.replace('%23', '#')}".
                   Showing the first ${maxResults}.`
             ) : (
-              `${results.length} results for "${currentSearch}"`
+              `${results.length} results for "${currentSearch.replace('%23', '#')}"`
             )
             }
           </div>
