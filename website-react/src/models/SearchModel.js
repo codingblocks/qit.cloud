@@ -11,8 +11,8 @@ export default mirror.model({
     loading: false
   },
   reducers: {
-    updateSearchTerm (state, searchTermEncoded) {
-      return {...state, searchTerm: searchTermEncoded.replace('%23','#')}
+    updateSearchTerm (state, searchTerm) {
+      return {...state, searchTerm: decodeURIComponent(searchTerm)}
     },
     updateResults (state, results) {
       window.gtag('event', 'search', {
@@ -22,8 +22,7 @@ export default mirror.model({
         ...state,
         results,
         currentSearch: state.searchTerm,
-        searchTerm: '',
-        searchTermEncoded: ''
+        searchTerm: ''
       }
     },
     startLoading (state) {
