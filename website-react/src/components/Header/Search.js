@@ -10,13 +10,13 @@ export const Search = ({className, searchTerm, history}) => (
     onSubmit={event => {
       event.preventDefault()
       event.target.querySelector('input').blur()
-      history.push(`/search/${searchTerm}`)
+      history.push(`/search?query=${searchTerm.replace('#','%23')}`)
     }}
   >
     <input
       ref={this.input}
       placeholder='Search for a great podcast here!'
-      value={searchTerm}
+      value={searchTerm.replace('%23','#')}
       onChange={event => actions.search.updateSearchTerm(event.target.value)}
     />
   </form>
