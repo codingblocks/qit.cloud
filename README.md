@@ -12,10 +12,6 @@ Ok so yeah, the title needs work, but the idea is to let programmers find and li
 
 Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
-### Important Note!
-
-Currently any changes to the website project require bumping the service worker version. See [issue #28](https://github.com/codingblocks/podcast-app/issues/28)
-
 ## Running the website
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
@@ -29,8 +25,7 @@ npm start
 
 ### Linting the React website
 
-This website uses the [Standard](https://github.com/standard/standard) style guide.
-To auto-lint, just run:
+This website uses the [Standard](https://github.com/standard/standard) style guide, you can run the linter with the command below but we'll also zap you with a pre-commit hook before you check any semi-colon in.
 
 ```bash
 standard --fix
@@ -105,8 +100,6 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 - [Joe Zack](https://github.com/THEjoezack)
 - [Mikkel Madsen](https://github.com/Madsn)
 - [Nicolas Marcora](https://github.com/nmarcora)
+- [Paul Mcilreavy](https://github.com/pmcilreavy)
 - [Sung Kim](https://github.com/dance2die/)
 - [Vladimir Kunarac](https://github.com/vlado92)
-
-## Trello for additional insight 
-[QIT Trello Board](https://trello.com/b/RTgaMRh0/qit)
