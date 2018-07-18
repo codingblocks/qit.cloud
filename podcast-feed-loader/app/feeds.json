@@ -14,6 +14,12 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": "^\\d+\\s+-\\s+",
+      "url": "http://developingfatigue.libsyn.com/rss",
+      "title": "Developing Fatigue",
+      "forceHttps": true
+    },
+    {
       "titleCleanser": "^DevOps\\sCafe\\sEp.\\s\\d+\\s-\\s",
       "url": "https://devopscafe.libsyn.com/rss",
       "title": "DevOps Cafe",

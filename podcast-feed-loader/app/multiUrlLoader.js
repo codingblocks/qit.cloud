@@ -56,5 +56,5 @@ exports.processFeeds = processFeeds
 exports.load = load
 
 if (require.main === module) {
-  load()
+  load(console)
 }
