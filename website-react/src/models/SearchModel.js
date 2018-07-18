@@ -13,7 +13,7 @@ export default mirror.model({
   },
   reducers: {
     updateSearchTerm (state, searchTerm) {
-      return {...state, searchTerm}
+      return {...state, searchTerm: decodeURIComponent(searchTerm)}
     },
     updateResults (state, response) {
       window.gtag('event', 'search', {
