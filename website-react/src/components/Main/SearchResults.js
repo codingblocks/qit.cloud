@@ -24,6 +24,7 @@ export class SearchResults extends Component {
     const {
       className,
       results,
+      resultCount,
       queue,
       nowPlaying,
       currentSearch,
@@ -45,11 +46,11 @@ export class SearchResults extends Component {
       >
         <div id='searchContainer'>
           <div id='resultText'>
-            {results.length === maxResults ? (
-              `More than ${maxResults} results found for "${currentSearch}".
-                  Showing the first ${maxResults}.`
+            {resultCount >= maxResults ? (
+              `${resultCount} results found for "${currentSearch}".
+                  Showing the first ${maxResults} results.`
             ) : (
-              `${results.length} results for "${currentSearch}"`
+              `${resultCount} results for "${currentSearch}"`
             )
             }
           </div>
@@ -100,6 +101,7 @@ SearchResults.defaultProps = {
 export const ConnectedSearchResults = connect(state => ({
   nowPlaying: state.player.nowPlaying,
   results: state.search.results,
+  resultCount: state.search.resultCount,
   queue: state.player.queue,
   currentSearch: state.search.currentSearch,
   maxResults: state.search.maxResults,
