@@ -51,7 +51,10 @@
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
           published: episode.published,
-          audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url
+          audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url,
+          episode: episode.episode,
+          season: episode.season,
+          episodeType: episode.episodeType
         })
       }
     }
