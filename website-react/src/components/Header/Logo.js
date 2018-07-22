@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export const Logo = ({className, history, href, text}) => (
+export const Logo = ({className, history, href, text}) =>
   <span
     className={className}
     data-nav={'about'}
@@ -14,7 +14,6 @@ export const Logo = ({className, history, href, text}) => (
   >
     {text}
   </span>
-)
 
 Logo.defaultProps = {
   href: '/about/',

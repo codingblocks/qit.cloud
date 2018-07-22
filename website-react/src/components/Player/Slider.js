@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ScrubberWrapper = styled.div`
-  position: relative
+  position: relative;
   display: block;
 `
 
@@ -22,7 +22,7 @@ const Scrubber = styled.svg`
   position: absolute;
   top: -8px;
   left: 0
-  
+
   &:hover ${ScrubberHandle} {
     visibility: visible
   }
@@ -32,7 +32,7 @@ const ScrubberLabel = styled.svg`
   position: absolute;
   top: -40px;
   left: 0;
-  visibility: ${props => props.scrubbing ? 'visible' : 'hidden'}
+  visibility: ${props => props.scrubbing ? 'visible' : 'hidden'};
 `
 
 export default class Slider extends React.Component {

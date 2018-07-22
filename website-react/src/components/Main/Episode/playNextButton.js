@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import playNextImage from '../../../assets/playNext.png'
 
-export const playNextButton = ({ className, onClick }) => (
+export const playNextButton = ({ className, onClick }) =>
   <button
     className={className}
     onClick={onClick}
@@ -14,7 +14,6 @@ export const playNextButton = ({ className, onClick }) => (
       alt='Play this episode next.'
     />
   </button>
-)
 
 playNextButton.defaultProps = {
   className: '',

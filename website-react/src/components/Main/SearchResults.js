@@ -57,7 +57,7 @@ export class SearchResults extends Component {
           {results.length === 0 ? (
             <p id='noResults'>No results were found. Please try again.</p>
           ) : (
-            results.map(episode => (
+            results.map(episode =>
               <StyledEpisode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
@@ -83,7 +83,7 @@ export class SearchResults extends Component {
                 </StyledEpisodeBody>
               </StyledEpisode>
             ))
-          )}
+          }
         </div>
       </div>
     )

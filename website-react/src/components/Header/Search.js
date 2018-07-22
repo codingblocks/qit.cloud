@@ -1,10 +1,9 @@
 import React from 'react'
-import {actions} from 'mirrorx'
+import { actions, withRouter } from 'mirrorx'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 
-export const Search = ({className, searchTerm, history}) => (
+export const Search = ({className, searchTerm, history}) =>
   <form
     className={className}
     onSubmit={event => {
@@ -20,7 +19,6 @@ export const Search = ({className, searchTerm, history}) => (
       onChange={event => actions.search.updateSearchTerm(event.target.value)}
     />
   </form>
-)
 
 Search.defaultProps = {
   className: '',

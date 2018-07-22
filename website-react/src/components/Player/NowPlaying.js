@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export const NowPlaying = ({ className, nowPlaying, children }) => (
+export const NowPlaying = ({ className, nowPlaying, children }) =>
   <div className={className}>
     <div id='playerInfo'>
       <p id='episodeTitle'>{nowPlaying.episodeTitle}</p>
@@ -10,7 +10,6 @@ export const NowPlaying = ({ className, nowPlaying, children }) => (
     </div>
     {children}
   </div>
-)
 
 NowPlaying.defaultProps = {
   className: '',

@@ -16,7 +16,7 @@ const DragHandleImage = styled.img.attrs({
   margin: 9px;
 `
 
-export const DragNDropIndicator = SortableHandle(({ className }) => (
+export const DragNDropIndicator = SortableHandle(({ className }) =>
   <span
     className={className}
     data-queue={'drag'}
@@ -24,7 +24,7 @@ export const DragNDropIndicator = SortableHandle(({ className }) => (
   >
     <DragHandleImage />
   </span>
-))
+)
 
 DragNDropIndicator.defaultProps = {
   className: 'drag-handle'
