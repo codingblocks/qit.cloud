@@ -1,12 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router, Route } from 'mirrorx'
 
 import About from './components/About'
 import App from './App'
 import SharedPlaylist from './components/Main/SharedPlaylist'
 import SearchResults from './components/Main/SearchResults'
 
-export default () => (
+export default () =>
   <Router>
     <div>
       <Route path='/' component={App} />
@@ -21,4 +21,3 @@ export default () => (
       />
     </div>
   </Router>
-)

@@ -16,7 +16,7 @@ import {
   StyledControls
 } from './Episode/Styled'
 
-export const Queue = ({ queue, nowPlaying, className }) => (
+export const Queue = ({ queue, nowPlaying, className }) =>
   <div className={className}>
     {queue.length === 0 ? null : 'Next in queue:'}
     {queue.length === 0 ? (
@@ -28,7 +28,7 @@ export const Queue = ({ queue, nowPlaying, className }) => (
         onSortEnd={({ oldIndex, newIndex }) =>
           actions.player.resortQueue({ oldIndex, newIndex })
         }
-        items={queue.map(episode => (
+        items={queue.map(episode =>
           <StyledEpisode
             onClick={() => actions.player.play(episode)}
             key={episode.id}
@@ -64,11 +64,10 @@ export const Queue = ({ queue, nowPlaying, className }) => (
               </StyledControls>
             </StyledEpisodeBody>
           </StyledEpisode>
-        ))}
+        )}
       />
     )}
   </div>
-)
 
 export default styled(Queue)`
   ${props => props.blur && 'filter: blur(5px);'};

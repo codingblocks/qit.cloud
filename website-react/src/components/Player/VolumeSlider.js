@@ -5,14 +5,13 @@ import Slider from './Slider'
 import audioLogo from '../../assets/audio.svg'
 import mutedAudioLogo from '../../assets/audio_muted.svg'
 
-const formatVolume = volumeProportion => {
-  return Math.round(volumeProportion * 100)
-}
+const formatVolume = volumeProportion =>
+  Math.round(volumeProportion * 100)
 
 const VolumeSliderWrapper = styled.div`
   display: flex;
   align-items: center;
-  &>div{
+  & > div {
     flex: 1;
   }
 `
@@ -21,11 +20,11 @@ const AudioLogo = styled.img`
   width: 24px;
   height: 24px;
   margin-right: 5px;
-  cursor: pointer
+  cursor: pointer;
 `
 
-const VolumeSlider = props => {
-  return <VolumeSliderWrapper>
+const VolumeSlider = props =>
+  <VolumeSliderWrapper>
     <AudioLogo src={props.muted ? mutedAudioLogo : audioLogo} onClick={props.onMute} alt={'Adjust audio'} />
     <Slider
       value={props.currentVolume}
@@ -35,6 +34,5 @@ const VolumeSlider = props => {
       hideLabel
     />
   </VolumeSliderWrapper>
-}
 
 export default VolumeSlider

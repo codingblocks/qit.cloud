@@ -38,7 +38,10 @@
       "**/build/",
       "**/coverage/"
     ],
-    "globals": [ "cy", "Cypress" ],
+    "globals": [
+      "cy",
+      "Cypress"
+    ],
     "env": {
       "jest": true
     }

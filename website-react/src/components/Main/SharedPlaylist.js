@@ -26,7 +26,7 @@ export const SharedPlaylist = ({className, history, queue, nowPlaying}) => {
         {`${metadata.author} has shared the playlist "${metadata.title}" with you!`}
       </h2>
       {
-        episodes.map(episode => (
+        episodes.map(episode =>
           <Episode
             onClick={() => actions.player.play(episode)}
             key={episode.id}
@@ -42,7 +42,7 @@ export const SharedPlaylist = ({className, history, queue, nowPlaying}) => {
               }}
             />
           </Episode>
-        ))
+        )
       }
     </div>
   </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'mirrorx'
 
 class About extends React.Component {
   state = { version: 'loading...' }
@@ -46,11 +45,11 @@ class About extends React.Component {
   }
 }
 
-export const ConnectedAbout = connect(state => ({
+About.defaultProps = {
   version: 'Loading...'
-}))(About)
+}
 
-export default styled(ConnectedAbout)`
+export default styled(About)`
   position: fixed;
   top: 0;
   left: 0;

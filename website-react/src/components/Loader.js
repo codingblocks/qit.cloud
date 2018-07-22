@@ -39,8 +39,7 @@ export const LoaderSVG = styled.svg`
   transform: translate(-50%, -50%);
 `
 
-export default () => (
+export default () =>
   <LoaderSVG viewBox='0 0 32 32' width='32' height='32'>
     <LoaderCircle cx='16' cy='16' r='14' fill='none' />
   </LoaderSVG>
-)

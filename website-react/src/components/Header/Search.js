@@ -1,10 +1,9 @@
 import React from 'react'
-import {actions} from 'mirrorx'
+import { actions, withRouter } from 'mirrorx'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 
-export const Search = ({className, searchTerm, history}) => (
+export const Search = ({className, searchTerm, history}) =>
   <form
     className={className}
     onSubmit={event => {
@@ -20,7 +19,6 @@ export const Search = ({className, searchTerm, history}) => (
       onChange={event => actions.search.updateSearchTerm(event.target.value)}
     />
   </form>
-)
 
 Search.defaultProps = {
   className: '',
@@ -49,21 +47,8 @@ export default styled(SearchWithRouter)`
     outline: 0;
   }
 
-  input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #CCCCCC;
-    opacity: 1; /* Firefox */
-  }
-
-  input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #CCCCCC;
-  }
-
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #CCCCCC;
-  }
-
   input::placeholder {
-    color: #CCCCCC;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   @media screen and (max-width: 500px) {
