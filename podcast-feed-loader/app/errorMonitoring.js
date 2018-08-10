@@ -1,10 +1,11 @@
-// TODO This is not a good pattern!
-if (process.env.AIRBRAKE_PROJECTID && process.env.AIRBRAKE_PROJECTKEY) {
+const { AIRBRAKE_PROJECT_ID, AIRBRAKE_PROJECT_KEY } = require('./helpers/app.constants')
+
+if (AIRBRAKE_PROJECT_ID && AIRBRAKE_PROJECT_KEY) {
   const AirbrakeClient = require('airbrake-js')
   console.log('Initializing airbrake client')
-  var airbrake = new AirbrakeClient({
-    projectId: process.env.AIRBRAKE_PROJECTID,
-    projectKey: process.env.AIRBRAKE_PROJECTKEY
+  const airbrake = new AirbrakeClient({
+    projectId: AIRBRAKE_PROJECT_ID,
+    projectKey: AIRBRAKE_PROJECT_KEY
   })
 
   module.exports.notify = function (errorMessage, severity = 'error', additionalInformation = []) {
