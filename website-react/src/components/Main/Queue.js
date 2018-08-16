@@ -3,7 +3,6 @@ import { actions } from 'mirrorx'
 
 import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import RemoveFromQueueButton from './Episode/RemoveFromQueueButton'
-import PlayNextButton from './Episode/playNextButton'
 import styled from 'styled-components'
 import SortableList from './SortableList'
 import DragNDropIndicator from './Episode/DragNDropIndicator'
@@ -44,15 +43,6 @@ export const Queue = ({ queue, nowPlaying, className }) =>
               </StyledPodcastTitle>
 
               <StyledControls>
-                {queue[0].audioUrl !== episode.audioUrl && (
-                  <PlayNextButton
-                    onClick={event => {
-                      event.stopPropagation()
-                      actions.player.playNext(episode)
-                    }}
-                  />
-                )}
-
                 <RemoveFromQueueButton
                   lonely={queue.length === 1}
                   onClick={event => {
