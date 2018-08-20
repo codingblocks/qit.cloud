@@ -46,18 +46,15 @@ export class SearchResults extends Component {
       >
         <div id='searchContainer'>
           <div id='resultText'>
-            {resultCount >= maxResults ? (
-              `${resultCount} results found for "${currentSearch}".
+            {resultCount >= maxResults
+              ? `${resultCount} results found for "${currentSearch}".
                   Showing the first ${maxResults} results.`
-            ) : (
-              `${resultCount} results for "${currentSearch}"`
-            )
+              : `${resultCount} results for "${currentSearch}"`
             }
           </div>
-          {results.length === 0 ? (
-            <p id='noResults'>No results were found. Please try again.</p>
-          ) : (
-            results.map(episode =>
+          {results.length === 0
+            ? <p id='noResults'>No results were found. Please try again.</p>
+            : results.map(episode =>
               <StyledEpisode
                 onClick={() => actions.player.play(episode)}
                 key={episode.id}
@@ -68,8 +65,7 @@ export class SearchResults extends Component {
 
                 <StyledEpisodeBody>
                   <StyledPodcastTitle>
-                    {episode.podcastTitle}&nbsp;
-                    <PodcastReleaseDate releaseDate={episode.published} />
+                    {episode.podcastTitle}&nbsp;<PodcastReleaseDate releaseDate={episode.published} />
                   </StyledPodcastTitle>
                   <AddToQueueButton
                     added={queue.some(
@@ -81,8 +77,7 @@ export class SearchResults extends Component {
                     }}
                   />
                 </StyledEpisodeBody>
-              </StyledEpisode>
-            ))
+              </StyledEpisode>)
           }
         </div>
       </div>
