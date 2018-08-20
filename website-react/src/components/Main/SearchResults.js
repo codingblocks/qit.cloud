@@ -104,7 +104,7 @@ export const ConnectedSearchResults = connect(state => ({
 }))(SearchResults)
 
 export default styled(ConnectedSearchResults)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
