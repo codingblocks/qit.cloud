@@ -6,8 +6,8 @@ about: Create an a11y issue to help us improve
 
 ## 👣 Steps to reproduce
 
-## Element(s) with issue
+## ⚛️ Element(s) with issue
 
-## Impact rating
+## 💥 Impact rating
 
-## Reference information
+## 📚 Reference information
