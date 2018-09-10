@@ -10,4 +10,6 @@ about: Create an a11y issue to help us improve
 
 ## 💥 Impact rating
 
+## 🛠️ Recommended fix
+
 ## 📚 Reference information
