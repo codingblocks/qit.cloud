@@ -17,6 +17,7 @@ export const Search = ({className, searchTerm, history}) =>
       placeholder='Search for a great podcast here!'
       value={searchTerm}
       onChange={event => actions.search.updateSearchTerm(event.target.value)}
+      aria-label='Podcast Search'
     />
   </form>
 

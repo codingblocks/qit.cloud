@@ -13,6 +13,10 @@ export default mirror.model({
   reducers: {
 
     play (state, episode) {
+      window.localStorage.setItem(
+        'nowPlaying',
+        JSON.stringify(episode)
+      )
       return { ...state, nowPlaying: episode }
     },
 
@@ -58,7 +62,6 @@ export default mirror.model({
     },
 
     updateWidth (state, width) {
-      console.log('updating width:', width)
       return { ...state, containerWidth: width }
     }
 
