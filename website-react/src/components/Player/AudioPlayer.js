@@ -105,7 +105,8 @@ export default class AudioPlayer extends React.Component {
       currentTime: 0,
       seeking: false,
       volume: 0,
-      muted: false
+      muted: false,
+      userChangedVolume: false
     }
   }
 
@@ -139,11 +140,12 @@ export default class AudioPlayer extends React.Component {
 
   loadStarted = () => {
     this.props.onLoadStart()
-    this.setState({
-      duration: 0,
-      currentTime: 0
-    })
-    this.setVolume(0.5)
+    this.setState({ duration: 0, currentTime: 0 })
+    if (this.state.userChangedVolume) {
+      this.setVolume(this.state.volume)
+    } else {
+      this.setVolume(0.5)
+    }
   }
 
   ended = () => {
@@ -178,6 +180,7 @@ export default class AudioPlayer extends React.Component {
 
   volumeChanged = () => {
     this.setState({volume: this.audioRef.current.volume})
+    this.setState({userChangedVolume: true})
   }
 
   setVolume = desiredVolume => {
