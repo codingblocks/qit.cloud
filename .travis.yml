@@ -13,5 +13,4 @@ cache:
 branches:
   only:
     - master
-    - Vladimir`s-branch
     - Cypress

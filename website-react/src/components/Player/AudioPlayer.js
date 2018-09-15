@@ -111,6 +111,7 @@ export default class AudioPlayer extends React.Component {
   }
 
   componentDidMount () {
+    this.resume()
     Mousetrap.bind('space', this.spaceBarHotkey)
   }
 
@@ -160,7 +161,9 @@ export default class AudioPlayer extends React.Component {
   }
 
   timeUpdated = () => {
-    this.setState({ currentTime: this.audioRef.current.currentTime })
+    const currentTime = this.audioRef.current.currentTime
+    window.localStorage.setItem('currentTime', currentTime)
+    this.setState({ currentTime })
   }
 
   jumpToTime = time => {
@@ -188,6 +191,16 @@ export default class AudioPlayer extends React.Component {
   toggleMute = () => {
     this.audioRef.current.muted = !this.audioRef.current.muted
     this.setState({muted: this.audioRef.current.muted})
+  }
+
+  resume = () => {
+    const currentTime = window.localStorage.getItem('currentTime')
+    if (currentTime) {
+      console.log('Resuming to time: ', currentTime)
+      this.jumpToTime(parseFloat(currentTime))
+      this.audioRef.current.pause()
+      this.setState({ playing: false })
+    }
   }
 
   seeking = () => {

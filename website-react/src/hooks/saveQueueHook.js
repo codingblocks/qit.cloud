@@ -7,6 +7,9 @@ export const eventTracking = mirror.hook((action, getState) => {
     if (action.type === 'player/removeFromQueue' && queue.length === 0) {
       return window.localStorage.setItem('queue', '[]')
     }
-    window.localStorage.setItem('queue', JSON.stringify(queue))
+
+    if (queue.length > 0) {
+      window.localStorage.setItem('queue', JSON.stringify(queue))
+    }
   }
 })
