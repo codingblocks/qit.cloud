@@ -52,10 +52,10 @@ export class SearchResults extends Component {
               : `${resultCount} results for "${currentSearch}"`
             }
           </div>
-          <ul>
-            {results.length === 0
-              ? <li id='noListStyle'><p id='noResults'>No results were found. Please try again.</p></li>
-              : results.map(episode =>
+          {results.length === 0
+            ? <p id='noResults'>No results were found. Please try again.</p>
+            : <ul>
+              {results.map(episode =>
                 <StyledEpisode
                   onClick={() => actions.player.play(episode)}
                   key={episode.id}
@@ -79,8 +79,9 @@ export class SearchResults extends Component {
                     />
                   </StyledEpisodeBody>
                 </StyledEpisode>)
-            }
-          </ul>
+              }
+            </ul>
+          }
         </div>
       </div>
     )
@@ -146,9 +147,5 @@ export default styled(ConnectedSearchResults)`
     font-size: 2rem;
     background: none;
     border: none;
-  }
-
-  #noListStyle {
-    list-style: none;
   }
 `
