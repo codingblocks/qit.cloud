@@ -54,30 +54,33 @@ export class SearchResults extends Component {
           </div>
           {results.length === 0
             ? <p id='noResults'>No results were found. Please try again.</p>
-            : results.map(episode =>
-              <StyledEpisode
-                onClick={() => actions.player.play(episode)}
-                key={episode.id}
-                playing={episode.audioUrl === nowPlaying.audioUrl}
-                data-item-type='search'
-              >
-                <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
+            : <ul>
+              {results.map(episode =>
+                <StyledEpisode
+                  onClick={() => actions.player.play(episode)}
+                  key={episode.id}
+                  playing={episode.audioUrl === nowPlaying.audioUrl}
+                  data-item-type='search'
+                >
+                  <StyledEpisodeTitle>{episode.episodeTitle}</StyledEpisodeTitle>
 
-                <StyledEpisodeBody>
-                  <StyledPodcastTitle>
-                    {episode.podcastTitle}&nbsp;<PodcastReleaseDate releaseDate={episode.published} />
-                  </StyledPodcastTitle>
-                  <AddToQueueButton
-                    added={queue.some(
-                      item => item.audioUrl === episode.audioUrl
-                    )}
-                    onClick={event => {
-                      event.stopPropagation()
-                      actions.player.addToQueue(episode)
-                    }}
-                  />
-                </StyledEpisodeBody>
-              </StyledEpisode>)
+                  <StyledEpisodeBody>
+                    <StyledPodcastTitle>
+                      {episode.podcastTitle}&nbsp;<PodcastReleaseDate releaseDate={episode.published} />
+                    </StyledPodcastTitle>
+                    <AddToQueueButton
+                      added={queue.some(
+                        item => item.audioUrl === episode.audioUrl
+                      )}
+                      onClick={event => {
+                        event.stopPropagation()
+                        actions.player.addToQueue(episode)
+                      }}
+                    />
+                  </StyledEpisodeBody>
+                </StyledEpisode>)
+              }
+            </ul>
           }
         </div>
       </div>
