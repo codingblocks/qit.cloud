@@ -30,7 +30,7 @@ export default styled(NowPlaying)`
   z-index: 1;
 
   background: linear-gradient(to right, rgb(53, 145, 137), #185a9d);
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
 
   #playerInfo {
     padding: 10px 50px;
@@ -53,8 +53,9 @@ export default styled(NowPlaying)`
 
   #podcastTitle {
     font-size: 1rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
     font-weight: bold;
+    letter-spacing: 0.1em;
   }
 
   @media screen and (max-width: 500px) {
