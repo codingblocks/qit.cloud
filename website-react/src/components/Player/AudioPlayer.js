@@ -234,7 +234,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='smallButton'
           >
-            <ControlIcon src={back10Img} />
+            <ControlIcon
+              src={back10Img}
+              alt='Skip backward 10 seconds control button'
+            />
           </div>
           <div
             onClick={event => {
@@ -243,7 +246,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='bigButton'
           >
-            <ControlIcon src={this.state.playing ? pauseImg : playImg} />
+            <ControlIcon
+              src={this.state.playing ? pauseImg : playImg}
+              alt={this.state.playing ? 'Pause podcast control button' : 'Play podcast control button'}
+            />
           </div>
           <div
             onClick={event => {
@@ -252,7 +258,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='smallButton'
           >
-            <ControlIcon src={forward30Img} />
+            <ControlIcon
+              src={forward30Img}
+              alt='Skip forward 30 seconds control button'
+            />
           </div>
         </ButtonContainer>
         <RightContainer>
