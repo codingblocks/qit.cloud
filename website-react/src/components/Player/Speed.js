@@ -8,7 +8,7 @@ export default styled.button`
   border-radius: 50%;
   border: solid 2px white;
   background: white;
-  color: #359189;
+  color: #298478;
 
   display: flex;
   align-items: center;
