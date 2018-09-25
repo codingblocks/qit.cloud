@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "10"
 script:
-  - npm installAll
+  - npm run installAll
   - npm run standard & npm run test & npm run e2e
 # install:
 #  - npm ci
