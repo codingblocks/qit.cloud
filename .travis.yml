@@ -4,8 +4,8 @@ node_js:
 script:
   - npm installAll
   - npm run standard & npm run test & npm run e2e
-install:
-  - npm ci
+# install:
+#  - npm ci
 cache:
   directories:
     - ~/.npm
