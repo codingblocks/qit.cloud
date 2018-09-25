@@ -11,6 +11,7 @@
     "CiAll": "concurrently npm:FeedLoaderCI npm:WebsiteCI --kill-others-on-fail",
     "test": "npm run testFeedLoader && npm run testWebsite",
     "standard": "standard",
+    "precommit": "npm run standard",
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "e2e": "cd ./website-react && npm run ci && cd ..",
