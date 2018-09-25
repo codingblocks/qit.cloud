@@ -5,10 +5,10 @@
   "scripts": {
     "FeedLoaderInstall": "cd ./podcast-feed-loader/app && npm install && cd ../..",
     "WebsiteInstall": "cd ./website-react && npm install && cd ..",
-    "installAll": "concurrently npm:FeedLoaderInstall npm:WebsiteInstall",
+    "installAll": "concurrently \"npm install\" npm:FeedLoaderInstall npm:WebsiteInstall",
     "FeedLoaderCI": "cd ./podcast-feed-loader/app && npm ci && cd ../..",
     "WebsiteCI": "cd ./website-react && npm ci && cd ..",
-    "CiAll": "concurrently npm:FeedLoaderCI npm:WebsiteCI --kill-others-on-fail",
+    "CiAll": "npm run FeedLoaderCI & npm run WebsiteCI",
     "test": "npm run testFeedLoader && npm run testWebsite",
     "standard": "standard",
     "precommit": "npm run standard",

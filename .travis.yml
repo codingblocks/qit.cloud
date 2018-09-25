@@ -4,7 +4,7 @@ node_js:
 script:
   - npm run concurrentlyScripts
 install:
-  - npm ci && npm run CiAll
+  - npm ci & npm run CiAll
 cache:
   directories:
     - ~/.npm
