@@ -31,5 +31,9 @@
   },
   "engines": {
     "node": "8.9.4"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
   }
 }
