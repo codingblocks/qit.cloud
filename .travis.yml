@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "10"
 script:
-  - npm run concurrentlyTests
+  - npm run concurrentlyScripts
 install:
   - npm ci && npm run CiAll
 cache:
