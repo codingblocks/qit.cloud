@@ -4,8 +4,11 @@
   "dependencies": {},
   "scripts": {
     "FeedLoaderInstall": "cd ./podcast-feed-loader/app && npm install && cd ../..",
+    "FeedLoaderCI": "cd ./podcast-feed-loader/app && npm ci && cd ../..",
     "WebsiteInstall": "cd ./website-react && npm install && cd ..",
+    "WebsiteCI": "cd ./website-react && npm ci && cd ..",
     "installAll": "npm run FeedLoaderInstall && npm run WebsiteInstall",
+    "CiAll": "npm run FeedLoaderCI && npm run WebsiteCI",
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "test": "npm run testFeedLoader && npm run testWebsite",

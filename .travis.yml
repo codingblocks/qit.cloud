@@ -2,10 +2,10 @@ language: node_js
 node_js:
   - "10"
 script:
-  - npm run installAll
+  - npm run CiAll
   - npm run standard & npm run test & npm run e2e
-# install:
-#  - npm ci
+ install:
+  - npm ci
 cache:
   directories:
     - ~/.npm
