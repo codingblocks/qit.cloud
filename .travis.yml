@@ -4,14 +4,13 @@ node_js:
 script:
   - npm run CiAll
   - npm run standard & npm run test & npm run e2e
- install:
+install:
   - npm ci
 cache:
   directories:
     - ~/.npm
     - ~/.cache
 branches:
-
   only:
     - master
     - Cypress
