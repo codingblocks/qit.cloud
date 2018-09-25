@@ -8,7 +8,7 @@
     "installAll": "concurrently \"npm install\" npm:FeedLoaderInstall npm:WebsiteInstall",
     "FeedLoaderCI": "cd ./podcast-feed-loader/app && npm ci && cd ../..",
     "WebsiteCI": "cd ./website-react && npm ci && cd ..",
-    "CiAll": "npm run FeedLoaderCI & npm run WebsiteCI",
+    "CiAll": "concurrently npm:FeedLoaderCI npm:WebsiteCI --kill-others-on-fail",
     "test": "npm run testFeedLoader && npm run testWebsite",
     "standard": "standard",
     "precommit": "npm run standard",
