@@ -12,6 +12,7 @@
     "testFeedLoader": "cd ./podcast-feed-loader/app  && npm run test && cd ../..",
     "testWebsite": "cd ./website-react && npm run testNonInteractive && cd ..",
     "test": "npm run testFeedLoader && npm run testWebsite",
+    "concurrently": "concurrently npm:testFeedLoader npm:testWebSite npm:e2e",
     "standard": "standard",
     "lint": "standard --fix",
     "e2e": "cd ./website-react && npm run ci && cd ..",
@@ -21,7 +22,8 @@
     "babel-eslint": "8.2.3",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "concurrently": "^4.0.1"
   },
   "contributors": [
     "https://github.com/THEjoezack",

@@ -3,7 +3,7 @@ node_js:
   - "10"
 script:
   - npm run CiAll
-  - npm run standard & npm run test & npm run e2e
+  - npm run concurrently
 install:
   - npm ci
 cache:
