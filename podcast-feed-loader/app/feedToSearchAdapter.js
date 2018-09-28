@@ -1,5 +1,6 @@
 // Parses feed content and returns an array of errors, and an array of formatted episode data
 (function () {
+  const moment = require('moment')
   const requiredFields = ['guid', 'title', 'published']
 
   let getValidationErrors = function (episode, index) {
@@ -50,7 +51,7 @@
           podcastTitle: overrideTitle || data.title,
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
-          published: episode.published,
+          published: moment(episode.published).format('YYYY-MM-DDTHH:mm:ss.000') + 'Z',
           audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url,
           episode: episode.episode,
           season: episode.season,
