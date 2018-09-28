@@ -51,7 +51,7 @@
           podcastTitle: overrideTitle || data.title,
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
-          published: moment(episode.published).format('YYYY-MM-DDTHH:mm:ss.000') + 'Z',
+          published: moment(episode.published).format('YYYY-MM-DDTHH:mm:ss.000Z'),
           audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url,
           episode: episode.episode,
           season: episode.season,
