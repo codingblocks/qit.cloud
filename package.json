@@ -9,7 +9,7 @@
     "testFeedLoader": "npm run test --prefix podcast-feed-loader/app",
     "testWebsite": "npm run testNonInteractive --prefix website-react",
     "e2e": "npm run ci --prefix website-react",
-    "concurrentlyScripts": "concurrently standard npm:testFeedLoader npm:testWebsite npm:e2e --kill-others-on-fail"
+    "concurrentlyScripts": "concurrently npm:e2e standard npm:testFeedLoader npm:testWebsite --kill-others-on-fail"
   },
   "dependencies": {},
   "devDependencies": {
