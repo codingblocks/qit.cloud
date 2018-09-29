@@ -1,6 +1,7 @@
 // Parses feed content and returns an array of errors, and an array of formatted episode data
 (function () {
   const requiredFields = ['guid', 'title', 'published']
+  const dateTimeFormat = 'YYYY-MM-DD[T]HH:mm:ss.SSSZ'
 
   let getValidationErrors = function (episode, index) {
     let errors = []
@@ -50,7 +51,7 @@
           podcastTitle: overrideTitle || data.title,
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
-          published: episode.published,
+          published: require('moment')(episode.published).format(dateTimeFormat),
           audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url,
           episode: episode.episode,
           season: episode.season,
@@ -71,4 +72,5 @@
   }
 
   module.exports.convert = convert
+  module.exports.dateTimeFormat = dateTimeFormat
 }())

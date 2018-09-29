@@ -14,7 +14,7 @@ describe('Feed Adapter', () => {
         link: 'url',
         guid: 'http://title.html?var=1',
         title: 'Title',
-        published: '2018-05-01',
+        published: 'Mon, 24 Sep 2018 00:51:46 +0000',
         enclosure: {
           url: 'test.mp3'
         }
@@ -135,6 +135,23 @@ describe('Feed Adapter', () => {
 
       expect(result.errors).to.have.lengthOf(0)
       expect(result.updateFeed[0].episodeTitle).to.equal('When Should I Optimize An Application/Software? (Before or After Launch?)')
+    })
+
+    // Date time values represented in the OData V4 format (e.g. yyyy-MM-ddTHH:mm:ss.fffZ or yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm
+    it('should format the date to OData V4 format', () => {
+      let result = feed.convert(
+        { episodes: [ Object.assign(validEpisode, {forceHttps: true}) ] },
+        'myurl',
+        null,
+        null,
+        true
+      )
+      // To test, let's parse the date string we generated and compare it to a standard format
+      // based on the original date
+      const moment = require('moment')
+      const actualFormat = moment(result.updateFeed[0].published, feed.dateTimeFormat).format()
+      const expectedFormat = moment(validEpisode.published).format()
+      expect(actualFormat).to.equal(expectedFormat)
     })
 
     it('should force https when the flag is set', () => {

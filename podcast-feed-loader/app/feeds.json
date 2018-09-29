@@ -1,6 +1,5 @@
 {
   "feeds": [
-
     {
       "titleCleanser": "^\\d+-\\s",
       "url": "http://behindthetech.mpsn.libsynpro.com/rss",
