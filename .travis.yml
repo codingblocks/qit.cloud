@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10"
+  - "8.9.1"
 dist: trusty
 script:
   - npm run concurrentlyScripts
