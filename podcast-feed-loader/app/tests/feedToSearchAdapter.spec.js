@@ -146,9 +146,9 @@ describe('Feed Adapter', () => {
         null,
         true
       )
-      const moment = require('moment')
       // To test, let's parse the date string we generated and compare it to a standard format
       // based on the original date
+      const moment = require('moment')
       const actualFormat = moment(result.updateFeed[0].published, feed.dateTimeFormat).format()
       const expectedFormat = moment(validEpisode.published).format()
       expect(actualFormat).to.equal(expectedFormat)
