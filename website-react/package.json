@@ -23,7 +23,7 @@
     "cypress:open": "cypress open",
     "e2e": "cypress run",
     "e2eRecord": "cypress run --record",
-    "ci": "npm run serve & npm run e2eRecord",
+    "ci": "npm run serve & npm run e2eRecord && pkill node",
     "lint": "standard --fix"
   },
   "devDependencies": {
