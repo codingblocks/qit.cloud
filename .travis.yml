@@ -2,10 +2,9 @@ language: node_js
 node_js:
   - "10"
 script:
-  - npm run standard
-  - npm run installAll
-  - npm run test
-  - npm run e2e
+  - npm run concurrentlyScripts
+install:
+  - npm ci && npm run CiAll
 cache:
   directories:
     - ~/.npm
@@ -13,5 +12,5 @@ cache:
 branches:
   only:
     - master
-    - Vladimir`s-branch
     - Cypress
+    - feature/travisFix

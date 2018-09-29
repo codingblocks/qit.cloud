@@ -18,10 +18,8 @@ npm-debug.log
 
 # tests
 /test
-/coverage
+/**/coverage
 /.nyc_output
 
 # dist
 /dist
-package-lock.json
-.DS_Store

@@ -105,11 +105,13 @@ export default class AudioPlayer extends React.Component {
       currentTime: 0,
       seeking: false,
       volume: 0,
-      muted: false
+      muted: false,
+      userChangedVolume: false
     }
   }
 
   componentDidMount () {
+    this.resume()
     Mousetrap.bind('space', this.spaceBarHotkey)
   }
 
@@ -139,7 +141,11 @@ export default class AudioPlayer extends React.Component {
   loadStarted = () => {
     this.props.onLoadStart()
     this.setState({ duration: 0, currentTime: 0 })
-    this.setVolume(0.5)
+    if (this.state.userChangedVolume) {
+      this.setVolume(this.state.volume)
+    } else {
+      this.setVolume(0.5)
+    }
   }
 
   ended = () => {
@@ -155,7 +161,9 @@ export default class AudioPlayer extends React.Component {
   }
 
   timeUpdated = () => {
-    this.setState({ currentTime: this.audioRef.current.currentTime })
+    const currentTime = this.audioRef.current.currentTime
+    window.localStorage.setItem('currentTime', currentTime)
+    this.setState({ currentTime })
   }
 
   jumpToTime = time => {
@@ -172,6 +180,7 @@ export default class AudioPlayer extends React.Component {
 
   volumeChanged = () => {
     this.setState({volume: this.audioRef.current.volume})
+    this.setState({userChangedVolume: true})
   }
 
   setVolume = desiredVolume => {
@@ -182,6 +191,16 @@ export default class AudioPlayer extends React.Component {
   toggleMute = () => {
     this.audioRef.current.muted = !this.audioRef.current.muted
     this.setState({muted: this.audioRef.current.muted})
+  }
+
+  resume = () => {
+    const currentTime = window.localStorage.getItem('currentTime')
+    if (currentTime) {
+      console.log('Resuming to time: ', currentTime)
+      this.jumpToTime(parseFloat(currentTime))
+      this.audioRef.current.pause()
+      this.setState({ playing: false })
+    }
   }
 
   seeking = () => {
@@ -215,7 +234,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='smallButton'
           >
-            <ControlIcon src={back10Img} />
+            <ControlIcon
+              src={back10Img}
+              alt='Skip backward 10 seconds control button'
+            />
           </div>
           <div
             onClick={event => {
@@ -224,7 +246,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='bigButton'
           >
-            <ControlIcon src={this.state.playing ? pauseImg : playImg} />
+            <ControlIcon
+              src={this.state.playing ? pauseImg : playImg}
+              alt={this.state.playing ? 'Pause podcast control button' : 'Play podcast control button'}
+            />
           </div>
           <div
             onClick={event => {
@@ -233,7 +258,10 @@ export default class AudioPlayer extends React.Component {
             }}
             className='smallButton'
           >
-            <ControlIcon src={forward30Img} />
+            <ControlIcon
+              src={forward30Img}
+              alt='Skip forward 30 seconds control button'
+            />
           </div>
         </ButtonContainer>
         <RightContainer>
