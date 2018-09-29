@@ -1,10 +1,12 @@
 language: node_js
 node_js:
   - "10"
+dist: trusty
 script:
   - npm run concurrentlyScripts
 install:
-  - npm ci && npm run CiAll
+  - npm run CiAll
+  - npm run testBuild --prefix website-react
 cache:
   directories:
     - ~/.npm
@@ -12,5 +14,3 @@ cache:
 branches:
   only:
     - master
-    - Cypress
-    - feature/travisFix
