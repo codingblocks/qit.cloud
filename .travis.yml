@@ -6,6 +6,7 @@ script:
   - npm run concurrentlyScripts
 install:
   - npm run CiAll
+  - npm run testBuild --prefix website-react
 cache:
   directories:
     - ~/.npm

@@ -15,16 +15,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build; node updateBuildCacheVersion.js; cp _redirects build/.",
+    "testBuild": "react-scripts build",
+    "serve": " serve -s build -l 3000",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "testNonInteractive": "react-scripts test --env=jsdom --coverage",
     "cypress:open": "cypress open",
     "e2e": "cypress run",
     "e2eRecord": "cypress run --record",
-    "ci": "start-server-and-test start http://localhost:3000 e2eRecord",
+    "ci": "start-server-and-test serve http://localhost:3000 e2e",
     "lint": "standard --fix"
   },
   "devDependencies": {
+    "serve": "~10.0.2",
     "cypress": "^3.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
