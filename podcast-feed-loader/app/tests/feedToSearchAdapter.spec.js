@@ -147,8 +147,11 @@ describe('Feed Adapter', () => {
         true
       )
       const moment = require('moment')
-      const d = moment(validEpisode.published).format('YYYY-MM-DDTHH:mm:ss.000Z')
-      expect(result.updateFeed[0].published).to.equal('2018-09-23T20:51:46.000-04:00')
+      // To test, let's parse the date string we generated and compare it to a standard format
+      // based on the original date
+      const actualFormat = moment(result.updateFeed[0].published, feed.dateTimeFormat).format()
+      const expectedFormat = moment(validEpisode.published).format()
+      expect(actualFormat).to.equal(expectedFormat)
     })
 
     it('should force https when the flag is set', () => {
