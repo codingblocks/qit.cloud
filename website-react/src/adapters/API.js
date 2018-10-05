@@ -23,8 +23,7 @@ class API {
     }).then(resp => resp.json())
   }
 
-  static getUser () {
-    const token = localStorage.getItem('token')
+  static getUser (token = localStorage.getItem('token')) {
     return fetch(API.userUrl, {
       headers: {
         'Content-Type': 'application/json',
@@ -33,8 +32,7 @@ class API {
     }).then(resp => resp.json())
   }
 
-  static queueEpisode (episode) {
-    const token = localStorage.getItem('token')
+  static queueEpisode (episode, token = localStorage.getItem('token')) {
     return fetch(API.queueEpisodeUrl, {
       method: 'POST',
       headers: {

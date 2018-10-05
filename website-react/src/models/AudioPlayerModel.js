@@ -1,6 +1,7 @@
-import mirror from 'mirrorx'
+import mirror, { actions } from 'mirrorx'
 import { arrayMove } from 'react-sortable-hoc'
 
+import API from '../adapters/API'
 import { nextPlaybackRate, setPlaybackRate } from '../helpers'
 
 export default mirror.model({
@@ -35,9 +36,9 @@ export default mirror.model({
       return { ...state, queue }
     },
 
-    hydrateQueue (state) {
-      const localQueue = JSON.parse(window.localStorage.getItem('queue'))
-      return { ...state, queue: localQueue }
+    hydrateQueue (state, episodes = []) {
+      // const localQueue = JSON.parse(window.localStorage.getItem('queue'))
+      return { ...state, queue: episodes }
     },
 
     playNextEpisode (state) {
@@ -64,6 +65,11 @@ export default mirror.model({
     updateWidth (state, width) {
       return { ...state, containerWidth: width }
     }
-
+  },
+  effects: {
+    async getRemoteEpisodes () {
+      const { episodes } = await API.getUser()
+      actions.player.hydrateQueue(episodes)
+    }
   }
 })

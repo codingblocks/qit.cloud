@@ -22,12 +22,12 @@ import AudioPlayer from './components/Player/AudioPlayer'
 import { sslAudioUrl, setPlaybackRate } from './helpers'
 
 export class App extends Component {
-  componentWillMount () {
+  componentDidMount () {
     const nowPlaying = window.localStorage.getItem('nowPlaying')
     nowPlaying && actions.player.play(JSON.parse(nowPlaying))
 
     window.localStorage.getItem('queue') &&
-      actions.player.hydrateQueue()
+      actions.player.getRemoteEpisodes()
   }
 
   componentDidUpdate () {

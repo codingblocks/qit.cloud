@@ -1,4 +1,5 @@
-import mirror, {actions} from 'mirrorx'
+import mirror, { actions } from 'mirrorx'
+
 import config from '../config'
 
 export default mirror.model({
