@@ -1,0 +1,10 @@
+Rails.application.routes.draw do
+  namespace 'api' do
+    namespace 'v1' do
+      get '/user', to: 'users#show'
+      post '/signin', to: 'users#signin'
+      post '/signup', to: 'users#signup'
+      post '/queue_episode', to: 'users#queue_episode'
+    end
+  end
+end
