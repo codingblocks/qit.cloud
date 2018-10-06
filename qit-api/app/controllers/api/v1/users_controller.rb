@@ -37,6 +37,21 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def unqueue_episode
+    user = signedin_user
+    if user
+      queue_item = user.queue_items.find_by(episode_id: params[:id])
+      if queue_item
+        queue_item.destroy
+        render json: {message: 'Episode removed from queue.'}
+      else
+        render json: {error: "Episode not in user's queue."}, status: 404
+      end
+    else
+      render json: {error: 'User not found.'}, status: 400
+    end
+  end
+
   private
   def episode_params
     params.require(:episode).permit(:podcastTitle, :episodeTitle, :description, :published, :audioUrl, :episode)

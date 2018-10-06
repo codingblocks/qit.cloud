@@ -42,6 +42,17 @@ class API {
       body: JSON.stringify({ episode })
     }).then(resp => resp.json())
   }
+
+  static unqueueEpisode (id, token = localStorage.getItem('token')) {
+    return fetch(API.unqueueEpisodeUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      },
+      body: JSON.stringify({ id })
+    }).then(resp => resp.json())
+  }
 }
 
 API.baseUrl = config.baseApiUrl
@@ -49,5 +60,8 @@ API.userUrl = API.baseUrl + '/user'
 API.signinUrl = API.baseUrl + '/signin'
 API.signupUrl = API.baseUrl + '/signup'
 API.queueEpisodeUrl = API.baseUrl + '/queue_episode'
+API.unqueueEpisodeUrl = API.baseUrl + '/unqueue_episode'
+
+window.API = API
 
 export default API

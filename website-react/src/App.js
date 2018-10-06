@@ -26,7 +26,7 @@ export class App extends Component {
     const nowPlaying = window.localStorage.getItem('nowPlaying')
     nowPlaying && actions.player.play(JSON.parse(nowPlaying))
 
-    window.localStorage.getItem('queue') &&
+    window.localStorage.getItem('token') &&
       actions.player.getRemoteEpisodes()
   }
 
