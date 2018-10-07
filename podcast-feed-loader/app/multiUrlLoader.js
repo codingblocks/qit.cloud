@@ -1,3 +1,4 @@
+const envFile = require('dotenv').config()
 const urlParser = require('./urlParser')
 const errorMonitoring = require('./errorMonitoring')
 const feeds = require('./feeds.json').feeds
@@ -29,6 +30,9 @@ const processFeeds = function (feedList, callback = defaultCallback) {
 
 const load = function (context) {
   context.log('starting...')
+  if (envFile) {
+    context.log('.env file, populating environment variables')
+  }
   try {
     if (SEARCH_PROVIDER === 'Azure') {
       context.log(`Found env variable for SEARCH_PROVIDER: ${SEARCH_PROVIDER}`)
