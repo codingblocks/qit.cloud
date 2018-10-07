@@ -10,7 +10,7 @@ let initializeSchema = function (callback) {
   client.getIndex(settings.index, function (err, foundSchema) {
     if (settings.recreateIndex) {
       console.log('Deleting index (if it exists)')
-      client.deleteIndex(schemaDefinition, () => {
+      client.deleteIndex(settings.index, () => {
         initializeIndex(err, foundSchema, callback)
       })
     } else {
