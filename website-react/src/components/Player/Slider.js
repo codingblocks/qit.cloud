@@ -188,7 +188,7 @@ export default class Slider extends React.Component {
             viewBox={`0 0 ${this.state.containerWidth} 20`}
           >
             <defs>
-              <radialGradient id='gradient'>
+              <radialGradient class='gradient'>
                 <stop offset='0%' stopColor='#a756f5' />
                 <stop offset='100%' stopColor='#6f04d4' />
               </radialGradient>
@@ -205,7 +205,7 @@ export default class Slider extends React.Component {
               <circle cx={0} cy={10} r={7}
                 style={{
                   transform: `translate(${this.getScrubberPosition()}px)`,
-                  fill: 'url(#gradient)'
+                  fill: 'url(.gradient)'
                 }}
               />
             </ScrubberHandle>
