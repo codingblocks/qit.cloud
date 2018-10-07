@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'mirrorx'
 
 import './models/SearchModel'
+import './models/UserModel'
 import './models/AudioPlayerModel'
 import './hooks/eventTrackingHook'
 import './hooks/saveQueueHook'

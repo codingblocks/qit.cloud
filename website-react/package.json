@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.1.2",
+    "@material-ui/icons": "^3.0.1",
     "mirrorx": "^0.2.11",
     "mousetrap": "^1.6.2",
     "prop-types": "^15.6.1",

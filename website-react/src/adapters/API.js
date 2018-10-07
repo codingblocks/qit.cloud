@@ -12,13 +12,14 @@ class API {
     }).then(resp => resp.json())
   }
 
-  static signup (username, password) {
+  static signup (username, password, email) {
     return fetch(API.signupUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username,
-        password
+        password,
+        email
       })
     }).then(resp => resp.json())
   }
@@ -62,6 +63,7 @@ API.signupUrl = API.baseUrl + '/signup'
 API.queueEpisodeUrl = API.baseUrl + '/queue_episode'
 API.unqueueEpisodeUrl = API.baseUrl + '/unqueue_episode'
 
-window.API = API
+// I use this for testing API calls in the console
+// window.API = API
 
 export default API

@@ -68,8 +68,9 @@ export default mirror.model({
   },
   effects: {
     async getRemoteEpisodes () {
-      const { episodes } = await API.getUser()
+      const { episodes, username } = await API.getUser()
       actions.player.hydrateQueue(episodes)
+      actions.user.signin(username)
     }
   }
 })

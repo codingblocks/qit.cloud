@@ -18,9 +18,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def signup
-    user = User.new(username: params[:username], password: params[:password])
+    user = User.new(username: params[:username], password: params[:password], email: params[:email])
     if user.save
-      render json: user
+      render json: {user: render_user(user), token: issue_token({id: user.id})}
     else
       render json: {error: 'Unable to create user.'}, status: 400
     end
@@ -55,6 +55,10 @@ class Api::V1::UsersController < ApplicationController
   private
   def episode_params
     params.require(:episode).permit(:podcastTitle, :episodeTitle, :description, :published, :audioUrl, :episode)
+  end
+
+  def signup_params
+    params.require(:user).permit(:username, :password, :email)
   end
 
   def render_user(user)

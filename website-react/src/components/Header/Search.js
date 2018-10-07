@@ -1,5 +1,5 @@
 import React from 'react'
-import { actions, withRouter } from 'mirrorx'
+import { actions, withRouter, connect } from 'mirrorx'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -31,13 +31,18 @@ Search.propTypes = {
   searchTerm: PropTypes.string
 }
 
-export const SearchWithRouter = withRouter(Search)
+const SearchWithRouter = withRouter(Search)
 
-export default styled(SearchWithRouter)`
+const ConnectedSearch = connect(state => ({
+  searchTerm: state.search.searchTerm,
+  currentUser: state.user.currentUser
+}))(SearchWithRouter)
+
+export default styled(ConnectedSearch)`
   input {
     font-size: 1.5rem;
     text-align: center;
-    width: 80%;
+    width: 70%;
     background: none;
     border: none;
     color: white;

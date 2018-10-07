@@ -20,6 +20,7 @@ import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
 import { sslAudioUrl, setPlaybackRate } from './helpers'
+import Button from '@material-ui/core/Button'
 
 export class App extends Component {
   componentDidMount () {
@@ -37,7 +38,7 @@ export class App extends Component {
 
   render () {
     const {
-      searchTerm,
+      currentUser,
       currentSearch,
       nowPlaying,
       queue,
@@ -49,18 +50,42 @@ export class App extends Component {
     return <Container>
 
       <Header>
+        {
+          currentUser
+            ? <Button
+              onClick={() => {
+                actions.user.signout()
+                actions.player.hydrateQueue([])
+                history.push('/signin')
+              }}
+              style={{
+                color: 'white',
+                border: 'solid 1px white',
+                position: 'absolute',
+                top: '10px',
+                left: '10px'
+              }}
+              variant='outlined'
+            >
+              SIGN OUT
+            </Button>
+            : <Button
+              onClick={() => history.push('/signin')}
+              style={{
+                color: 'white',
+                border: 'solid 1px white',
+                position: 'absolute',
+                top: '10px',
+                left: '10px'
+              }}
+              variant='outlined'
+            >
+              SIGN IN
+            </Button>
+        }
         <Title>
-          {
-            (currentSearch !== '' || location.pathname.startsWith('/queue')) &&
-            <BackButton onClick={() => {
-              history.push('/')
-              actions.search.clearSearch()
-            }}>
-              &lt;
-            </BackButton>
-          }
           <Subtitle>
-            <Search searchTerm={searchTerm} />
+            <Search />
           </Subtitle>
           <Logo text='qit' href='/about/' history={history} />
         </Title>
@@ -112,13 +137,14 @@ App.propTypes = {
   queue: PropTypes.array.isRequired
 }
 
-export const ConnectedApp = connect(state => ({
+const ConnectedApp = connect(state => ({
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
   nowPlaying: state.player.nowPlaying,
   queue: state.player.queue,
-  playbackrate: state.player.playbackrate
+  playbackrate: state.player.playbackrate,
+  currentUser: state.user.currentUser
 }))(App)
 
 export default ConnectedApp
