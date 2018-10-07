@@ -8,7 +8,6 @@ import Header from './components/Header/'
 import Title from './components/Header/Title'
 import Search from './components/Header/Search'
 import Logo from './components/Header/Logo'
-import BackButton from './components/Header/BackButton'
 import Subtitle from './components/Header/Subtitle'
 
 import Main from './components/Main/'
@@ -20,8 +19,18 @@ import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
 import { sslAudioUrl, setPlaybackRate } from './helpers'
-import Button from '@material-ui/core/Button'
-import API from './adapters/API';
+import Person from '@material-ui/icons/Person'
+import PersonOutlined from '@material-ui/icons/PersonOutlined'
+
+import API from './adapters/API'
+
+const styles = {
+  icon: {
+    color: 'white',
+    position: 'absolute',
+    width: '48px'
+  }
+}
 
 export class App extends Component {
   componentDidMount () {
@@ -44,8 +53,7 @@ export class App extends Component {
       nowPlaying,
       queue,
       playbackrate,
-      history,
-      location
+      history
     } = this.props
 
     return <Container>
@@ -53,36 +61,18 @@ export class App extends Component {
       <Header>
         {
           currentUser
-            ? <Button
+            ? <PersonOutlined
               onClick={() => {
                 actions.user.signout()
                 actions.player.hydrateQueue([])
                 history.push('/signin')
               }}
-              style={{
-                color: 'white',
-                border: 'solid 1px white',
-                position: 'absolute',
-                top: '10px',
-                left: '10px'
-              }}
-              variant='outlined'
-            >
-              SIGN OUT
-            </Button>
-            : <Button
+              style={styles.icon}
+            />
+            : <Person
               onClick={() => history.push('/signin')}
-              style={{
-                color: 'white',
-                border: 'solid 1px white',
-                position: 'absolute',
-                top: '10px',
-                left: '10px'
-              }}
-              variant='outlined'
-            >
-              SIGN IN
-            </Button>
+              style={styles.icon}
+            />
         }
         <Title>
           <Subtitle>
