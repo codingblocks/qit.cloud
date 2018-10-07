@@ -34,10 +34,17 @@ class UserForm extends React.Component {
 
   render () {
     const { signup } = this.state
-    const { classes } = this.props
+    const { classes, history } = this.props
     const { showSignin, showSignup } = this
     return (
-      <div className={classes.modal} >
+      <div
+        id='user-form'
+        className={classes.modal}
+        onClick={event => {
+          if (event.target.id !== 'user-form') return
+          history.push('/')
+        }}
+      >
         {
           signup
             ? <SignUpForm showSignin={showSignin} />

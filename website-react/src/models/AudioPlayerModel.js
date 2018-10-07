@@ -37,7 +37,6 @@ export default mirror.model({
     },
 
     hydrateQueue (state, episodes = []) {
-      // const localQueue = JSON.parse(window.localStorage.getItem('queue'))
       return { ...state, queue: episodes }
     },
 
@@ -47,6 +46,10 @@ export default mirror.model({
         .slice()
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
       const nowPlaying = queue.shift() || {}
+      window.localStorage.setItem(
+        'nowPlaying',
+        JSON.stringify(nowPlaying)
+      )
       return { ...state, nowPlaying, queue }
     },
 

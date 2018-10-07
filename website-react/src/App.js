@@ -21,6 +21,7 @@ import AudioPlayer from './components/Player/AudioPlayer'
 
 import { sslAudioUrl, setPlaybackRate } from './helpers'
 import Button from '@material-ui/core/Button'
+import API from './adapters/API';
 
 export class App extends Component {
   componentDidMount () {
@@ -109,7 +110,10 @@ export class App extends Component {
           <AudioPlayer
             src={sslAudioUrl(nowPlaying.audioUrl)}
             playbackrate={playbackrate}
-            onEnded={actions.player.playNextEpisode}
+            onEnded={() => {
+              API.unqueueEpisode(nowPlaying.id)
+              actions.player.playNextEpisode()
+            }}
             onLoadStart={() => setPlaybackRate(playbackrate)}
           />
         </NowPlaying>
