@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./tmp:/var/lib/postgresql/data
     environment:
       - QIT-API_DATABASE_HOST=db # needs to match the name of the docker service
     # TODO this opens up the port to the outside world...
