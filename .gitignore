@@ -23,3 +23,5 @@ npm-debug.log
 
 # dist
 /dist
+
+/qit-api/config/.env
