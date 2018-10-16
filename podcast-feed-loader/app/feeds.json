@@ -1,4 +1,4 @@
-{
+﻿{
   "feeds": [
     {
       "titleCleanser": "^\\d+-\\s",
@@ -6,6 +6,14 @@
       "title": "Behind the Tech with Kevin Smith",
       "forceHttps": true
     },
+
+    {
+      "titleCleanser": null,
+      "url": "https://feeds.soundcloud.com/users/soundcloud:users:484724019/sounds.rss",
+      "title": "BxJS Weekly",
+      "forceHttps": true
+    },
+
     {
       "titleCleanser": "^Herding\\sCode\\s\\d+:\\s",
       "url": "https://feeds.feedburner.com/HerdingCode",
@@ -34,6 +42,12 @@
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/4669/rss",
       "title": "Hanselminutes",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://www.heavybit.com/category/library/podcasts/jamstack-radio/feed/",
+      "title": "JAMStack Radio",
       "forceHttps": false
     },
     {
