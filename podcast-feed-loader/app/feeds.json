@@ -6,14 +6,12 @@
       "title": "Behind the Tech with Kevin Smith",
       "forceHttps": true
     },
-
     {
       "titleCleanser": null,
-      "url": "https://feeds.soundcloud.com/users/soundcloud:users:484724019/sounds.rss",
+      "url": "http://rss.castbox.fm/everest/5d9b14dc33e942dfbc153beef8110552.xml",
       "title": "BxJS Weekly",
       "forceHttps": true
     },
-
     {
       "titleCleanser": "^Herding\\sCode\\s\\d+:\\s",
       "url": "https://feeds.feedburner.com/HerdingCode",
