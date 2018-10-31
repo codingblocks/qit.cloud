@@ -1,5 +1,5 @@
 // Parses feed content and returns an array of errors, and an array of formatted episode data
-(function () {
+;(function () {
   const requiredFields = ['guid', 'title', 'published']
   const dateTimeFormat = 'YYYY-MM-DD[T]HH:mm:ss.SSSZ'
 
@@ -7,7 +7,9 @@
     let errors = []
 
     if (!(episode.enclosure && episode.enclosure.url)) {
-      errors.push(`[${index}]: enclosure or enclosure url not found for episode`)
+      errors.push(
+        `[${index}]: enclosure or enclosure url not found for episode`
+      )
     }
 
     for (let i = 0; i < requiredFields.length; i++) {
@@ -21,7 +23,13 @@
     return errors
   }
 
-  let convert = function (data, feedUrl, overrideTitle, titleCleanser, forceHttps) {
+  let convert = function (
+    data,
+    feedUrl,
+    overrideTitle,
+    titleCleanser,
+    forceHttps
+  ) {
     let result = {
       feedUrl: feedUrl,
       title: overrideTitle || (data ? data.title : null),
@@ -51,11 +59,16 @@
           podcastTitle: overrideTitle || data.title,
           episodeTitle: cleanseTitle(episode.title, titleCleanser),
           description: episode.description,
-          published: require('moment')(episode.published).format(dateTimeFormat),
-          audioUrl: forceHttps ? episode.enclosure.url.replace(/^http:\/\//, 'https://') : episode.enclosure.url,
+          published: require('moment')(episode.published).format(
+            dateTimeFormat
+          ),
+          audioUrl: forceHttps
+            ? episode.enclosure.url.replace(/^http:\/\//, 'https://')
+            : episode.enclosure.url,
           episode: episode.episode,
           season: episode.season,
-          episodeType: episode.episodeType
+          episodeType: episode.episodeType,
+          feed: feedUrl
         })
       }
     }
@@ -73,4 +86,4 @@
 
   module.exports.convert = convert
   module.exports.dateTimeFormat = dateTimeFormat
-}())
+})()

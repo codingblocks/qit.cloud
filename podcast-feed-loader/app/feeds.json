@@ -379,6 +379,12 @@
       "forceHttps": false
     },
     {
+      "titleCleanser": "^\\d+\\s-\\s",
+      "url": "https://feeds.soundcloud.com/users/soundcloud:users:274578276/sounds.rss",
+      "title": "Sprint UX",
+      "forceHttps": true
+    },
+    {
       "titleCleanser": "^VoV\\s\\d+:\\s",
       "url": "http://feeds.feedwrench.com/views-on-vue.rss",
       "title": "Views on Vue",
