@@ -1,9 +1,15 @@
-{
+﻿{
   "feeds": [
     {
       "titleCleanser": "^\\d+-\\s",
       "url": "http://behindthetech.mpsn.libsynpro.com/rss",
       "title": "Behind the Tech with Kevin Smith",
+      "forceHttps": true
+    },
+    {
+      "titleCleanser": null,
+      "url": "http://rss.castbox.fm/everest/5d9b14dc33e942dfbc153beef8110552.xml",
+      "title": "BxJS Weekly",
       "forceHttps": true
     },
     {
@@ -34,6 +40,12 @@
       "titleCleanser": null,
       "url": "https://rss.simplecast.com/podcasts/4669/rss",
       "title": "Hanselminutes",
+      "forceHttps": false
+    },
+    {
+      "titleCleanser": null,
+      "url": "https://www.heavybit.com/category/library/podcasts/jamstack-radio/feed/",
+      "title": "JAMStack Radio",
       "forceHttps": false
     },
     {
@@ -365,6 +377,12 @@
       "url": "https://vuenews.fireside.fm/rss",
       "title": "The Official Vue News",
       "forceHttps": false
+    },
+    {
+      "titleCleanser": "^\\d+\\s-\\s",
+      "url": "https://feeds.soundcloud.com/users/soundcloud:users:274578276/sounds.rss",
+      "title": "Sprint UX",
+      "forceHttps": true
     },
     {
       "titleCleanser": "^VoV\\s\\d+:\\s",

@@ -1,4 +1,4 @@
-# dependencies
+# Dependencies
 node_modules
 /ts-node-*
 
@@ -10,18 +10,21 @@ node_modules
 # Vim
 *.swp
 
-# misc
+# Misc
 npm-debug.log
 
-# example
+# Example
 /quick-start
 
-# tests
+# Tests
 /test
 /**/coverage
 /.nyc_output
 
-# dist
+# Dist
 /dist
 
+
+# Environment settings
 /qit-api/config/.env
+/podcast-feed-loader/app/.env
