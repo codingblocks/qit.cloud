@@ -401,6 +401,50 @@
       "url": "http://feeds.feedwrench.com/websecwarriors.rss",
       "title": "The Web Security Warriors",
       "forceHttps": false
+    },
+    {
+      "url": "http://securityinfive.libsyn.com/",
+      "title" : "Security In Five",
+      "forceHttps":false
+    },
+    {
+      "url":"https://www.ministryoftesting.com/dojo/lessons/talking-mentoring-with-melissa-eaden-and-martin-hynie",
+      "title":"Ministry of Testing Dojo"
+    },
+    {
+      "url": "http://www.spreaker.com/user/perfbytes/",
+      "title": "PerfBytes",
+      "forceHttps":false
+    },
+    {
+      "url": "http://relay.fm/parallel/",
+      "title": "Parallel"
+    },
+    {
+      "url": "https://soundcloud.com/humans-of-infosec",
+      "title": "Humans of InfoSec"
+    },
+    {
+      "url":"https://joecolantonio.com/testtalks",
+      "title":"Test Talks"
+    },
+    {
+      "url": "http://goodbadbuggy.libsyn.com/",
+      "title": "Good, Bad, Buggy"
+    },
+    {
+      "url": "http://thetestingshow.libsyn.com/",
+      "title": "The Testing Show"
+    },
+    {
+      "url": "https://qablog.practitest.com/podcast/",
+      "title": "Testing Podcast"
+    },
+    {
+      "titleCleanser": "^AB Testing - \\d+:\\s",
+      "url": "https://www.angryweasel.com/ABTesting/?feed=podcast",
+      "title": "AB Testing",
+      "forceHttps": true
     }
   ]
 }
