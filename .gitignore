@@ -26,3 +26,4 @@ npm-debug.log
 
 # don't commit the .env file for podcast-feed-loader because it has a key
 podcast-feed-loader/app/.env
+yarn.lock
