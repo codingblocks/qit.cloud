@@ -11,13 +11,18 @@
     "e2e": "npm run ci --prefix website-react",
     "concurrentlyScripts": "concurrently npm:e2e standard npm:testFeedLoader npm:testWebsite --kill-others-on-fail"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-core": "^6.26.3"
+  },
   "devDependencies": {
     "babel-eslint": "8.2.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.0.1",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
-    "standard": "^11.0.1",
-    "concurrently": "^4.0.1"
+    "standard": "^11.0.1"
   },
   "contributors": [
     "https://github.com/THEjoezack",
@@ -27,7 +32,8 @@
     "https://github.com/benjaminsteward",
     "https://github.com/MadVikingGod",
     "https://github.com/vlado92",
-    "https://github.com/davefollett"
+    "https://github.com/davefollett",
+    "https://github.com/ArleneAndrews"
   ],
   "standard": {
     "parser": "babel-eslint",
