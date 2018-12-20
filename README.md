@@ -95,6 +95,7 @@ Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/co
 ## Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
+- [Arlene Andrews](https://github.com/arleneandrews)
 - [Ben Steward](https://github.com/tehpsalmist)
 - [Brandon Lyons](https://github.com/lyonsbp)
 - [Dave Follett](https://github.com/davefollett)
