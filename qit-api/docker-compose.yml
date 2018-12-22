@@ -1,14 +1,14 @@
 version: '3'
 services:
-  # db:
-  #   image: postgres
-  #   volumes:
-  #     - ./tmp:/var/lib/postgresql/data
-  #   environment:
-  #     - QIT-API_DATABASE_HOST=db # needs to match the name of the docker service
-    # TODO this opens up the port to the outside world...
-    # ports:
-    #  - "5432:5432"
+  db:
+    image: postgres
+    volumes:
+      - ./tmp:/var/lib/postgresql/data
+    environment:
+      - QIT-API_DATABASE_HOST=db # needs to match the name of the docker service
+    #TODO this opens up the port to the outside world...
+    ports:
+     - "5432:5432"
   web:
     build: .
     command: bundle exec rails s -p 3005 -b '0.0.0.0'

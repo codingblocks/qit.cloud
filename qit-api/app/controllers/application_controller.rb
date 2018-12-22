@@ -28,7 +28,7 @@ class ApplicationController < ActionController::API
   end
 
   def secret
-    ENV['QIT_SECRET']
+    ENV['QIT_API_SECRET']
   end
     
 end
