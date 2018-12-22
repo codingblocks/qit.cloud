@@ -23,8 +23,6 @@ npm-debug.log
 
 # Environment settings
 /qit-api/config/.env
-/podcast-feed-loader/app/.env
-
-# Cache
 /qit-api/log
 /qit-api/tmp
+/podcast-feed-loader/app/.env

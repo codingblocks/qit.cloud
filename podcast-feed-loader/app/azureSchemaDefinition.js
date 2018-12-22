@@ -23,7 +23,8 @@ exports.schemaDefinition = {
     { name: 'episode', type: 'Edm.String', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false },
     { name: 'season', type: 'Edm.String', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false },
     { name: 'episodeType', type: 'Edm.String', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false },
-    { name: 'feed', type: 'Edm.String', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false }
+    { name: 'feed', type: 'Edm.String', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false },
+    { name: 'episodeType', type: 'Collection(Edm.String)', searchable: false, filterable: false, retrievable: true, sortable: false, facetable: false, key: false }
   ],
   scoringProfiles: [
     {

@@ -49,9 +49,9 @@ export class SearchResults extends Component {
         <div id='searchContainer'>
           <div id='resultText'>
             {resultCount >= maxResults
-              ? `${resultCount} results found for "${currentSearch}".
+              ? `${resultCount} results found for ${currentSearch}.
                   Showing the first ${maxResults} results.`
-              : `${resultCount} results for "${currentSearch}"`
+              : `${resultCount} results for ${currentSearch}`
             }
           </div>
           {results.length === 0
