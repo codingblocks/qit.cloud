@@ -1,24 +1,29 @@
-# README
+# Running the back-end
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Well, things are still a bit weird - but the easiest way to run the back end is to first start up docker-compose:
 
-Things you may want to cover:
+```bash
+docker-compose up
+```
 
-* Ruby version
+Now the back end is running, though you still need to fire up the front-end to do anything. (cd ../website-react; npm start)
 
-* System dependencies
+Also, if this is your first time running the db (or you commented out the persisted volume), you'll need to shell into the ruby service and run this:
 
-* Configuration
+```bash
+rails db:migrate
+```
 
-* Database creation
+If you want to blow away your data, you can just delete the tmp folder:
 
-* Database initialization
+```bash
+rm -rf tmp
+```
 
-* How to run the test suite
+Want to see what the data looks like? Check out pgadmin, if you're running locally the username and password are in the docker compose file.
 
-* Services (job queues, cache servers, search engines, etc.)
+----
 
-* Deployment instructions
+## Want to run this in production?
 
-* ...
+Well then the docker-compose.yml isn't useful to you. You'll want to set the ruby app up, and set the appropriate environment variables (which you can see in the docker-compose file)
