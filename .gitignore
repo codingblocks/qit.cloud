@@ -13,9 +13,6 @@ node_modules
 # Misc
 npm-debug.log
 
-# Example
-/quick-start
-
 # Tests
 /test
 /**/coverage
@@ -24,7 +21,10 @@ npm-debug.log
 # Dist
 /dist
 
-
 # Environment settings
 /qit-api/config/.env
 /podcast-feed-loader/app/.env
+
+# Cache
+/qit-api/log
+/qit-api/tmp
