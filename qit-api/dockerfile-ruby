@@ -6,3 +6,5 @@ COPY Gemfile /qit-api/Gemfile
 COPY Gemfile.lock /qit-api/Gemfile.lock
 RUN bundle install
 COPY . /qit-api
+
+docker run --env .env -d -p 3005:3005 qit-api bundle exec rails s -p 3005 -b '0.0.0.0'
