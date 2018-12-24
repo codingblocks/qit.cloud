@@ -1,0 +1,27 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.15-alpine
+    volumes:
+      - ./nginx-certbot/data/nginx:/etc/nginx/conf.d
+      - ./nginx-certbot/data/certbot/conf:/etc/letsencrypt
+      - ./nginx-certbot/data/certbot/www:/var/www/certbot
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - api
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./nginx-certbot/data/certbot/conf:/etc/letsencrypt
+      - ./nginx-certbot/data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  api:
+    build:
+      context: ./podcast-app/qit-api
+      dockerfile: dockerfile-ruby
+    command: bundle exec rails s -p 3005 -b '0.0.0.0'
+    env_file:
+      - ./.env

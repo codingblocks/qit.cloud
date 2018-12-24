@@ -16,12 +16,47 @@ Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
-```bash
-cd website-react
+### Running locally:
 
+```bash
+# Start Postgres and the API
+cd qit-api
+docker-compose up -d
+
+# Start the website
+cd ../website-react
 npm install
 npm start
+
+# Search Engine/Proxy have good defaults - don't worry about that yet!
 ```
+
+### Running in "production:
+
+Well, that's a bit complicated right now. The website is in netlify, the API is hosted in linode, the search engine, the podcast-feed-loader is a scheduled serverless function, the proxy is in heroku, and the db is in elephantsql. Phew!
+
+More on how to get this setup...later.
+
+As for what settings are available to you, there are tons of env variables to know about. These are available for the site:
+
+#### Website
+
+```bash
+REACT_APP_BASE_SEARCH_URL
+REACT_APP_BASE_API_URL || 'http://localhost:3005/api/v1',
+REACT_APP_CORS_PROXY || 'https://cors-anywhere.herokuapp.com/',
+REACT_APP_MAX_SEARCH_RESULTS || 200,
+REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC',
+REACT_APP_PLAYBACK_RATES
+```
+
+#### API
+
+You can see what is available for the api in the qit-api/production-setup/.env file
+
+#### Podcast Feed Loader
+
+Check out the podcast-feed-loader project for a listing there.
 
 ### Linting the React website
 
