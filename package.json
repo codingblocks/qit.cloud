@@ -22,7 +22,9 @@
     "concurrently": "^4.0.1",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
-    "standard": "^11.0.1"
+    "react-testing-library": "^5.4.2",
+    "standard": "^11.0.1",
+    "jest-dom": "^6.5.0"
   },
   "contributors": [
     "https://github.com/THEjoezack",
@@ -53,5 +55,17 @@
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/"
-  }
+  },
+  "description": "![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArleneAndrews/podcast-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArleneAndrews/podcast-app/issues"
+  },
+  "homepage": "https://github.com/ArleneAndrews/podcast-app#readme"
 }
