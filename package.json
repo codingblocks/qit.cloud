@@ -12,7 +12,8 @@
     "concurrentlyScripts": "concurrently npm:e2e standard npm:testFeedLoader npm:testWebsite --kill-others-on-fail"
   },
   "dependencies": {
-    "babel-core": "^6.26.3"
+    "babel-core": "^6.26.3",
+    "jest-dom": "^3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
