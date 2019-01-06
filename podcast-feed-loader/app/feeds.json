@@ -385,6 +385,12 @@
       "forceHttps": true
     },
     {
+      "titleCleanser": "^\\d+\\.",
+      "url": "https://anchor.fm/s/85305cc/podcast/rss",
+      "title": "This Week in /r/reactjs",
+      "forceHttps": false
+    },
+    {
       "titleCleanser": "^VoV\\s\\d+:\\s",
       "url": "http://feeds.feedwrench.com/views-on-vue.rss",
       "title": "Views on Vue",
@@ -404,17 +410,17 @@
     },
     {
       "url": "http://securityinfive.libsyn.com/",
-      "title" : "Security In Five",
-      "forceHttps":false
+      "title": "Security In Five",
+      "forceHttps": false
     },
     {
-      "url":"https://www.ministryoftesting.com/dojo/lessons/talking-mentoring-with-melissa-eaden-and-martin-hynie",
-      "title":"Ministry of Testing Dojo"
+      "url": "https://www.ministryoftesting.com/dojo/lessons/talking-mentoring-with-melissa-eaden-and-martin-hynie",
+      "title": "Ministry of Testing Dojo"
     },
     {
       "url": "http://www.spreaker.com/user/perfbytes/",
       "title": "PerfBytes",
-      "forceHttps":false
+      "forceHttps": false
     },
     {
       "url": "http://relay.fm/parallel/",
@@ -425,8 +431,8 @@
       "title": "Humans of InfoSec"
     },
     {
-      "url":"https://joecolantonio.com/testtalks",
-      "title":"Test Talks"
+      "url": "https://joecolantonio.com/testtalks",
+      "title": "Test Talks"
     },
     {
       "url": "http://goodbadbuggy.libsyn.com/",
