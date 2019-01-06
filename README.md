@@ -84,13 +84,9 @@ Command to stop container:
 docker-compose stop
 ```
 
-## Podcast Feed Loader
+## How can I add a new podcast?
 
-This is the part of the product that is responsible for importing the data.
-
-It loads podcast feed urls from a file, normalizes them, and then updates them in a search engine. Currently only supports Azure Search.
-
-Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
+The search engine gets populated via a different github project, the [QIT Podcast Feed Loader](https://github.com/codingblocks/qit-podcast-feed-loader) project.
 
 ## Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
