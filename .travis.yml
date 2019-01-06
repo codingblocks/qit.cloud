@@ -6,7 +6,8 @@ dist: trusty
 script:
   - npm run concurrentlyScripts
 install:
-  - npm run ci
+  - npm ci
+  - npm run startE2ESite
   - npm run testBuild
 cache:
   directories:
