@@ -8,10 +8,7 @@ script:
 install:
   - npm ci
   - npm run testBuild
-cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
+cache: npm
 branches:
   only:
     - master
