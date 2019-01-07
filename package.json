@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "babel-core": "^6.26.3",
-    "jest-dom": "^3.0.0"
+    "jest-dom": "^3.0.0",
+    "service-worker-mock": "^1.11.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
