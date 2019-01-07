@@ -22,7 +22,7 @@
     "cypress:open": "cypress open",
     "e2e": "cypress run",
     "e2eRecord": "cypress run --record",
-    "cie2e": "start-server-and-test serve http://localhost:3000 e2e",
+    "cie2e": "start-server-and-test serve http://localhost:3000 e2eRecord",
     "lint": "standard --fix",
     "precommit": "standard",
     "concurrentlyScripts": "concurrently npm:test npm:cie2e --kill-others-on-fail"
