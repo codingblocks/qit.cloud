@@ -13,7 +13,7 @@ describe('About', function () {
   })
 
   it('can be navigated to from the URL', function () {
-    cy.visit('/about', { timeout: 10000 })
+    cy.visit('/about')
     navigateToMainFromAbout()
   })
 })
