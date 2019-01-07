@@ -7,7 +7,6 @@ script:
   - npm run concurrentlyScripts
 install:
   - npm ci
-  - npm run startE2ESite
   - npm run testBuild
 cache:
   directories:
