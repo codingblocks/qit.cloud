@@ -1,6 +1,6 @@
 {
     "chromeWebSecurity": false,
-    "baseUrl": "http://localhost:3000",
+    "baseUrl": "http://localhost:3000/",
     "projectId": "vmd4cv",
     "env": {
         "baseSearchUrl": "https://podcasts.search.windows.net/**/*={searchTerm}"

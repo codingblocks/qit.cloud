@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  api:
+  website:
     volumes:
-      - ./:/home/app/coding-blocks-website
+      - ./website:/home/app/
     command: npm run start

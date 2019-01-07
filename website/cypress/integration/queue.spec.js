@@ -11,7 +11,7 @@ describe('Queue', function () {
 
     cy.fixture('six_search_results.json').as('six_search_results')
 
-    cy.visit('/search/six')
+    cy.visit('/search/"six"')
   })
 
   describe('Add & Remove', function () {

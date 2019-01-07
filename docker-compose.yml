@@ -2,10 +2,10 @@ version: '3'
 
 services:
   website:
-    env_file: website-react/.env
+    env_file: .env
     container_name: "coding-blocks-website"
     build:
-      context: website-react/.
+      context: website
       dockerfile: Dockerfile
       args:
         NODE_ENV: production
@@ -21,4 +21,4 @@ services:
 
 networks:
   codingblocks:
-    external: true
+    external: false

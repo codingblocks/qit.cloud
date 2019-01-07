@@ -6,13 +6,11 @@ ENV NPM_CONFIG_LOGLEVEL error
 WORKDIR /app
 
 COPY . /app
-# Install app dependencies
-RUN npm install
 
 ARG NODE_ENV
 ARG PORT
 
-CMD npm start
-
+# Install app dependencies
+RUN npm install
 
 EXPOSE $PORT

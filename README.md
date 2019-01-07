@@ -17,7 +17,7 @@ Check out a preview here: [https://qit.cloud](https://qit.cloud)
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
 ```bash
-cd website-react
+cd website
 
 npm install
 npm start
@@ -37,7 +37,7 @@ standard --fix
 To run cypress interactive mode, run the following commands:
 
 ```bash
-cd website-react
+cd website
 npm run cypress:open
 <click run all tests on the GUI>
 ```
@@ -45,14 +45,14 @@ npm run cypress:open
 To run cypress headless mode, run the following commands:
 
 ```bash
-cd website-react
+cd website
 npm run e2e
 ```
 
 #### Without the Dev Server running
 
 ```bash
-cd website-react
+cd website
 npm run ci
 ```
 
@@ -73,7 +73,7 @@ docker-compose config
 docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
 
 # start regular docker
-docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)  
+docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)
 ```
 
 Command to stop container:
