@@ -1,4 +1,4 @@
-const searchTeem = 'ggiibb';
+const searchTeem = 'ggiibb'
 describe('Search', function () {
   describe('Input', function () {
     beforeEach(function () {
@@ -90,7 +90,7 @@ describe('Search', function () {
 
       cy.visit(`/search/"${searchTeem}"`)
 
-      cy.get('#resultText').contains(`0 results for "${searchTeem }"`)
+      cy.get('#resultText').contains(`0 results for "${searchTeem}"`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
