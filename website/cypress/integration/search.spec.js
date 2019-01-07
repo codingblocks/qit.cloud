@@ -6,7 +6,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"lambda"'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -30,7 +30,7 @@ describe('Search', function () {
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"empty"'),
         response: []
       })
 
@@ -68,13 +68,13 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"lambda"'),
         response: 'fixture:lambda_search_results.json'
       })
 
       cy.fixture('lambda_search_results.json').as('lambda_search_results')
 
-      cy.visit('/search/lambda')
+      cy.visit('/search/"lambda"')
     })
 
     it('returns the correct results length', function () {
@@ -84,11 +84,11 @@ describe('Search', function () {
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'empty'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"empty"'),
         response: []
       })
 
-      cy.visit('/search/empty')
+      cy.visit('/search/"empty"')
 
       cy.get('#resultText').contains('0 results for "empty"')
       cy.get('#noResults').contains('No results were found. Please try again.')
