@@ -20,10 +20,10 @@ describe('Service worker', () => {
   })
 })
 
-import sw from './service-worker';
+/* import sw from './service-worker';
 
 describe('Service worker registration', () => {
   it('call navigator.serviceWorker.register with the right URL', () => {
     expect(navigator.serviceWorker.register).toHaveBeenCalledWith('/service-worker.js');
   });
-});
+}); */
