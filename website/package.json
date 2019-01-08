@@ -16,16 +16,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build; node updateBuildCacheVersion.js; cp _redirects build/.",
     "testBuild": "react-scripts build",
-    "serve": " serve build -l 3000",
+    "serve": "serve build -l 3000",
+    "serveDave": "serve --no-clipboard --single build -l 3000",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "e2e": "cypress run",
-    "e2eRecord": "cypress run --record",
-    "cie2e": "start-server-and-test serve http://localhost:3000 e2eRecord",
+    "cypress:run": "cypress run",
+    "cypress:run:record": "cypress:run --record",
+    "local:e2e": "start-server-and-test start http://localhost:3000 cypress:run",
+    "ci:e2e": "start-server-and-test start http://localhost:3000 cypress:run:record",
     "lint": "standard --fix",
     "precommit": "standard",
-    "concurrentlyScripts": "concurrently npm:test npm:cie2e --kill-others-on-fail"
+    "concurrentlyScripts": "concurrently npm:test npm:ci:e2e --kill-others-on-fail"
   },
   "devDependencies": {
     "serve": "~10.0.2",
