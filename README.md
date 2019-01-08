@@ -46,14 +46,14 @@ To run cypress headless mode, run the following commands:
 
 ```bash
 cd website
-npm run e2e
+npm run cypress:run
 ```
 
 #### Without the Dev Server running
 
 ```bash
 cd website
-npm run ci
+npm run local:e2e
 ```
 
 #### Vladimir`s version of docker

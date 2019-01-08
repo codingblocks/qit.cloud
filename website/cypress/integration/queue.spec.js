@@ -5,7 +5,7 @@ describe('Queue', function () {
 
     cy.route({
       method: 'GET',
-      url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'six'),
+      url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"six"'),
       response: 'fixture:six_search_results.json'
     })
 
