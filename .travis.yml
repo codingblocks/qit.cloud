@@ -4,7 +4,7 @@ node_js:
   - "10"
 dist: trusty
 script:
-  - npm run ci:e2e
+  - npm run concurrentlyScripts
 install:
   - npm ci
   - npm run testBuild
