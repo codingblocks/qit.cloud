@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jest-dom": "^3.0.0",
     "mirrorx": "^0.2.11",
     "mousetrap": "^1.6.2",
     "prop-types": "^15.6.1",
@@ -10,6 +11,7 @@
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
     "react-sortable-hoc": "^0.8.3",
+    "service-worker-mock": "^1.11.1",
     "styled-components": "^3.3.0"
   },
   "scripts": {
