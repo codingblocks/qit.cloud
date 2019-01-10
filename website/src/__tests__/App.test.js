@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Index from '../components/Main/index'
 import {divBreakdown, renderDiv } from '../setup'
-import {Search} from '../components/Header/Search'
+import {Search, SearchWithRouter} from '../components/Header/Search'
 import {Logo} from '../components/Header/Logo'
 import {BackButton} from '../components/Header/BackButton'
 import {Title} from '../components/Header/Title'
@@ -35,15 +35,12 @@ describe('Opening index', () =>{
     expect.stringContaining('Search for a great podcast here!');
   })
 
-  it('Header contains search, logo, back button, title, and subtitle', () => {
+  it('Header contains search, search with router, logo, back button, title, and subtitle', () => {
     expect.objectContaining({Search});
+    expect.objectContaining({SearchWithRouter});
     expect.objectContaining({Logo});
     expect.objectContaining({BackButton});
     expect.objectContaining({Title});
     expect.objectContaining({SubTitle});
   })
-
-  
-    
-  
 })
