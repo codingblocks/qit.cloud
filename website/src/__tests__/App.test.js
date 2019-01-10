@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom'
 import Index from '../components/Main/index'
 import {divBreakdown, renderDiv } from '../setup'
 import {Search} from '../components/Header/Search'
+import {Logo} from '../components/Header/Logo'
+import {BackButton} from '../components/Header/BackButton'
+import {Title} from '../components/Header/Title'
+import {SubTitle} from '../components/Header/SubTitle'
 
 // replacement test while real tests are not written
 
@@ -31,7 +35,15 @@ describe('Opening index', () =>{
     expect.stringContaining('Search for a great podcast here!');
   })
 
-  it('Search box is wrapped in the header', () => {
+  it('Header contains search, logo, back button, title, and subtitle', () => {
     expect.objectContaining({Search});
+    expect.objectContaining({Logo});
+    expect.objectContaining({BackButton});
+    expect.objectContaining({Title});
+    expect.objectContaining({SubTitle});
   })
+
+  
+    
+  
 })
