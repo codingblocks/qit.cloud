@@ -14,5 +14,6 @@ describe('Search Props', () => {
 
   it('Search default should be empty', () =>{
   expect(Search.classname).toBeUndefined();
+  expect(Search.searchTerm).toBeUndefined();
   })
 })
