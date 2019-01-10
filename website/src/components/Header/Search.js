@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 export const Search = ({className, searchTerm, history}) =>
   <form
+    data-testid="form"
     className={className}
     onSubmit={event => {
       event.preventDefault()
@@ -13,6 +14,7 @@ export const Search = ({className, searchTerm, history}) =>
     }}
   >
     <input
+      data-testid="input"
       ref={this.input}
       placeholder='Search for a great podcast here!'
       value={searchTerm}

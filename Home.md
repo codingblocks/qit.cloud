@@ -22,5 +22,6 @@ Videos documenting the progress of the application:
 
 1. Unit Testing
 1. End to End Testing
-1. [Jest Testing]()
+1. [Jest Testing](https://github.com/codingblocks/qit.cloud/wiki/jesttesting)
 1. [Accessibility (a11y) Testing](https://github.com/codingblocks/podcast-app/wiki/Accessibility-(a11y)-Testing)
+1. [Glossary](https://github.com/codingblocks/qit.cloud/wiki/glossary)
