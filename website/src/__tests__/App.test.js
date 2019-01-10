@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Index from '../components/Main/index'
 import {divBreakdown, renderDiv } from '../setup'
+import {Search} from '../components/Header/Search'
 
 // replacement test while real tests are not written
 
@@ -28,5 +29,9 @@ describe('Opening index', () =>{
 
   it('Is a search box placeholder', () =>{
     expect.stringContaining('Search for a great podcast here!');
+  })
+
+  it('Search box is wrapped in the header', () => {
+    expect.objectContaining({Search});
   })
 })
