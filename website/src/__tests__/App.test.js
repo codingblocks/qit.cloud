@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Index from '../components/Main/index'
 import {divBreakdown, renderDiv } from '../setup'
 import {Search, SearchWithRouter} from '../components/Header/Search'
-/* import * from '../components/Header/Logo'
+/* import [Logo] from '../components/Header/Logo'
 import {BackButton} from '../components/Header/BackButton'
 import {Title} from '../components/Header/Title'
 import {SubTitle} from '../components/Header/SubTitle' */
