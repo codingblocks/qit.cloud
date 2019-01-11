@@ -14,3 +14,12 @@ export class divBreakdown extends React.Component {
     return ReactDOM.unmountComponentAtNode(div)
  }
 }
+
+export function Header() {
+  return (
+    <div>
+      <div data-testid="header" className="in-header" />
+    </div>
+  );
+}
+

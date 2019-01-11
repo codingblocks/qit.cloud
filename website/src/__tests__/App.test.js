@@ -35,12 +35,9 @@ describe('Opening index', () =>{
     expect.stringContaining('Search for a great podcast here!');
   })
 
-  it('Header contains search, search with router, logo, back button, title, and subtitle', () => {
+  it('Header contains search and search with router', () => {
     expect.objectContaining({Search});
     expect.objectContaining({SearchWithRouter});
-    /* expect.objectContaining({Logo});
-    expect.objectContaining({BackButton});
-    expect.objectContaining({Title});
-    expect.objectContaining({SubTitle}); */
   })
+  
 })
