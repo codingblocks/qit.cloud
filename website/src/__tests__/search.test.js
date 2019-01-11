@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { shallow, mount, render } from 'enzyme';
+//import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme';
 import {divBreakdown, renderDiv, Header } from '../setup'
 import {Search} from '../components/Header/Search'
 import 'jest-dom/extend-expect'
@@ -19,10 +19,9 @@ describe('Search Props', () => {
   expect(Search.searchTerm).toBeUndefined();
   })
 
-  it('Should have the form showing', () => {
+  it('Should have the form and input showing', () => {
     const wrapper = shallow(<Header />);
     expect(wrapper.find('[data-testid="form"]'));
+    expect(wrapper.find('[data-testid="input"]'));
   })
 })
-
-
