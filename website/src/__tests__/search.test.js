@@ -19,13 +19,10 @@ describe('Search Props', () => {
   expect(Search.searchTerm).toBeUndefined();
   })
 
-  /* it('Should have the form showing', () => {
-    //const input = document.querySelector('[data-testid="input"]')
-    expect(Search.input).toHaveAttribute('placeholder', 'Search for a great podcast here!')
-  }) */
+  it('Should have the form showing', () => {
+    const wrapper = shallow(<Header />);
+    expect(wrapper.find('[data-testid="form"]'));
+  })
 })
 
-const wrapper = shallow(<Header />);
-expect(wrapper.find('.in-header')).to.have.lengthOf(0);
-expect(wrapper.find(Bar)).to.have.lengthOf(1);
-expect(wrapper.find(Bar).shallow().find('.in-bar')).to.have.lengthOf(1);
+
