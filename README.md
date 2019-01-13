@@ -1,4 +1,4 @@
-![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website-react/public/images/icons/icon-144x144.png)
+![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
 
 [![Build Status](https://travis-ci.org/codingblocks/podcast-app.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
@@ -16,12 +16,44 @@ Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
-```bash
-cd website-react
+### Running locally:
 
+```bash
+# Start Postgres and the API
+cd qit-api
+docker-compose up -d
+
+cd ../website
 npm install
 npm start
 ```
+
+### Running in "production:
+
+Well, that's a bit complicated right now. The website is in netlify, the API is hosted in linode, the search engine, the podcast-feed-loader is a scheduled serverless function, the proxy is in heroku, and the db is in elephantsql. Phew!
+
+More on how to get this setup...later.
+
+As for what settings are available to you, there are tons of env variables to know about. These are available for the site:
+
+#### Website
+
+```bash
+REACT_APP_BASE_SEARCH_URL
+REACT_APP_BASE_API_URL || 'http://localhost:3005/api/v1',
+REACT_APP_CORS_PROXY || 'https://cors-anywhere.herokuapp.com/',
+REACT_APP_MAX_SEARCH_RESULTS || 200,
+REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC',
+REACT_APP_PLAYBACK_RATES
+```
+
+#### API
+
+You can see what is available for the api in the qit-api/production-setup/.env file
+
+#### Podcast Feed Loader
+
+Check out the podcast-feed-loader project for a listing there.
 
 ### Linting the React website
 
@@ -37,7 +69,7 @@ standard --fix
 To run cypress interactive mode, run the following commands:
 
 ```bash
-cd website-react
+cd website
 npm run cypress:open
 <click run all tests on the GUI>
 ```
@@ -45,15 +77,15 @@ npm run cypress:open
 To run cypress headless mode, run the following commands:
 
 ```bash
-cd website-react
-npm run e2e
+cd website
+npm run cypress:run
 ```
 
 #### Without the Dev Server running
 
 ```bash
-cd website-react
-npm run ci
+cd website
+npm run local:e2e
 ```
 
 #### Vladimir`s version of docker
@@ -73,7 +105,7 @@ docker-compose config
 docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
 
 # start regular docker
-docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)  
+docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)
 ```
 
 Command to stop container:
@@ -84,18 +116,17 @@ Command to stop container:
 docker-compose stop
 ```
 
-## Podcast Feed Loader
+## How can I add a new podcast?
 
-This is the part of the product that is responsible for importing the data.
-
-It loads podcast feed urls from a file, normalizes them, and then updates them in a search engine. Currently only supports Azure Search.
-
-Read more about it here: [Podcast Feed Loader on the wiki](https://github.com/codingblocks/podcast-app/wiki/Podcast-Feed-Loader)
+The search engine gets populated via a different github project, the [QIT Podcast Feed Loader](https://github.com/codingblocks/qit-podcast-feed-loader) project.
 
 ## Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
+- [Aditya Kolla](https://github.com/aditya-kolla)
+- [Arlene Andrews](https://github.com/arleneandrews)
 - [Ben Steward](https://github.com/tehpsalmist)
+- [Brandon Lyons](https://github.com/lyonsbp)
 - [Dave Follett](https://github.com/davefollett)
 - [Joe Zack](https://github.com/THEjoezack)
 - [Mikkel Madsen](https://github.com/Madsn)

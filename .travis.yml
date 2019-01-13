@@ -1,16 +1,19 @@
+before_install: cd website
 language: node_js
 node_js:
   - "10"
 dist: trusty
 script:
-  - npm run concurrentlyScripts
+  - npm run test
+  - npm run ci:e2e
 install:
-  - npm run CiAll
-  - npm run testBuild --prefix website-react
+  - npm ci
 cache:
+  npm: true
   directories:
-    - ~/.npm
     - ~/.cache
 branches:
   only:
     - master
+env:
+  CI=true

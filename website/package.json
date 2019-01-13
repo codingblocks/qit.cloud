@@ -1,0 +1,60 @@
+{
+  "name": "website-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.1.2",
+    "@material-ui/icons": "^3.0.1",
+    "mirrorx": "^0.2.11",
+    "mousetrap": "^1.6.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "react-sortable-hoc": "^0.8.3",
+    "service-worker-mock": "^1.11.1",
+    "styled-components": "^3.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build; node updateBuildCacheVersion.js; cp _redirects build/.",
+    "test:build": "react-scripts build",
+    "serve": "serve --no-clipboard --single build -l 3000",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run-record": "cypress run --record",
+    "cypress:start-server-test-norecord": "start-server-and-test serve http://localhost:3000 cypress:run",
+    "cypress:start-server-test-record": "start-server-and-test serve http://localhost:3000 cypress:run-record",
+    "local:e2e": "npm run test:build && npm run cypress:start-server-test-norecord",
+    "ci:e2e": "npm run test:build && npm run cypress:start-server-test-record",
+    "lint": "standard --fix",
+    "precommit": "standard"
+  },
+  "devDependencies": {
+    "cypress": "^3.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-dom": "^3.0.0",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.1",
+    "serve": "~10.0.2",
+    "sinon": "^6.0.0",
+    "standard": "^11.0.1",
+    "start-server-and-test": "=1.7.11"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/build"
+    ],
+    "globals": [
+      "cy",
+      "Cypress"
+    ],
+    "env": {
+      "jest": true
+    }
+  }
+}

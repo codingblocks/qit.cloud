@@ -31,5 +31,10 @@ module QitApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+    if ENV["QIT_API_FORCE_SSL"].present?
+      config.force_ssl = true
+    end
   end
 end
