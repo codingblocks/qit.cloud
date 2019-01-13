@@ -72,6 +72,9 @@ export default mirror.model({
         actions.user.signin(username)
       } catch (e) {
         console.log(`API Error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       }
     }
   }

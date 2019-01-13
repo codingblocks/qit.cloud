@@ -16,6 +16,9 @@ class API {
       .then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       })
   }
 
@@ -32,6 +35,9 @@ class API {
       .then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       })
   }
 
@@ -45,6 +51,9 @@ class API {
       .then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       })
   }
 
@@ -60,6 +69,9 @@ class API {
       .then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       })
   }
 
@@ -75,6 +87,9 @@ class API {
       .then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
+        window.errorReporting.notify({
+          error: `API error: ${e}`
+        })
       })
   }
 }

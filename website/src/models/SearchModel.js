@@ -14,7 +14,7 @@ export default mirror.model({
   },
   reducers: {
     updateSearchTerm (state, searchTerm) {
-      return {...state, searchTerm: decodeURIComponent(searchTerm)}
+      return { ...state, searchTerm: decodeURIComponent(searchTerm) }
     },
     updateResults (state, response) {
       window.gtag('event', 'search', {
@@ -29,13 +29,13 @@ export default mirror.model({
       }
     },
     startLoading (state) {
-      return {...state, loading: true}
+      return { ...state, loading: true }
     },
     stopLoading (state) {
-      return {...state, loading: false}
+      return { ...state, loading: false }
     },
     clearSearch (state) {
-      return {...state, currentSearch: '', resultCount: null}
+      return { ...state, currentSearch: '', resultCount: null }
     }
   },
   effects: {
@@ -50,9 +50,15 @@ export default mirror.model({
           'api-key': config.apiKey
         }
       }
-      const response = await window.fetch(url, options)
+      const response = await window
+        .fetch(url, options)
         .then(data => data.json())
-        .catch(err => 'An error has occurred: ' + err)
+        .catch(err => {
+          console.log(`An error has occurred: ${err}`)
+          window.errorReporting.notify({
+            error: `An error has occurred: ${err}`
+          })
+        })
 
       actions.search.stopLoading()
       actions.search.updateResults(response)

@@ -11,9 +11,8 @@ import './hooks/offlineEpisodeHook'
 import './index.css'
 import App from './RoutedApp'
 import registerServiceWorker from './registerServiceWorker'
+import registerErrorReporting from './registerErrorReporting'
 
-render(
-  <App />,
-  document.getElementById('root')
-)
+render(<App />, document.getElementById('root'))
 registerServiceWorker()
+window.errorReporting = registerErrorReporting()
