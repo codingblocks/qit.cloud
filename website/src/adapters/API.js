@@ -28,7 +28,7 @@ class API {
     return fetch(API.userUrl, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token
+        Authorization: token
       }
     }).then(resp => resp.json())
   }
@@ -38,7 +38,7 @@ class API {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token
+        Authorization: token
       },
       body: JSON.stringify({ episode })
     }).then(resp => resp.json())
@@ -49,7 +49,7 @@ class API {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token
+        Authorization: token
       },
       body: JSON.stringify({ id })
     }).then(resp => resp.json())

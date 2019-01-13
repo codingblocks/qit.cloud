@@ -32,7 +32,8 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+      .spacing.unit * 3}px`
   },
   avatar: {
     margin: theme.spacing.unit,
@@ -57,14 +58,16 @@ class SignInForm extends React.Component {
     event.preventDefault()
     const { username, password } = this.state
     const { history } = this.props
-    API.signin(username, password)
-      .then(data => {
-        if (data.error) return
-        actions.user.signin(data.user.username)
-        actions.player.hydrateQueue(data.user.episodes)
-        localStorage.setItem('token', data.token)
-        history.push('/')
-      })
+    API.signin(username, password).then(data => {
+      if (data.error) {
+        alert(data.error)
+        return
+      }
+      actions.user.signin(data.user.username)
+      actions.player.hydrateQueue(data.user.episodes)
+      localStorage.setItem('token', data.token)
+      history.push('/')
+    })
   }
 
   handleChange = event =>
@@ -78,7 +81,10 @@ class SignInForm extends React.Component {
         <CssBaseline />
         <main className={classes.layout}>
           <Paper className={classes.paper}>
-            <Avatar style={{background: '#298478'}} className={classes.avatar}>
+            <Avatar
+              style={{ background: '#298478' }}
+              className={classes.avatar}
+            >
               <LockIcon />
             </Avatar>
             <Typography variant='headline'>Sign in</Typography>
