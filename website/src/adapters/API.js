@@ -12,7 +12,11 @@ class API {
         username,
         password
       })
-    }).then(resp => resp.json())
+    })
+      .then(resp => resp.json())
+      .catch(e => {
+        console.log(`API error: ${e}`)
+      })
   }
 
   static signup (username, password, email) {
@@ -24,7 +28,11 @@ class API {
         password,
         email
       })
-    }).then(resp => resp.json())
+    })
+      .then(resp => resp.json())
+      .catch(e => {
+        console.log(`API error: ${e}`)
+      })
   }
 
   static getUser (token = localStorage.getItem('token')) {
@@ -33,7 +41,11 @@ class API {
         'Content-Type': 'application/json',
         Authorization: token
       }
-    }).then(resp => resp.json())
+    })
+      .then(resp => resp.json())
+      .catch(e => {
+        console.log(`API error: ${e}`)
+      })
   }
 
   static queueEpisode (episode, token = localStorage.getItem('token')) {
@@ -44,7 +56,11 @@ class API {
         Authorization: token
       },
       body: JSON.stringify({ episode })
-    }).then(resp => resp.json())
+    })
+      .then(resp => resp.json())
+      .catch(e => {
+        console.log(`API error: ${e}`)
+      })
   }
 
   static unqueueEpisode (id, token = localStorage.getItem('token')) {
@@ -55,7 +71,11 @@ class API {
         Authorization: token
       },
       body: JSON.stringify({ id })
-    }).then(resp => resp.json())
+    })
+      .then(resp => resp.json())
+      .catch(e => {
+        console.log(`API error: ${e}`)
+      })
   }
 }
 

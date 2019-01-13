@@ -12,12 +12,8 @@ export default mirror.model({
     playbackrate: 1
   },
   reducers: {
-
     play (state, episode) {
-      window.localStorage.setItem(
-        'nowPlaying',
-        JSON.stringify(episode)
-      )
+      window.localStorage.setItem('nowPlaying', JSON.stringify(episode))
       return { ...state, nowPlaying: episode }
     },
 
@@ -26,8 +22,9 @@ export default mirror.model({
     },
 
     removeFromQueue (state, episodeToRemove) {
-      const queue = state.queue
-        .filter(episode => episode.id !== episodeToRemove.id)
+      const queue = state.queue.filter(
+        episode => episode.id !== episodeToRemove.id
+      )
       return { ...state, queue }
     },
 
@@ -46,16 +43,14 @@ export default mirror.model({
         .slice()
         .filter(episode => episode.audioUrl !== currentlyPlaying.audioUrl)
       const nowPlaying = queue.shift() || {}
-      window.localStorage.setItem(
-        'nowPlaying',
-        JSON.stringify(nowPlaying)
-      )
+      window.localStorage.setItem('nowPlaying', JSON.stringify(nowPlaying))
       return { ...state, nowPlaying, queue }
     },
 
     playNext (state, episode) {
-      const newQueue = state.queue
-        .filter(item => item.audioUrl !== episode.audioUrl)
+      const newQueue = state.queue.filter(
+        item => item.audioUrl !== episode.audioUrl
+      )
       return { ...state, queue: [episode, ...newQueue] }
     },
 
@@ -71,9 +66,13 @@ export default mirror.model({
   },
   effects: {
     async getRemoteEpisodes () {
-      const { episodes, username } = await API.getUser()
-      actions.player.hydrateQueue(episodes)
-      actions.user.signin(username)
+      try {
+        const { episodes, username } = await API.getUser()
+        actions.player.hydrateQueue(episodes)
+        actions.user.signin(username)
+      } catch (e) {
+        console.log(`API Error: ${e}`)
+      }
     }
   }
 })
