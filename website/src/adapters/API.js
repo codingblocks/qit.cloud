@@ -1,3 +1,6 @@
+/* global fetch */
+/* global localStorage */
+
 import config from '../config'
 
 class API {

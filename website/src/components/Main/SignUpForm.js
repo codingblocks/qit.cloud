@@ -61,14 +61,14 @@ class SignUpForm extends React.Component {
     const { history } = this.props
     API.signup(username, password, email).then(data => {
       if (data.error) {
-        alert(data.error)
+        window.alert(data.error)
         return
       }
 
       console.log('data: ', data)
       actions.user.signin(data.user.username)
       actions.player.hydrateQueue(data.user.episodes)
-      localStorage.setItem('token', data.token)
+      window.localStorage.setItem('token', data.token)
       history.push('/')
     })
   }

@@ -60,12 +60,12 @@ class SignInForm extends React.Component {
     const { history } = this.props
     API.signin(username, password).then(data => {
       if (data.error) {
-        alert(data.error)
+        window.alert(data.error)
         return
       }
       actions.user.signin(data.user.username)
       actions.player.hydrateQueue(data.user.episodes)
-      localStorage.setItem('token', data.token)
+      window.localStorage.setItem('token', data.token)
       history.push('/')
     })
   }
