@@ -32,7 +32,8 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+      .spacing.unit * 3}px`
   },
   avatar: {
     margin: theme.spacing.unit,
@@ -42,8 +43,8 @@ const styles = theme => ({
     width: '100%', // Fix IE11 issue.
     marginTop: theme.spacing.unit
   },
-  submit: {
-    marginTop: theme.spacing.unit * 3
+  finePrint: {
+    fontSize: `9px`
   }
 })
 
@@ -58,15 +59,14 @@ class SignUpForm extends React.Component {
     event.preventDefault()
     const { username, password, email } = this.state
     const { history } = this.props
-    API.signup(username, password, email)
-      .then(data => {
-        if (data.error) return
-        console.log('data: ', data)
-        actions.user.signin(data.user.username)
-        actions.player.hydrateQueue(data.user.episodes)
-        localStorage.setItem('token', data.token)
-        history.push('/')
-      })
+    API.signup(username, password, email).then(data => {
+      if (data.error) return
+      console.log('data: ', data)
+      actions.user.signin(data.user.username)
+      actions.player.hydrateQueue(data.user.episodes)
+      localStorage.setItem('token', data.token)
+      history.push('/')
+    })
   }
 
   handleChange = event =>
@@ -80,7 +80,10 @@ class SignUpForm extends React.Component {
         <CssBaseline />
         <main className={classes.layout}>
           <Paper className={classes.paper}>
-            <Avatar style={{background: '#298478'}} className={classes.avatar}>
+            <Avatar
+              style={{ background: '#298478' }}
+              className={classes.avatar}
+            >
               <LockIcon />
             </Avatar>
             <Typography variant='headline'>Sign Up</Typography>
@@ -114,21 +117,19 @@ class SignUpForm extends React.Component {
                   onChange={handleChange}
                 />
               </FormControl>
-              <Button
-                type='submit'
-                fullWidth
-                variant='raised'
-                color='primary'
-                className={classes.submit}
-              >
+              <Button type='submit' fullWidth variant='raised' color='primary'>
                 Sign up
               </Button>
             </form>
-            <Button
-              onClick={showSignin}
-              color='primary'
-              className={classes.submit}
-            >
+            <p className='finePrint'>
+              Note: signing up means you consent to using cookies on this site.
+              Check out the{' '}
+              <a href='https://github.com/codingblocks/qit.cloud/blob/master/privacy-policy.md'>
+                privacy policy
+              </a>{' '}
+              for more information.
+            </p>
+            <Button onClick={showSignin} color='primary'>
               Already have an account?
             </Button>
           </Paper>
