@@ -1,27 +1,11 @@
 version: '3'
 
 services:
-  podcast-feed-loader:
-    env_file: podcast-feed-loader/.env
-    container_name: "coding-blocks-feed-loader"
-    build:
-      context: podcast-feed-loader/.
-      dockerfile: Dockerfile
-      args:
-        NODE_ENV: production
-        PORT: ${PODCAST_PORT}
-    environment:
-      - 'PORT=${PODCAST_PORT}'
-    ports:
-      - '${PODCAST_PORT}:${PODCAST_PORT}'
-    networks:
-      - codingblocks
-
   website:
-    env_file: website-react/.env
+    env_file: .env
     container_name: "coding-blocks-website"
     build:
-      context: website-react/.
+      context: website
       dockerfile: Dockerfile
       args:
         NODE_ENV: production
@@ -37,4 +21,4 @@ services:
 
 networks:
   codingblocks:
-    external: true
+    external: false

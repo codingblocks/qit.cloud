@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  website:
+    volumes:
+      - ./website:/home/app/
+    command: npm run start
