@@ -34,7 +34,7 @@ Well, that's a bit complicated right now. The website is in netlify, the API is 
 
 More on how to get this setup...later.
 
-As for what settings are available to you, there are tons of env variables to know about. These are available for the site:
+As for what settings are available to you, there are a bunch of env variables to know about. Everything works with the defaults, but these provide greater control and optional features. These are available for the site:
 
 #### Website
 
@@ -45,6 +45,8 @@ REACT_APP_CORS_PROXY || 'https://cors-anywhere.herokuapp.com/',
 REACT_APP_MAX_SEARCH_RESULTS || 200,
 REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC',
 REACT_APP_PLAYBACK_RATES
+REACT_APP_AIRBRAKE_PROJECTID
+REACT_APP_AIRBRAKE_PROJECTKEY
 ```
 
 #### API
