@@ -17,31 +17,30 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build; node updateBuildCacheVersion.js; cp _redirects build/.",
-    "testBuild": "react-scripts build",
-    "serve": "serve build -l 3000",
-    "serveDave": "serve --no-clipboard --single build -l 3000",
+    "test:build": "react-scripts build",
+    "serve": "serve --no-clipboard --single build -l 3000",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypressRunRecord": "cypress run --record",
-    "local:e2e": "start-server-and-test start http://localhost:3000 cypress:run",
-    "ci:e2e": "start-server-and-test start http://localhost:3000 cypressRunRecord",
+    "cypress:run-record": "cypress run --record",
+    "cypress:start-server-test-norecord": "start-server-and-test serve http://localhost:3000 cypress:run",
+    "cypress:start-server-test-record": "start-server-and-test serve http://localhost:3000 cypress:run-record",
+    "local:e2e": "npm run test:build && npm run cypress:start-server-test-norecord",
+    "ci:e2e": "npm run test:build && npm run cypress:start-server-test-record",
     "lint": "standard --fix",
-    "precommit": "standard",
-    "concurrentlyScripts": "concurrently npm:test npm:ci:e2e --kill-others-on-fail"
+    "precommit": "standard"
   },
   "devDependencies": {
-    "serve": "~10.0.2",
     "cypress": "^3.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.1.0",
     "react-test-renderer": "^16.4.1",
+    "serve": "~10.0.2",
     "sinon": "^6.0.0",
     "standard": "^11.0.1",
-    "start-server-and-test": "=1.7.11",
-    "concurrently": "^4.0.1"
+    "start-server-and-test": "=1.7.11"
   },
   "standard": {
     "parser": "babel-eslint",
