@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { shallow } from 'enzyme';
 import {divBreakdown, renderDiv, Header } from '../setup'
 import {Search} from '../components/Header/Search'
