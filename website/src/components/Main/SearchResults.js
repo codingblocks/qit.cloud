@@ -6,6 +6,8 @@ import PodcastReleaseDate from './Episode/PodcastReleaseDate'
 import AddToQueueButton from './Episode/AddToQueueButton'
 import Loader from '../Loader'
 
+import API from '../../adapters/API'
+
 import {
   StyledEpisode,
   StyledEpisodeTitle,
@@ -74,6 +76,7 @@ export class SearchResults extends Component {
                       )}
                       onClick={event => {
                         event.stopPropagation()
+                        API.queueEpisode(episode)
                         actions.player.addToQueue(episode)
                       }}
                     />

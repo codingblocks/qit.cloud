@@ -24,13 +24,19 @@ describe('Search', function () {
     })
 
     it('returns the correct results length', function () {
-      cy.get('[data-item-type=search]').should('have.length', this.lambda_search_results['@odata.count'])
+      cy.get('[data-item-type=search]').should(
+        'have.length',
+        this.lambda_search_results['@odata.count']
+      )
     })
 
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', `"${searchTeem}"`),
+        url: Cypress.env('baseSearchUrl').replace(
+          '{searchTerm}',
+          `"${searchTeem}"`
+        ),
         response: []
       })
 
@@ -50,15 +56,23 @@ describe('Search', function () {
     })
 
     it('can load the main page via back button', function () {
-      cy.get('button').contains('<').click()
+      cy.get('#root').click({ force: true })
       cy.title().should('eq', 'qit: Tech podcasts by topic')
-      cy.get('input').should('have.attr', 'placeholder', 'Search for a great podcast here!')
+      cy.get('input').should(
+        'have.attr',
+        'placeholder',
+        'Search for a great podcast here!'
+      )
     })
 
     it('can load main page directly', function () {
       cy.visit('/')
       cy.title().should('eq', 'qit: Tech podcasts by topic')
-      cy.get('input').should('have.attr', 'placeholder', 'Search for a great podcast here!')
+      cy.get('input').should(
+        'have.attr',
+        'placeholder',
+        'Search for a great podcast here!'
+      )
     })
   })
 
@@ -78,13 +92,19 @@ describe('Search', function () {
     })
 
     it('returns the correct results length', function () {
-      cy.get('[data-item-type=search]').should('have.length', this.lambda_search_results['@odata.count'])
+      cy.get('[data-item-type=search]').should(
+        'have.length',
+        this.lambda_search_results['@odata.count']
+      )
     })
 
     it('returns empty results', function () {
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', `"${searchTeem}"`),
+        url: Cypress.env('baseSearchUrl').replace(
+          '{searchTerm}',
+          `"${searchTeem}"`
+        ),
         response: []
       })
 
@@ -95,15 +115,23 @@ describe('Search', function () {
     })
 
     it('can load the main page via back button', function () {
-      cy.get('button').contains('<').click()
+      cy.get('#root').click({ force: true })
       cy.title().should('eq', 'qit: Tech podcasts by topic')
-      cy.get('input').should('have.attr', 'placeholder', 'Search for a great podcast here!')
+      cy.get('input').should(
+        'have.attr',
+        'placeholder',
+        'Search for a great podcast here!'
+      )
     })
 
     it('can load main page directly', function () {
       cy.visit('/')
       cy.title().should('eq', 'qit: Tech podcasts by topic')
-      cy.get('input').should('have.attr', 'placeholder', 'Search for a great podcast here!')
+      cy.get('input').should(
+        'have.attr',
+        'placeholder',
+        'Search for a great podcast here!'
+      )
     })
   })
 })

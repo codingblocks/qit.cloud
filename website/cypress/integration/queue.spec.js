@@ -1,4 +1,3 @@
-
 describe('Queue', function () {
   beforeEach(function () {
     cy.server()
@@ -18,13 +17,13 @@ describe('Queue', function () {
     it('can add & remove 1 from the queue', function () {
       // Add to queue & go to queue queue
       cy.get('[data-queue=add]:first').click()
-      cy.get('button').contains('<').click()
+      cy.get('#root').click({ force: true })
 
       // Verify 1 result in queue list
       cy.get('[data-item-type=queue]').should('have.length', 1)
 
       // Click remove queue button
-      cy.get('[data-queue=remove]:first').click()
+      cy.get('[data-queue=remove]:first').click({ force: true })
 
       // Verify its removed
       cy.get('[data-item-type=queue]').should('not.exist')
@@ -32,13 +31,16 @@ describe('Queue', function () {
 
     it('can add & remove many from the queue', function () {
       // Click all add to queue buttons & go to queue page
-      cy.get('[data-queue=add]').click({ multiple: true })
-      cy.get('button').contains('<').click()
+      cy.get('[data-queue=add]').click({ multiple: true, force: true })
+      cy.get('#root').click({ force: true })
 
-      cy.get('[data-item-type=queue]').should('have.length', this.six_search_results['@odata.count'])
+      cy.get('[data-item-type=queue]').should(
+        'have.length',
+        this.six_search_results['@odata.count']
+      )
 
       // Click all the remove buttons
-      cy.get('[data-queue=remove]').click({ multiple: true })
+      cy.get('[data-queue=remove]').click({ multiple: true, force: true })
 
       // Verify its removed
       cy.get('[data-item-type=queue]').should('not.exist')
@@ -50,21 +52,19 @@ describe('Queue', function () {
       cy.get(selector)
         .trigger('mousedown', { which: 1 })
         .trigger('mousemove', { clientX: x, clientY: y })
-        .trigger('mouseup', {force: true})
+        .trigger('mouseup', { force: true })
     }
 
     beforeEach(function () {
       // Click all add to queue buttons & go to queue page
       cy.get('[data-queue=add]').click({ multiple: true })
-      cy.get('button').contains('<').click()
+      cy.get('#root').click({ force: true })
     })
 
     it.skip('can drag queue item down', function () {
       moveQueueItem('[data-queue=drag]:first', 800, 600)
     })
 
-    it.skip('can drag queue item up', function () {
-
-    })
+    it.skip('can drag queue item up', function () {})
   })
 })

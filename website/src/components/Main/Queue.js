@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import SortableList from './SortableList'
 import DragNDropIndicator from './Episode/DragNDropIndicator'
 
+import API from '../../adapters/API'
+
 import {
   StyledEpisode,
   StyledEpisodeTitle,
@@ -48,6 +50,7 @@ export const Queue = ({ queue, nowPlaying, className }) =>
                     lonely={queue.length === 1}
                     onClick={event => {
                       event.stopPropagation()
+                      API.unqueueEpisode(episode.id)
                       actions.player.removeFromQueue(episode)
                     }}
                   />
