@@ -1,0 +1,42 @@
+# PostgreSQL. Versions 9.1 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+# On OS X with Homebrew:
+#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+# On OS X with MacPorts:
+#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# On Windows:
+#   gem install pg
+#       Choose the win32 build.
+#       Install PostgreSQL and put its /bin directory on your path.
+#
+# Configure Using Gemfile
+# gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  username: <%= ENV['QIT_API_DATABASE_USERNAME'] { 'qit_user' } %>
+  password: <%= ENV['QIT_API_DATABASE_PASSWORD'] { 'qit_password' } %>
+  host: <%= ENV['QIT_API_DATABASE_HOST'] { 'db_server' } %>
+  database: <%= ENV['QIT_API_DATABASE_NAME'] { 'qit_db' } %>
+test:
+  <<: *default
+  username: <%= ENV['QIT_API_DATABASE_USERNAME'] { 'qit_user' } %>
+  password: <%= ENV['QIT_API_DATABASE_PASSWORD'] { 'qit_password' } %>
+  host: <%= ENV['QIT_API_DATABASE_HOST'] { 'db_server' } %>
+  database: <%= ENV['QIT_API_DATABASE_NAME'] { 'qit_db' } %>
+
+production:
+  <<: *default
+  username: <%= ENV['QIT_API_DATABASE_USERNAME'] { 'qit_user' } %>
+  password: <%= ENV['QIT_API_DATABASE_PASSWORD'] { 'qit_password' } %>
+  host: <%= ENV['QIT_API_DATABASE_HOST'] { 'db_server' } %>
+  database: <%= ENV['QIT_API_DATABASE_NAME'] { 'qit_db' } %>

@@ -8,7 +8,6 @@ import Header from './components/Header/'
 import Title from './components/Header/Title'
 import Search from './components/Header/Search'
 import Logo from './components/Header/Logo'
-import BackButton from './components/Header/BackButton'
 import Subtitle from './components/Header/Subtitle'
 
 import Main from './components/Main/'
@@ -20,14 +19,26 @@ import NowPlaying from './components/Player/NowPlaying'
 import AudioPlayer from './components/Player/AudioPlayer'
 
 import { sslAudioUrl, setPlaybackRate } from './helpers'
+import Person from '@material-ui/icons/Person'
+import PersonOutlined from '@material-ui/icons/PersonOutlined'
+
+import API from './adapters/API'
+
+const styles = {
+  icon: {
+    color: 'white',
+    position: 'absolute',
+    width: '48px'
+  }
+}
 
 export class App extends Component {
-  componentWillMount () {
+  componentDidMount () {
     const nowPlaying = window.localStorage.getItem('nowPlaying')
     nowPlaying && actions.player.play(JSON.parse(nowPlaying))
 
-    window.localStorage.getItem('queue') &&
-      actions.player.hydrateQueue()
+    window.localStorage.getItem('token') &&
+      actions.player.getRemoteEpisodes()
   }
 
   componentDidUpdate () {
@@ -37,30 +48,35 @@ export class App extends Component {
 
   render () {
     const {
-      searchTerm,
+      currentUser,
       currentSearch,
       nowPlaying,
       queue,
       playbackrate,
-      history,
-      location
+      history
     } = this.props
 
     return <Container>
 
       <Header>
+        {
+          currentUser
+            ? <PersonOutlined
+              onClick={() => {
+                actions.user.signout()
+                actions.player.hydrateQueue([])
+                history.push('/signin')
+              }}
+              style={styles.icon}
+            />
+            : <Person
+              onClick={() => history.push('/signin')}
+              style={styles.icon}
+            />
+        }
         <Title>
-          {
-            (currentSearch !== '' || location.pathname.startsWith('/queue')) &&
-            <BackButton onClick={() => {
-              history.push('/')
-              actions.search.clearSearch()
-            }}>
-              &lt;
-            </BackButton>
-          }
           <Subtitle>
-            <Search searchTerm={searchTerm} />
+            <Search />
           </Subtitle>
           <Logo text='qit' href='/about/' history={history} />
         </Title>
@@ -84,7 +100,10 @@ export class App extends Component {
           <AudioPlayer
             src={sslAudioUrl(nowPlaying.audioUrl)}
             playbackrate={playbackrate}
-            onEnded={actions.player.playNextEpisode}
+            onEnded={() => {
+              API.unqueueEpisode(nowPlaying.id)
+              actions.player.playNextEpisode()
+            }}
             onLoadStart={() => setPlaybackRate(playbackrate)}
           />
         </NowPlaying>
@@ -112,13 +131,14 @@ App.propTypes = {
   queue: PropTypes.array.isRequired
 }
 
-export const ConnectedApp = connect(state => ({
+const ConnectedApp = connect(state => ({
   searchTerm: state.search.searchTerm,
   currentSearch: state.search.currentSearch,
   loading: state.search.loading,
   nowPlaying: state.player.nowPlaying,
   queue: state.player.queue,
-  playbackrate: state.player.playbackrate
+  playbackrate: state.player.playbackrate,
+  currentUser: state.user.currentUser
 }))(App)
 
 export default ConnectedApp

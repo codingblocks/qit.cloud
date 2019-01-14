@@ -1,3 +1,5 @@
+/* eslint-env serviceworker */
+
 const makeServiceWorkerEnv = require('service-worker-mock')
 const makeFetchMock = require('service-worker-mock/fetch')
 
