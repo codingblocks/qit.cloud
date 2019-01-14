@@ -12,10 +12,14 @@ Adding Jest-based test for both part of the unit, and hopefully an end-to-end of
 
 In the `__tests__` folder (note the double underlines) is `setup.js`, containing all of the modules for running Jest tests, so they can be imported easily to run area- or module-specific tests. This allows a consistent setup to be done for each set of tests, keeps the named modules in a single spot, and encourages both reuse of code and allows for customization of setups. Please export these by module names, as it will allow a single area to insure which modules are being used in the case of a failed test.
 
-## Current tests 8 January 2018 ##
+## Current tests 14 January 2018 ##
 
 The tests added, on this date are at the "smoke test" level, and slightly deeper. These test will remain - as of this moment - to insure coverage for the very basic items they cover. 
 
 `App.test` has a simple smoke test, insuring that the testing harness itself works; a render test to verify that a div can be created in the ReactDOM area, render the app, and unmount it; and some simple unit tests for the opening index, currently insuring that test matches what is anticipated.
+ADDED 14 January: Working with Enzyme, a test to insure that the Qit logo is showing is now complete.
 
 `sw.test` has a copied simple service worker test.
+
+ADDED 14 January:
+`logo.test` now exists, and has a snapshot test. If rerunning the tst suites for Jest, please add the `-u` flag to the test request, to clear any outdtated snapshots.

@@ -70,6 +70,12 @@ This is a blanket term for the planning, creating, inspiring, and finishing a pr
 ## Sharing ##
 Have a pod cast that you think a friend would enjoy? The sharing feature allows you to send a copy of the specific episode to them, so they can listen to it without delay.
 
+## Smoke Test ##
+A simple test to ensure that that component will open - a very basic test to insure functionality.
+
+## Snapshot ##
+This method of testing takes a word-picture (it shows as code of what is actually on the screen), and has it available to compare later changes to insure that there is not anything added that is unexpected.
+
 ## Testing harness ##
 A specific program, or set of **libraries** that deliver a way to test an application. Some of these are designed for specific tasks, or a more-general way to test an application.
 
