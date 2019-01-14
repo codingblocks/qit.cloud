@@ -57,6 +57,9 @@
     ],
     "env": {
       "jest": true
+    },
+    "jest": {
+      "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
   }
 }
