@@ -1,6 +1,5 @@
 import React from 'react'
-//import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import {divBreakdown, renderDiv, Header } from '../setup'
 import {Search} from '../components/Header/Search'
 import 'jest-dom/extend-expect'
