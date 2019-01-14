@@ -14,8 +14,8 @@ describe('Search Props', () => {
   })
 
   it('Search defaults should be empty', () =>{
-  expect(Search.classname).toBeUndefined();
-  expect(Search.searchTerm).toBeUndefined();
+  expect(Search.defaultProps.className).toEqual("");
+  expect(Search.defaultProps.searchTerm).toEqual("");
   })
 
   it('Should have the form and input showing', () => {
