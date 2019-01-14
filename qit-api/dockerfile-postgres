@@ -1,0 +1,2 @@
+# NOTE: This image is for dev purposes only!
+FROM library/postgres

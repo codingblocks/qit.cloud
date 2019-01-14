@@ -1,4 +1,4 @@
-# dependencies
+# Dependencies
 node_modules
 /ts-node-*
 
@@ -10,21 +10,20 @@ node_modules
 # Vim
 *.swp
 
-# misc
+# Misc
 npm-debug.log
 
-# example
-/quick-start
-
-# tests
+# Tests
 /test
 /**/coverage
 /.nyc_output
 website/cypress/screenshots
 
-# dist
+# Dist
 /dist
 
-# don't commit the .env file for podcast-feed-loader because it has a key
-podcast-feed-loader/app/.env
-yarn.lock
+# Environment settings
+/qit-api/config/.env
+/qit-api/log
+/qit-api/tmp
+/podcast-feed-loader/app/.env

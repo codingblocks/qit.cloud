@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  @search.score: MyString
+  id: MyString
+  podcastTitle: MyString
+  episodeTitle: MyString
+  description: MyText
+  published: MyString
+  audioUrl: MyString
+  episode: MyString
+  season: MyString
+  episodeType: MyString
+
+two:
+  @search.score: MyString
+  id: MyString
+  podcastTitle: MyString
+  episodeTitle: MyString
+  description: MyText
+  published: MyString
+  audioUrl: MyString
+  episode: MyString
+  season: MyString
+  episodeType: MyString
