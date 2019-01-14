@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme';
 import Index from '../components/Main/index'
+import App from '../App'
 import {divBreakdown, renderDiv } from '../setup'
 import {Search, SearchWithRouter} from '../components/Header/Search'
-/* import [Logo] from '../components/Header/Logo'
-import {BackButton} from '../components/Header/BackButton'
-import {Title} from '../components/Header/Title'
-import {SubTitle} from '../components/Header/SubTitle' */
+
 
 // replacement test while real tests are not written
 
@@ -41,3 +40,12 @@ describe('Opening index', () =>{
   })
   
 })
+
+it('The Qit logo opens the about page', () => {
+  const component = shallow(<App />);
+  component
+    .find('logo#qit')
+    .simulate('click');
+  expect(component).toMatchSnapshot();
+  
+});
