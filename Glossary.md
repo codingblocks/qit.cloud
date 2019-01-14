@@ -6,10 +6,10 @@ Terms that are in **bold** have a further definition, to avoid cluttering this d
 
 **Lots of TODO here **
 ## a11y ## 
-A-one-one-Y”, “A-eleven-Y”, and liberally as “ally”. The shorter form of "accessability". Written this way, it should be read as accessability, for ease of understanding.
+A-one-one-Y”, “A-eleven-Y”, and liberally as “ally”. The shorter form of "accessibility". Written this way, it should be read as accessibility, for ease of understanding.
 
 ## Accessibility Testing ## 
-The process of insuring that the **a11y** and other standards acually are effective for the end users.
+The process of insuring that the **a11y** and other standards actually are effective for the end users.
 
 ## Analytics ## 
 The process of finding patterns (in this case, the topic of the podcast) in a mass of data.
@@ -32,10 +32,10 @@ This is the setup that keeps various elements together, such as the list of foun
 Our chosen end-to-end **testing harness** . Cypruss was been built specifically for this task.
 
 ## DevOps ## 
-Short for Developer/Operations, this section makes sure that not only the applications works, but that the quality and useability are at as high a level possible, at that time.
+Short for Developer/Operations, this section makes sure that not only the applications works, but that the quality and usability are at as high a level possible, at that time.
 
 ## Docker ## 
-A system where an application can be developed, shipped, and run within a single platform. It does require an installtion to work. This application has directions to install and start it (spin it up is a common term for this).
+A system where an application can be developed, shipped, and run within a single platform. It does require an installation to work. This application has directions to install and start it (spin it up is a common term for this).
 
 ## Drag and drop ## 
 The ability to rearrange items in the queue by selecting them, and setting them in their new position, letting the other items adjust to the change in the list.
@@ -53,13 +53,13 @@ The **testing harness** used here for unit tests. This is a more-general tool, b
 Like libraries for people, these are items that can be added to a **testing harness** to add extra abilities, or allow for faster usage.
 
 ## Linter ##
-Linters are small programs that help programmers catch any errors they make. They are a part of getting a `Passing` **build status**, since the code is similar in sytle all the way through.
+Linters are small programs that help programmers catch any errors they make. They are a part of getting a `Passing` **build status**, since the code is similar in style all the way through.
 
 ## MIT License ##
-One of the many classes of Open Source (which means anyone can work on it!) licences. A comparision of some of the popular ones is located [here](https://www.kiuwan.com/blog/a-comparison-of-the-most-popular-open-source-licenses/).
+One of the many classes of Open Source (which means anyone can work on it!) licences. A comparison of some of the popular ones is located [here](https://www.kiuwan.com/blog/a-comparison-of-the-most-popular-open-source-licenses/).
 
 ## Podcast Feed ##
-The way that Qit is able to find the newest, greatest pod casts for your listening pleasure. Each site has a specific way that they send out information about new podcasts - this is what the podcast feed captuures, so new episodes are available quickly and the information is correct.
+The way that Qit is able to find the newest, greatest pod casts for your listening pleasure. Each site has a specific way that they send out information about new podcasts - this is what the podcast feed captures, so new episodes are available quickly and the information is correct.
 
 ## Pre-Commit ##
 This is a part of the **build status**, that checks for any obvious errors before changes are made to the main program.
@@ -80,4 +80,4 @@ This method of testing takes a word-picture (it shows as code of what is actuall
 A specific program, or set of **libraries** that deliver a way to test an application. Some of these are designed for specific tasks, or a more-general way to test an application.
 
 ## UX ##
-Short for User eXperience, this is how the application looks and behaves for the user. This is a large part of the goal of any application, and has specific goals for **a11y** and design considerations.
+Short for User experience, this is how the application looks and behaves for the user. This is a large part of the goal of any application, and has specific goals for **a11y** and design considerations.
