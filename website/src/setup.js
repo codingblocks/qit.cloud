@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 export class renderDiv extends React.Component {
   render () {
     const div = document.createElement('div')

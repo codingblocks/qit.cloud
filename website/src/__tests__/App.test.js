@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme';
 import Index from '../components/Main/index'
-import App from '../App'
 import {divBreakdown, renderDiv } from '../setup'
 import {Search, SearchWithRouter} from '../components/Header/Search'
 import { Logo } from '../components/Header/Logo';
