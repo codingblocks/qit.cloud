@@ -16,7 +16,23 @@ Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
+
+## NEW Before you run this program ##
+Since we are improving a lot of the features, the most simple way to get the app to work is to download and install Docker on your machine. This only needs done once, and is the best way to enjoy all of the options. The specifics for the software are on the pages, and should be simple to follow.
+
+If you do not work in the software field, simply installing the program correctly should be enough to allow you to run the local version.
+
+### Installation Instructions ###
+[Install Docker Desktop](https://docs.docker.com/install/#supported-platforms)
+
+### If your system will not take Docker ###
+There is another way to do this, but it requres a few more step. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). At that point 
+## TODO ##
+
+
 ### Running locally:
+
+You can also use this by installing Ruby and Postgres: two programs that will allow the files to run. this setup is a bit more complex. 
 
 ```bash
 # Start Postgres and the API
