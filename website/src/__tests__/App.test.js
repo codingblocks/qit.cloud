@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme';
 import Index from '../components/Main/index'
 import {divBreakdown, renderDiv } from '../setup'
 import {Search, SearchWithRouter} from '../components/Header/Search'
@@ -9,10 +10,10 @@ import { Logo } from '../components/Header/Logo';
 
 window.it('should run smoke test', () => console.log('write real tests'))
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Index />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('Renders without crashing', () => {
+  const tree = shallow(<Index />)
+  const shot = (tree).toJSON
+  expect(shot).toMatchSnapshot();
 })
 
 describe('Opening index', () => {
