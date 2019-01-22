@@ -26,8 +26,7 @@ If you do not work in the software field, simply installing the program correctl
 [Install Docker Desktop](https://docs.docker.com/install/#supported-platforms)
 
 ### If your system will not take Docker ###
-There is another way to do this, but it requres a few more step. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). At that point 
-## TODO ##
+There is another way to do this, but it requres a few more step. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). 
 
 
 ### Running locally:
