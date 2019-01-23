@@ -23,3 +23,9 @@ export function Header () {
     </div>
   )
 }
+
+export const serverMock = {
+  myMethod: jest
+  .fn()
+  .mockReturnThis()
+};
