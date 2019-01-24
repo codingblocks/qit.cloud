@@ -1,9 +1,7 @@
-# QIT  #
-
-
+# QIT #
 
 - MVP Test Plan 1.0
-- Versioned for Core User Experience 1.0; produced on 23 January, 2018
+- Versioned for Core User Experience 1.0; produced on 24 January, 2018
 - Plan produced by Arlene Andrews (@ArleneAndrews)
 - Initial plan 
 
@@ -44,7 +42,7 @@ Software:
 
 Data:
 The podcast has a **search engine** installed, however for offline testing, we will need similar data. This would be a **JSON** file similar to ``` 
- { "url": "https://codingblocks.libsyn.com/rss", "title": "Coding Blocks", "titleCleanser": "^\\d+.\\s", "forceHttps": true }```
+"feeds": [ { "url": "https://codingblocks.libsyn.com/rss", "title": "Coding Blocks", "titleCleanser": "^\\d+.\\s", "forceHttps": true }]```
 
 
 
@@ -57,18 +55,45 @@ A checkbox has been added to indicate if a test in in place [x], in the process 
 This will also allow us to have a better grasp on what the [Code Coverage](https://github.com/codingblocks/qit.cloud/issues/110) **badge** actually means for the vital areas. 
 
 ###Unit tests:###
-[ ]  [Track duration](https://github.com/codingblocks/qit.cloud/issues/96)  
-[ ]  [FOSSA Scans and badge](FOSSA)
 [ ]  [All areas that are user-facing are a11y](https://github.com/codingblocks/qit.cloud/issues/228)  
 [ ]  [Unique ids](https://github.com/codingblocks/qit.cloud/issues/230)  
 [ ]  [Meta description is included](https://github.com/codingblocks/qit.cloud/issues/275)  
-[ ]  []()  
+[ ]  All units should be working before being committed - simple check to insure it shows on screen  
+[ ]  Tests should be kept together  
+[ ]  Mocks should be kept close to what they are mocking  
+[ ]  Individual areas will have their own subsection for test coverage
+     
+- QIT **API**
+- Website
+- Service worker(s)
+- Components
+- Hooks
+- Models
+- Login/Logout
+- Email verification
+- UI/UX
+- Sharing
+- Errors/Logs/Reporting
+- Security
+- QIT Feed Loader (in its own repo)
+
+
+###Integration tests:###
+[ ]  Basic tests pass for all units in the integration  
+[ ]  Feed loader adds new pod casts to search engine   
+[ ]  Any errors are logged  
+[ ]  
+[ ]   
+[ ]  
+[ ]   
+[ ]  
+[ ]  
 [ ]  
 [ ] 
 
 ###End-to-End tests###
 [ ] [Offline graceful fails](https://github.com/codingblocks/qit.cloud/issues/137)   
-[ ] [Stub MP3 downloading](https://github.com/codingblocks/qit.cloud/issues/198)   
+[ ] [Stubs/mocks are correct](https://github.com/codingblocks/qit.cloud/issues/198)   
 [ ] [The site is easily crawled for searching](https://github.com/codingblocks/qit.cloud/issues/276)   
 [ ]  
 
@@ -83,6 +108,8 @@ This will also allow us to have a better grasp on what the [Code Coverage](https
 [ ]  [Password can be reset](https://github.com/codingblocks/qit.cloud/issues/265)  
 [ ]  [Sign-up has validation](https://github.com/codingblocks/qit.cloud/issues/269)  
 [ ]  [Tags show in search results](https://github.com/codingblocks/qit.cloud/issues/278)  
+[ ]  [Track duration](https://github.com/codingblocks/qit.cloud/issues/96)  
+[ ]  [FOSSA Scans and badge](https://github.com/codingblocks/qit.cloud/issues/149)  
 [ ]  
 [ ]  
 [ ]  
@@ -115,28 +142,6 @@ prepared to discuss why a particular level was chosen.
 [ ]  [Optimize SVG images during build/test](https://github.com/codingblocks/qit.cloud/issues/170)  
 [ ]  
 [ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
 
 This is a listing of what is NOT to be tested from both the Users viewpoint of what the
 system does and a configuration management/version control view. This is not a technical
@@ -155,12 +160,9 @@ this version of the software.
 ·  How many different configurations will be tested
 ·  Hardware
 ·  Software
-·  Combinations of HW, SW and other vendor packages
 ·  What are the regression test rules? How much will be done and how much at each test
 level.
 ·  Will regression testing be based on severity of defects detected?
-·  How will elements in the requirements and design that do not make sense or are
-untestable be processed?
 ·  Are there any recommended testing techniques that should be used, if so why?
 
 ##Item Pass/Fail Criteria##
@@ -206,9 +208,6 @@ What is to be delivered as part of this plan?
 Test data can also be considered a deliverable as well as possible test tools to aid in the
 testing process
 
-##Responsibilities##
-Who is in charge?
-
 ##Risks and Contingencies##
 What are the overall risks to the project with an emphasis on the testing process?
 ·  Lack of personnel resources when testing is to begin.
@@ -216,10 +215,3 @@ What are the overall risks to the project with an emphasis on the testing proces
 ·  Late delivery of the software, hardware or tools.
 ·  Delays in training on the application and/or tools.
 ·  Changes to the original requirements or designs.
-
-##Approval Process##
-Who can approve the process as complete 
-·  The levels and type of knowledge at the various levels will be different as well.
-·  Programmers are very technical but may not have a clear understanding of the
-overall business process driving the project.
-·  Users may have varying levels of business acumen and very little technical skills
