@@ -1,9 +1,9 @@
 # QIT #
 
-- MVP Test Plan 1.0
-- Versioned for Core User Experience 1.0; produced on 24 January, 2018
+- MVP Test Plan 1.10
+- Versioned for Core User Experience 1.0; produced on 25 January, 2018
 - Plan produced by Arlene Andrews (@ArleneAndrews)
-- Initial plan 
+- Modification to include more test activity and data locations 
 
 ## Introduction ##
 This is a master-level plan to insure that all of the areas of the QIT Core User Experience have unit and end-to-end tests. With many active and not always consistent improvements, this plan will assure that all the important areas have unit tests, and that both **online** and **offline** **end-to-end** tests are created, maintained and checked on a regular basis.
@@ -41,8 +41,10 @@ Software:
    - The current versions of [Ruby](https://www.ruby-lang.org/en/downloads/) and [PostgreSQL](https://www.postgresql.org/download/)
 
 Data:
-The podcast has a **search engine** installed, however for offline testing, we will need similar data. This would be a **JSON** file similar to ``` 
-"feeds": [ { "url": "https://codingblocks.libsyn.com/rss", "title": "Coding Blocks", "titleCleanser": "^\\d+.\\s", "forceHttps": true }]```
+
+- The podcast has a **search engine** installed, for live tests.
+- There is data in `/cypress/fixtures` that is used for mocking API calls and audio check.
+- User stories that are in a separate file, and at the moment unwritten.
 
 
 
@@ -54,14 +56,19 @@ A checkbox has been added to indicate if a test in in place [x], in the process 
 
 This will also allow us to have a better grasp on what the [Code Coverage](https://github.com/codingblocks/qit.cloud/issues/110) **badge** actually means for the vital areas. 
 
+After speaking with others int he project, this section may undergo a major revision, once all test areas are identified, and the overall goals for each area updated.
+
 ###Unit tests:###
+
+Testing of the individual sections of the program: this is an overall view, and includes the tests that should be added during the updates and commits of code. 
+
 [ ]  [All areas that are user-facing are a11y](https://github.com/codingblocks/qit.cloud/issues/228)  
 [ ]  [Unique ids](https://github.com/codingblocks/qit.cloud/issues/230)  
 [ ]  [Meta description is included](https://github.com/codingblocks/qit.cloud/issues/275)  
 [ ]  All units should be working before being committed - simple check to insure it shows on screen  
 [ ]  Tests should be kept together  
 [ ]  Mocks should be kept close to what they are mocking  
-[ ]  Individual areas will have their own subsection for test coverage
+[ ]  Individual areas may have their own subsection for test coverage
      
 - QIT **API**
 - Website
@@ -77,16 +84,20 @@ This will also allow us to have a better grasp on what the [Code Coverage](https
 - Security
 - QIT Feed Loader (in its own repo)
 
-
-###Integration tests:###
-[ ]  Basic tests pass for all units in the integration  
+ 
 [ ]  Feed loader adds new pod casts to search engine   
 [ ]  Any errors are logged  
-[ ]  
-[ ]   
-[ ]  
-[ ]   
-[ ]  
+[ ]  Service worker(s) communicate between modules     
+[ ]  Controllers are able to access needed modules and data   
+[ ]  API can access the newest podcast feed  
+[ ]  [SSL Proxy Bug](https://github.com/codingblocks/qit.cloud/issues/45)  
+[ ]  [Google analytics code should be extracted from the code base](https://github.com/codingblocks/qit.cloud/issues/47)  
+[ ]  [Should be able to view full screen content for episode](https://github.com/codingblocks/qit.cloud/issues/53)  
+[ ]  [Automated dependency management](https://github.com/codingblocks/qit.cloud/issues/154)  
+[ ]  [Automatic deployment](https://github.com/codingblocks/qit.cloud/issues/163)  
+[ ]  [Optimize SVG images during build/test](https://github.com/codingblocks/qit.cloud/issues/170)     
+[ ][Basic metrics and button to clear cache/sw](https://github.com/codingblocks/qit.cloud/issues/7)  
+[ ]  [Text completion / auto suggestion for search terms?](https://github.com/codingblocks/qit.cloud/issues/48)    
 [ ]  
 [ ]  
 [ ] 
@@ -95,14 +106,73 @@ This will also allow us to have a better grasp on what the [Code Coverage](https
 [ ] [Offline graceful fails](https://github.com/codingblocks/qit.cloud/issues/137)   
 [ ] [Stubs/mocks are correct](https://github.com/codingblocks/qit.cloud/issues/198)   
 [ ] [The site is easily crawled for searching](https://github.com/codingblocks/qit.cloud/issues/276)   
-[ ]  
+[ ] Can a transfer between devices for a registered user pick up changes (volume, position, queue, etc) to a podcast  
 
 
 
 ## Features To Be Tested ##
+
+This section needs a redesign, to allow for a risk level column, with the High- Medium- Low risk scale. All of these tests and checks need to be looked at from the USERS point of view, and fail or pass on that criteria.
+
+This list is incomplete, and needs additions to it.
+
+[x]  Main page loads    
+[x]  Performs a search via the form    
+[x]  Add item to queue    
+[x]  Removes item from queue 
+[x]  Multiple items can be removed from queue    
+[x]  Multiple items can be added to queue    
+[x]  Queue page is loaded when adding items    
+[ ]  Queue page is accessible via a button   
+[?]  Drag and drop to move item up    
+[?]  Drag and drop to move item down    
+[x]  Shows a "No Results" page    
+[ ]  Service workers are installed and running correctly    
+[ ]  Opens without log-in required  
+[ ]  Log-in opens in new window  
+[ ]  There is an option to use without registration  
+[ ]  Log-in security  
+[ ]  Password security  
+[ ]  Registration verification  
+[x]  QIT opens the about page  
+[ ]  Queue is empty on first load  
+[ ]  Double clicking the show title plays it  
+[ ]  Add to queue button shows up  
+[ ]  Play bar has speed adjustment, play button, forward and back, volume slider elapsed time  
+[ ]  Episode length is accurate  
+[x]  Audio plays  
+[x]  Audio will pause  
+[ ]  Audio resumes at the same spot   
+[ ]  Title and pod cast name is shown  
+[ ]  There is a link to the GitHub project on the About page  
+[ ]  The GitHub link opens in a new tab (current fail)  
+[ ]  The privacy notice opens in a new window  
+[ ]  Local version will reload if page is navigated away from  
+[ ]  Podcast will resume at previous position if the page is navigated away from 
+[x]  Back button returns to the main search page  
+[ ]  Clicking elsewhere will close log-in window  
+[ ]  Slider is adjustable  
+[ ]  Slider changes persist  
+[ ]  Volume and position adjustment are a11y  
+[ ]  Search terms come up accurately  
+[ ]  Pod cast are weighted depending on matching, age, and ?  
+[ ]  Items are marked as in queue on searches  
+[ ]  Adding an item to the queue marks it as in queue even after scrolling away from it  
+[ ]  Removing an item from the queue insures that it will show up in the next search as a non-queued item  
+[ ]  Sharing (TODO)  
+[ ]      
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]   
 [ ]  [Current Results cap](https://github.com/codingblocks/qit.cloud/issues/52)  
 [ ]  [Online or offline indicated](https://github.com/codingblocks/qit.cloud/issues/103)  
-[ ]  [Results panel matches the playlist height](https://github.com/codingblocks/qit.cloud/issues/176)  
+[ ]  [Results panel matches the play list height](https://github.com/codingblocks/qit.cloud/issues/176)  
 [ ]  [Podcast can return to specific time](https://github.com/codingblocks/qit.cloud/issues/189)  
 [ ]  [When searching for a podcast, all shows are shown](https://github.com/codingblocks/qit.cloud/issues/247)  
 [ ]  [Password can be reset](https://github.com/codingblocks/qit.cloud/issues/265)  
@@ -111,46 +181,27 @@ This will also allow us to have a better grasp on what the [Code Coverage](https
 [ ]  [Track duration](https://github.com/codingblocks/qit.cloud/issues/96)  
 [ ]  [FOSSA Scans and badge](https://github.com/codingblocks/qit.cloud/issues/149)  
 [ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
 
-This is a listing of what is to be tested from the USERS viewpoint of what the system
-does. This is not a technical description of the software but a USERS view of the functions. It
-is recommended to identify the test design specification associated with each feature or set of
-features.
-Set the level of risk for each feature. Use a simple rating scale such as (H, M, L); High,
-Medium and Low. These types of levels are understandable to a User. You should be
-prepared to discuss why a particular level was chosen.
 
 ##Features Not To Be Tested##
+
+This section needs a redesign, to allow room to place the reason why these items are not yet tested: such as a feature that has been used before and has not yet caused problems, or one that is not in this release. All of these tests and checks need to be looked at from the USERS point of view, and fail or pass on that criteria.
+
+This list is incomplete, and needs additions to it.
+
 [ ] [Common searches should have informational page](https://github.com/codingblocks/qit.cloud/issues/12)   
-[ ] [Basic metrics and button to clear cache/sw](https://github.com/codingblocks/qit.cloud/issues/7)  
-[ ]  [Text completion / auto suggestion for search terms?](https://github.com/codingblocks/qit.cloud/issues/48)  
-[ ]  [Language localization](https://github.com/codingblocks/qit.cloud/issues/49)
+[ ]  [Language localization](https://github.com/codingblocks/qit.cloud/issues/49)  
 [ ]  [Should be able to work locally, sans cloud dependency](https://github.com/codingblocks/qit.cloud/issues/6)  
 [ ]  [Loading Messages, tips and suggestions](https://github.com/codingblocks/qit.cloud/issues/10)  
-[ ]  [SSL Proxy Bug](https://github.com/codingblocks/qit.cloud/issues/45)  
-[ ]  [Google analytics code should be extracted from the code base](https://github.com/codingblocks/qit.cloud/issues/47) 
 [ ]  [Should be able to view full screen content for episode](https://github.com/codingblocks/qit.cloud/issues/53)  
-[ ]  [More information button](https://github.com/codingblocks/qit.cloud/issues/102)  
-[ ]  [Automated dependency management](https://github.com/codingblocks/qit.cloud/issues/154)  
-[ ]  [Automatic deployment](https://github.com/codingblocks/qit.cloud/issues/163)  
-[ ]  [Optimize SVG images during build/test](https://github.com/codingblocks/qit.cloud/issues/170)  
+[ ]  [More information button](https://github.com/codingblocks/qit.cloud/issues/102)   
+[ ]  Email verification  
+[ ]  Sharing    
+[ ]    
+[ ]  
 [ ]  
 [ ]  
 
-This is a listing of what is NOT to be tested from both the Users viewpoint of what the
-system does and a configuration management/version control view. This is not a technical
-description of the software but a USERS view of the functions.
-·  Identify WHY the feature is not to be tested, there can be any number of reasons.
-·  Not to be included in this release of the Software.
-·  Low risk, has been used before and is considered stable.
-·  Will be released but not tested or documented as a functional part of the release of
-this version of the software.
 
 ##Approach##
 
