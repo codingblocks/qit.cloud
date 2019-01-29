@@ -1,11 +1,13 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
 
-[![Build Status](https://travis-ci.org/codingblocks/qit.cloud.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 [![Ruby Version](https://img.shields.io/badge/Ruby-v2.5.1-green.svg)](https://www.ruby-lang.org/en)
 [![Rails Version](https://img.shields.io/badge/Rails-v5.2.1-green.svg)](https://rubyonrails.org/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-green.svg)](https://standardjs.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+[![Build Status](https://travis-ci.org/codingblocks/qit.cloud.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ed8b274c56737a471ec9/maintainability)](https://codeclimate.com/github/codingblocks/qit.cloud/maintainability)
 
 
 # qit: Listen to Programming Podcasts by Topic
