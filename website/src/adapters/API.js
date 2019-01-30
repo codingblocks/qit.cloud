@@ -42,27 +42,26 @@ class API {
   }
 
   static get (url) {
-    return fetch(url, {
-      headers: this.headers
-    }).then(resp => resp.json())
-      .catch(e => {
-        console.log(`API error: ${e}`)
-        window.errorReporting.notify({
-          error: `API error: ${e}`
-        })
-      })
+    const options = { headers: this.headers }
+    return this.request(url, options)
   }
 
   static post (url, data) {
-    return fetch(url, {
+    const options = {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify(data)
-    }).then(resp => resp.json())
-      .catch(e => {
-        console.log(`API error: ${e}`)
+    }
+    return this.request(url, options)
+  }
+
+  static request (url, options) {
+    return fetch(url, options)
+      .then(resp => resp.json())
+      .catch(event => {
+        console.log(`API error: ${event}`)
         window.errorReporting.notify({
-          error: `API error: ${e}`
+          error: `API error: ${event}`
         })
       })
   }
