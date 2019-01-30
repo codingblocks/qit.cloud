@@ -14,6 +14,13 @@ class API {
     this.unqueueEpisodeUrl = this.baseUrl + '/unqueue_episode'
   }
 
+  static get headers () {
+    return {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token')
+    }
+  }
+
   static signin (username, password) {
     return this.post(this.signinUrl, {username, password})
   }
@@ -36,10 +43,7 @@ class API {
 
   static get (url) {
     return fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token')
-      }
+      headers: this.headers
     }).then(resp => resp.json())
       .catch(e => {
         console.log(`API error: ${e}`)
@@ -52,10 +56,7 @@ class API {
   static post (url, data) {
     return fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token')
-      },
+      headers: this.headers,
       body: JSON.stringify(data)
     }).then(resp => resp.json())
       .catch(e => {
