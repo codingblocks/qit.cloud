@@ -14,6 +14,26 @@ class API {
     this.unqueueEpisodeUrl = this.baseUrl + '/unqueue_episode'
   }
 
+  static signin (username, password) {
+    return this.post(this.signinUrl, {username, password})
+  }
+
+  static signup (username, password, email) {
+    return this.post(this.signupUrl, { username, password, email })
+  }
+
+  static getUser () {
+    return this.get(this.userUrl)
+  }
+
+  static queueEpisode (episode) {
+    return this.post(this.queueEpisodeUrl, { episode })
+  }
+
+  static unqueueEpisode (id) {
+    return this.post(this.unqueueEpisodeUrl, { id })
+  }
+
   static get (url) {
     return fetch(url, {
       headers: {
@@ -46,25 +66,6 @@ class API {
       })
   }
 
-  static signin (username, password) {
-    return this.post(this.signinUrl, {username, password})
-  }
-
-  static signup (username, password, email) {
-    return this.post(this.signupUrl, { username, password, email })
-  }
-
-  static getUser () {
-    return this.get(this.userUrl)
-  }
-
-  static queueEpisode (episode) {
-    return this.post(this.queueEpisodeUrl, { episode })
-  }
-
-  static unqueueEpisode (id) {
-    return this.post(this.unqueueEpisodeUrl, { id })
-  }
 }
 
 API.init()
