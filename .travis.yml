@@ -21,7 +21,6 @@ cache:
 branches:
   only:
     - master
-    - code-climate-test-coverage
 env:
   global:
     - CI=true
