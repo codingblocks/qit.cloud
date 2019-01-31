@@ -3,9 +3,15 @@ language: node_js
 node_js:
   - "10"
 dist: trusty
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-  - npm run test
+  - npm run test:coverage
   - npm run ci:e2e
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install:
   - npm ci
 cache:
@@ -15,5 +21,8 @@ cache:
 branches:
   only:
     - master
+    - code-climate-test-coverage
 env:
-  CI=true
+  global:
+    - CI=true
+    - CC_TEST_REPORTER_ID=1576747d5c41f48a68d383c49ca2e8e7040fa13bd86ee3603f307e1885967cd3
