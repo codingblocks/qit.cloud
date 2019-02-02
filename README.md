@@ -7,8 +7,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 [![Build Status](https://travis-ci.org/codingblocks/qit.cloud.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cedbed6-2dac-482d-a7ab-56136a5f86ad/deploy-status)](https://app.netlify.com/sites/reverent-shirley-6c1ba7/deploys)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed8b274c56737a471ec9/maintainability)](https://codeclimate.com/github/codingblocks/qit.cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ed8b274c56737a471ec9/test_coverage)](https://codeclimate.com/github/codingblocks/qit.cloud/test_coverage)
+
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
