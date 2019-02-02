@@ -1,4 +1,5 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 [![Ruby Version](https://img.shields.io/badge/Ruby-v2.5.1-green.svg)](https://www.ruby-lang.org/en)
@@ -146,6 +147,11 @@ The search engine gets populated via a different github project, the [QIT Podcas
 
 ## Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="100px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Aditya Kolla](https://github.com/aditya-kolla)
 - [Arlene Andrews](https://github.com/arleneandrews)
