@@ -20,6 +20,17 @@
         "infra",
         "doc"
       ]
+    },
+    {
+      "login": "ArleneAndrews",
+      "name": "Arlene",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25411099?v=4",
+      "profile": "https://github.com/ArleneAndrews",
+      "contributions": [
+        "doc",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
