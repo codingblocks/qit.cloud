@@ -10,7 +10,7 @@ before_script:
 script:
   - npm run test:coverage
   - npm run ci:e2e
-  - ../qit-api && rake tests && cd ../website
+  - cd ../qit-api && rake tests && cd ../website
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install:
