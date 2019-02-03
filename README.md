@@ -34,12 +34,12 @@ If you do not work in the software field, simply installing the program correctl
 [Install Docker Desktop](https://docs.docker.com/install/#supported-platforms)
 
 ### If your system will not take Docker ###
-There is another way to do this, but it requries a few more steps. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). 
+There is another way to do this, but it requries a few more steps. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/).
 
 
 ### Running locally:
 
-You can also use this by installing Ruby and Postgres: two programs that will allow the files to run. this setup is a bit more complex. 
+You can also use this by installing Ruby and Postgres: two programs that will allow the files to run. this setup is a bit more complex.
 
 ```bash
 # Start Postgres and the API
@@ -112,13 +112,6 @@ npm run cypress:run
 cd website
 npm run local:e2e
 ```
-
-#### Vladimir`s version of docker
-Before running dockers, run
-```bash
-docker network create codingblocks
-```
-so that in future containers are able to see each others, within this network
 
 ###### Spin docker containers
 Go to desired folder.

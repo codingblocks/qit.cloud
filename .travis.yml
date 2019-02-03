@@ -10,10 +10,12 @@ before_script:
 script:
   - npm run test:coverage
   - npm run ci:e2e
+  - ../qit-api && rake tests
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install:
   - npm ci
+  - cd ../qit-api && gem install nokogiri -v '1.8.4' && bundle install
 cache:
   npm: true
   directories:
@@ -21,6 +23,7 @@ cache:
 branches:
   only:
     - master
+    - vladimir/Test&DockerCompose
 env:
   global:
     - CI=true
