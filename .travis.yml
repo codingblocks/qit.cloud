@@ -1,7 +1,15 @@
-before_install: cd website
-language: node_js
-node_js:
-  - "10"
+sudo: required
+language: ruby
+rvm:
+  - 2.5.1
+addons:
+  postgresql: '9.6'
+branches:
+  only:
+    - master
+before_install:
+  - cd website
+  - nvm install node v10.15.0
 dist: trusty
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -14,10 +22,13 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install:
   - npm ci
+  - cd ../qit-api && bundle install && cd ../website
 cache:
   npm: true
   directories:
+    - vendor/bundle
     - ~/.cache
+    - $HOME/.nvm
 branches:
   only:
     - master
