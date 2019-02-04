@@ -1,7 +1,7 @@
 sudo: required
 language: ruby
 rvm:
-  - 2.6.0
+  - 2.5.1
 addons:
   postgresql: '9.6'
 branches:
@@ -23,7 +23,7 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 install:
   - npm ci
-  - cd ../qit-api && gem install nokogiri -v '1.8.4' && bundle install && cd ../website
+  - cd ../qit-api && bundle install && cd ../website
 cache:
   npm: true
   directories:
