@@ -124,6 +124,9 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
 
 # start regular docker
 docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)
+
+# to start specific service
+docker-compose -f docker-compose.yml up -d website (or any other service name from docker-compose)
 ```
 
 Command to stop container:
