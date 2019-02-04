@@ -42,6 +42,27 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "davefollett",
+      "name": "Dave Follett",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6683520?v=4",
+      "profile": "https://davefollett.io",
+      "contributions": [
+        "code",
+        "infra",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "Aditya-Kolla",
+      "name": "Aditya Kolla",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31780340?v=4",
+      "profile": "https://github.com/Aditya-Kolla",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
