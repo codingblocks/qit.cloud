@@ -18,23 +18,11 @@ services:
       - codingblocks
     restart: 'always'
     command: npm start
-  db:
-    container_name: "coding-blocks-database"
-    build:
-      context: qit-api
-      dockerfile: dockerfile-postgres
-    # Comment this out if you want a fresh db every time
-    environment:
-      - POSTGRES_USER=postgres
-    ports:
-     - "5432:5432"
-    networks:
-      - codingblocks
-  web:
+  api:
     container_name: "coding-blocks-api"
     build:
       context: qit-api
-      dockerfile: dockerfile-ruby
+      dockerfile: Dockerfile-ruby
     command: bundle exec rails s -p 3005 -b '0.0.0.0'
     networks:
       - codingblocks
@@ -47,7 +35,7 @@ services:
       - 'QIT_API_DATABASE_USERNAME=postgres'
       - 'QIT_API_DATABASE_PASSWORD='
       - 'QIT_API_DATABASE_NAME=postgres'
-      - 'QIT_API_DATABASE_HOST=coding-blocks-database'
+      - 'QIT_API_DATABASE_HOST=db'
       - 'QIT_API_SECRET=QITROCKS!'
 networks:
   codingblocks:
