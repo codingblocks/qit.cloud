@@ -1,9 +1,9 @@
 # QIT #
 
-- MVP Test Plan 1.11
-- Versioned for Core User Experience 1.0; produced on 2 February, 2019
+- MVP Test Plan 1.12
+- Versioned for Core User Experience 1.0; produced on 4 February, 2019
 - Plan produced by Arlene Andrews (@ArleneAndrews)
-- Modification to include more test activity and data locations 
+- Modification to include more test activity
 
 ## Introduction ##
 This is a master-level plan to insure that all of the areas of the QIT Core User Experience have unit and end-to-end tests. With many active and not always consistent improvements, this plan will assure that all the important areas have unit tests, and that both **online** and **offline** **end-to-end** tests are created, maintained and checked on a regular basis.
@@ -183,27 +183,64 @@ This list is incomplete, and needs additions to it.
 [ ]  
 
 
+## Test We WANT to Fail ##
+There are people out there who wish to use or abuse content created by others, including personal information and secure inputs. These test will be written as if someone is trying to get additional information, which is why we want them to fail. 
+This feels, to me, a more straightforward approach than figuring out the negative cases, and writing them that way.
+The first test is an example - we don't want someone able to input a command in the user name field. The fact that it will not run the code is a passing test.
+
+[ ]  I can add code in the user name field  
+[ ]  I can add code in the password field  
+[ ]  I can add in the email field  
+[ ]  I can find the password of accounts other than QIT  
+[ ]  I can open other apps on the mobile device  
+[ ]  I can open other desktop apps  
+[ ]  I can send mail to other contacts by using QIT  
+[ ]  I can access user information without being signed in  
+[ ]  I can use an app to request money from a bank  
+[ ]  I can use an app to request money from a social contact  
+[ ]  I can download and modify a podcast episode  
+[ ]  I can upload a changed episode  
+[ ]  Docker containers can be pulled up or shut down from inside QIT  
+[ ]  Code can be added to be run during opening/shutdown  
+[ ]  I can access a different database  
+[ ]  The API can be pointed at a different location  
+[ ]  Contacts can be opened and an email sent  
+[ ]  Contacts can be copied  
+[ ]  Other apps can be opened and used, without being shown on-screen  
+[ ]    
+[ ]    
+[ ]     
+[ ]      
+[ ]        
+[ ]    
+[ ]    
+[ ]    
+[ ]    
+[ ]    
+[ ]    
+[ ]  Shared lists can be changed to add a backdoor  
+[ ]  Shared lists can have additional code added to them   
+
 ##Features Not To Be Tested##
 
 This section needs a redesign, to allow room to place the reason why these items are not yet tested: such as a feature that has been used before and has not yet caused problems, or one that is not in this release. All of these tests and checks need to be looked at from the USERS point of view, and fail or pass on that criteria.
 
 This list is incomplete, and needs additions to it.
 
-[ ] [Common searches should have informational page](https://github.com/codingblocks/qit.cloud/issues/12)   
-[ ]  [Language localization](https://github.com/codingblocks/qit.cloud/issues/49)  
-[ ]  [Should be able to work locally, sans cloud dependency](https://github.com/codingblocks/qit.cloud/issues/6)  
-[ ]  [Loading Messages, tips and suggestions](https://github.com/codingblocks/qit.cloud/issues/10)  
-[ ]  [Should be able to view full screen content for episode](https://github.com/codingblocks/qit.cloud/issues/53)  
-[ ]  [More information button](https://github.com/codingblocks/qit.cloud/issues/102)   
-[ ]  Email verification  
-[ ]  Sharing of podcast (single one)  
-[ ]  Sharing list of podcasts  
-[ ]  keeping multiple lists for sharing  
-[ ]  [FOSSA Scans and badge](https://github.com/codingblocks/qit.cloud/issues/149)    
-[ ]  
-[ ]  
-[ ]  
+- [Common searches should have informational page](https://github.com/codingblocks/qit.cloud/issues/12) | Not in this release
+-  [Language localization](https://github.com/codingblocks/qit.cloud/issues/49) | Not in this release
+-  [Should be able to work locally, sans cloud dependency](https://github.com/codingblocks/qit.cloud/issues/6) | Not in this release
+-  [Loading Messages, tips and suggestions](https://github.com/codingblocks/qit.cloud/issues/10) | Not in this release
+-  [Should be able to view full screen content for episode](https://github.com/codingblocks/qit.cloud/issues/53) | Not in this release  
+-  [More information button](https://github.com/codingblocks/qit.cloud/issues/102)  | Not in this release  
+-  Email verification   | In development
+-  Sharing of podcast (single one)   | Not in this release
+-  Sharing list of podcasts   | Not in this release
+-  Keeping multiple lists for sharing   | Not in this release
+-  [FOSSA Scans and badge](https://github.com/codingblocks/qit.cloud/issues/149)  | Not in this release   
  
+
+
 # TODO #
 
 ##Approach##
