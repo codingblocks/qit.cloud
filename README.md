@@ -150,7 +150,7 @@ docker-compose stop
 
 The search engine gets populated via a different github project, the [QIT Podcast Feed Loader](https://github.com/codingblocks/qit-podcast-feed-loader) project.
 
-## Contributors
+## Contributors (Auto-Generated)
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
@@ -158,7 +158,7 @@ The search engine gets populated via a different github project, the [QIT Podcas
 | :---: | :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Legacy Contributors List
+## All Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Aditya Kolla](https://github.com/aditya-kolla)
@@ -172,3 +172,4 @@ The search engine gets populated via a different github project, the [QIT Podcas
 - [Paul Mcilreavy](https://github.com/pmcilreavy)
 - [Sung Kim](https://github.com/dance2die/)
 - [Vladimir Kunarac](https://github.com/vlado92)
+- [Joseph Dollahon](https://github.com/joseph-d-d)
