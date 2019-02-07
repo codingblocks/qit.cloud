@@ -46,6 +46,10 @@ You can also use this by installing Ruby and Postgres: two programs that will al
 cd qit-api
 docker-compose up -d
 
+# Setup pre-commit hooks
+npm install
+
+# Setup front-end
 cd ../website
 npm install
 npm start
