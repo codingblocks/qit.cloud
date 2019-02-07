@@ -33,16 +33,17 @@ If you do not work in the software field, simply installing the program correctl
 ### Installation Instructions ###
 [Install Docker Desktop](https://docs.docker.com/install/#supported-platforms)
 
-### If your system will not take Docker ###
-There is another way to do this, but it requries a few more steps. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/).
+### If your system does not support docker ###
+You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). Warning! No further instruction exist at this time for this method.
 
 
 ### Running locally:
-
-You can also use this by installing Ruby and Postgres: two programs that will allow the files to run. this setup is a bit more complex.
+<ol>
+  <li>Create a fork of the qit repo.</li>
+  <li>Clone forked repo.</li>
+  <li>Run following commands in the commandline of your choice
 
 ```bash
-# Start Postgres and the API
 cd qit-api
 docker-compose up -d
 
@@ -54,6 +55,10 @@ cd ../website
 npm install
 npm start
 ```
+</li>
+</ol>
+
+
 
 ### Running in "production:
 
