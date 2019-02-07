@@ -44,7 +44,7 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
   <li>Run following commands in the commandline of your choice
 
 ```bash
-cd qit-api
+# Start Postgres and the API
 docker-compose up -d
 
 # Setup pre-commit hooks
