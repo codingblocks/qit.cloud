@@ -37,7 +37,7 @@ If you do not work in the software field, simply installing the program correctl
 
 There is another way to do this, but it requires a few more steps. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [PostgreSQL](https://www.postgresql.org/download/). 
 
-Now, you're ready to download the repository. GitHub allows you to [clone a repository](https://help.github.com/articles/cloning-a-repository/), which you then can open with Docker.
+Now, you're ready to download the repository. GitHub allows you to [fork](https://help.github.com/articles/fork-a-repo/) and then [clone a repository](https://help.github.com/articles/cloning-a-repository/), which you then can open with Docker.
 
 
 

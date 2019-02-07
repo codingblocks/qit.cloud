@@ -21,5 +21,9 @@ ADDED 14 January: Working with Enzyme, a test to insure that the Qit logo is sho
 
 `sw.test` has a copied simple service worker test.
 
-ADDED 14 January:
-`logo.test` now exists, and has a snapshot test. If rerunning the tst suites for Jest, please add the `-u` flag to the test request, to clear any outdtated snapshots.
+ADDED 14 January, deleted 7 February:
+`logo.test` now exists, and has a snapshot test. If rerunning the test suites for Jest, please add the `-u` flag to the test request, to clear any outdatated snapshots. 
+This test was removed, as it duplicates a Cypress test.
+
+ADDED 22 January 2019
+`basicmock.test` was added to insure that the mocking capabilities would function.
