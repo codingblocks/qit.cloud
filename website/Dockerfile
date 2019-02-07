@@ -7,7 +7,6 @@ WORKDIR /app
 
 COPY . /app
 
-ARG NODE_ENV
 ARG PORT
 
 # Install app dependencies

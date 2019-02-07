@@ -1,0 +1,69 @@
+{
+  "projectName": "qit.cloud",
+  "projectOwner": "codingblocks",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "THEjoezack",
+      "name": "Joe Zack",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/81006?v=4",
+      "profile": "http://joezack.com",
+      "contributions": [
+        "code",
+        "design",
+        "infra",
+        "doc"
+      ]
+    },
+    {
+      "login": "ArleneAndrews",
+      "name": "Arlene",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25411099?v=4",
+      "profile": "https://github.com/ArleneAndrews",
+      "contributions": [
+        "doc",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "vlado92",
+      "name": "Vladimir",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11421183?v=4",
+      "profile": "https://github.com/vlado92",
+      "contributions": [
+        "infra",
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "davefollett",
+      "name": "Dave Follett",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6683520?v=4",
+      "profile": "https://davefollett.io",
+      "contributions": [
+        "code",
+        "infra",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "Aditya-Kolla",
+      "name": "Aditya Kolla",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31780340?v=4",
+      "profile": "https://github.com/Aditya-Kolla",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

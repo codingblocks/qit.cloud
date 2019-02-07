@@ -18,7 +18,25 @@ services:
       - codingblocks
     restart: 'always'
     command: npm start
-
+  api:
+    container_name: "coding-blocks-api"
+    build:
+      context: qit-api
+      dockerfile: Dockerfile-ruby
+    command: bundle exec rails s -p 3005 -b '0.0.0.0'
+    networks:
+      - codingblocks
+    ports:
+      - "3005:3005"
+    #env_file: # You need a .env for non-dev scenario
+    #  - ./qit-api/config/.env
+    environment:
+      - 'DOCKER=true'
+      - 'QIT_API_DATABASE_USERNAME=postgres'
+      - 'QIT_API_DATABASE_PASSWORD='
+      - 'QIT_API_DATABASE_NAME=postgres'
+      - 'QIT_API_DATABASE_HOST=db'
+      - 'QIT_API_SECRET=QITROCKS!'
 networks:
   codingblocks:
     external: false

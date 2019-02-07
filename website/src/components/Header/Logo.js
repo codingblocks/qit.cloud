@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export const Logo = ({className, history, href, text}) =>
   <span
-    data-testid="logo"
+    data-testid='logo'
     className={className}
     data-nav={'about'}
     href={href}

@@ -1,5 +1,6 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
 
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 [![Ruby Version](https://img.shields.io/badge/Ruby-v2.5.1-green.svg)](https://www.ruby-lang.org/en)
 [![Rails Version](https://img.shields.io/badge/Rails-v5.2.1-green.svg)](https://rubyonrails.org/)
@@ -9,6 +10,8 @@
 [![Build Status](https://travis-ci.org/codingblocks/qit.cloud.svg?branch=master)](https://travis-ci.org/codingblocks/podcast-app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed8b274c56737a471ec9/maintainability)](https://codeclimate.com/github/codingblocks/qit.cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ed8b274c56737a471ec9/test_coverage)](https://codeclimate.com/github/codingblocks/qit.cloud/test_coverage)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cedbed6-2dac-482d-a7ab-56136a5f86ad/deploy-status)](https://app.netlify.com/sites/reverent-shirley-6c1ba7/deploys)
 
 # qit: Listen to Programming Podcasts by Topic
 qit...get it? get it? Like...Queue I.T.!
@@ -36,14 +39,18 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 
 ### Running locally:
 <ol>
-<li>Create a fork of the qit repo.</li>
-<li>Clone forked repo.</li>
-<li>Run following commands in the commandline of your choice
+  <li>Create a fork of the qit repo.</li>
+  <li>Clone forked repo.</li>
+  <li>Run following commands in the commandline of your choice
 
 ```bash
 cd qit-api
 docker-compose up -d
 
+# Setup pre-commit hooks
+npm install
+
+# Setup front-end
 cd ../website
 npm install
 npm start
@@ -115,13 +122,6 @@ cd website
 npm run local:e2e
 ```
 
-#### Vladimir`s version of docker
-Before running dockers, run
-```bash
-docker network create codingblocks
-```
-so that in future containers are able to see each others, within this network
-
 ###### Spin docker containers
 Go to desired folder.
 ```
@@ -133,6 +133,9 @@ docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
 
 # start regular docker
 docker-compose build && docker-compose up [ OPTIONAL ] -d (if console is not needed)
+
+# to start specific service
+docker-compose -f docker-compose.yml up -d website (or any other service name from docker-compose)
 ```
 
 Command to stop container:
@@ -148,6 +151,14 @@ docker-compose stop
 The search engine gets populated via a different github project, the [QIT Podcast Feed Loader](https://github.com/codingblocks/qit-podcast-feed-loader) project.
 
 ## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="100px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25411099?v=4" width="100px;" alt="Arlene"/><br /><sub><b>Arlene</b></sub>](https://github.com/ArleneAndrews)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Code") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="100px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="100px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars2.githubusercontent.com/u/31780340?v=4" width="100px;" alt="Aditya Kolla"/><br /><sub><b>Aditya Kolla</b></sub>](https://github.com/Aditya-Kolla)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Aditya-Kolla "Code") |
+| :---: | :---: | :---: | :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Legacy Contributors List
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Aditya Kolla](https://github.com/aditya-kolla)
