@@ -9,12 +9,6 @@ import { Logo } from '../components/Header/Logo'
 
 window.it('should run smoke test', () => console.log('write real tests'))
 
-it('Renders without crashing', () => {
-  const tree = shallow(<Index />)
-  const shot = (tree).toJSON
-  expect(shot).toMatchSnapshot()
-})
-
 describe('Opening index', () => {
   beforeAll(() => renderDiv)
 
