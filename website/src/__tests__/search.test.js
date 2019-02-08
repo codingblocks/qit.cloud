@@ -1,7 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme';
-import {divBreakdown, renderDiv, Header } from '../setup'
-import {Search} from '../components/Header/Search'
+import { shallow } from 'enzyme'
+import { divBreakdown, renderDiv, Header } from '../setup'
+import { Search } from '../components/Header/Search'
 import 'jest-dom/extend-expect'
 
 describe('Search Props', () => {
@@ -9,10 +9,9 @@ describe('Search Props', () => {
 
   afterAll(() => divBreakdown)
 
-
-  it('Search defaults should be empty', () =>{
-  expect(Search.defaultProps.className).toEqual("");
-  expect(Search.defaultProps.searchTerm).toEqual("");
+  it('Search defaults should be empty', () => {
+    expect(Search.defaultProps.className).toEqual('')
+    expect(Search.defaultProps.searchTerm).toEqual('')
   })
 
   it('Should have the form and input showing', () => {

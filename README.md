@@ -1,6 +1,6 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 [![Ruby Version](https://img.shields.io/badge/Ruby-v2.5.1-green.svg)](https://www.ruby-lang.org/en)
 [![Rails Version](https://img.shields.io/badge/Rails-v5.2.1-green.svg)](https://rubyonrails.org/)
@@ -33,27 +33,32 @@ If you do not work in the software field, simply installing the program correctl
 ### Installation Instructions ###
 [Install Docker Desktop](https://docs.docker.com/install/#supported-platforms)
 
-### If your system will not take Docker ###
-
-There is another way to do this, but it requires a few more steps. You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [PostgreSQL](https://www.postgresql.org/download/). 
-
-Now, you're ready to download the repository. GitHub allows you to [fork](https://help.github.com/articles/fork-a-repo/) and then [clone a repository](https://help.github.com/articles/cloning-a-repository/), which you then can open with Docker.
-
+### If your system does not support docker ###
+You will need to download and install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Postgre](https://www.postgresql.org/download/). Warning! No further instruction exist at this time for this method.
 
 
 ### Running locally:
-
-You can also use this by installing Ruby and Postgres: two programs that will allow the files to run. this setup is a bit more complex.
+<ol>
+  <li>Create a fork of the qit repo.</li>
+  <li>Clone forked repo.</li>
+  <li>Run following commands in the commandline of your choice
 
 ```bash
 # Start Postgres and the API
-cd qit-api
 docker-compose up -d
 
+# Setup pre-commit hooks
+npm install
+
+# Setup front-end
 cd ../website
 npm install
 npm start
 ```
+</li>
+</ol>
+
+
 
 ### Running in "production:
 
@@ -151,11 +156,11 @@ We now have a bot! If you are, or have, contributing to this project, please sen
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="100px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25411099?v=4" width="100px;" alt="Arlene"/><br /><sub><b>Arlene</b></sub>](https://github.com/ArleneAndrews)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Code") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="100px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="100px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars2.githubusercontent.com/u/31780340?v=4" width="100px;" alt="Aditya Kolla"/><br /><sub><b>Aditya Kolla</b></sub>](https://github.com/Aditya-Kolla)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Aditya-Kolla "Code") |
-| :---: | :---: | :---: | :---: | :---: |
+| [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="100px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25411099?v=4" width="100px;" alt="Arlene"/><br /><sub><b>Arlene</b></sub>](https://github.com/ArleneAndrews)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Code") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="100px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="100px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars2.githubusercontent.com/u/31780340?v=4" width="100px;" alt="Aditya Kolla"/><br /><sub><b>Aditya Kolla</b></sub>](https://github.com/Aditya-Kolla)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Aditya-Kolla "Code") | [<img src="https://avatars1.githubusercontent.com/u/6821650?v=4" width="100px;" alt="Joseph Dollahon"/><br /><sub><b>Joseph Dollahon</b></sub>](http://www.josephdollahon.com)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=joseph-d-d "Documentation") |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Legacy Contributors List
+## All Contributors
 - [Aaron Clawson](https://github.com/MadVikingGod)
 - [Adam Lantz](https://github.com/AdamLantz)
 - [Aditya Kolla](https://github.com/aditya-kolla)
@@ -169,3 +174,4 @@ We now have a bot! If you are, or have, contributing to this project, please sen
 - [Paul Mcilreavy](https://github.com/pmcilreavy)
 - [Sung Kim](https://github.com/dance2die/)
 - [Vladimir Kunarac](https://github.com/vlado92)
+- [Joseph Dollahon](https://github.com/joseph-d-d)

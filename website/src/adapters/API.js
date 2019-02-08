@@ -4,7 +4,6 @@
 import config from '../config'
 
 class API {
-
   static init () {
     this.baseUrl = config.baseApiUrl
     this.userUrl = this.baseUrl + '/user'
@@ -65,7 +64,6 @@ class API {
         })
       })
   }
-
 }
 
 API.init()
