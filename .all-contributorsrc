@@ -72,6 +72,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "tehpsalmist",
+      "name": "Ben Steward",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/26337310?v=4",
+      "profile": "https://tehpsalmist.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
