@@ -72,6 +72,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "lyonsbp",
+      "name": "Brandon Lyons",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6699191?v=4",
+      "profile": "https://github.com/lyonsbp",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
