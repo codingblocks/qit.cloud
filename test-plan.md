@@ -71,11 +71,9 @@ Testing of the individual sections of the program: this is an overall view, and 
 [ ]  Individual areas may have their own subsection for test coverage
      
 - QIT **API**
+- Audio
 - Website
 - Service worker(s)
-- Components
-- Hooks
-- Models
 - Login/Logout
 - Email verification
 - UI/UX
@@ -159,16 +157,23 @@ This list is incomplete, and needs additions to it.
 [ ]  Items are marked as in queue on searches  
 [ ]  Adding an item to the queue marks it as in queue even after scrolling away from it  
 [ ]  Removing an item from the queue insures that it will show up in the next search as a non-queued item  
-[ ]    
-[ ]      
+[?]  Episode is added to playlist  
+[?]  An item from the playlist can be played    
+[?]  The entire playlist can be played
+[?]  an item from the queue can be added to the playlist  
+[?]  The user can log in  
+[ ]  Audio can be played  
+[ ]  Audio can be stopped  
+[ ]  Audio can be rewound  
 [ ]  
 [ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
+[ ]   
+[ ]   
+[ ]   
+[ ]   
+[ ]   
+[ ]   
+[ ]   
 [ ]   
 [ ]  [Current Results cap](https://github.com/codingblocks/qit.cloud/issues/52)  
 [ ]  [Online or offline indicated](https://github.com/codingblocks/qit.cloud/issues/103)  
