@@ -5,6 +5,7 @@ import { divBreakdown, renderDiv } from '../setup'
 import { Search, SearchWithRouter } from '../components/Header/Search'
 import { Logo } from '../components/Header/Logo'
 
+
 // replacement test while real tests are not written
 
 window.it('should run smoke test', () => console.log('write real tests'))
@@ -29,4 +30,5 @@ describe('Opening index', () => {
     expect.objectContaining({SearchWithRouter})
     expect(Logo).toBeDefined()
   })
-})
+});
+ 
