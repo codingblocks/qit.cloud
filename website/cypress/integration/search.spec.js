@@ -110,7 +110,7 @@ describe('Search', function () {
 
       cy.visit(`/search/${testSearchTerm}`)
 
-      cy.get('#resultText').contains(`0 results for "${testSearchTerm}"`)
+      cy.get('#resultText').contains(`0 results for ${testSearchTerm}`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
