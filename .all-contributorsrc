@@ -110,6 +110,15 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "MadVikingGod",
+      "name": "Aaron Clawson",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3766680?v=4",
+      "profile": "https://github.com/MadVikingGod",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
