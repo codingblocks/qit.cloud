@@ -138,6 +138,15 @@
         "code",
         "infra"
       ]
+    },
+    {
+      "login": "pmcilreavy",
+      "name": "Paul Mcilreavy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3075792?v=4",
+      "profile": "https://github.com/pmcilreavy",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
