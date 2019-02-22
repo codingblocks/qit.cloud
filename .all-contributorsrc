@@ -175,6 +175,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "codingblocks",
+      "name": "Coding Blocks",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6968415?v=4",
+      "profile": "http://www.codingblocks.net",
+      "contributions": [
+        "code",
+        "doc",
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7
