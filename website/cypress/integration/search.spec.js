@@ -1,4 +1,4 @@
-const searchTeem = 'ggiibb'
+const testSearchTerm = 'ggiibb'
 describe('Search', function () {
   describe('Input', function () {
     beforeEach(function () {
@@ -35,7 +35,7 @@ describe('Search', function () {
         method: 'GET',
         url: Cypress.env('baseSearchUrl').replace(
           '{searchTerm}',
-          `"${searchTeem}"`
+          `${testSearchTerm}`
         ),
         response: []
       })
@@ -46,12 +46,12 @@ describe('Search', function () {
 
       cy.get('input')
         .clear()
-        .type(searchTeem)
-        .should('have.value', searchTeem)
+        .type(testSearchTerm)
+        .should('have.value', testSearchTerm)
 
       cy.get('form').submit()
 
-      cy.get('#resultText').contains(`0 results for "${searchTeem}"`)
+      cy.get('#resultText').contains(`0 results for "${testSearchTerm}"`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
@@ -82,13 +82,13 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"lambda"'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
       cy.fixture('lambda_search_results.json').as('lambda_search_results')
 
-      cy.visit('/search/"lambda"')
+      cy.visit('/search/lambda')
     })
 
     it('returns the correct results length', function () {
@@ -103,14 +103,14 @@ describe('Search', function () {
         method: 'GET',
         url: Cypress.env('baseSearchUrl').replace(
           '{searchTerm}',
-          `"${searchTeem}"`
+          `"${testSearchTerm}"`
         ),
         response: []
       })
 
-      cy.visit(`/search/"${searchTeem}"`)
+      cy.visit(`/search/${testSearchTerm}`)
 
-      cy.get('#resultText').contains(`0 results for "${searchTeem}"`)
+      cy.get('#resultText').contains(`0 results for "${testSearchTerm}"`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
