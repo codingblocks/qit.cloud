@@ -6,7 +6,7 @@ describe('Search', function () {
 
       cy.route({
         method: 'GET',
-        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', '"lambda"'),
+        url: Cypress.env('baseSearchUrl').replace('{searchTerm}', 'lambda'),
         response: 'fixture:lambda_search_results.json'
       })
 
@@ -51,7 +51,7 @@ describe('Search', function () {
 
       cy.get('form').submit()
 
-      cy.get('#resultText').contains(`0 results for "${testSearchTerm}"`)
+      cy.get('#resultText').contains(`0 results for ${testSearchTerm}`)
       cy.get('#noResults').contains('No results were found. Please try again.')
     })
 
@@ -103,7 +103,7 @@ describe('Search', function () {
         method: 'GET',
         url: Cypress.env('baseSearchUrl').replace(
           '{searchTerm}',
-          `"${testSearchTerm}"`
+          `${testSearchTerm}`
         ),
         response: []
       })
