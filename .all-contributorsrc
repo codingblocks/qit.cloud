@@ -99,6 +99,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "garyray-k",
+      "name": "Gary R Krause",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/39040273?v=4",
+      "profile": "http://garyray-k.github.io",
+      "contributions": [
+        "doc",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
