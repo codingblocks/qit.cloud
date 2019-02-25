@@ -1,11 +1,8 @@
 import React from 'react'
 import { mount, render, shallow } from 'enzyme'
-import sinon from 'sinon'
 import {divBreakdown, renderDiv, mockEpisodes} from '../setup'
 import {Index} from '../components/Main/index'
-import {Queue} from '../components/Main/Queue'
-
-
+import Queue from '../components/Main/Queue'
 
 it('Smoke test', () => {
   expect(true).toEqual(true);
@@ -17,18 +14,14 @@ describe('Will play audio file', () => {
   afterAll(() => divBreakdown)
   
   it('should render', () => {
-    expect(Queue).toBeDefined()
+    const queueList = shallow(< Queue mockEpisodes />)
+    expect(queueList).toBeDefined()
+    console.log(queueList)
   }); 
 
   it('Will show queue items', () =>{
-    const episodes = {mockEpisodes}
-    const fakeQueue = jest.fn(episodes => episodes.episodeTitle);
-    expect(Queue, mockEpisodes).toBeDefined()
-    expect(fakeQueue).toHaveReturnedWith(mockEpisodes[0].episodeTitle)
-    /*const wrapper = .find (Queue)
-    .renderProp('queue', mockEpisodes)
-    expect(Queue).toContain(mockEpisodes[0].episodeTitle)
-    expect(wrapper).toContain(mockEpisodes[1].episodeTitle)
-    expect(wrapper).toContain(mockEpisodes[2].episodeTitle) */
+    expect.arrayContaining(mockEpisodes[0].episodeTitle)
+    expect.arrayContaining(mockEpisodes[1].episodeTitle)
+    expect.arrayContaining(mockEpisodes[2].episodeTitle)
   })
 })
