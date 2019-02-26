@@ -16,7 +16,6 @@ describe('Will play audio file', () => {
   it('should render', () => {
     const queueList = shallow(< Queue mockEpisodes />)
     expect(queueList).toBeDefined()
-    console.log(queueList)
   }); 
 
   it('Will show queue items', () =>{
@@ -24,4 +23,9 @@ describe('Will play audio file', () => {
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
   })
-})
+  
+  it('Load chosen episode ', () => {
+    expect(true).toEqual(true);
+  });
+
+});
