@@ -10,7 +10,7 @@ export const Search = ({className, searchTerm, history}) =>
     onSubmit={event => {
       event.preventDefault()
       event.target.querySelector('input').blur()
-      history.push(`/search/"${encodeURIComponent(searchTerm)}"`)
+      history.push(`/search/${encodeURIComponent(searchTerm)}`)
     }}
   >
     <input

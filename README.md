@@ -1,6 +1,6 @@
 ![qit logo](https://github.com/codingblocks/podcast-app/blob/master/website/public/images/icons/icon-144x144.png)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 [![Ruby Version](https://img.shields.io/badge/Ruby-v2.5.1-green.svg)](https://www.ruby-lang.org/en)
 [![Rails Version](https://img.shields.io/badge/Rails-v5.2.1-green.svg)](https://rubyonrails.org/)
@@ -72,10 +72,26 @@ As for what settings are available to you, there are a bunch of env variables to
 
 ```bash
 REACT_APP_BASE_SEARCH_URL
-REACT_APP_BASE_API_URL || 'http://localhost:3005/api/v1',
-REACT_APP_CORS_PROXY || 'https://cors-anywhere.herokuapp.com/',
-REACT_APP_MAX_SEARCH_RESULTS || 200,
-REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC',
+REACT_APP_BASE_API_URL 
+
+|
+
+| 'http://localhost:3005/api/v1',
+REACT_APP_CORS_PROXY 
+
+|
+
+| 'https://cors-anywhere.herokuapp.com/',
+REACT_APP_MAX_SEARCH_RESULTS 
+
+|
+
+| 200,
+REACT_APP_SEARCH_API_KEY 
+
+|
+
+| '18EA821D408444FCF3DC3EC4F3790FEC',
 REACT_APP_PLAYBACK_RATES
 REACT_APP_AIRBRAKE_PROJECTID
 REACT_APP_AIRBRAKE_PROJECTKEY
@@ -154,24 +170,12 @@ The search engine gets populated via a different github project, the [QIT Podcas
 We now have a bot! If you are, or have, contributing to this project, please send a PR with @all-contributors please add @[your GitHub account name] for [type of contribution](https://github.com/all-contributors/all-contributors#emoji-key)
 
 
+Huge thank you to everybody that has worked on this project!
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="100px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25411099?v=4" width="100px;" alt="Arlene"/><br /><sub><b>Arlene</b></sub>](https://github.com/ArleneAndrews)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Code") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="100px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="100px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars2.githubusercontent.com/u/31780340?v=4" width="100px;" alt="Aditya Kolla"/><br /><sub><b>Aditya Kolla</b></sub>](https://github.com/Aditya-Kolla)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Aditya-Kolla "Code") | [<img src="https://avatars1.githubusercontent.com/u/6821650?v=4" width="100px;" alt="Joseph Dollahon"/><br /><sub><b>Joseph Dollahon</b></sub>](http://www.josephdollahon.com)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=joseph-d-d "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/8465237?v=4" width="100px;" alt="Sung Kim"/><br /><sub><b>Sung Kim</b></sub>](https://twitter.com/dance2die)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=dance2die "Documentation") |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/3766680?v=4" width="130px;" alt="Aaron Clawson"/><br /><sub><b>Aaron Clawson</b></sub>](https://github.com/MadVikingGod)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=MadVikingGod "Code") | [<img src="https://avatars1.githubusercontent.com/u/13472844?v=4" width="130px;" alt="Adam Lantz"/><br /><sub><b>Adam Lantz</b></sub>](http://adamlantz.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=AdamLantz "Code") | [<img src="https://avatars2.githubusercontent.com/u/31780340?v=4" width="130px;" alt="Aditya Kolla"/><br /><sub><b>Aditya Kolla</b></sub>](https://github.com/Aditya-Kolla)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Aditya-Kolla "Code") | [<img src="https://avatars3.githubusercontent.com/u/25411099?v=4" width="130px;" alt="Arlene"/><br /><sub><b>Arlene</b></sub>](https://github.com/ArleneAndrews)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=ArleneAndrews "Code") | [<img src="https://avatars2.githubusercontent.com/u/24431037?v=4" width="130px;" alt="Artyom Emelyanenko"/><br /><sub><b>Artyom Emelyanenko</b></sub>](https://github.com/temaEmelyan)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=temaEmelyan "Code") | [<img src="https://avatars3.githubusercontent.com/u/26337310?v=4" width="130px;" alt="Ben Steward"/><br /><sub><b>Ben Steward</b></sub>](https://tehpsalmist.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=tehpsalmist "Code") |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| [<img src="https://avatars3.githubusercontent.com/u/6699191?v=4" width="130px;" alt="Brandon Lyons"/><br /><sub><b>Brandon Lyons</b></sub>](https://github.com/lyonsbp)<br />[⚠️](https://github.com/codingblocks/qit.cloud/commits?author=lyonsbp "Tests") | [<img src="https://avatars2.githubusercontent.com/u/4571261?v=4" width="130px;" alt="Chris"/><br /><sub><b>Chris</b></sub>](https://github.com/Ju66ernaut)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Ju66ernaut "Code") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="130px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars0.githubusercontent.com/u/39040273?v=4" width="130px;" alt="Gary R Krause"/><br /><sub><b>Gary R Krause</b></sub>](http://garyray-k.github.io)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Code") | [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="130px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation")| [<img src="https://avatars1.githubusercontent.com/u/6821650?v=4" width="130px;" alt="Joseph Dollahon"/><br /><sub><b>Joseph Dollahon</b></sub>](http://www.josephdollahon.com)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=joseph-d-d "Documentation") |
+| [<img src="https://avatars0.githubusercontent.com/u/1026046?v=4" width="130px;" alt="Mikkel Madsen"/><br /><sub><b>Mikkel Madsen</b></sub>](https://github.com/Madsn)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Madsn "Code") [🚇](#infra-Madsn "Infrastructure (Hosting, Build-Tools, etc)") | [<img src="https://avatars3.githubusercontent.com/u/16916098?v=4" width="130px;" alt="Nicolas Marcora"/><br /><sub><b>Nicolas Marcora</b></sub>](https://github.com/MinimumViablePerson)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=MinimumViablePerson "Code") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=MinimumViablePerson "Tests") | [<img src="https://avatars1.githubusercontent.com/u/3075792?v=4" width="130px;" alt="Paul Mcilreavy"/><br /><sub><b>Paul Mcilreavy</b></sub>](https://github.com/pmcilreavy)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=pmcilreavy "Code") | [<img src="https://avatars1.githubusercontent.com/u/8465237?v=4" width="130px;" alt="Sung Kim"/><br /><sub><b>Sung Kim</b></sub>](https://twitter.com/dance2die)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=dance2die "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="130px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-## All Contributors
-- [Aaron Clawson](https://github.com/MadVikingGod)
-- [Adam Lantz](https://github.com/AdamLantz)
-- [Aditya Kolla](https://github.com/aditya-kolla)
-- [Arlene Andrews](https://github.com/arleneandrews)
-- [Ben Steward](https://github.com/tehpsalmist)
-- [Brandon Lyons](https://github.com/lyonsbp)
-- [Dave Follett](https://github.com/davefollett)
-- [Joe Zack](https://github.com/THEjoezack)
-- [Mikkel Madsen](https://github.com/Madsn)
-- [Nicolas Marcora](https://github.com/nmarcora)
-- [Paul Mcilreavy](https://github.com/pmcilreavy)
-- [Sung Kim](https://github.com/dance2die/)
-- [Vladimir Kunarac](https://github.com/vlado92)
-- [Joseph Dollahon](https://github.com/joseph-d-d)

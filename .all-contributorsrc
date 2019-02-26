@@ -6,19 +6,34 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 130,
   "commit": false,
   "contributors": [
     {
-      "login": "THEjoezack",
-      "name": "Joe Zack",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/81006?v=4",
-      "profile": "http://joezack.com",
+      "login": "MadVikingGod",
+      "name": "Aaron Clawson",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3766680?v=4",
+      "profile": "https://github.com/MadVikingGod",
       "contributions": [
-        "code",
-        "design",
-        "infra",
-        "doc"
+        "code"
+      ]
+    },
+    {
+      "login": "AdamLantz",
+      "name": "Adam Lantz",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13472844?v=4",
+      "profile": "http://adamlantz.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Aditya-Kolla",
+      "name": "Aditya Kolla",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31780340?v=4",
+      "profile": "https://github.com/Aditya-Kolla",
+      "contributions": [
+        "code"
       ]
     },
     {
@@ -33,14 +48,39 @@
       ]
     },
     {
-      "login": "vlado92",
-      "name": "Vladimir",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/11421183?v=4",
-      "profile": "https://github.com/vlado92",
+      "login": "temaEmelyan",
+      "name": "Artyom Emelyanenko",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24431037?v=4",
+      "profile": "https://github.com/temaEmelyan",
       "contributions": [
-        "infra",
-        "code",
-        "doc"
+        "code"
+      ]
+    },
+    {
+      "login": "tehpsalmist",
+      "name": "Ben Steward",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/26337310?v=4",
+      "profile": "https://tehpsalmist.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lyonsbp",
+      "name": "Brandon Lyons",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6699191?v=4",
+      "profile": "https://github.com/lyonsbp",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "Ju66ernaut",
+      "name": "Chris",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4571261?v=4",
+      "profile": "https://github.com/Ju66ernaut",
+      "contributions": [
+        "code"
       ]
     },
     {
@@ -56,12 +96,26 @@
       ]
     },
     {
-      "login": "Aditya-Kolla",
-      "name": "Aditya Kolla",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/31780340?v=4",
-      "profile": "https://github.com/Aditya-Kolla",
+      "login": "garyray-k",
+      "name": "Gary R Krause",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/39040273?v=4",
+      "profile": "http://garyray-k.github.io",
       "contributions": [
+        "doc",
+        "test",
         "code"
+      ]
+    },
+    {
+      "login": "THEjoezack",
+      "name": "Joe Zack",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/81006?v=4",
+      "profile": "http://joezack.com",
+      "contributions": [
+        "code",
+        "design",
+        "infra",
+        "doc"
       ]
     },
     {
@@ -74,6 +128,35 @@
       ]
     },
     {
+      "login": "Madsn",
+      "name": "Mikkel Madsen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1026046?v=4",
+      "profile": "https://github.com/Madsn",
+      "contributions": [
+        "code",
+        "infra"
+      ]
+    },
+    {
+      "login": "MinimumViablePerson",
+      "name": "Nicolas Marcora",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16916098?v=4",
+      "profile": "https://github.com/MinimumViablePerson",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "pmcilreavy",
+      "name": "Paul Mcilreavy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3075792?v=4",
+      "profile": "https://github.com/pmcilreavy",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "dance2die",
       "name": "Sung Kim",
       "avatar_url": "https://avatars1.githubusercontent.com/u/8465237?v=4",
@@ -81,7 +164,18 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "vlado92",
+      "name": "Vladimir",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11421183?v=4",
+      "profile": "https://github.com/vlado92",
+      "contributions": [
+        "infra",
+        "code",
+        "doc"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 6
 }
