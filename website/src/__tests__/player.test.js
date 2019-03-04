@@ -1,7 +1,6 @@
 import React from 'react'
 import { mount, render, shallow } from 'enzyme'
 import {divBreakdown, renderDiv, mockEpisodes} from '../setup'
-import {Index} from '../components/Main/index'
 import Queue from '../components/Main/Queue'
 
 it('Smoke test', () => {
@@ -14,8 +13,8 @@ describe('Will play audio file', () => {
   afterAll(() => divBreakdown)
   
   it('should render', () => {
-    const queueList = shallow(< Queue mockEpisodes />)
-    expect(queueList).toBeDefined()
+    const queue = shallow(< Queue mockEpisodes />)
+    expect(queue).toBeDefined()
   }); 
 
   it('Will show queue items', () =>{
@@ -24,8 +23,11 @@ describe('Will play audio file', () => {
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
   })
   
-  it('Load chosen episode ', () => {
-    expect(true).toEqual(true);
+  it('Episode is clickable', () => {
+    const queue = shallow(< Queue mockEpisodes />)
+    queue.find('data-type-search').simulate('click')
+    expect(true).toEqual(true)
+    expect.toHaveBeenCalled(1)
   });
 
 });
