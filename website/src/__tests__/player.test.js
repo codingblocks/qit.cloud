@@ -24,8 +24,7 @@ describe('Will play audio file', () => {
   })
   
   it('Episode is clickable', () => {
-    const queue = shallow(< Queue mockEpisodes />)
-    queue.find('data-type-search').simulate('click')
+    cy.get('[data-type=search]').click()
     expect(true).toEqual(true)
     expect.toHaveBeenCalled(1)
   });
