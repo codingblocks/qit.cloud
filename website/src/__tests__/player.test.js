@@ -1,32 +1,30 @@
+/* eslint-env jest */
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, render, shallow } from 'enzyme/build'
 import {divBreakdown, renderDiv, mockEpisodes} from '../setup'
+import sinon from 'sinon'
 import Queue from '../components/Main/Queue'
+import EpisodeTitle from '../components/Main/Episode/EpisodeTitle';
+
+// const handleClickStub = sinon.spy()
 
 it('Smoke test', () => {
-  expect(true).toEqual(true);
-});
+  expect(true).toEqual(true)
+  });
 
 describe('Will play audio file', () => {
-  beforeAll(() => renderDiv)
+  beforeEach(() => {
+  const queue = shallow(<Queue queue = {mockEpisodes}/>);
+  renderDiv})
+ 
 
-  afterAll(() => divBreakdown)
+  afterEach(() => divBreakdown)
   
-  it('should render', () => {
-    const queue = shallow(< Queue mockEpisodes />)
-    expect(queue).toBeDefined()
-  }); 
-
   it('Will show queue items', () =>{
     expect.arrayContaining(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
   })
   
-  it('Episode is clickable', () => {
-    cy.get('[data-type=search]').click()
-    expect(true).toEqual(true)
-    expect.toHaveBeenCalled(1)
-  });
-
+  
 });
