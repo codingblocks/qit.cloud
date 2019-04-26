@@ -26,4 +26,4 @@ ADDED 14 January, deleted 7 February:
 This test was removed, as it duplicates a Cypress test.
 
 ADDED 22 January 2019
-`basicmock.test` was added to insure that the mocking capabilities would function.
+`basicmock.test` was added to insure that the mocking capabilities would function. And at some point after this, a mock queue (written by Nicholas Marcora) was added for use in testing.

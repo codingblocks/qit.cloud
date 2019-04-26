@@ -19,4 +19,20 @@ describe('Search Props', () => {
     expect(wrapper.find('[data-testid="form"]'))
     expect(wrapper.find('[data-testid="input"]'))
   })
+
+describe('Input checks', () => {
+  it('Should have placeholder text for blank inputs', () => {
+    const wrapper = shallow(<Header />)
+    const search = wrapper.find('[data-testid="input"]')
+    const inputs = {blank: '', pct:'%'}
+    expect(search.length).toBe(0)
+
+    search.value = inputs.blank
+    expect(search.value).toBe('')
+    expect.stringContaining(
+      'Your queue is empty. Try a search like "pwa" to learn more about the technology behind this app!'
+    )
+    expect.stringContaining('Search for a great podcast here!')
+    })   
+  })
 })
