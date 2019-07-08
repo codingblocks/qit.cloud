@@ -1,10 +1,17 @@
-import React from 'react'
+/* import React from 'react'
 import { shallow } from 'enzyme'
-import Index from '../components/Main/index'
-import { divBreakdown, renderDiv } from '../setup'
-import { Search, SearchWithRouter } from '../components/Header/Search'
-import { Logo } from '../components/Header/Logo'
-
+import Index from '../components/Main/index' */
+import {
+  divBreakdown,
+  renderDiv
+} from '../setup'
+import {
+  Search,
+  SearchWithRouter
+} from '../components/Header/Search'
+import {
+  Logo
+} from '../components/Header/Logo'
 
 // replacement test while real tests are not written
 
@@ -26,9 +33,12 @@ describe('Opening index', () => {
   })
 
   it('Header contains search, logo', () => {
-    expect.objectContaining({Search})
-    expect.objectContaining({SearchWithRouter})
+    expect.objectContaining({
+      Search
+    })
+    expect.objectContaining({
+      SearchWithRouter
+    })
     expect(Logo).toBeDefined()
   })
-});
- 
+})
