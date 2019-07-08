@@ -30,11 +30,15 @@ describe('Will play audio file', () => {
 
   afterEach(() => divBreakdown)
 
-  it('Will show queue items', () => {
+  it('Will import queue items', () => {
     console.table(mockQueue)
     expect.arrayContaining(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
+  })
+
+  it('Will display queue items', () => {
+    
   })
 
 })
