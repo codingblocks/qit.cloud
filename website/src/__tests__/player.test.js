@@ -17,21 +17,18 @@ import Queue from '../components/Main/Queue'
 it('Smoke test', () => {
   expect(true).toEqual(true)
 })
+const mockQueue = shallow( < Queue queue = {
+  mockEpisodes 
+}/>)
 
 describe('Will load audio file', () => {
   beforeEach(() => {
-    const mockQueue = shallow( < Queue queue = {
-        mockEpisodes
-      }
-      />)
-      renderDiv
+     divBreakdown
+     renderDiv
     })
 
-
-  afterEach(() => divBreakdown)
-
   it('Will import queue items', () => {
-    console.table(mockQueue)
+    //console.table(mockQueue)
     expect.arrayContaining(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
@@ -51,16 +48,12 @@ describe('Will load audio file', () => {
 })
 
 describe('Player controls function as intended', () => {
+  
   beforeEach(() => {
-    const mockQueue = shallow( < Queue queue = {
-        mockEpisodes
-      }
-      />)
+    divBreakdown
+    
       renderDiv
     })
-
-
-  afterEach(() => divBreakdown)
 
   it('Audio will play at speed set', () => {
     
@@ -94,7 +87,7 @@ describe('Player controls function as intended', () => {
     
   })
 
-  it('Audio speed will not increase above threshold', () => {
+  it('Audio speed will not increase above threshold ', () => {
     
   })
 })
