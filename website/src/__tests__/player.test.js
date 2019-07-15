@@ -27,9 +27,14 @@ describe('Will load audio file', () => {
      renderDiv
     })
 
+    afterAll(() => divBreakdown)
+
   it('Will import queue items', () => {
+    expect(mockQueue).toHaveReturned();
     //console.table(mockQueue)
-    expect.arrayContaining(mockEpisodes[0].episodeTitle)
+    //expect(mockQueue).toEqual(expect.arrayContaining(mockEpisodes[0].episodeTitle));
+    expect(mockEpisodes[0].episodeTitle).toEqual(expect.objectContaining(mockQueue));
+    //expect(mockQueue()).toContain(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
   })
