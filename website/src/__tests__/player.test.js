@@ -10,6 +10,7 @@ import {
 } from '../setup'
 // import sinon from 'sinon'
 import Queue from '../components/Main/Queue'
+import renderer from 'react-test-renderer'
 //import EpisodeTitle from '../components/Main/Episode/EpisodeTitle';
 
 // const handleClickStub = sinon.spy()
@@ -17,23 +18,25 @@ import Queue from '../components/Main/Queue'
 it('Smoke test', () => {
   expect(true).toEqual(true)
 })
-const mockQueue = shallow( < Queue queue = {
-  mockEpisodes 
-}/>)
+
+const mockQueue = jest.fn(mockEpisodes)
+
 
 describe('Will load audio file', () => {
   beforeEach(() => {
-     divBreakdown
-     renderDiv
+    divBreakdown
+    renderDiv
     })
 
     afterAll(() => divBreakdown)
 
   it('Will import queue items', () => {
+   
+
     let title1 = "Cool, depending on your definition of cool (JS Party #24)"
 
     //console.table(mockQueue)
-    expect(mockQueue).toHaveProperty('episodeTitle', title1);
+    expect(mockQueue).toContain('episodeTitle', title1);
     //expect(mockQueue()).toContain(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
