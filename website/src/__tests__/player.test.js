@@ -30,10 +30,10 @@ describe('Will load audio file', () => {
     afterAll(() => divBreakdown)
 
   it('Will import queue items', () => {
-    expect(mockQueue).toHaveReturned();
+    let title1 = "Cool, depending on your definition of cool (JS Party #24)"
+
     //console.table(mockQueue)
-    //expect(mockQueue).toEqual(expect.arrayContaining(mockEpisodes[0].episodeTitle));
-    expect(mockEpisodes[0].episodeTitle).toEqual(expect.objectContaining(mockQueue));
+    expect(mockQueue).toHaveProperty('episodeTitle', title1);
     //expect(mockQueue()).toContain(mockEpisodes[0].episodeTitle)
     expect.arrayContaining(mockEpisodes[1].episodeTitle)
     expect.arrayContaining(mockEpisodes[2].episodeTitle)
