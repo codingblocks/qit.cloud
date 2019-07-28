@@ -20,12 +20,35 @@ export default mirror.model({
       window.gtag('event', 'search', {
         search_term: state.searchTerm
       })
-      return {
-        ...state,
-        results: response.value,
-        resultCount: response['@odata.count'] ? response['@odata.count'] : 0,
-        currentSearch: state.searchTerm,
-        searchTerm: ''
+      // TODO polymorphism?
+      if (config.searchSettings.searchEngineType === 'azure') {
+        return {
+          ...state,
+          results: response.value,
+          resultCount: response['@odata.count'] ? response['@odata.count'] : 0,
+          currentSearch: state.searchTerm,
+          searchTerm: ''
+        }
+      } else {
+        const resultsFormatted = response.hits.hits.map(e => {
+          return {
+            audioUrl: e._source.audio_url,
+            episodeDescription: e._source.episodeDescription,
+            episode: e._source.episode_number,
+            episodeTitle: e._source.episode_title,
+            feed: e._source.feed,
+            id: e._source.id,
+            podcastTitle: e._source.podcast_title,
+            published: e._source.published
+          }
+        })
+        return {
+          ...state,
+          results: resultsFormatted,
+          resultCount: response.hits.total.value,
+          currentSearch: state.searchTerm,
+          searchTerm: ''
+        }
       }
     },
     startLoading (state) {
@@ -42,14 +65,24 @@ export default mirror.model({
     async search (searchTerm) {
       actions.search.startLoading()
 
-      const url = config.baseUrl
-        .replace('{searchTerm}', searchTerm)
-        .replace('{maxResults}', config.maxResults)
-      const options = {
-        headers: {
-          'api-key': config.apiKey
-        }
+      const url =
+        config.corsProxy +
+        config.searchSettings.baseUrl
+          .replace('{searchTerm}', searchTerm)
+          .replace('{maxResults}', config.maxResults)
+
+      // TODO better way, polymorphism?
+      const headers = new window.Headers()
+      if (config.searchSettings.searchEngineType.toLowerCase() === 'azure') {
+        headers.append('api-key', config.searchSettings.apiKey)
+      } else {
+        const encodedAuth = window.btoa(
+          config.searchSettings.apiKey + ':' + config.searchSettings.apiSecret
+        )
+        headers.append('Authorization', `Basic ${encodedAuth}`)
       }
+      const options = { method: 'GET', headers: headers }
+
       const response = await window
         .fetch(url, options)
         .then(data => data.json())

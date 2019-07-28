@@ -24,6 +24,7 @@ Check out a preview here: [https://qit.cloud](https://qit.cloud)
 
 The website is a [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built on [ReactJs](https://reactjs.org/) that uses [styled components](https://www.styled-components.com/docs/basics).
 
+Note: this branch is currently running off of Elasticsearch, so things are going to be bumpy for a bit!
 
 ## NEW Before you run this program ##
 Since we are improving a lot of the features, the most simple way to get the app to work is to download and install Docker on your machine. This only needs done once, and is the best way to enjoy all of the options. The specifics for the software are on the pages, and should be simple to follow.
@@ -41,6 +42,7 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 <ol>
   <li>Create a fork of the qit repo.</li>
   <li>Clone forked repo.</li>
+  <li>Copy the .env.example file to .env (optionally) change any settings to use shared services</li>
   <li>Run following commands in the commandline of your choice
 
 ```bash
@@ -177,3 +179,13 @@ Huge thank you to everybody that has worked on this project!
 | [<img src="https://avatars3.githubusercontent.com/u/6699191?v=4" width="130px;" alt="Brandon Lyons"/><br /><sub><b>Brandon Lyons</b></sub>](https://github.com/lyonsbp)<br />[⚠️](https://github.com/codingblocks/qit.cloud/commits?author=lyonsbp "Tests") | [<img src="https://avatars2.githubusercontent.com/u/4571261?v=4" width="130px;" alt="Chris"/><br /><sub><b>Chris</b></sub>](https://github.com/Ju66ernaut)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Ju66ernaut "Code") | [<img src="https://avatars0.githubusercontent.com/u/6683520?v=4" width="130px;" alt="Dave Follett"/><br /><sub><b>Dave Follett</b></sub>](https://davefollett.io)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Code") [🚇](#infra-davefollett "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=davefollett "Tests") | [<img src="https://avatars0.githubusercontent.com/u/39040273?v=4" width="130px;" alt="Gary R Krause"/><br /><sub><b>Gary R Krause</b></sub>](http://garyray-k.github.io)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Documentation") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Tests") [💻](https://github.com/codingblocks/qit.cloud/commits?author=garyray-k "Code") | [<img src="https://avatars0.githubusercontent.com/u/81006?v=4" width="130px;" alt="Joe Zack"/><br /><sub><b>Joe Zack</b></sub>](http://joezack.com)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Code") [🎨](#design-THEjoezack "Design") [🚇](#infra-THEjoezack "Infrastructure (Hosting, Build-Tools, etc)") [📖](https://github.com/codingblocks/qit.cloud/commits?author=THEjoezack "Documentation")| [<img src="https://avatars1.githubusercontent.com/u/6821650?v=4" width="130px;" alt="Joseph Dollahon"/><br /><sub><b>Joseph Dollahon</b></sub>](http://www.josephdollahon.com)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=joseph-d-d "Documentation") |
 | [<img src="https://avatars0.githubusercontent.com/u/1026046?v=4" width="130px;" alt="Mikkel Madsen"/><br /><sub><b>Mikkel Madsen</b></sub>](https://github.com/Madsn)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=Madsn "Code") [🚇](#infra-Madsn "Infrastructure (Hosting, Build-Tools, etc)") | [<img src="https://avatars3.githubusercontent.com/u/16916098?v=4" width="130px;" alt="Nicolas Marcora"/><br /><sub><b>Nicolas Marcora</b></sub>](https://github.com/MinimumViablePerson)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=MinimumViablePerson "Code") [⚠️](https://github.com/codingblocks/qit.cloud/commits?author=MinimumViablePerson "Tests") | [<img src="https://avatars1.githubusercontent.com/u/3075792?v=4" width="130px;" alt="Paul Mcilreavy"/><br /><sub><b>Paul Mcilreavy</b></sub>](https://github.com/pmcilreavy)<br />[💻](https://github.com/codingblocks/qit.cloud/commits?author=pmcilreavy "Code") | [<img src="https://avatars1.githubusercontent.com/u/8465237?v=4" width="130px;" alt="Sung Kim"/><br /><sub><b>Sung Kim</b></sub>](https://twitter.com/dance2die)<br />[📖](https://github.com/codingblocks/qit.cloud/commits?author=dance2die "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/11421183?v=4" width="130px;" alt="Vladimir"/><br /><sub><b>Vladimir</b></sub>](https://github.com/vlado92)<br />[🚇](#infra-vlado92 "Infrastructure (Hosting, Build-Tools, etc)") [💻](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Code") [📖](https://github.com/codingblocks/qit.cloud/commits?author=vlado92 "Documentation") |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
+### Elasticsearch switch over TODO
+* Do we still want to support Azure? Maybe as a fall back?
+* Local dev setup
+  * Including search indexer...hmmm
+* Cypress
+* All docker files working?
+* Update netlify with new settings
+* Get the production updates squared away

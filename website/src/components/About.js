@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import config from '../config'
 
 class About extends React.Component {
   state = { version: 'loading...' }
@@ -52,6 +53,8 @@ class About extends React.Component {
           </p>
 
           <p className='finePrint'>
+            Search engine: {config.searchSettings.searchEngineType}
+            <br />
             Service Worker Checksum:{' '}
             {this.state.version ? this.state.version : 'Unknown'}
           </p>

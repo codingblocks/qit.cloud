@@ -27,3 +27,4 @@ website/cypress/screenshots
 /qit-api/log
 /qit-api/tmp
 /podcast-feed-loader/app/.env
+/.env
