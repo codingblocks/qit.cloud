@@ -2,7 +2,9 @@ const {
   REACT_SEARCH_ENGINE_TYPE, // "azure" or "elasticsearch"
   REACT_APP_BASE_SEARCH_URL,
   REACT_APP_SEARCH_API_KEY,
-  REACT_APP_SEARCH_API_SECRET,
+  REACT_APP_ELASTIC_BASE_SEARCH_URL,
+  REACT_APP_ELASTIC_SEARCH_API_KEY,
+  REACT_APP_ELASTIC_SEARCH_API_SECRET,
   REACT_APP_BASE_API_URL,
   REACT_APP_CORS_PROXY,
   NODE_ENV,
@@ -22,10 +24,10 @@ if (searchSettings.searchEngineType.toLowerCase() === 'azure') {
     REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC'
 } else {
   searchSettings.baseUrl =
-    REACT_APP_BASE_SEARCH_URL ||
+    REACT_APP_ELASTIC_BASE_SEARCH_URL ||
     'https://localhost:9200/podcasts/?q={searchTerm}&size={maxResults}'
-  searchSettings.apiKey = REACT_APP_SEARCH_API_KEY || 'elastic'
-  searchSettings.apiSecret = REACT_APP_SEARCH_API_SECRET || 'QITROCKS!'
+  searchSettings.apiKey = REACT_APP_ELASTIC_SEARCH_API_KEY || 'elastic'
+  searchSettings.apiSecret = REACT_APP_ELASTIC_SEARCH_API_SECRET || 'QITROCKS!'
 }
 
 const baseApiUrl =
