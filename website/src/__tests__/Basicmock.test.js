@@ -1,11 +1,3 @@
-
-// NOT USED
-// const serverMock = {
-//  myMethod: jest
-//    .fn()
-//    .mockReturnThis()
-// }
-
-it('Stupid test', () => {
+it('Smoke test', () => {
   expect(true).toEqual(true)
 })

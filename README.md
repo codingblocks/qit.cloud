@@ -167,6 +167,8 @@ docker-compose stop
 The search engine gets populated via a different github project, the [QIT Podcast Feed Loader](https://github.com/codingblocks/qit-podcast-feed-loader) project.
 
 ## Contributors
+We now have a bot! If you are, or have, contributing to this project, please send a PR with @all-contributors please add @[your GitHub account name] for [type of contribution](https://github.com/all-contributors/all-contributors#emoji-key)
+
 
 Huge thank you to everybody that has worked on this project!
 

@@ -67,7 +67,7 @@ Software that anyone can look at and modify. Most of these have a way of prevent
 ## Podcast Feed ##
 The way that Qit is able to find the newest, greatest pod casts for your listening pleasure. Each site has a specific way that they send out information about new podcasts - this is what the podcast feed captures, so new episodes are available quickly and the information is correct.
 
-## Postgre ##
+## PostgreSQL ##
 An **open source relational database**. This allows the best possible look-up and storage of your queue. 
 
 ## Pre-Commit ##
@@ -96,3 +96,37 @@ A specific program, or set of **libraries** that deliver a way to test an applic
 
 ## UX ##
 Short for User experience, this is how the application looks and behaves for the user. This is a large part of the goal of any application, and has specific goals for **a11y** and design considerations.
+
+#TODO 
+Additions:
+Netlify
+Jenkins
+GitHub
+PC
+operating systems
+GB
+RAM
+UPdate Postgre
+terminal
+IDE
+browser
+search engine
+JSON
+online
+offline
+user-facing
+stub
+crawl
+badge
+tags
+FOSSA
+meta
+code coverage
+Kbps
+MB
+fallback
+mock
+meta
+API
+service worker
+
