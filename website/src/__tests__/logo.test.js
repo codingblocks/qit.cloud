@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Logo } from '../components/Header/Logo'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 it('should render correctly', () => {
   const component = shallow(<Logo />)

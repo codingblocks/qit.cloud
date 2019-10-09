@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { divBreakdown, renderDiv, Header } from '../setup'
 import { Search } from '../components/Header/Search'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 describe('Search Props', () => {
   beforeAll(() => renderDiv)
