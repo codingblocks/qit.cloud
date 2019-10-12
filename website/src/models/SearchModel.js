@@ -94,7 +94,17 @@ export default mirror.model({
         })
 
       actions.search.stopLoading()
-      actions.search.updateResults(response)
+      if (!response) {
+        console.error(
+          'No response returned, are you sure that the index has been configured? See https://github.com/codingblocks/qit.cloud/blob/master/README.md for more details on how to create and populate the search index.'
+        )
+        if (window && window.alert) {
+          // this might be run by the service worker
+          window.alert('No response returned, is the search index configured?')
+        }
+      } else {
+        actions.search.updateResults(response)
+      }
     }
   }
 })

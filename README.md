@@ -48,15 +48,16 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 ```bash
 # Start Postgres and the API
 docker-compose up -d
+
+# Setup pre-commit hooks
+npm install
 ```
 
 At this point you can browse to http://localhost:3000 and everything should be working!
 If you want to make changes to the website, then you'll additionally want to...
 
 ```bash
-docker-compose stop qitcloud_website
-# Setup pre-commit hooks
-npm install
+docker-compose stop website
 
 # Setup front-end
 cd website
@@ -66,9 +67,19 @@ npm start
 </li>
 </ol>
 
+### Populating the index
+Now, it's time to populate the data. We are working on making this a smoother process, but for now you need to run a dotnet core app:
+
+```bash
+cd SearchIndexer
+dotnet build # sorry, no Dockerfile yet!
+
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples\elastic-podcast-index-definition.json -u elastic -p QITROCKS!
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples\podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
+```
 
 
-### Running in "production:
+### Running in production:
 
 Well, that's a bit complicated right now. The website is in netlify, the API is hosted in linode, the search engine, the podcast-feed-loader is a scheduled serverless function, the proxy is in heroku, and the db is in elephantsql. Phew!
 
@@ -81,11 +92,11 @@ These are available for the site:
 #### Website
 
 ```bash
-REACT_APP_BASE_SEARCH_URL (azure or elasticsearch)
+REACT_APP_BASE_SEARCH_URL
 REACT_APP_BASE_API_URL
-REACT_APP_CORS_PROXY 
-REACT_APP_MAX_SEARCH_RESULTS 
-REACT_APP_SEARCH_API_KEY 
+REACT_APP_CORS_PROXY
+REACT_APP_MAX_SEARCH_RESULTS
+REACT_APP_SEARCH_API_KEY
 REACT_APP_PLAYBACK_RATES
 REACT_APP_AIRBRAKE_PROJECTID
 REACT_APP_AIRBRAKE_PROJECTKEY

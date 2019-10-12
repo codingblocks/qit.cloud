@@ -25,7 +25,7 @@ if (searchSettings.searchEngineType.toLowerCase() === 'azure') {
 } else {
   searchSettings.baseUrl =
     REACT_APP_ELASTIC_BASE_SEARCH_URL ||
-    'https://localhost:9200/podcasts/?q={searchTerm}&size={maxResults}'
+    'http://localhost:9200/podcasts/_search?q={searchTerm}&size={maxResults}'
   searchSettings.apiKey = REACT_APP_ELASTIC_SEARCH_API_KEY || 'elastic'
   searchSettings.apiSecret = REACT_APP_ELASTIC_SEARCH_API_SECRET || 'QITROCKS!'
 }
@@ -33,9 +33,9 @@ if (searchSettings.searchEngineType.toLowerCase() === 'azure') {
 const baseApiUrl =
   REACT_APP_BASE_API_URL ||
   `http://${
-    !DOCKER || NODE_ENV === 'development' ? 'coding-blocks-api' : 'localhost'
+    !DOCKER || NODE_ENV === 'development' ? 'api' : 'localhost'
   }:3005/api/v1`
-const corsProxy = REACT_APP_CORS_PROXY || 'https://cors-anywhere.herokuapp.com/'
+const corsProxy = REACT_APP_CORS_PROXY || ''
 const maxResults = REACT_APP_MAX_SEARCH_RESULTS || 200
 
 const playbackRates = REACT_APP_PLAYBACK_RATES

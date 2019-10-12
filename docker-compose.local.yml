@@ -10,13 +10,13 @@ services:
     command: npm run start
   api:
     environment:
-      - 'QIT_API_DATABASE_HOST=coding-blocks-database'
+      - 'QIT_API_DATABASE_HOST=database'
     volumes:
       - ./qit-api:/qit-api
     depends_on:
       - db
   db:
-    container_name: "coding-blocks-database"
+    container_name: "database"
     image: library/postgres
     environment:
       - POSTGRES_USER=postgres

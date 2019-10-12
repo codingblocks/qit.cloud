@@ -1,0 +1,3 @@
+[submodule "SearchIndexer"]
+	path = SearchIndexer
+	url = https://github.com/codingblocks/SearchIndexer.git
