@@ -48,12 +48,18 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 ```bash
 # Start Postgres and the API
 docker-compose up -d
+```
 
+At this point you can browse to http://localhost:3000 and everything should be working!
+If you want to make changes to the website, then you'll additionally want to...
+
+```bash
+docker-compose stop qitcloud_website
 # Setup pre-commit hooks
 npm install
 
 # Setup front-end
-cd ../website
+cd website
 npm install
 npm start
 ```
@@ -68,32 +74,18 @@ Well, that's a bit complicated right now. The website is in netlify, the API is 
 
 More on how to get this setup...later.
 
-As for what settings are available to you, there are a bunch of env variables to know about. Everything works with the defaults, but these provide greater control and optional features. These are available for the site:
+As for what settings are available to you, there are a bunch of env variables to know about. Everything works with the defaults, but these provide greater control and optional features. Check out .env.example for defaults
+
+These are available for the site:
 
 #### Website
 
 ```bash
-REACT_APP_BASE_SEARCH_URL
-REACT_APP_BASE_API_URL 
-
-|
-
-| 'http://localhost:3005/api/v1',
+REACT_APP_BASE_SEARCH_URL (azure or elasticsearch)
+REACT_APP_BASE_API_URL
 REACT_APP_CORS_PROXY 
-
-|
-
-| 'https://cors-anywhere.herokuapp.com/',
 REACT_APP_MAX_SEARCH_RESULTS 
-
-|
-
-| 200,
 REACT_APP_SEARCH_API_KEY 
-
-|
-
-| '18EA821D408444FCF3DC3EC4F3790FEC',
 REACT_APP_PLAYBACK_RATES
 REACT_APP_AIRBRAKE_PROJECTID
 REACT_APP_AIRBRAKE_PROJECTKEY

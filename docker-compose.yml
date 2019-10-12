@@ -12,12 +12,10 @@ services:
         PORT: ${WEBSITE_PORT}
     environment:
       - 'PORT=${WEBSITE_PORT}'
-      - REACT_SEARCH_ENGINE_TYPE=${REACT_SEARCH_ENGINE_TYPE}
-      - REACT_APP_BASE_SEARCH_URL=${REACT_APP_BASE_SEARCH_URL}
-      - REACT_APP_SEARCH_API_KEY=${REACT_APP_SEARCH_API_KEY}
-      - REACT_ELASTIC_APP_BASE_SEARCH_URL=${REACT_ELASTIC_APP_BASE_SEARCH_URL},
-      - REACT_ELASTIC_APP_SEARCH_API_KEY=${REACT_ELASTIC_APP_SEARCH_API_KEY},
-      - REACT_ELASTIC_APP_SEARCH_API_SECRET=${REACT_ELASTIC_APP_SEARCH_API_SECRET}
+      - REACT_APP_SEARCH_ENGINE_TYPE=${REACT_APP_SEARCH_ENGINE_TYPE}
+      - REACT_APP_ELASTIC_BASE_SEARCH_URL=${REACT_APP_ELASTIC_BASE_SEARCH_URL},
+      - REACT_APP_ELASTIC_SEARCH_API_KEY=${REACT_APP_ELASTIC_SEARCH_API_KEY},
+      - REACT_APP_ELASTIC_SEARCH_API_SECRET=${REACT_APP_ELASTIC_SEARCH_API_SECRET}
     ports:
       - '${WEBSITE_PORT}:${WEBSITE_PORT}'
     networks:
@@ -44,7 +42,7 @@ services:
       - 'QIT_API_DATABASE_HOST=db'
       - 'QIT_API_SECRET=QITROCKS!'
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
     environment:
       - node.name=es01
       - cluster.initial_master_nodes=es01
@@ -56,7 +54,7 @@ services:
     ports:
       - 9200:9200
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.2.0
+    image: docker.elastic.co/kibana/kibana:7.4.0
     container_name: kibana
     ports:
       - 5601:5601
