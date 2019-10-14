@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect, actions } from 'mirrorx'
 import PropTypes from 'prop-types'
 
-import Main from './components/Main/'
 import Card from './components/Main/Card'
 import EpisodeList from './components/Main/Episode/EpisodeList'
 import Queue from './components/Main/Queue'
