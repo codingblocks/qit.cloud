@@ -92,22 +92,21 @@ export class App extends Component {
             />
           </EpisodeList>
         </Card>
+        {
+          nowPlaying.audioUrl &&
+          <NowPlaying nowPlaying={nowPlaying}>
+            <AudioPlayer
+              src={sslAudioUrl(nowPlaying.audioUrl)}
+              playbackrate={playbackrate}
+              onEnded={() => {
+                API.unqueueEpisode(nowPlaying.id)
+                actions.player.playNextEpisode()
+              }}
+              onLoadStart={() => setPlaybackRate(playbackrate)}
+            />
+          </NowPlaying>
+        }
       </Main>
-
-      {
-        nowPlaying.audioUrl &&
-        <NowPlaying nowPlaying={nowPlaying}>
-          <AudioPlayer
-            src={sslAudioUrl(nowPlaying.audioUrl)}
-            playbackrate={playbackrate}
-            onEnded={() => {
-              API.unqueueEpisode(nowPlaying.id)
-              actions.player.playNextEpisode()
-            }}
-            onLoadStart={() => setPlaybackRate(playbackrate)}
-          />
-        </NowPlaying>
-      }
 
     </Container>
   }
