@@ -10,7 +10,6 @@ import Search from './Search'
 import Logo from './Logo'
 import Subtitle from './Subtitle'
 
-
 const styles = {
   icon: {
     color: 'white',
