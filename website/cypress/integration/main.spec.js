@@ -29,5 +29,6 @@ describe('Main', function () {
 
     // submit the form to execute the search
     cy.get('form').submit()
+    cy.checkA11y()
   })
 })
