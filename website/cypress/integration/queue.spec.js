@@ -21,7 +21,7 @@ describe('Queue', function () {
 
       // Verify 1 result in queue list
       cy.get('[data-item-type=queue]').should('have.length', 1)
-      
+
       // Verify a11y with the icon changed to indicate something is queued
       cy.checkA11y()
 

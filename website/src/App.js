@@ -32,21 +32,21 @@ export class App extends Component {
       currentSearch,
       nowPlaying,
       queue,
-      playbackrate,
+      playbackrate
     } = this.props
 
     return <div>
-        <Card>
-          <EpisodeList>
-            <Queue
-              nowPlaying={nowPlaying}
-              queue={queue}
-              blur={currentSearch !== ''}
-            />
-          </EpisodeList>
-        </Card>
-        {
-          nowPlaying.audioUrl &&
+      <Card>
+        <EpisodeList>
+          <Queue
+            nowPlaying={nowPlaying}
+            queue={queue}
+            blur={currentSearch !== ''}
+          />
+        </EpisodeList>
+      </Card>
+      {
+        nowPlaying.audioUrl &&
           <NowPlaying nowPlaying={nowPlaying}>
             <AudioPlayer
               src={sslAudioUrl(nowPlaying.audioUrl)}
@@ -58,8 +58,8 @@ export class App extends Component {
               onLoadStart={() => setPlaybackRate(playbackrate)}
             />
           </NowPlaying>
-        }
-      </div>
+      }
+    </div>
   }
 }
 
