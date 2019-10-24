@@ -43,7 +43,7 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
   <li>Create a fork of the qit repo.</li>
   <li>Clone forked repo.</li>
   <li>Copy the .env.example file to .env (optionally) change any settings to use shared services</li>
-  <li>Run following commands in the commandline of your choice
+  <li>Run following commands in the command line of your choice:
 
 ```bash
 # Start Postgres and the API
@@ -71,11 +71,15 @@ npm start
 Now, it's time to populate the data. We are working on making this a smoother process, but for now you need to run a dotnet core app:
 
 ```bash
+
+git submodule init
+git submodule update
+
 cd SearchIndexer
 dotnet build # sorry, no Dockerfile yet!
 
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples\elastic-podcast-index-definition.json -u elastic -p QITROCKS!
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples\podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
 ```
 
 
