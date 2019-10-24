@@ -9,5 +9,8 @@
     "hooks": {
       "pre-commit": "cd website && npm run precommit"
     }
+  },
+  "bin": {
+    "setup": "bin/setup.js"
   }
 }
