@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path')
+const fs = require('fs')
 const { execSync } = require('child_process')
 
 const ROOT_DIR = path.normalize(`${__dirname}/..`)
@@ -20,7 +21,11 @@ function executeCommand(command, description) {
 process.chdir(ROOT_DIR)
 
 executeCommand("npm install", "INSTALLING ROOT NODE MODULES")
-executeCommand("cp .env.example .env", "SETTING UP DOCKER ENV")
+
+console.log(`QIT: SETTING UP DOCKER ENV`)
+fs.copyFileSync('.env.example', '.env');
+console.log(`QIT: SETTING UP DOCKER ENV - COMPLETE\n`)
+
 executeCommand("git submodule init", "INITIALIZING SEARCHINDEXER SUBMODULE")
 executeCommand("git submodule update", "UPDATING SEARCHINDEXER SUBMODULE")
 
