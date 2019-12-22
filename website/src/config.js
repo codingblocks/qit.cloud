@@ -1,7 +1,4 @@
 const {
-  REACT_SEARCH_ENGINE_TYPE, // "azure" or "elasticsearch"
-  REACT_APP_BASE_SEARCH_URL,
-  REACT_APP_SEARCH_API_KEY,
   REACT_APP_ELASTIC_BASE_SEARCH_URL,
   REACT_APP_ELASTIC_SEARCH_API_KEY,
   REACT_APP_ELASTIC_SEARCH_API_SECRET,
@@ -14,20 +11,11 @@ const {
 } = process.env
 
 const searchSettings = {
-  searchEngineType: REACT_SEARCH_ENGINE_TYPE || 'elasticsearch'
-}
-if (searchSettings.searchEngineType.toLowerCase() === 'azure') {
-  searchSettings.baseUrl =
-    REACT_APP_BASE_SEARCH_URL ||
-    'https://podcasts.search.windows.net/indexes/podcasts/docs?api-version=2017-11-11&$count=true&$top={maxResults}&queryType=full&search={searchTerm}'
-  searchSettings.apiKey =
-    REACT_APP_SEARCH_API_KEY || '18EA821D408444FCF3DC3EC4F3790FEC'
-} else {
-  searchSettings.baseUrl =
+  baseUrl:
     REACT_APP_ELASTIC_BASE_SEARCH_URL ||
-    'http://localhost:9200/podcasts/_search?q={searchTerm}&size={maxResults}'
-  searchSettings.apiKey = REACT_APP_ELASTIC_SEARCH_API_KEY || 'elastic'
-  searchSettings.apiSecret = REACT_APP_ELASTIC_SEARCH_API_SECRET || 'QITROCKS!'
+    `http://localhost:9200/podcasts/_search?q={searchTerm}&size={maxResults}`,
+  apiKey: REACT_APP_ELASTIC_SEARCH_API_KEY || 'elastic',
+  apiSecret: REACT_APP_ELASTIC_SEARCH_API_SECRET || 'QITROCKS!'
 }
 
 const baseApiUrl =

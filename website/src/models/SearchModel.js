@@ -20,35 +20,48 @@ export default mirror.model({
       window.gtag('event', 'search', {
         search_term: state.searchTerm
       })
-      // TODO polymorphism?
-      if (config.searchSettings.searchEngineType === 'azure') {
-        return {
-          ...state,
-          results: response.value,
-          resultCount: response['@odata.count'] ? response['@odata.count'] : 0,
-          currentSearch: state.searchTerm,
-          searchTerm: ''
+
+      if (response.status !== 200) {
+        debugger
+
+        let message = response.error
+          ? `${response.status} type:${response.error.type} reason:${response.error.reason}`
+          : `${response.status} An unknown error occured trying to search`
+
+        if (
+          response &&
+          response.error &&
+          response.error.type === 'index_not_found_exception'
+        ) {
+          message += ', did you set up the index yet? Check the readme!'
         }
-      } else {
-        const resultsFormatted = response.hits.hits.map(e => {
-          return {
-            audioUrl: e._source.audio_url,
-            episodeDescription: e._source.episodeDescription,
-            episode: e._source.episode_number,
-            episodeTitle: e._source.episode_title,
-            feed: e._source.feed,
-            id: e._source.id,
-            podcastTitle: e._source.podcast_title,
-            published: e._source.published
-          }
-        })
-        return {
-          ...state,
-          results: resultsFormatted,
-          resultCount: response.hits.total.value,
-          currentSearch: state.searchTerm,
-          searchTerm: ''
+        console.log(response)
+        console.error(message)
+
+        if (window && window.alert) {
+          window.alert(message)
         }
+        return {}
+      }
+
+      const resultsFormatted = response.hits.hits.map(e => {
+        return {
+          audioUrl: e._source.audio_url,
+          episodeDescription: e._source.episodeDescription,
+          episode: e._source.episode_number,
+          episodeTitle: e._source.episode_title,
+          feed: e._source.feed,
+          id: e._source.id,
+          podcastTitle: e._source.podcast_title,
+          published: e._source.published
+        }
+      })
+      return {
+        ...state,
+        results: resultsFormatted,
+        resultCount: response.hits.total.value,
+        currentSearch: state.searchTerm,
+        searchTerm: ''
       }
     },
     startLoading (state) {
@@ -73,14 +86,10 @@ export default mirror.model({
 
       // TODO better way, polymorphism?
       const headers = new window.Headers()
-      if (config.searchSettings.searchEngineType.toLowerCase() === 'azure') {
-        headers.append('api-key', config.searchSettings.apiKey)
-      } else {
-        const encodedAuth = window.btoa(
-          config.searchSettings.apiKey + ':' + config.searchSettings.apiSecret
-        )
-        headers.append('Authorization', `Basic ${encodedAuth}`)
-      }
+      const encodedAuth = window.btoa(
+        config.searchSettings.apiKey + ':' + config.searchSettings.apiSecret
+      )
+      headers.append('Authorization', `Basic ${encodedAuth}`)
       const options = { method: 'GET', headers: headers }
 
       const response = await window
