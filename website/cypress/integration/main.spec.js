@@ -12,11 +12,13 @@ describe('Main', function () {
     cy.fixture('lambda_search_results.json').as('lambda_search_results')
 
     cy.visit('/')
+    cy.injectAxe()
   })
 
   it('loads the main page', function () {
     cy.title().should('eq', 'qit: Tech podcasts by topic')
     cy.get('input').should('have.attr', 'placeholder', 'Search for a great podcast here!')
+    cy.checkA11y()
   })
 
   it('can perform a search via the form', function () {
@@ -27,5 +29,6 @@ describe('Main', function () {
 
     // submit the form to execute the search
     cy.get('form').submit()
+    cy.checkA11y()
   })
 })

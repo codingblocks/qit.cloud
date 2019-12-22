@@ -1,6 +1,49 @@
+import React from 'react'
 import styled from 'styled-components'
+import { connect, actions, withRouter } from 'mirrorx'
 
-export default styled.header`
+import Person from '@material-ui/icons/Person'
+import PersonOutlined from '@material-ui/icons/PersonOutlined'
+
+import Title from './Title'
+import Search from './Search'
+import Logo from './Logo'
+import Subtitle from './Subtitle'
+
+const styles = {
+  icon: {
+    color: 'white',
+    position: 'absolute',
+    width: '48px'
+  }
+}
+
+const Header = ({ currentUser, history, className }) =>
+  <header className={className}>
+    {
+      currentUser
+        ? <PersonOutlined
+          onClick={() => {
+            actions.user.signout()
+            actions.player.hydrateQueue([])
+            history.push('/signin')
+          }}
+          style={styles.icon}
+        />
+        : <Person
+          onClick={() => history.push('/signin')}
+          style={styles.icon}
+        />
+    }
+    <Title>
+      <Subtitle>
+        <Search />
+      </Subtitle>
+      <Logo text='qit' href='/about/' history={history} />
+    </Title>
+  </header>
+
+const StyledHeader = styled(Header)`
   width: 100%;
   max-width: 800px;
   height: 56px;
@@ -15,3 +58,7 @@ export default styled.header`
   transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
   z-index: 1000;
 `
+
+const mapStateToProps = ({ currentUser }) => ({ currentUser })
+
+export default connect(mapStateToProps)(withRouter(StyledHeader))
