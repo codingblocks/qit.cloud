@@ -15,9 +15,6 @@ const getAllFilesToCache = async filesToCache => {
     files = await fetch('asset-manifest.json').then(data => data.json())
   } catch (error) {
     console.log(`Asset Manifest Error: ${error}`)
-    window.errorReporting.notify({
-      error: `Asset Manifest Error: ${error}`
-    })
   }
 
   const filepaths = files ? Object.values(files) : []
@@ -63,9 +60,6 @@ self.addEventListener('fetch', function (e) {
         response ||
         fetch(e.request).catch(e => {
           console.log(`Service worker error: ${e}`)
-          window.errorReporting.notify({
-            error: `Service worker error: ${e}`
-          })
         })
       )
     })

@@ -52,6 +52,8 @@ class About extends React.Component {
           </p>
 
           <p className='finePrint'>
+            Search engine: Elasticsearch
+            <br />
             Service Worker Checksum:{' '}
             {this.state.version ? this.state.version : 'Unknown'}
           </p>

@@ -20,10 +20,23 @@ export default mirror.model({
       window.gtag('event', 'search', {
         search_term: state.searchTerm
       })
+
+      const resultsFormatted = response.hits.hits.map(e => {
+        return {
+          audioUrl: e._source.audio_url,
+          episodeDescription: e._source.episodeDescription,
+          episode: e._source.episode_number,
+          episodeTitle: e._source.episode_title,
+          feed: e._source.feed,
+          id: e._source.id,
+          podcastTitle: e._source.podcast_title,
+          published: e._source.published
+        }
+      })
       return {
         ...state,
-        results: response.value,
-        resultCount: response['@odata.count'] ? response['@odata.count'] : 0,
+        results: resultsFormatted,
+        resultCount: response.hits.total.value,
         currentSearch: state.searchTerm,
         searchTerm: ''
       }
@@ -42,14 +55,20 @@ export default mirror.model({
     async search (searchTerm) {
       actions.search.startLoading()
 
-      const url = config.baseUrl
-        .replace('{searchTerm}', searchTerm)
-        .replace('{maxResults}', config.maxResults)
-      const options = {
-        headers: {
-          'api-key': config.apiKey
-        }
-      }
+      const url =
+        config.corsProxy +
+        config.searchSettings.baseUrl
+          .replace('{searchTerm}', searchTerm)
+          .replace('{maxResults}', config.maxResults)
+
+      // TODO better way, polymorphism?
+      const headers = new window.Headers()
+      const encodedAuth = window.btoa(
+        config.searchSettings.apiKey + ':' + config.searchSettings.apiSecret
+      )
+      headers.append('Authorization', `Basic ${encodedAuth}`)
+      const options = { method: 'GET', headers: headers }
+
       const response = await window
         .fetch(url, options)
         .then(data => data.json())
@@ -61,7 +80,17 @@ export default mirror.model({
         })
 
       actions.search.stopLoading()
-      actions.search.updateResults(response)
+      if (!response) {
+        console.error(
+          'No response returned, are you sure that the index has been configured? See https://github.com/codingblocks/qit.cloud/blob/master/README.md for more details on how to create and populate the search index.'
+        )
+        if (window && window.alert) {
+          // this might be run by the service worker
+          window.alert('No response returned, is the search index configured?')
+        }
+      } else {
+        actions.search.updateResults(response)
+      }
     }
   }
 })

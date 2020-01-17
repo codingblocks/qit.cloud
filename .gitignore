@@ -23,7 +23,5 @@ website/cypress/screenshots
 /dist
 
 # Environment settings
-/qit-api/config/.env
 /qit-api/log
 /qit-api/tmp
-/podcast-feed-loader/app/.env
