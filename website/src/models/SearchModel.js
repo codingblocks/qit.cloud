@@ -21,29 +21,6 @@ export default mirror.model({
         search_term: state.searchTerm
       })
 
-      if (response.status !== 200) {
-        debugger
-
-        let message = response.error
-          ? `${response.status} type:${response.error.type} reason:${response.error.reason}`
-          : `${response.status} An unknown error occured trying to search`
-
-        if (
-          response &&
-          response.error &&
-          response.error.type === 'index_not_found_exception'
-        ) {
-          message += ', did you set up the index yet? Check the readme!'
-        }
-        console.log(response)
-        console.error(message)
-
-        if (window && window.alert) {
-          window.alert(message)
-        }
-        return {}
-      }
-
       const resultsFormatted = response.hits.hits.map(e => {
         return {
           audioUrl: e._source.audio_url,
