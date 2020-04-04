@@ -54,7 +54,6 @@ export default mirror.model({
   effects: {
     async search (searchTerm) {
       actions.search.startLoading()
-
       const url =
         config.corsProxy +
         config.searchSettings.baseUrl
