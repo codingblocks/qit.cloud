@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   website:
@@ -11,12 +11,12 @@ services:
     environment:
       - PORT=${WEBSITE_PORT}
       - REACT_APP_SEARCH_ENGINE_TYPE=${REACT_APP_SEARCH_ENGINE_TYPE}
-      - REACT_APP_ELASTIC_BASE_SEARCH_URL=${REACT_APP_ELASTIC_BASE_SEARCH_URL},
-      - REACT_APP_ELASTIC_SEARCH_API_KEY=${REACT_APP_ELASTIC_SEARCH_API_KEY},
+      - REACT_APP_ELASTIC_BASE_SEARCH_URL=${REACT_APP_ELASTIC_BASE_SEARCH_URL}
+      - REACT_APP_ELASTIC_SEARCH_API_KEY=${REACT_APP_ELASTIC_SEARCH_API_KEY}
       - REACT_APP_ELASTIC_SEARCH_API_SECRET=${REACT_APP_ELASTIC_SEARCH_API_SECRET}
     ports:
       - ${WEBSITE_PORT}:${WEBSITE_PORT}
-    restart: 'always'
+    restart: "always"
     command: npm start
 
   api:
@@ -27,12 +27,12 @@ services:
     ports:
       - 3005:3005
     environment:
-      - 'DOCKER=true'
-      - 'QIT_API_DATABASE_USERNAME=postgres'
-      - 'QIT_API_DATABASE_PASSWORD='
-      - 'QIT_API_DATABASE_NAME=postgres'
-      - 'QIT_API_DATABASE_HOST=db'
-      - 'QIT_API_SECRET=QITROCKS!'
+      - "DOCKER=true"
+      - "QIT_API_DATABASE_USERNAME=postgres"
+      - "QIT_API_DATABASE_PASSWORD="
+      - "QIT_API_DATABASE_NAME=postgres"
+      - "QIT_API_DATABASE_HOST=db"
+      - "QIT_API_SECRET=QITROCKS!"
 
   db:
     image: library/postgres
@@ -51,7 +51,7 @@ services:
       - node.name=es01
       - cluster.initial_master_nodes=es01
       - ELASTIC_PASSWORD=QITROCKS!
-      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - xpack.license.self_generated.type=basic
       - xpack.security.enabled=true
       - xpack.security.transport.ssl.enabled=true
@@ -66,7 +66,7 @@ services:
     ports:
       - 5601:5601
     environment:
-      ELASTICSEARCH_HOSTS: 'http://es01:9200'
+      ELASTICSEARCH_HOSTS: "http://es01:9200"
       ELASTICSEARCH_USERNAME: elastic
       ELASTICSEARCH_PASSWORD: QITROCKS!
 

@@ -54,9 +54,11 @@ docker-compose up -d
 
 # Setup pre-commit hooks
 npm install
+
+# Get the index setup
 ```
 
-At this point you can browse to http://localhost:3000 and everything should be working!
+At this point you can browse to http://localhost:3000 and the site should be running, but search won't work yet. Skip down to "Populating the index" to load data.
 
 (Optional) If you want to make changes to any of the services (for example, the website), then you'll additionally want to stop those services from running in docker and then start them manually. Here's an example showing how to do it for the website:
 
@@ -87,6 +89,8 @@ dotnet build # sorry, no Dockerfile yet!
 dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
 dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
 ```
+
+That's it! Now you're ready to use the site locally and everything should be functional.
 
 ### Running in production:
 
@@ -198,10 +202,8 @@ Huge thank you to everybody that has worked on this project!
 
 ### Elasticsearch switch over TODO
 
-- Do we still want to support Azure? Maybe as a fall back?
-- Local dev setup
-  - Including search indexer...hmmm
 - Cypress
-- All docker files working?
-- Update netlify with new settings
+- Make local dev easier by "npm run" so you can edit the files in docker
+- Dockerize the SearchIndexer
+- Change the getting started directions to just be "docker-compose up -d"
 - Get the production updates squared away
