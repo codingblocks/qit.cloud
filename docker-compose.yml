@@ -1,24 +1,6 @@
 version: "3"
 
 services:
-  website:
-    build:
-      context: website
-      dockerfile: Dockerfile
-      args:
-        NODE_ENV: production
-        PORT: ${WEBSITE_PORT}
-    environment:
-      - PORT=${WEBSITE_PORT}
-      - REACT_APP_SEARCH_ENGINE_TYPE=${REACT_APP_SEARCH_ENGINE_TYPE}
-      - REACT_APP_ELASTIC_BASE_SEARCH_URL=${REACT_APP_ELASTIC_BASE_SEARCH_URL}
-      - REACT_APP_ELASTIC_SEARCH_API_KEY=${REACT_APP_ELASTIC_SEARCH_API_KEY}
-      - REACT_APP_ELASTIC_SEARCH_API_SECRET=${REACT_APP_ELASTIC_SEARCH_API_SECRET}
-    ports:
-      - ${WEBSITE_PORT}:${WEBSITE_PORT}
-    restart: "always"
-    command: npm start
-
   api:
     build:
       context: qit-api

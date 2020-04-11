@@ -49,25 +49,18 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
   <li>Run following commands in the command line of your choice:
 
 ```bash
-docker-compose build
+# Only have to do this once
+node bin/setup.js
 docker-compose up -d
-
-# Setup pre-commit hooks
-npm install
-
-# Get the index setup
 ```
 
 At this point you can browse to http://localhost:3000 and the site should be running, but search won't work yet. Skip down to "Populating the index" to load data.
-
-(Optional) If you want to make changes to any of the services (for example, the website), then you'll additionally want to stop those services from running in docker and then start them manually. Here's an example showing how to do it for the website:
 
 ```bash
 docker-compose stop website
 
 # Setup front-end
 cd website
-npm install
 npm start
 ```
 
@@ -79,12 +72,7 @@ npm start
 Now, it's time to populate the data. We are working on making this a smoother process, but for now you need to run a dotnet core app:
 
 ```bash
-
-git submodule init
-git submodule update
-
 cd SearchIndexer
-dotnet build # sorry, no Dockerfile yet!
 
 dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
 dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
