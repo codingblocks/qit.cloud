@@ -52,31 +52,19 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 # Only have to do this once
 node bin/setup.js
 docker-compose up -d
-```
 
-At this point you can browse to http://localhost:3000 and the site should be running, but search won't work yet. Skip down to "Populating the index" to load data.
+cd SearchIndexer
 
-```bash
-docker-compose stop website
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
+dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
 
 # Setup front-end
-cd website
+cd ../website
 npm start
 ```
 
 </li>
 </ol>
-
-### Populating the index
-
-Now, it's time to populate the data. We are working on making this a smoother process, but for now you need to run a dotnet core app:
-
-```bash
-cd SearchIndexer
-
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
-```
 
 That's it! Now you're ready to use the site locally and everything should be functional.
 
@@ -190,8 +178,8 @@ Huge thank you to everybody that has worked on this project!
 
 ### Elasticsearch switch over TODO
 
-- Cypress
-- Make local dev easier by "npm run" so you can edit the files in docker
 - Dockerize the SearchIndexer
+- Fix Cypress
+- Make local dev easier by "npm run" so you can edit the files in docker
 - Change the getting started directions to just be "docker-compose up -d"
 - Get the production updates squared away
