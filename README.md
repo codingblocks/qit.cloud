@@ -53,11 +53,6 @@ You will need to download and install [Ruby](https://www.ruby-lang.org/en/downlo
 node bin/setup.js
 docker-compose up -d
 
-cd SearchIndexer
-
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll create-index -e "http://localhost:9200" -n podcasts -f Examples/elastic-podcast-index-definition.json -u elastic -p QITROCKS!
-dotnet ./App/bin/Debug/netcoreapp2.2/App.dll update-documents -f  Examples/podcast-feeds.json -e "http://localhost:9200" -n podcasts -u elastic -p QITROCKS!
-
 # Setup front-end
 cd ../website
 npm start
