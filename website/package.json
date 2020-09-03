@@ -44,7 +44,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^23.1.0",
     "react-test-renderer": "^16.10.2",
-    "serve": "~10.0.2",
+    "serve": "~10.1.2",
     "sinon": "^6.3.5",
     "standard": "^11.0.1",
     "start-server-and-test": "=1.7.11"
