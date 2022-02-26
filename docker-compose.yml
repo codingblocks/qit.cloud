@@ -3,7 +3,7 @@ version: "3"
 services:
   api:
     build:
-      context: qit-api
+      context: qit-apitgit 
       dockerfile: Dockerfile-ruby
     command: bundle exec rails s -p 3005 -b '0.0.0.0'
     ports:
